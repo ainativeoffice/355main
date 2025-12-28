@@ -3,6 +3,10 @@ import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee } from "lucide-react"
 import { Layout } from "@/components/layout";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
+import lanternImage from "@assets/vs_exterior_glass.jpg";
+import entranceImage from "@assets/vs_entrance.jpg";
+import elevatorImage from "@assets/opus_elevator.jpg";
+import constructionImage from "@assets/generated_images/empty_office_interior_under_construction,_white_walls,_concrete_floor..png";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
@@ -109,7 +113,7 @@ export default function Home() {
               className="relative aspect-[4/3] md:aspect-auto md:row-span-2 group overflow-hidden"
             >
               <img 
-                src={heroImage} 
+                src={lanternImage} 
                 alt="The Lantern" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -167,6 +171,80 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Construction Progress */}
+      <section className="py-24 bg-background border-t border-border">
+        <div className="container mx-auto px-6">
+           <div className="grid md:grid-cols-2 gap-12 items-center">
+             <motion.div
+               initial={{ opacity: 0, x: -20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+             >
+               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
+               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
+               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                 We are stripping back the layers to reveal the essential structure. 
+                 The walls are primed. The subfloor is prepped. 
+               </p>
+               <div className="flex items-center gap-4">
+                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium">
+                    Current Status: <span className="text-foreground">Flooring Installation</span>
+                 </div>
+               </div>
+             </motion.div>
+             
+             <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+               className="relative aspect-video bg-muted overflow-hidden shadow-2xl"
+             >
+                <img 
+                  src={constructionImage} 
+                  alt="Construction Progress - Flooring Prep" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
+                  Live Update
+                </div>
+             </motion.div>
+           </div>
+        </div>
+      </section>
+
+      {/* Waitlist Section */}
+      <section id="waitlist" className="py-24 bg-muted text-center">
+        <div className="container mx-auto px-6 max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-serif text-3xl md:text-5xl mb-6">Secure Your Citizenship</h2>
+            <p className="text-muted-foreground mb-10">
+              Citizenship at Opus 355 is limited. Join the waitlist to be notified when applications open.
+            </p>
+            
+            <form className="flex flex-col md:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                className="flex-grow px-6 py-4 bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+              />
+              <button className="bg-foreground text-background px-8 py-4 font-medium hover:bg-primary hover:text-primary-foreground transition-colors uppercase tracking-widest text-sm">
+                Join List
+              </button>
+            </form>
+            <p className="text-xs text-muted-foreground mt-4">
+              By joining, you agree to receive updates about Opus 355.
+            </p>
+          </motion.div>
         </div>
       </section>
 

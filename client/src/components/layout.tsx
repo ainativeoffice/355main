@@ -12,11 +12,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </a>
           </Link>
 
-          <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-muted-foreground">
+          <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-muted-foreground items-center">
             <a href="#concept" className="hover:text-primary transition-colors">The Concept</a>
             <a href="#zones" className="hover:text-primary transition-colors">The Zones</a>
             <a href="#philosophy" className="hover:text-primary transition-colors">Philosophy</a>
             <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+            <a 
+              href="#waitlist" 
+              className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
+            >
+              Join Waitlist
+            </a>
           </nav>
         </div>
       </header>
