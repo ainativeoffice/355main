@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee } from "lucide-react";
 import { Layout } from "@/components/layout";
 
-import heroImage from "@assets/generated_images/exterior_of_opus_355_office_building_at_dusk_with_glowing_glass_lantern_facade..png";
+import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
