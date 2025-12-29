@@ -11,7 +11,7 @@ import elevatorImage from "@assets/opus_elevator.jpg";
 import building357Exterior from "@assets/357_exterior_1.jpg";
 import building357Interior from "@assets/357_exterior_2.jpg";
 
-import constructionImage from "@assets/generated_images/empty_office_interior_under_construction,_white_walls,_concrete_floor..png";
+import constructionImage from "@assets/construction_update.jpg";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
@@ -113,7 +113,6 @@ export default function Home() {
   const [activeZone, setActiveZone] = useState(zones[0]);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
-  const [blueprintOpacity, setBlueprintOpacity] = useState([50]);
 
   return (
     <Layout>
@@ -306,21 +305,8 @@ export default function Home() {
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <h3 className="font-serif text-xl flex items-center gap-2">
                   <Layers className="w-5 h-5 text-primary" />
-                  Interactive Floor Plate
+                  Composite Floor Plate
                 </h3>
-                
-                <div className="flex items-center gap-4 bg-background px-4 py-2 rounded-full border border-border">
-                  <span className="text-xs uppercase tracking-wider text-muted-foreground">Floor</span>
-                  <Slider 
-                    defaultValue={[50]} 
-                    max={100} 
-                    step={1} 
-                    className="w-32" 
-                    value={blueprintOpacity}
-                    onValueChange={setBlueprintOpacity}
-                  />
-                  <span className="text-xs uppercase tracking-wider text-muted-foreground">FF&E</span>
-                </div>
               </div>
 
               <div className="aspect-square md:aspect-[16/9] bg-white relative overflow-hidden border border-border/50">
@@ -335,13 +321,12 @@ export default function Home() {
                 
                 {/* Overlay Layer: FF&E */}
                 <div 
-                  className="absolute inset-0 p-8 flex items-center justify-center transition-opacity duration-100"
-                  style={{ opacity: blueprintOpacity[0] / 100 }}
+                  className="absolute inset-0 p-8 flex items-center justify-center"
                 >
                    <img 
                     src={building3d} 
                     alt="Vitra FF&E Layout" 
-                    className="w-full h-full object-contain" 
+                    className="w-full h-full object-contain mix-blend-multiply opacity-80" 
                   />
                 </div>
               </div>
