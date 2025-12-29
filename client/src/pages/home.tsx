@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
 
-import { Slider } from "@/components/ui/slider";
-
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
 import entranceImage from "@assets/vs_entrance.jpg";
@@ -70,7 +68,7 @@ const zones = [
     id: 1,
     title: "Production Suite",
     desc: "A dedicated environment for high-output teams.",
-    x: 22, y: 35,
+    x: 39, y: 10.5,
     images: [zone1],
     products: [
       {
@@ -103,7 +101,7 @@ const zones = [
     id: 4,
     title: "Conference Area",
     desc: "High-stakes strategy room.",
-    x: 75, y: 25,
+    x: 36.5, y: 36.5,
     images: [zone4],
     products: [
       {
@@ -128,7 +126,7 @@ const zones = [
     id: 5,
     title: "Private Office",
     desc: "Flexible private workspace with multiple configurations.",
-    x: 82, y: 50,
+    x: 23.5, y: 49.5,
     images: [zone5a, zone5b],
     products: [
       {
@@ -153,7 +151,7 @@ const zones = [
     id: 6,
     title: "Team Offices",
     desc: "Collaborative suites for small groups.",
-    x: 18, y: 55,
+    x: 25, y: 55,
     images: [zone6],
     products: [
        {
@@ -281,31 +279,6 @@ export default function Home() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
   
-  // Zone Tuner State
-  const [showTuner, setShowTuner] = useState(false);
-  const [tunableZones, setTunableZones] = useState(zones);
-
-  // Keyboard shortcut to toggle tuner: Ctrl+Shift+Z
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'Z') {
-        setShowTuner(prev => !prev);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const updateZonePosition = (id: number, x: number, y: number) => {
-    setTunableZones(prev => prev.map(z => z.id === id ? { ...z, x, y } : z));
-  };
-
-  const copyConfig = () => {
-    const config = tunableZones.map(z => ({ id: z.id, title: z.title, x: z.x, y: z.y }));
-    navigator.clipboard.writeText(JSON.stringify(config, null, 2));
-    alert("Configuration copied to clipboard!");
-  };
-
   const openZone = (zone: typeof zones[0]) => {
     setActiveZone(zone);
     setActiveImageIndex(0);
@@ -561,7 +534,7 @@ export default function Home() {
                />
                
                {/* Hotspots */}
-               {(showTuner ? tunableZones : zones).map((zone) => (
+               {zones.map((zone) => (
                  <motion.button
                    key={zone.id}
                    style={{ 
@@ -569,18 +542,10 @@ export default function Home() {
                      left: `${zone.x}%` 
                    }}
                    className="absolute -translate-x-1/2 -translate-y-1/2 group z-10"
-                   onClick={() => !showTuner && openZone(zone)}
+                   onClick={() => openZone(zone)}
                    whileHover={{ scale: 1.2 }}
-                   drag={showTuner}
-                   dragMomentum={false}
-                   onDragEnd={(_, info) => {
-                     if (!showTuner) return;
-                     // This is a rough approximation because drag is in pixels, but we need percentage relative to container
-                     // For precise tuning, sliders are better, but let's keep the drag for feel if possible, 
-                     // or just rely on the sliders below for precision.
-                   }}
                  >
-                   <div className={`relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center ${showTuner ? 'cursor-move' : 'cursor-pointer'}`}>
+                   <div className={`relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center cursor-pointer`}>
                      <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping opacity-75" />
                      <div className="absolute inset-0 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] border-2 border-primary/10 transition-colors group-hover:border-primary" />
                      <div className="absolute w-2 h-2 bg-primary rounded-full" />
@@ -588,55 +553,13 @@ export default function Home() {
                      {/* Tooltip on Hover */}
                      <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20 pointer-events-none">
                        <div className="bg-foreground text-background text-xs uppercase tracking-widest px-3 py-1.5 rounded shadow-lg">
-                         {zone.title} {showTuner && `(${Math.round(zone.x)}%, ${Math.round(zone.y)}%)`}
+                         {zone.title}
                        </div>
                        <div className="w-2 h-2 bg-foreground rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
                      </div>
                    </div>
                  </motion.button>
                ))}
-
-               {/* Zone Tuner Panel */}
-               {showTuner && (
-                 <div className="absolute top-4 right-4 bg-background/90 backdrop-blur border border-border p-4 rounded-lg shadow-xl z-50 max-h-[80vh] overflow-y-auto w-80">
-                   <div className="flex justify-between items-center mb-4">
-                     <h3 className="font-bold text-sm uppercase">Zone Tuner</h3>
-                     <button onClick={copyConfig} className="text-xs bg-primary text-primary-foreground px-2 py-1 rounded">Copy Config</button>
-                   </div>
-                   <div className="space-y-6">
-                     {tunableZones.map(zone => (
-                       <div key={zone.id} className="space-y-2 border-b border-border pb-4 last:border-0">
-                         <div className="flex justify-between">
-                           <span className="text-xs font-medium truncate w-40">{zone.title}</span>
-                           <span className="text-xs text-muted-foreground">{Math.round(zone.x)}%, {Math.round(zone.y)}%</span>
-                         </div>
-                         <div className="grid grid-cols-2 gap-2">
-                            <div>
-                              <label className="text-[10px] text-muted-foreground">X Position</label>
-                              <Slider 
-                                value={[zone.x]} 
-                                min={0} 
-                                max={100} 
-                                step={0.5} 
-                                onValueChange={([val]) => updateZonePosition(zone.id, val, zone.y)} 
-                              />
-                            </div>
-                            <div>
-                              <label className="text-[10px] text-muted-foreground">Y Position</label>
-                              <Slider 
-                                value={[zone.y]} 
-                                min={0} 
-                                max={100} 
-                                step={0.5} 
-                                onValueChange={([val]) => updateZonePosition(zone.id, zone.x, val)} 
-                              />
-                            </div>
-                         </div>
-                       </div>
-                     ))}
-                   </div>
-                 </div>
-               )}
 
                {/* Hint Overlay (Fades out when engaged or logic could remove it) */}
                {!isDetailOpen && (
