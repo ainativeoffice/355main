@@ -36,7 +36,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h2 className="font-serif text-3xl mb-6">Opus 355</h2>
             <p className="text-white/60 max-w-md leading-relaxed">
-              The Commercial Town Hall.<br/>
+              A Design-Led Workplace.<br/>
               A new typology for the distributed age.
             </p>
           </div>
