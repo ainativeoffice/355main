@@ -196,6 +196,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Construction Progress */}
+      <section className="py-24 bg-background border-t border-border">
+        <div className="container mx-auto px-6">
+           <div className="grid md:grid-cols-2 gap-12 items-center">
+             <motion.div
+               initial={{ opacity: 0, x: -20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+             >
+               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
+               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
+               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                 We are stripping back the layers to reveal the essential structure. 
+                 The walls are primed. The subfloor is prepped. 
+               </p>
+               <div className="flex items-center gap-4">
+                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium">
+                    Current Status: <span className="text-foreground">Flooring Installation</span>
+                 </div>
+               </div>
+             </motion.div>
+             
+             <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+               className="relative aspect-video bg-muted overflow-hidden shadow-2xl"
+             >
+                <img 
+                  src={constructionImage} 
+                  alt="Construction Progress - Flooring Prep" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
+                  Live Update
+                </div>
+             </motion.div>
+           </div>
+        </div>
+      </section>
+
       {/* Campus Architecture Section */}
       <section className="py-24 bg-muted/20">
         <div className="container mx-auto px-6">
@@ -477,48 +520,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Construction Progress */}
-      <section className="py-24 bg-background border-t border-border">
-        <div className="container mx-auto px-6">
-           <div className="grid md:grid-cols-2 gap-12 items-center">
-             <motion.div
-               initial={{ opacity: 0, x: -20 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-             >
-               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
-               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
-               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                 We are stripping back the layers to reveal the essential structure. 
-                 The walls are primed. The subfloor is prepped. 
-               </p>
-               <div className="flex items-center gap-4">
-                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium">
-                    Current Status: <span className="text-foreground">Flooring Installation</span>
-                 </div>
-               </div>
-             </motion.div>
-             
-             <motion.div
-               initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="relative aspect-video bg-muted overflow-hidden shadow-2xl"
-             >
-                <img 
-                  src={constructionImage} 
-                  alt="Construction Progress - Flooring Prep" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
-                  Live Update
-                </div>
-             </motion.div>
-           </div>
-        </div>
-      </section>
 
       {/* Waitlist Section */}
       <section id="waitlist" className="py-24 bg-muted text-center">
