@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink } from "lucide-react";
+import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { Layout } from "@/components/layout";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { AnimatePresence } from "framer-motion";
 
 import { Slider } from "@/components/ui/slider";
 
@@ -69,6 +70,7 @@ const zones = [
     id: 1,
     title: "Production Suite",
     desc: "A dedicated environment for high-output teams.",
+    x: 22, y: 35,
     images: [zone1],
     products: [
       {
@@ -101,6 +103,7 @@ const zones = [
     id: 2,
     title: "Green Nook & Reception",
     desc: "Biophilic arrival experience and reception.",
+    x: 45, y: 78,
     images: [zone2],
     products: [
       {
@@ -117,6 +120,7 @@ const zones = [
     id: 3,
     title: "Lounge Area",
     desc: "Informal social condenser.",
+    x: 50, y: 55,
     images: [zone3],
     products: [
       {
@@ -141,6 +145,7 @@ const zones = [
     id: 4,
     title: "Conference Area",
     desc: "High-stakes strategy room.",
+    x: 75, y: 25,
     images: [zone4],
     products: [
       {
@@ -165,6 +170,7 @@ const zones = [
     id: 5,
     title: "Private Office",
     desc: "Flexible private workspace with multiple configurations.",
+    x: 82, y: 50,
     images: [zone5a, zone5b],
     products: [
       {
@@ -189,6 +195,7 @@ const zones = [
     id: 6,
     title: "Team Offices",
     desc: "Collaborative suites for small groups.",
+    x: 18, y: 55,
     images: [zone6],
     products: [
        {
@@ -213,6 +220,7 @@ const zones = [
     id: 7,
     title: "Resource Room",
     desc: "Utility and production hub.",
+    x: 35, y: 40,
     images: [zone7],
     products: []
   },
@@ -220,6 +228,7 @@ const zones = [
     id: 8,
     title: "Dynamic Space",
     desc: "Aggressively flexible collaborative area.",
+    x: 65, y: 35,
     images: [zone8a, zone8b, zone8c, zone8d],
     products: [
        {
@@ -252,6 +261,7 @@ const zones = [
     id: 9,
     title: "Break Room",
     desc: "Hospitality-grade refreshment zone.",
+    x: 65, y: 65,
     images: [zone9a, zone9b],
     products: [
        {
@@ -268,6 +278,7 @@ const zones = [
     id: 10,
     title: "Diner",
     desc: "Social hearth with integrated power.",
+    x: 30, y: 70,
     images: [zone10a, zone10b, zone10c],
     products: [
       {
@@ -300,6 +311,7 @@ const zones = [
     id: 11,
     title: "The Lantern",
     desc: "The beacon of transparency.",
+    x: 50, y: 15,
     images: [zone11a, zone11b],
     products: []
   }
@@ -307,8 +319,27 @@ const zones = [
 
 export default function Home() {
   const [activeZone, setActiveZone] = useState(zones[0]);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
+
+  const openZone = (zone: typeof zones[0]) => {
+    setActiveZone(zone);
+    setActiveImageIndex(0);
+    setIsDetailOpen(true);
+  };
+
+  const nextZone = () => {
+    const currentIndex = zones.findIndex(z => z.id === activeZone.id);
+    const nextIndex = (currentIndex + 1) % zones.length;
+    openZone(zones[nextIndex]);
+  };
+
+  const prevZone = () => {
+    const currentIndex = zones.findIndex(z => z.id === activeZone.id);
+    const prevIndex = (currentIndex - 1 + zones.length) % zones.length;
+    openZone(zones[prevIndex]);
+  };
 
   return (
     <Layout>
@@ -641,147 +672,200 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Zones Detail Section - Interactive */}
-      <section id="zones" className="py-24 bg-background">
+      {/* The Zones Detail Section - Interactive Map & Overlay */}
+      <section id="zones" className="py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="mb-16 text-center">
+          <div className="mb-12 text-center">
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">Interior Architecture</span>
             <h2 className="font-serif text-4xl mt-4">Zone by Zone</h2>
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Click on the illuminated points below to explore the detailed zones and furnishings.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
-            {/* Zone List */}
-            <div className="lg:col-span-4 space-y-2 h-[600px] overflow-y-auto pr-4 scrollbar-hide">
-              {zones.map((zone) => (
-                <button 
-                  key={zone.id}
-                  onClick={() => { setActiveZone(zone); setActiveImageIndex(0); }}
-                  className={`w-full text-left p-6 border transition-all duration-300 group ${
-                    activeZone.id === zone.id 
-                      ? "bg-primary text-primary-foreground border-primary" 
-                      : "bg-background border-border hover:border-primary/30"
-                  }`}
-                >
-                  <span className={`text-xs uppercase tracking-widest block mb-2 ${
-                    activeZone.id === zone.id ? "text-primary-foreground/70" : "text-muted-foreground"
-                  }`}>
-                    Zone {zone.id}
-                  </span>
-                  <h3 className="font-serif text-xl">{zone.title}</h3>
-                </button>
-              ))}
+          <div className="relative max-w-5xl mx-auto bg-muted/5 border border-border/50 rounded-lg overflow-hidden shadow-2xl">
+            {/* Interactive Floor Plan Map */}
+            <div className="relative aspect-[16/9] w-full bg-[#f8f8f8]">
+               <img 
+                 src={buildingPlate} 
+                 alt="Interactive Floor Plan" 
+                 className="w-full h-full object-contain p-8 md:p-16 opacity-30 mix-blend-multiply grayscale"
+               />
+               
+               {/* Hotspots */}
+               {zones.map((zone) => (
+                 <motion.button
+                   key={zone.id}
+                   style={{ 
+                     top: `${zone.y}%`, 
+                     left: `${zone.x}%` 
+                   }}
+                   className="absolute -translate-x-1/2 -translate-y-1/2 group z-10"
+                   onClick={() => openZone(zone)}
+                   whileHover={{ scale: 1.2 }}
+                 >
+                   <div className="relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
+                     <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping opacity-75" />
+                     <div className="absolute inset-0 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] border-2 border-primary/10 transition-colors group-hover:border-primary" />
+                     <div className="absolute w-2 h-2 bg-primary rounded-full" />
+                     
+                     {/* Tooltip on Hover */}
+                     <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20 pointer-events-none">
+                       <div className="bg-foreground text-background text-xs uppercase tracking-widest px-3 py-1.5 rounded shadow-lg">
+                         {zone.title}
+                       </div>
+                       <div className="w-2 h-2 bg-foreground rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
+                     </div>
+                   </div>
+                 </motion.button>
+               ))}
+
+               {/* Hint Overlay (Fades out when engaged or logic could remove it) */}
+               {!isDetailOpen && (
+                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-sm border border-border px-4 py-2 rounded-full shadow-sm flex items-center gap-2 pointer-events-none animate-pulse">
+                   <ZoomIn className="w-4 h-4 text-primary" />
+                   <span className="text-xs font-medium uppercase tracking-wider text-foreground">Click points to explore</span>
+                 </div>
+               )}
             </div>
 
-            {/* Zone Display */}
-            <div className="lg:col-span-8 bg-muted/10 border border-border p-8 md:p-12 flex flex-col items-center justify-center min-h-[600px] relative">
-              <div className="w-full max-w-2xl">
-                <motion.div
-                  key={`${activeZone.id}-${activeImageIndex}`}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className="aspect-[16/9] bg-white border border-border shadow-sm p-4 mb-8 flex items-center justify-center"
+            {/* Detail Overlay (Modal-like) */}
+            <AnimatePresence>
+              {isDetailOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, y: "100%" }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: "100%" }}
+                  transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                  className="absolute inset-0 z-30 bg-background/95 backdrop-blur-xl overflow-y-auto"
                 >
-                  <img 
-                    src={activeZone.images[activeImageIndex]} 
-                    alt={activeZone.title} 
-                    className="w-full h-full object-contain" 
-                  />
-                </motion.div>
+                   {/* Navigation Controls */}
+                   <div className="sticky top-0 left-0 right-0 p-4 md:p-6 flex justify-between items-center z-40 bg-background/80 backdrop-blur border-b border-border">
+                     <button 
+                       onClick={() => setIsDetailOpen(false)}
+                       className="p-2 hover:bg-muted rounded-full transition-colors flex items-center gap-2 group"
+                     >
+                       <div className="bg-primary/10 p-1.5 rounded-full group-hover:bg-primary/20 transition-colors">
+                         <X className="w-4 h-4 text-primary" />
+                       </div>
+                       <span className="text-xs uppercase tracking-widest font-semibold text-muted-foreground group-hover:text-foreground">Back to Map</span>
+                     </button>
+                     
+                     <div className="flex items-center gap-2">
+                       <button 
+                         onClick={prevZone}
+                         className="p-2 hover:bg-muted rounded-full transition-colors border border-border hover:border-primary/50 group"
+                         title="Previous Zone"
+                       >
+                         <ChevronLeft className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
+                       </button>
+                       <span className="text-xs font-mono text-muted-foreground px-2">
+                         {activeZone.id.toString().padStart(2, '0')} / {zones.length.toString().padStart(2, '0')}
+                       </span>
+                       <button 
+                         onClick={nextZone}
+                         className="p-2 hover:bg-muted rounded-full transition-colors border border-border hover:border-primary/50 group"
+                         title="Next Zone"
+                       >
+                         <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-foreground" />
+                       </button>
+                     </div>
+                   </div>
 
-                {/* Image Toggles if multiple */}
-                {activeZone.images.length > 1 && (
-                  <div className="flex justify-center gap-4 mb-8">
-                    {activeZone.images.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveImageIndex(idx)}
-                        className={`w-3 h-3 rounded-full transition-colors ${
-                          activeImageIndex === idx ? "bg-primary" : "bg-border hover:bg-primary/50"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                )}
-
-                <div className="text-center">
-                  <h3 className="font-serif text-3xl mb-4">{activeZone.title}</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto mb-8">
-                    {activeZone.desc}
-                  </p>
-
-                  {/* FF&E Selection */}
-                  {activeZone.products && activeZone.products.length > 0 && (
-                    <div className="border-t border-border pt-8 mt-8">
-                      <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold block mb-6">
-                        Curated Furnishings
-                      </span>
-                      <div className="flex flex-wrap justify-center gap-4">
-                        {activeZone.products.map((product, idx) => (
-                          <HoverCard key={idx}>
-                            <HoverCardTrigger asChild>
-                              <a 
-                                href={product.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-primary/20 hover:border-primary rounded-full transition-all group shadow-sm hover:shadow-md"
-                              >
-                                <span className="w-2 h-2 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
-                                <span className="font-medium text-sm text-primary">{product.brand}</span>
-                                <span className="text-muted-foreground text-sm border-l border-border pl-2 ml-1">{product.name}</span>
-                              </a>
-                            </HoverCardTrigger>
-                            <HoverCardContent className="w-80 p-0 overflow-hidden border-border bg-background shadow-xl" sideOffset={10}>
-                              <div className="aspect-[4/3] bg-muted relative">
-                                <img 
-                                  src={product.image} 
-                                  alt={product.name}
-                                  className="w-full h-full object-cover"
+                   {/* Content */}
+                   <div className="container mx-auto px-6 py-12 max-w-5xl">
+                     <div className="grid md:grid-cols-2 gap-12 items-start">
+                       {/* Left: Images */}
+                       <div className="space-y-6">
+                         <motion.div
+                            key={activeZone.id}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.4 }}
+                            className="aspect-[4/3] bg-muted relative overflow-hidden rounded-lg shadow-lg border border-border"
+                          >
+                            <img 
+                              src={activeZone.images[activeImageIndex]} 
+                              alt={activeZone.title} 
+                              className="w-full h-full object-contain p-4" 
+                            />
+                          </motion.div>
+                          {activeZone.images.length > 1 && (
+                            <div className="flex justify-center gap-2">
+                              {activeZone.images.map((_, idx) => (
+                                <button
+                                  key={idx}
+                                  onClick={() => setActiveImageIndex(idx)}
+                                  className={`w-2 h-2 rounded-full transition-all ${
+                                    activeImageIndex === idx ? "bg-primary w-6" : "bg-border hover:bg-primary/50"
+                                  }`}
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                   <div className="flex gap-2 w-full">
-                                     {product.pdf && (
-                                       <a 
-                                         href={product.pdf} 
-                                         target="_blank" 
-                                         rel="noopener noreferrer"
-                                         className="flex-1 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-medium uppercase tracking-wider py-2 rounded text-center border border-white/20 transition-colors flex items-center justify-center gap-2"
-                                       >
-                                         <Download className="w-3 h-3" />
-                                         Factbook
-                                       </a>
-                                     )}
-                                     <a 
-                                       href={product.url}
-                                       target="_blank" 
-                                       rel="noopener noreferrer"
-                                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-medium uppercase tracking-wider py-2 rounded text-center transition-colors flex items-center justify-center gap-2"
-                                     >
-                                       View Product
-                                       <ExternalLink className="w-3 h-3" />
-                                     </a>
+                              ))}
+                            </div>
+                          )}
+                       </div>
+
+                       {/* Right: Info */}
+                       <div>
+                         <motion.div
+                           initial={{ opacity: 0, x: 20 }}
+                           animate={{ opacity: 1, x: 0 }}
+                           key={`text-${activeZone.id}`}
+                           transition={{ delay: 0.2 }}
+                         >
+                           <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4 block">
+                             Zone {activeZone.id}
+                           </span>
+                           <h3 className="font-serif text-4xl md:text-5xl mb-6 text-foreground">{activeZone.title}</h3>
+                           <p className="text-lg text-muted-foreground leading-relaxed mb-10 border-l-2 border-primary/20 pl-6">
+                             {activeZone.desc}
+                           </p>
+
+                           {/* Products Grid */}
+                           {activeZone.products && activeZone.products.length > 0 && (
+                             <div>
+                               <h4 className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-6 flex items-center gap-2">
+                                 <div className="w-4 h-px bg-border" />
+                                 Curated Furnishings
+                                 <div className="flex-grow h-px bg-border" />
+                               </h4>
+                               <div className="grid gap-4">
+                                 {activeZone.products.map((product, idx) => (
+                                   <div key={idx} className="group relative bg-muted/30 hover:bg-muted/60 border border-border rounded-lg p-4 transition-all flex items-start gap-4">
+                                      <div className="w-20 h-20 bg-white rounded-md overflow-hidden shrink-0 border border-border">
+                                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                                      </div>
+                                      <div className="flex-grow min-w-0">
+                                        <div className="flex justify-between items-start">
+                                          <div>
+                                            <h5 className="font-serif text-lg leading-tight mb-1">{product.name}</h5>
+                                            <p className="text-xs uppercase tracking-wider text-muted-foreground">{product.brand}</p>
+                                          </div>
+                                          <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                             {product.pdf && (
+                                               <a href={product.pdf} target="_blank" title="Download Factbook" className="p-1.5 hover:bg-background rounded-full border border-transparent hover:border-border text-muted-foreground hover:text-primary transition-colors">
+                                                 <Download className="w-4 h-4" />
+                                               </a>
+                                             )}
+                                             <a href={product.url} target="_blank" title="View Product" className="p-1.5 hover:bg-background rounded-full border border-transparent hover:border-border text-muted-foreground hover:text-primary transition-colors">
+                                               <ExternalLink className="w-4 h-4" />
+                                             </a>
+                                          </div>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{product.desc}</p>
+                                      </div>
                                    </div>
-                                </div>
-                              </div>
-                              <div className="p-5">
-                                <div className="flex justify-between items-start mb-2">
-                                  <h4 className="font-serif text-lg">{product.name}</h4>
-                                  <span className="text-[10px] uppercase tracking-widest font-semibold bg-secondary px-2 py-1 rounded text-secondary-foreground">Furniture</span>
-                                </div>
-                                <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wide font-medium text-primary">{product.brand}</p>
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                  {product.desc}
-                                </p>
-                              </div>
-                            </HoverCardContent>
-                          </HoverCard>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+                                 ))}
+                               </div>
+                             </div>
+                           )}
+                         </motion.div>
+                       </div>
+                     </div>
+                   </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </section>
