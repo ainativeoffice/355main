@@ -283,7 +283,6 @@ export default function Home() {
   const openZone = (zone: typeof zones[0]) => {
     setActiveZone(zone);
     setActiveImageIndex(0);
-    // Remove detail open state setting since it's always visible now
   };
 
   const nextZone = () => {
@@ -300,7 +299,7 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Hero Section - Refined & Timeless */}
+      {/* 1. Hero Section - Refined & Timeless */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -349,7 +348,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Intro Concept - Minimalist Promise */}
+      {/* 2. Intro Concept - Minimalist Promise */}
       <section id="concept" className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <motion.h2 
@@ -380,50 +379,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Construction Progress */}
-      <section className="py-24 bg-background border-t border-border">
-        <div className="container mx-auto px-6">
-           <div className="grid md:grid-cols-2 gap-12 items-center">
-             <motion.div
-               initial={{ opacity: 0, x: -20 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-             >
-               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
-               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
-               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                 We are stripping back the layers to reveal the essential structure. 
-                 The walls are primed. The subfloor is prepped. 
-               </p>
-               <div className="flex items-center gap-4">
-                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium">
-                    Current Status: <span className="text-foreground">Flooring Installation</span>
-                 </div>
-               </div>
-             </motion.div>
-             
-             <motion.div
-               initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="relative aspect-video bg-muted overflow-hidden shadow-2xl"
-             >
-                <img 
-                  src={constructionImage} 
-                  alt="Construction Progress - Flooring Prep" 
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
-                  Live Update
-                </div>
-             </motion.div>
-           </div>
-        </div>
-      </section>
-
-      {/* Campus Architecture Section */}
+      {/* 3. Campus Architecture Section (Moved UP) */}
       <section className="py-24 bg-muted/20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -514,7 +470,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Zones Detail Section - Interactive Map & Overlay */}
+      {/* 4. The Zones Detail Section - Interactive Map & Overlay */}
       <section id="zones" className="py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="mb-12 text-center">
@@ -555,163 +511,127 @@ export default function Home() {
                      
                      {/* Tooltip on Hover */}
                      <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20 pointer-events-none">
-                       <div className="bg-foreground text-background text-xs uppercase tracking-widest px-3 py-1.5 rounded shadow-lg">
+                       <div className="bg-zinc-900 text-white text-xs px-2 py-1 rounded shadow-lg">
                          {zone.title}
                        </div>
-                       <div className="w-2 h-2 bg-foreground rotate-45 absolute -bottom-1 left-1/2 -translate-x-1/2" />
+                       <div className="w-2 h-2 bg-zinc-900 rotate-45 absolute bottom-[-4px] left-1/2 -translate-x-1/2" />
                      </div>
                    </div>
                  </motion.button>
                ))}
             </div>
 
-            {/* Detail Plane (Always Visible Below Map) */}
-            <div className="bg-background p-6 md:p-12 min-h-[500px]">
-               <AnimatePresence mode="wait">
-                 <motion.div 
-                   key={activeZone.id} 
-                   initial={{ opacity: 0, y: 10 }} 
-                   animate={{ opacity: 1, y: 0 }}
-                   exit={{ opacity: 0, y: -10 }}
-                   transition={{ duration: 0.3 }}
-                 >
-                    {/* Header: Title & Description */}
-                    <div className="flex flex-col md:flex-row gap-8 items-start justify-between mb-12 border-b border-border/50 pb-8">
-                        <div>
-                            <div className="flex items-center gap-3 mb-2">
-                              <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Zone {activeZone.id.toString().padStart(2, '0')}</span>
-                              <span className="h-px w-8 bg-primary/20"></span>
-                            </div>
-                            <h3 className="font-serif text-3xl md:text-5xl text-foreground tracking-tight">{activeZone.title}</h3>
-                        </div>
-                        <p className="text-lg md:text-xl text-muted-foreground font-light max-w-md leading-relaxed">
-                          {activeZone.desc}
-                        </p>
+            {/* Zone Detail View (Always Visible Panel) */}
+            <div className="bg-background">
+               <div className="grid md:grid-cols-2">
+                 {/* Left: Content & Products */}
+                 <div className="p-8 md:p-12 flex flex-col h-full border-r border-border">
+                    <div className="mb-8">
+                       <div className="flex items-center justify-between mb-4">
+                         <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+                           Zone {activeZone.id.toString().padStart(2, '0')}
+                         </span>
+                         <div className="flex gap-2">
+                           <button onClick={prevZone} className="p-2 hover:bg-muted rounded-full transition-colors">
+                             <ChevronLeft className="w-4 h-4" />
+                           </button>
+                           <button onClick={nextZone} className="p-2 hover:bg-muted rounded-full transition-colors">
+                             <ChevronRight className="w-4 h-4" />
+                           </button>
+                         </div>
+                       </div>
+                       <h3 className="font-serif text-3xl md:text-4xl mb-4">{activeZone.title}</h3>
+                       <p className="text-muted-foreground text-lg leading-relaxed">{activeZone.desc}</p>
                     </div>
 
-                    {/* Content Grid */}
-                    <div className="grid md:grid-cols-2 gap-12 items-start">
-                        {/* Left: Zone Imagery */}
-                         <div className="space-y-4">
-                           <div className="aspect-[4/3] bg-muted/20 relative overflow-hidden rounded-lg shadow-sm border border-border group">
-                                <motion.img 
-                                  key={`${activeZone.id}-${activeImageIndex}`}
-                                  initial={{ opacity: 0, scale: 1.05 }}
-                                  animate={{ opacity: 1, scale: 1 }}
-                                  transition={{ duration: 0.5 }}
-                                  src={activeZone.images[activeImageIndex]} 
-                                  alt={activeZone.title} 
-                                  className="w-full h-full object-contain p-0" 
-                                />
-                           </div>
-                           
-                           {/* Image Indicators */}
-                           {activeZone.images.length > 1 && (
-                              <div className="flex justify-center gap-2">
-                                {activeZone.images.map((_, idx) => (
-                                  <button
-                                    key={idx}
-                                    onClick={() => setActiveImageIndex(idx)}
-                                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                                      activeImageIndex === idx ? "bg-primary w-8" : "bg-border w-2 hover:bg-primary/50"
-                                    }`}
-                                  />
-                                ))}
-                              </div>
-                           )}
-                         </div>
-                         
-                         {/* Right: Products List */}
-                         <div>
-                             <h4 className="text-xs uppercase tracking-widest text-muted-foreground font-semibold mb-6 flex items-center gap-2">
-                               <Layers className="w-3 h-3" />
-                               Curated Furnishings
-                             </h4>
-                             
-                             {activeZone.products && activeZone.products.length > 0 ? (
-                               <div className="grid gap-4">
-                                 {activeZone.products.map((product, idx) => (
-                                   <div key={idx} className="group relative bg-muted/20 hover:bg-muted/50 border border-border/50 hover:border-border rounded-lg p-4 transition-all flex items-start gap-4">
-                                      <div className="w-16 h-16 bg-white rounded-md overflow-hidden shrink-0 border border-border/50 p-1">
-                                        <img src={product.image} alt={product.name} className="w-full h-full object-contain mix-blend-multiply" />
-                                      </div>
-                                      <div className="flex-grow min-w-0">
-                                        <div className="flex justify-between items-start mb-1">
-                                            <h5 className="font-medium text-base leading-tight group-hover:text-primary transition-colors">{product.name}</h5>
-                                            <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                               {product.pdf && product.pdf !== "#" && (
-                                                 <a href={product.pdf} target="_blank" title="Download Factbook" className="text-muted-foreground hover:text-foreground p-1">
-                                                   <Download className="w-3.5 h-3.5" />
-                                                 </a>
-                                               )}
-                                               <a href={product.url} target="_blank" title="View Product" className="text-muted-foreground hover:text-foreground p-1">
-                                                 <ExternalLink className="w-3.5 h-3.5" />
-                                               </a>
-                                            </div>
-                                        </div>
-                                        <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{product.brand}</p>
-                                        <p className="text-sm text-muted-foreground/80 line-clamp-1">{product.desc}</p>
-                                      </div>
+                    <div className="mt-auto">
+                      <h4 className="text-sm uppercase tracking-widest font-semibold mb-4 text-primary">Key Components</h4>
+                      {activeZone.products.length > 0 ? (
+                        <div className="space-y-3">
+                          {activeZone.products.map((product, idx) => (
+                             <div key={idx} className="group flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+                                <div className="w-12 h-12 bg-white rounded border border-border overflow-hidden shrink-0">
+                                   <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                   <div className="flex items-baseline justify-between mb-1">
+                                     <span className="font-medium truncate pr-2">{product.name}</span>
+                                     <span className="text-xs text-muted-foreground whitespace-nowrap">{product.brand}</span>
                                    </div>
-                                 ))}
-                               </div>
-                             ) : (
-                               <div className="text-muted-foreground text-sm italic py-8 border-t border-border/30">
-                                 Furniture selection details coming soon.
-                               </div>
-                             )}
-                         </div>
+                                   <p className="text-xs text-muted-foreground line-clamp-1">{product.desc}</p>
+                                </div>
+                                <a href={product.pdf} target="_blank" rel="noopener noreferrer" className="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:text-primary">
+                                  <Download className="w-4 h-4" />
+                                </a>
+                             </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="p-6 border border-dashed border-border rounded-lg text-center text-muted-foreground text-sm">
+                          Spec sheet available upon request.
+                        </div>
+                      )}
                     </div>
-                 </motion.div>
-               </AnimatePresence>
+                 </div>
+
+                 {/* Right: Visuals */}
+                 <div className="relative h-[400px] md:h-auto bg-muted">
+                    <AnimatePresence mode="wait">
+                      <motion.img 
+                        key={`${activeZone.id}-${activeImageIndex}`}
+                        src={activeZone.images[activeImageIndex]}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        alt={`${activeZone.title} View`}
+                      />
+                    </AnimatePresence>
+                    
+                    {/* Image Navigation Dots if Multiple Images */}
+                    {activeZone.images.length > 1 && (
+                      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        {activeZone.images.map((_, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setActiveImageIndex(idx)}
+                            className={`w-2 h-2 rounded-full transition-all shadow-sm ${
+                              idx === activeImageIndex 
+                                ? "bg-white w-4" 
+                                : "bg-white/50 hover:bg-white/80"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="absolute top-4 right-4">
+                      <button className="bg-black/20 backdrop-blur-md hover:bg-black/40 text-white p-2 rounded-full transition-colors">
+                         <ZoomIn className="w-5 h-5" />
+                      </button>
+                    </div>
+                 </div>
+               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* 5. Vendor Marquee - Moved Up for Impact */}
+      <VendorMarquee />
 
-      {/* Waitlist Section */}
-      <section id="waitlist" className="py-24 bg-muted text-center">
-        <div className="container mx-auto px-6 max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="font-serif text-3xl md:text-5xl mb-6">Secure Your Membership</h2>
-            <p className="text-muted-foreground mb-10">
-              Membership at Opus 355 is limited. Join the waitlist to be notified when applications open.
-            </p>
-            
-            <form className="flex flex-col md:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="flex-grow px-6 py-4 bg-background border border-border focus:outline-none focus:ring-1 focus:ring-primary transition-all"
-              />
-              <button className="bg-foreground text-background px-8 py-4 font-medium hover:bg-primary hover:text-primary-foreground transition-colors uppercase tracking-widest text-sm">
-                Join List
-              </button>
-            </form>
-            <p className="text-xs text-muted-foreground mt-4">
-              By joining, you agree to receive updates about Opus 355.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Philosophy / Features */}
-      <section id="philosophy" className="py-24 md:py-32">
+      {/* 6. Philosophy / Features - Dark Mode for Contrast */}
+      <section id="philosophy" className="py-24 md:py-32 bg-zinc-950 text-zinc-100">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Features</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-white/60 font-semibold">Features</span>
               <h2 className="font-serif text-4xl md:text-5xl mt-6 mb-8 leading-tight">
                 Everything you need to<br/>
                 feel at home at work.
               </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              <p className="text-white/70 text-lg leading-relaxed mb-8">
                 Because it’s landlord-owned and operated, everything — from furnishings to tech to service — 
                 is aligned under one vision and can flex with your team as you grow.
               </p>
@@ -724,28 +644,28 @@ export default function Home() {
                   "Daily Cleaning & Hospitality Service"
                 ].map((feature, i) => (
                   <div key={i} className="flex items-center gap-4 group">
-                    <div className="h-px w-8 bg-border group-hover:bg-primary transition-colors" />
+                    <div className="h-px w-8 bg-zinc-800 group-hover:bg-white transition-colors" />
                     <span className="font-medium">{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default">
-                <Wifi className="w-8 h-8 text-primary" />
+            <div className="grid grid-cols-2 gap-4 text-zinc-950">
+              <div className="bg-white p-8 aspect-square flex flex-col justify-between hover:bg-zinc-200 transition-colors cursor-default">
+                <Wifi className="w-8 h-8" />
                 <span className="font-serif text-xl">Fiber<br/>Wifi</span>
               </div>
-              <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default translate-y-8">
-                <Monitor className="w-8 h-8 text-primary" />
+              <div className="bg-white p-8 aspect-square flex flex-col justify-between hover:bg-zinc-200 transition-colors cursor-default translate-y-8">
+                <Monitor className="w-8 h-8" />
                 <span className="font-serif text-xl">Plug &<br/>Play</span>
               </div>
-              <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default">
-                <Armchair className="w-8 h-8 text-primary" />
+              <div className="bg-white p-8 aspect-square flex flex-col justify-between hover:bg-zinc-200 transition-colors cursor-default">
+                <Armchair className="w-8 h-8" />
                 <span className="font-serif text-xl">Premium<br/>Design</span>
               </div>
-              <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default translate-y-8">
-                <Coffee className="w-8 h-8 text-primary" />
+              <div className="bg-white p-8 aspect-square flex flex-col justify-between hover:bg-zinc-200 transition-colors cursor-default translate-y-8">
+                <Coffee className="w-8 h-8" />
                 <span className="font-serif text-xl">Café &<br/>Lounge</span>
               </div>
             </div>
@@ -753,27 +673,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Vendor Marquee */}
-      <VendorMarquee />
+      {/* 7. Construction Progress - Moved Down (Reality Check) */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+           <div className="grid md:grid-cols-2 gap-12 items-center">
+             <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+               className="order-2 md:order-1 relative aspect-video bg-muted overflow-hidden shadow-2xl"
+             >
+                <img 
+                  src={constructionImage} 
+                  alt="Construction Progress - Flooring Prep" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
+                  Live Update
+                </div>
+             </motion.div>
 
-      {/* Call to Action */}
-      <section className="py-32 bg-primary text-primary-foreground text-center px-6">
+             <motion.div
+               initial={{ opacity: 0, x: 20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+               className="order-1 md:order-2"
+             >
+               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
+               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
+               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                 We are stripping back the layers to reveal the essential structure. 
+                 The walls are primed. The subfloor is prepped. We're getting ready for you.
+               </p>
+               <div className="flex items-center gap-4">
+                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
+                    Current Status: <span className="text-foreground">Flooring Installation</span>
+                 </div>
+               </div>
+             </motion.div>
+           </div>
+        </div>
+      </section>
+
+      {/* 8. Call to Action */}
+      <section className="py-32 bg-background text-foreground text-center px-6 border-t border-border">
          <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
-           transition={{ duration: 0.8 }}
+           transition={{ duration: 0.6 }}
+           className="max-w-2xl mx-auto"
          >
-           <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready for a better way to work?</h2>
-           <p className="text-white/80 max-w-xl mx-auto mb-12 text-lg">
-             Schedule a tour to experience Opus 355 in person.
+           <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
+           <p className="text-xl text-muted-foreground mb-12">
+             Secure your production suite or private office today. Limited availability for Fall 2025.
            </p>
-           <a 
-             href="mailto:leasing@opus355.com"
-             className="inline-block border border-white/30 bg-white/5 hover:bg-white text-white hover:text-primary px-10 py-4 text-sm uppercase tracking-widest font-semibold transition-all duration-300"
-           >
-             Contact Leasing
-           </a>
+           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+             <button className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto">
+               Contact Leasing
+             </button>
+             <button className="bg-muted text-foreground px-8 py-4 text-lg font-medium hover:bg-muted/80 transition-colors w-full sm:w-auto">
+               Download Brochure
+             </button>
+           </div>
          </motion.div>
       </section>
     </Layout>
