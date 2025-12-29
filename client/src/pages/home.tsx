@@ -100,48 +100,6 @@ const zones = [
     ]
   },
   {
-    id: 2,
-    title: "Green Nook & Reception",
-    desc: "Biophilic arrival experience and reception.",
-    x: 45, y: 78,
-    images: [zone2],
-    products: [
-      {
-        name: "Alcove Highback",
-        brand: "Vitra",
-        image: ffeAlcove,
-        url: "https://www.vitra.com/en-us/product/alcove-highback",
-        pdf: "/documents/alcove.pdf",
-        desc: "A room within a room for focused work or small meetings."
-      }
-    ]
-  },
-  {
-    id: 3,
-    title: "Lounge Area",
-    desc: "Informal social condenser.",
-    x: 50, y: 55,
-    images: [zone3],
-    products: [
-      {
-        name: "Soft Work",
-        brand: "Vitra",
-        image: ffeSoftWorkSeating,
-        url: "https://www.vitra.com/en-us/product/soft-work",
-        pdf: "/documents/soft_work_seating.pdf",
-        desc: "A modular sofa system with ergonomic functions."
-      },
-      {
-        name: "Soft Work Table",
-        brand: "Vitra",
-        image: ffeSoftWorkTable,
-        url: "https://www.vitra.com/en-us/product/soft-work",
-        pdf: "/documents/soft_work_table.pdf",
-        desc: "Designed for teamwork and casual meetings."
-      }
-    ]
-  },
-  {
     id: 4,
     title: "Conference Area",
     desc: "High-stakes strategy room.",
@@ -557,129 +515,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Blueprint Section - Floor Plate & FF&E */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">The Blueprint</span>
-            <h2 className="font-serif text-4xl mt-4">Spatial Intelligence</h2>
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="bg-muted/10 p-8 border border-border relative"
-            >
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-                <h3 className="font-serif text-xl flex items-center gap-2">
-                  <Layers className="w-5 h-5 text-primary" />
-                  Composite Floor Plate
-                </h3>
-              </div>
-
-              <div className="aspect-square md:aspect-[16/9] bg-white relative overflow-hidden border border-border/50">
-                {/* Base Layer: Building Floor Plate */}
-                <div className="absolute inset-0 p-8 flex items-center justify-center">
-                   <img 
-                    src={buildingPlate} 
-                    alt="Building Floor Plate" 
-                    className="w-full h-full object-contain opacity-100" 
-                  />
-                </div>
-                
-                {/* Overlay Layer: FF&E */}
-                <div 
-                  className="absolute inset-0 p-8 flex items-center justify-center"
-                >
-                   <img 
-                    src={building3d} 
-                    alt="Vitra FF&E Layout" 
-                    className="w-full h-full object-contain mix-blend-multiply opacity-80" 
-                  />
-                </div>
-              </div>
-              
-              <div className="mt-4 flex justify-between text-xs text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 border border-border bg-white" />
-                  <span>Base Build</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-primary/20 border border-primary" />
-                  <span>Furnishing Overlay</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Offering */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Our Offering</span>
-            <h2 className="font-serif text-4xl mt-4">Choose How You Work</h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-             {[
-               {
-                 title: "Private Office",
-                 desc: "A turnkey private office tailored for modern working styles. Ideal for focused work and client conversations.",
-                 capacity: "1-20 People",
-                 features: ["Secure Storage", "Ergonomic Seating", "Height-Adjustable Desks"]
-               },
-               {
-                 title: "Team Suite",
-                 desc: "Built for teams that create, build, and collaborate. Room to spread out with shared worktables and hardwired power.",
-                 capacity: "2-6 People",
-                 features: ["Shared Workstations", "Meeting Table", "Team Privacy"]
-               },
-               {
-                 title: "Hybrid Membership",
-                 desc: "For executives and local professionals who don't need a dedicated office but want access to the lounge and café.",
-                 capacity: "Individual",
-                 features: ["Lounge Access", "Meeting Rooms", "Café Amenities"]
-               }
-             ].map((item, i) => (
-               <motion.div 
-                 key={i}
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                 className="bg-background p-8 border border-border hover:border-primary/20 transition-colors shadow-sm"
-               >
-                 <h3 className="font-serif text-2xl mb-2">{item.title}</h3>
-                 <span className="text-xs uppercase tracking-wider text-muted-foreground block mb-6">{item.capacity}</span>
-                 <p className="text-muted-foreground mb-8 text-sm leading-relaxed min-h-[80px]">
-                   {item.desc}
-                 </p>
-                 <ul className="space-y-3">
-                   {item.features.map((feat, j) => (
-                     <li key={j} className="flex items-center gap-3 text-sm">
-                       <Check className="w-4 h-4 text-primary/60" />
-                       <span>{feat}</span>
-                     </li>
-                   ))}
-                 </ul>
-               </motion.div>
-             ))}
-          </div>
-        </div>
-      </section>
-
       {/* The Zones Detail Section - Interactive Map & Overlay */}
       <section id="zones" className="py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="mb-12 text-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">Interior Architecture</span>
-            <h2 className="font-serif text-4xl mt-4">Zone by Zone</h2>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">The Blueprint</span>
+            <h2 className="font-serif text-4xl mt-4">Spatial Intelligence</h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Click on the illuminated points below to explore the detailed zones and furnishings.
+              Explore the composite floor plate. Click on the illuminated points below to view zone details and curated furnishings.
             </p>
           </div>
 
@@ -689,7 +532,7 @@ export default function Home() {
                <img 
                  src={buildingPlate} 
                  alt="Interactive Floor Plan" 
-                 className="w-full h-full object-contain p-8 md:p-16 opacity-30 mix-blend-multiply grayscale"
+                 className="w-full h-full object-contain p-8 md:p-16"
                />
                
                {/* Hotspots */}
