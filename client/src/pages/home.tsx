@@ -13,24 +13,24 @@ import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_
 export default function Home() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Refined & Timeless */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
             alt="Opus 355 Lantern" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+          <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background" />
         </div>
         
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-block mb-4 text-sm uppercase tracking-[0.3em] font-medium text-white/80"
+            className="inline-block mb-6 text-sm md:text-base uppercase tracking-[0.25em] font-medium text-white/90"
           >
             355 Main Street • Armonk, NY
           </motion.span>
@@ -38,18 +38,17 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-tight"
+            className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.1] tracking-tight"
           >
-            The Commercial<br />Town Hall
+            A Design-Led Workplace
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light font-serif italic"
           >
-            An open-source blueprint for the distributed age. 
-            Where the office becomes a locus of identity, culture, and governance.
+            "Form follows function, but feeling follows form."
           </motion.p>
         </div>
 
@@ -63,7 +62,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Intro Concept */}
+      {/* Intro Concept - Minimalist Promise */}
       <section id="concept" className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <motion.h2 
@@ -71,9 +70,9 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-serif text-3xl md:text-5xl mb-12 text-foreground"
+            className="font-serif text-4xl md:text-5xl mb-12 text-foreground leading-tight"
           >
-            The Architectural Imperative
+            Success is the space you work in.
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -83,24 +82,79 @@ export default function Home() {
             className="space-y-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light"
           >
             <p>
-              The post-pandemic landscape has rendered the traditional "satellite office" obsolete. 
-              In its place, a new typology is emerging: the <span className="text-foreground font-normal">Commercial Town Hall</span>.
+              Opus 355 is designed for professionals who want more than four walls and a door. 
+              Here, you get a beautifully curated, move-in ready space in a boutique campus setting.
             </p>
             <p>
-              Opus 355 is not a site of mandatory attendance, but a platform for connection. 
-              Just as a municipal town hall is the locus of identity for a citizenry, Opus 355 is the locus for 
-              the professional identity of a distributed workforce.
+              It feels less like a traditional office, and more like a private club for getting your 
+              best work, relationships, and ideas off the ground.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* The Zones Grid */}
-      <section id="zones" className="py-24 bg-muted/30">
+      {/* The Offering - Brochure Integration */}
+      <section className="py-24 bg-secondary/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Our Offering</span>
+            <h2 className="font-serif text-4xl mt-4">Choose How You Work</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+             {[
+               {
+                 title: "Private Office",
+                 desc: "A turnkey private office tailored for modern working styles. Ideal for focused work and client conversations.",
+                 capacity: "1-20 People",
+                 features: ["Secure Storage", "Ergonomic Seating", "Height-Adjustable Desks"]
+               },
+               {
+                 title: "Team Suite",
+                 desc: "Built for teams that create, build, and collaborate. Room to spread out with shared worktables and hardwired power.",
+                 capacity: "2-6 People",
+                 features: ["Shared Workstations", "Meeting Table", "Team Privacy"]
+               },
+               {
+                 title: "Hybrid Membership",
+                 desc: "For executives and local professionals who don't need a dedicated office but want access to the lounge and café.",
+                 capacity: "Individual",
+                 features: ["Lounge Access", "Meeting Rooms", "Café Amenities"]
+               }
+             ].map((item, i) => (
+               <motion.div 
+                 key={i}
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 viewport={{ once: true }}
+                 transition={{ duration: 0.5, delay: i * 0.1 }}
+                 className="bg-background p-8 border border-border hover:border-primary/20 transition-colors shadow-sm"
+               >
+                 <h3 className="font-serif text-2xl mb-2">{item.title}</h3>
+                 <span className="text-xs uppercase tracking-wider text-muted-foreground block mb-6">{item.capacity}</span>
+                 <p className="text-muted-foreground mb-8 text-sm leading-relaxed min-h-[80px]">
+                   {item.desc}
+                 </p>
+                 <ul className="space-y-3">
+                   {item.features.map((feat, j) => (
+                     <li key={j} className="flex items-center gap-3 text-sm">
+                       <Check className="w-4 h-4 text-primary/60" />
+                       <span>{feat}</span>
+                     </li>
+                   ))}
+                 </ul>
+               </motion.div>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Zones Grid - Refined */}
+      <section id="zones" className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">Zoning Strategy</span>
-            <h2 className="font-serif text-4xl mt-4">A Gradient of Privacy</h2>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">Visual Tour</span>
+            <h2 className="font-serif text-4xl mt-4">Form Follows Function</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-1 bg-white p-1 shadow-2xl shadow-black/5">
@@ -121,8 +175,7 @@ export default function Home() {
               <div className="absolute bottom-0 left-0 p-8 md:p-12 text-white">
                 <h3 className="font-serif text-3xl mb-2">The Lantern</h3>
                 <p className="text-white/80 max-w-sm">
-                  A two-story glass enclosure that acts as a beacon of transparency, 
-                  dissolving the threshold between the street and the suite.
+                  A beacon of transparency, dissolving the threshold between the street and the suite.
                 </p>
               </div>
             </motion.div>
@@ -142,9 +195,9 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="font-serif text-2xl mb-2">The Town Square</h3>
+                <h3 className="font-serif text-2xl mb-2">The Club Lounge</h3>
                 <p className="text-white/80 text-sm">
-                  The engine room. Agile gathering, all-hands meetings, and social collision.
+                  A central hearth for coffee, conversation, and community events.
                 </p>
               </div>
             </motion.div>
@@ -164,9 +217,9 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="font-serif text-2xl mb-2">The Green Nook</h3>
+                <h3 className="font-serif text-2xl mb-2">Focus Nooks</h3>
                 <p className="text-white/80 text-sm">
-                  Biophilic restoration. A place of refuge with velvet textures and warm light.
+                  Quiet alcoves with acoustic privacy for deep work and reflection.
                 </p>
               </div>
             </motion.div>
@@ -253,23 +306,22 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Methodology</span>
+              <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Features</span>
               <h2 className="font-serif text-4xl md:text-5xl mt-6 mb-8 leading-tight">
-                Operating like Software:<br/>
-                Open, Hackable, Alive.
+                Everything you need to<br/>
+                feel at home at work.
               </h2>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-                The architecture is an exercise in "editing" rather than "overwriting." 
-                We stripped back layers to reveal the essential character, creating a neutral, 
-                flexible canvas that evolves at the speed of the organization.
+                Because it’s landlord-owned and operated, everything — from furnishings to tech to service — 
+                is aligned under one vision and can flex with your team as you grow.
               </p>
               
               <div className="space-y-4">
                 {[
-                  "Vitra Club Office Implementation",
+                  "Vitra + Artek Premium Furnishings",
                   "Casambi Wireless Mesh Lighting",
-                  "DanteAV Audiovisual Distribution",
-                  "Lightpath 100G Fiber Connectivity"
+                  "High-Speed Fiber Connectivity",
+                  "Daily Cleaning & Hospitality Service"
                 ].map((feature, i) => (
                   <div key={i} className="flex items-center gap-4 group">
                     <div className="h-px w-8 bg-border group-hover:bg-primary transition-colors" />
@@ -282,19 +334,19 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default">
                 <Wifi className="w-8 h-8 text-primary" />
-                <span className="font-serif text-xl">Wireless<br/>Mesh</span>
+                <span className="font-serif text-xl">Fiber<br/>Wifi</span>
               </div>
               <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default translate-y-8">
                 <Monitor className="w-8 h-8 text-primary" />
-                <span className="font-serif text-xl">AV<br/>Interop</span>
+                <span className="font-serif text-xl">Plug &<br/>Play</span>
               </div>
               <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default">
                 <Armchair className="w-8 h-8 text-primary" />
-                <span className="font-serif text-xl">Vitra<br/>Furniture</span>
+                <span className="font-serif text-xl">Premium<br/>Design</span>
               </div>
               <div className="bg-muted p-8 aspect-square flex flex-col justify-between hover:bg-muted/80 transition-colors cursor-default translate-y-8">
                 <Coffee className="w-8 h-8 text-primary" />
-                <span className="font-serif text-xl">Social<br/>Hearth</span>
+                <span className="font-serif text-xl">Café &<br/>Lounge</span>
               </div>
             </div>
           </div>
@@ -309,15 +361,15 @@ export default function Home() {
            viewport={{ once: true }}
            transition={{ duration: 0.8 }}
          >
-           <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to govern?</h2>
+           <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready for a better way to work?</h2>
            <p className="text-white/80 max-w-xl mx-auto mb-12 text-lg">
-             Opus 355 is not just an office. It is a headquarters for your culture.
+             Schedule a tour to experience Opus 355 in person.
            </p>
            <a 
              href="mailto:leasing@opus355.com"
              className="inline-block border border-white/30 bg-white/5 hover:bg-white text-white hover:text-primary px-10 py-4 text-sm uppercase tracking-widest font-semibold transition-all duration-300"
            >
-             Schedule a Tour
+             Contact Leasing
            </a>
          </motion.div>
       </section>
