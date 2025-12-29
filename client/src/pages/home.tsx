@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers } from "lucide-react";
+import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState } from "react";
+import { Slider } from "@/components/ui/slider";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
 import entranceImage from "@assets/vs_entrance.jpg";
 import elevatorImage from "@assets/opus_elevator.jpg";
+import building357Exterior from "@assets/357_exterior_1.jpg";
+import building357Interior from "@assets/357_exterior_2.jpg";
+
 import constructionImage from "@assets/generated_images/empty_office_interior_under_construction,_white_walls,_concrete_floor..png";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
@@ -108,6 +112,8 @@ const zones = [
 export default function Home() {
   const [activeZone, setActiveZone] = useState(zones[0]);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
+  const [blueprintOpacity, setBlueprintOpacity] = useState([50]);
 
   return (
     <Layout>
@@ -199,36 +205,84 @@ export default function Home() {
             <h2 className="font-serif text-4xl mt-4">Armonk Professional Center</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="flex justify-center mb-12">
+            <div className="bg-muted p-1 rounded-full flex gap-1">
+              <button 
+                onClick={() => setActiveBuilding("355")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeBuilding === "355" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                355 Main Street
+              </button>
+              <button 
+                onClick={() => setActiveBuilding("357")}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeBuilding === "357" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                357 Main Street
+              </button>
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto min-h-[500px]">
             <motion.div 
+               key={activeBuilding}
                initial={{ opacity: 0, x: -20 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
+               animate={{ opacity: 1, x: 0 }}
                transition={{ duration: 0.6 }}
                className="space-y-6 text-lg leading-relaxed text-muted-foreground"
             >
-              <p>
-                The original Armonk Professional Center, built in the 1960s, is a 2-story office building with a rich history. 
-              </p>
-              <p>
-                An addition to the lobby by famed <span className="text-foreground font-medium">Architect Vatche Simonian</span> seamlessly merges old and new. 
-                The new two-story glass enclosure and stone-clad elevator tower contrast with and yet complement the structure’s original brick facade.
-              </p>
-              <p>
-                The elevator tower is clad with oversized stone panels that continue to the interior of the lobby and conceal the mechanical room doors,
-                creating a monolithic anchor for the site.
-              </p>
+              {activeBuilding === "355" ? (
+                <>
+                  <p>
+                    The original Armonk Professional Center, built in the 1960s, is a 2-story office building with a rich history. 
+                  </p>
+                  <p>
+                    An addition to the lobby by famed <span className="text-foreground font-medium">Architect Vatche Simonian</span> seamlessly merges old and new. 
+                    The new two-story glass enclosure and stone-clad elevator tower contrast with and yet complement the structure’s original brick facade.
+                  </p>
+                  <p>
+                    The elevator tower is clad with oversized stone panels that continue to the interior of the lobby and conceal the mechanical room doors,
+                    creating a monolithic anchor for the site.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p>
+                    357 Main Street represents the modern evolution of the campus. Designed in 2006 by <span className="text-foreground font-medium">Vatche Simonian</span>, 
+                    the same visionary architect behind the 355 lobby addition.
+                  </p>
+                  <p>
+                    The footprint of this 22,000-square-foot glass-and-steel structure was maximized by including a subterranean parking deck. 
+                    Large windows take advantage of natural light, while brick accents add continuity with the other office buildings in the complex.
+                  </p>
+                  <p>
+                    The project required substantial site work, including blasting of existing rock, which was salvaged and used as retaining walls—grounding the 
+                    modern structure in the site's geology.
+                  </p>
+                </>
+              )}
             </motion.div>
             
             <motion.div 
+               key={`${activeBuilding}-images`}
                initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
+               animate={{ opacity: 1, scale: 1 }}
                transition={{ duration: 0.6 }}
                className="grid grid-cols-2 gap-4"
             >
-              <img src={lanternImage} alt="Glass Facade" className="w-full h-64 object-cover" />
-              <img src={entranceImage} alt="Main Entrance" className="w-full h-64 object-cover translate-y-8" />
+              <img 
+                src={activeBuilding === "355" ? lanternImage : building357Exterior} 
+                alt="Exterior Facade" 
+                className="w-full h-64 object-cover" 
+              />
+              <img 
+                src={activeBuilding === "355" ? entranceImage : building357Interior} 
+                alt="Interior/Detail" 
+                className="w-full h-64 object-cover translate-y-8" 
+              />
             </motion.div>
           </div>
         </div>
@@ -242,35 +296,65 @@ export default function Home() {
             <h2 className="font-serif text-4xl mt-4">Spatial Intelligence</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <motion.div 
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className="bg-muted/10 p-8 border border-border"
+               className="bg-muted/10 p-8 border border-border relative"
             >
-              <h3 className="font-serif text-xl mb-6 flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-primary" />
-                Building Floor Plate
-              </h3>
-              <div className="aspect-square bg-white p-6 flex items-center justify-center border border-border/50">
-                <img src={buildingPlate} alt="Building Floor Plate" className="w-full h-full object-contain" />
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+                <h3 className="font-serif text-xl flex items-center gap-2">
+                  <Layers className="w-5 h-5 text-primary" />
+                  Interactive Floor Plate
+                </h3>
+                
+                <div className="flex items-center gap-4 bg-background px-4 py-2 rounded-full border border-border">
+                  <span className="text-xs uppercase tracking-wider text-muted-foreground">Floor</span>
+                  <Slider 
+                    defaultValue={[50]} 
+                    max={100} 
+                    step={1} 
+                    className="w-32" 
+                    value={blueprintOpacity}
+                    onValueChange={setBlueprintOpacity}
+                  />
+                  <span className="text-xs uppercase tracking-wider text-muted-foreground">FF&E</span>
+                </div>
               </div>
-            </motion.div>
 
-            <motion.div 
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.1 }}
-               className="bg-muted/10 p-8 border border-border"
-            >
-              <h3 className="font-serif text-xl mb-6 flex items-center gap-2">
-                <Layers className="w-5 h-5 text-primary" />
-                Vitra FF&E Layout
-              </h3>
-              <div className="aspect-square bg-white p-6 flex items-center justify-center border border-border/50">
-                <img src={building3d} alt="Vitra FF&E Layout" className="w-full h-full object-contain" />
+              <div className="aspect-square md:aspect-[16/9] bg-white relative overflow-hidden border border-border/50">
+                {/* Base Layer: Building Floor Plate */}
+                <div className="absolute inset-0 p-8 flex items-center justify-center">
+                   <img 
+                    src={buildingPlate} 
+                    alt="Building Floor Plate" 
+                    className="w-full h-full object-contain opacity-100" 
+                  />
+                </div>
+                
+                {/* Overlay Layer: FF&E */}
+                <div 
+                  className="absolute inset-0 p-8 flex items-center justify-center transition-opacity duration-100"
+                  style={{ opacity: blueprintOpacity[0] / 100 }}
+                >
+                   <img 
+                    src={building3d} 
+                    alt="Vitra FF&E Layout" 
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-4 flex justify-between text-xs text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 border border-border bg-white" />
+                  <span>Base Build</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 bg-primary/20 border border-primary" />
+                  <span>Furnishing Overlay</span>
+                </div>
               </div>
             </motion.div>
           </div>
