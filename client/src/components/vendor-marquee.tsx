@@ -8,8 +8,6 @@ const brands = [
   { name: "Mohawk Group", type: "serif" },
   { name: "Dante", type: "sans" },
   { name: "Lightpath", type: "sans" },
-  { name: "Apple", type: "sans" },
-  { name: "Samsung", type: "sans" },
   { name: "Vitra", type: "serif" },
   { name: "Artek", type: "serif" },
   { name: "Paul Smith", type: "serif" },
