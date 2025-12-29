@@ -532,7 +532,7 @@ export default function Home() {
                <img 
                  src={buildingPlate} 
                  alt="Interactive Floor Plan" 
-                 className="w-full h-full object-contain p-8 md:p-16"
+                 className="w-full h-full object-contain scale-110"
                />
                
                {/* Hotspots */}
@@ -659,8 +659,8 @@ export default function Home() {
                            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4 block">
                              Zone {activeZone.id}
                            </span>
-                           <h3 className="font-serif text-4xl md:text-5xl mb-6 text-foreground">{activeZone.title}</h3>
-                           <p className="text-lg text-muted-foreground leading-relaxed mb-10 border-l-2 border-primary/20 pl-6">
+                           <h3 className="text-3xl md:text-4xl mb-6 text-foreground font-light tracking-tight">{activeZone.title}</h3>
+                           <p className="text-lg text-muted-foreground leading-relaxed mb-10 border-l border-primary/20 pl-6 font-light">
                              {activeZone.desc}
                            </p>
 
@@ -676,12 +676,12 @@ export default function Home() {
                                  {activeZone.products.map((product, idx) => (
                                    <div key={idx} className="group relative bg-muted/30 hover:bg-muted/60 border border-border rounded-lg p-4 transition-all flex items-start gap-4">
                                       <div className="w-20 h-20 bg-white rounded-md overflow-hidden shrink-0 border border-border">
-                                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                                        <img src={product.image} alt={product.name} className="w-full h-full object-cover mix-blend-multiply" />
                                       </div>
                                       <div className="flex-grow min-w-0">
                                         <div className="flex justify-between items-start">
                                           <div>
-                                            <h5 className="font-serif text-lg leading-tight mb-1">{product.name}</h5>
+                                            <h5 className="font-medium text-lg leading-tight mb-1">{product.name}</h5>
                                             <p className="text-xs uppercase tracking-wider text-muted-foreground">{product.brand}</p>
                                           </div>
                                           <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
