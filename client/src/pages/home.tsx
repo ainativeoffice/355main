@@ -591,7 +591,7 @@ export default function Home() {
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         {/* Left: Zone Imagery */}
                          <div className="space-y-4">
-                           <div className="aspect-[4/3] bg-muted relative overflow-hidden rounded-lg shadow-sm border border-border group">
+                           <div className="aspect-[4/3] bg-muted/20 relative overflow-hidden rounded-lg shadow-sm border border-border group">
                                 <motion.img 
                                   key={`${activeZone.id}-${activeImageIndex}`}
                                   initial={{ opacity: 0, scale: 1.05 }}
@@ -599,9 +599,8 @@ export default function Home() {
                                   transition={{ duration: 0.5 }}
                                   src={activeZone.images[activeImageIndex]} 
                                   alt={activeZone.title} 
-                                  className="w-full h-full object-contain p-8 bg-white" 
+                                  className="w-full h-full object-contain p-0" 
                                 />
-                                <div className="absolute inset-0 bg-black/0 transition-colors pointer-events-none" />
                            </div>
                            
                            {/* Image Indicators */}
