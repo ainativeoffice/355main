@@ -12,6 +12,7 @@ const brands = [
   { name: "Artek", type: "serif" },
   { name: "Paul Smith", type: "serif" },
   { name: "Lightolier", type: "sans" },
+  { name: "Kay Lighting", type: "sans" },
   { name: "Marset", type: "serif" },
   { name: "Ubiquiti", type: "sans" },
   { name: "Daltile", type: "serif" },
