@@ -755,7 +755,7 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Secure your production suite or private office today. Limited availability for Fall 2025.
+             Secure your hybrid, private office or production suite today. Limited availability. Opening in February 2026.
            </p>
            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
              <button className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto">
