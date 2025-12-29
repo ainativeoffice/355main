@@ -4,6 +4,8 @@ import { Layout } from "@/components/layout";
 import { useState, useEffect } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
+import { useMutation } from "@tanstack/react-query";
+import { useToast } from "@/hooks/use-toast";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -280,6 +282,8 @@ export default function Home() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
   const [zoomLevel, setZoomLevel] = useState(1);
+  const [email, setEmail] = useState("");
+  const { toast } = useToast();
   
   const openZone = (zone: typeof zones[0]) => {
     setActiveZone(zone);
@@ -293,6 +297,44 @@ export default function Home() {
 
   const handleZoomOut = () => {
     setZoomLevel(prev => Math.max(prev - 0.5, 0.5));
+  };
+
+  const waitlistMutation = useMutation({
+    mutationFn: async (email: string) => {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to join waitlist");
+      }
+      
+      return response.json();
+    },
+    onSuccess: (data) => {
+      toast({
+        title: "Success!",
+        description: data.message,
+      });
+      setEmail("");
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleWaitlistSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      waitlistMutation.mutate(email);
+    }
   };
 
   const nextZone = () => {
@@ -757,23 +799,30 @@ export default function Home() {
            <p className="text-xl text-muted-foreground mb-12">
              Join the wait list to secure a membership or private office today. Limited availability. Opus 355 is set to open in February 2026.
            </p>
-           <div className="flex flex-col items-center gap-8">
+           <form onSubmit={handleWaitlistSubmit} className="flex flex-col items-center gap-8">
              <div className="w-full max-w-md flex flex-col sm:flex-row gap-2">
                <input 
                  type="email" 
+                 value={email}
+                 onChange={(e) => setEmail(e.target.value)}
                  placeholder="Enter your email address" 
                  className="flex-1 bg-muted/50 border border-border px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-primary/20 transition-all rounded-none"
+                 required
                />
-               <button className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-                 Join Waitlist
+               <button 
+                 type="submit"
+                 disabled={waitlistMutation.isPending}
+                 className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap disabled:opacity-50"
+               >
+                 {waitlistMutation.isPending ? "Joining..." : "Join Waitlist"}
                </button>
              </div>
              
-             <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1">
+             <button type="button" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1">
                <Download className="w-4 h-4" />
                Download Brochure
              </button>
-           </div>
+           </form>
          </motion.div>
       </section>
     </Layout>
