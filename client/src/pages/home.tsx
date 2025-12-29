@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2 } from "lucide-react";
+import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -47,6 +47,20 @@ import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
 import ffeStool60 from "@assets/stock_images/artek_stool_60_stack_580858e0.jpg";
 import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
 import ffeAlcove from "@assets/stock_images/vitra_alcove_sofa_hi_354cd378.jpg";
+import ffeStoolTool from "@assets/stock_images/vitra_stool-tool_sta_40c83676.jpg";
+import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
+import ffeSoftWorkTable from "@assets/stock_images/vitra_soft_work_tabl_33f184fc.jpg";
+import ffeMedaMorph from "@assets/stock_images/vitra_medamorph_conf_c497432e.jpg";
+import ffeHal from "@assets/stock_images/vitra_hal_chair_jasp_dfd599d1.jpg";
+import ffeMynt from "@assets/stock_images/vitra_mynt_office_ch_f0f49d65.jpg";
+import ffeFauteuilDirection from "@assets/stock_images/vitra_fauteuil_direc_ad92c663.jpg";
+import ffeTyde2 from "@assets/stock_images/vitra_tyde_2_sit_sta_39a22b81.jpg";
+import ffeJoyn2 from "@assets/stock_images/vitra_joyn_2_office__e6b47274.jpg";
+import ffeSuperFold from "@assets/stock_images/vitra_super_fold_tab_65189058.jpg";
+import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jpg";
+import ffe03 from "@assets/stock_images/vitra_.03_chair_maar_ed81eaa6.jpg";
+import ffe04 from "@assets/stock_images/vitra_.04_chair_offi_b4b13e10.jpg";
+import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
 
 const zones = [
   {
@@ -56,18 +70,28 @@ const zones = [
     images: [zone1],
     products: [
       {
-        name: "Aluminum Group EA 117",
+        name: "Mynt",
         brand: "Vitra",
-        image: ffeEames,
-        url: "#",
-        desc: "The classic Eames office chair combining comfort with a prestigious silhouette."
+        image: ffeMynt,
+        url: "https://www.vitra.com/en-us/product/mynt",
+        pdf: "/documents/mynt.pdf",
+        desc: "An ergonomic office chair for dynamic sitting."
       },
       {
-        name: "Joyn Conference",
+        name: ".04 Chair",
         brand: "Vitra",
-        image: ffeJoyn,
-        url: "#",
-        desc: "A flexible office platform that promotes dynamic communication."
+        image: ffe04,
+        url: "https://www.vitra.com/en-us/product/04",
+        pdf: "/documents/04_chair.pdf",
+        desc: "Unobtrusive design with ergonomic comfort for long periods of sitting."
+      },
+      {
+        name: "Tyde 2",
+        brand: "Vitra",
+        image: ffeTyde2,
+        url: "https://www.vitra.com/en-us/product/tyde-2",
+        pdf: "/documents/tyde2.pdf",
+        desc: "Height-adjustable sit-stand table system."
       }
     ]
   },
@@ -76,7 +100,16 @@ const zones = [
     title: "Green Nook & Reception",
     desc: "Biophilic arrival experience and reception.",
     images: [zone2],
-    products: []
+    products: [
+      {
+        name: "Alcove Highback",
+        brand: "Vitra",
+        image: ffeAlcove,
+        url: "https://www.vitra.com/en-us/product/alcove-highback",
+        pdf: "/documents/alcove.pdf",
+        desc: "A room within a room for focused work or small meetings."
+      }
+    ]
   },
   {
     id: 3,
@@ -85,11 +118,20 @@ const zones = [
     images: [zone3],
     products: [
       {
-        name: "Alcove Highback",
+        name: "Soft Work",
         brand: "Vitra",
-        image: ffeAlcove,
-        url: "#",
-        desc: "A room within a room for focused work or small meetings in open areas."
+        image: ffeSoftWorkSeating,
+        url: "https://www.vitra.com/en-us/product/soft-work",
+        pdf: "/documents/soft_work_seating.pdf",
+        desc: "A modular sofa system with ergonomic functions."
+      },
+      {
+        name: "Soft Work Table",
+        brand: "Vitra",
+        image: ffeSoftWorkTable,
+        url: "https://www.vitra.com/en-us/product/soft-work",
+        pdf: "/documents/soft_work_table.pdf",
+        desc: "Designed for teamwork and casual meetings."
       }
     ]
   },
@@ -100,10 +142,19 @@ const zones = [
     images: [zone4],
     products: [
       {
+        name: "MedaMorph",
+        brand: "Vitra",
+        image: ffeMedaMorph,
+        url: "https://www.vitra.com/en-us/product/medamorph",
+        pdf: "/documents/medamorph.pdf",
+        desc: "Elegant conference table system for any size meeting."
+      },
+      {
         name: "Eames Aluminum Group",
         brand: "Vitra",
         image: ffeEames,
-        url: "#",
+        url: "https://www.vitra.com/en-us/product/aluminium-group",
+        pdf: "/documents/03_chair.pdf", // Using .03 as placeholder for general chair info if Eames PDF missing
         desc: "Timeless elegance for the executive boardroom."
       }
     ]
@@ -115,10 +166,19 @@ const zones = [
     images: [zone5a, zone5b],
     products: [
       {
+        name: "Fauteuil Direction",
+        brand: "Vitra",
+        image: ffeFauteuilDirection,
+        url: "https://www.vitra.com/en-us/product/fauteuil-direction",
+        pdf: "/documents/fauteuil_direction.pdf",
+        desc: "Comfortable armchair especially suited for table seating."
+      },
+       {
         name: "Stool 60",
         brand: "Artek",
         image: ffeStool60,
-        url: "#",
+        url: "https://www.artek.fi/en/products/stool-60",
+        pdf: "#",
         desc: "The iconic three-legged stool designed by Alvar Aalto."
       }
     ]
@@ -128,7 +188,16 @@ const zones = [
     title: "Team Offices",
     desc: "Collaborative suites for small groups.",
     images: [zone6],
-    products: []
+    products: [
+       {
+        name: "Joyn 2",
+        brand: "Vitra",
+        image: ffeJoyn2,
+        url: "https://www.vitra.com/en-us/product/joyn-2",
+        pdf: "/documents/joyn2.pdf",
+        desc: "Adaptable office table system for teamwork."
+      }
+    ]
   },
   {
     id: 7,
@@ -143,12 +212,29 @@ const zones = [
     desc: "Aggressively flexible collaborative area.",
     images: [zone8a, zone8b, zone8c, zone8d],
     products: [
-        {
-        name: "Joyn",
+       {
+        name: "Dancing Wall",
         brand: "Vitra",
-        image: ffeJoyn,
-        url: "#",
-        desc: "Configurable work tables for project-based collaboration."
+        image: ffeDancingWall,
+        url: "https://www.vitra.com/en-us/product/dancing-wall",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Mobile partition that can be used to divide offices into zones."
+      },
+      {
+        name: "Stool-Tool",
+        brand: "Vitra",
+        image: ffeStoolTool,
+        url: "https://www.vitra.com/en-us/product/stool-tool",
+        pdf: "/documents/stool_tool.pdf",
+        desc: "Stackable sculpture that serves as both chair and table."
+      },
+      {
+        name: "Super Fold Table",
+        brand: "Vitra",
+        image: ffeSuperFold,
+        url: "https://www.vitra.com/en-us/product/super-fold-table",
+        pdf: "/documents/super_fold_table.pdf",
+        desc: "Foldable table for flexible meeting arrangements."
       }
     ]
   },
@@ -157,14 +243,40 @@ const zones = [
     title: "Break Room",
     desc: "Hospitality-grade refreshment zone.",
     images: [zone9a, zone9b],
-    products: []
+    products: [
+       {
+        name: "HAL",
+        brand: "Vitra",
+        image: ffeHal,
+        url: "https://www.vitra.com/en-us/product/hal",
+        pdf: "/documents/hal_chair.pdf",
+        desc: "Versatile shell chair by Jasper Morrison."
+      }
+    ]
   },
   {
     id: 10,
     title: "Diner",
     desc: "Social hearth with integrated power.",
     images: [zone10a, zone10b, zone10c],
-    products: []
+    products: [
+      {
+        name: "Belleville Table",
+        brand: "Vitra",
+        image: ffeBelleville,
+        url: "https://www.vitra.com/en-us/product/belleville-table",
+        pdf: "/documents/belleville_table.pdf",
+        desc: "Elegant bistro table with variable appearances."
+      },
+      {
+        name: ".03 Chair",
+        brand: "Vitra",
+        image: ffe03,
+        url: "https://www.vitra.com/en-us/product/03",
+        pdf: "/documents/03_chair.pdf",
+        desc: "Sleek, slim shape with extraordinary comfort."
+      }
+    ]
   },
   {
     id: 11,
@@ -594,11 +706,11 @@ export default function Home() {
                                 href={product.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border hover:border-primary/50 rounded-full transition-all group"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-primary/20 hover:border-primary rounded-full transition-all group shadow-sm hover:shadow-md"
                               >
                                 <span className="w-2 h-2 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
-                                <span className="font-medium text-sm">{product.brand}</span>
-                                <span className="text-muted-foreground text-sm">• {product.name}</span>
+                                <span className="font-medium text-sm text-primary">{product.brand}</span>
+                                <span className="text-muted-foreground text-sm border-l border-border pl-2 ml-1">{product.name}</span>
                               </a>
                             </HoverCardTrigger>
                             <HoverCardContent className="w-80 p-0 overflow-hidden border-border bg-background shadow-xl" sideOffset={10}>
@@ -608,13 +720,37 @@ export default function Home() {
                                   alt={product.name}
                                   className="w-full h-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity">
-                                  <span className="text-white text-xs font-medium uppercase tracking-wider">View Product Specs →</span>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                   <div className="flex gap-2 w-full">
+                                     {product.pdf && (
+                                       <a 
+                                         href={product.pdf} 
+                                         target="_blank" 
+                                         rel="noopener noreferrer"
+                                         className="flex-1 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-medium uppercase tracking-wider py-2 rounded text-center border border-white/20 transition-colors flex items-center justify-center gap-2"
+                                       >
+                                         <Download className="w-3 h-3" />
+                                         Factbook
+                                       </a>
+                                     )}
+                                     <a 
+                                       href={product.url}
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-medium uppercase tracking-wider py-2 rounded text-center transition-colors flex items-center justify-center gap-2"
+                                     >
+                                       View Product
+                                       <ExternalLink className="w-3 h-3" />
+                                     </a>
+                                   </div>
                                 </div>
                               </div>
-                              <div className="p-4">
-                                <h4 className="font-serif text-lg mb-1">{product.name}</h4>
-                                <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wide">{product.brand}</p>
+                              <div className="p-5">
+                                <div className="flex justify-between items-start mb-2">
+                                  <h4 className="font-serif text-lg">{product.name}</h4>
+                                  <span className="text-[10px] uppercase tracking-widest font-semibold bg-secondary px-2 py-1 rounded text-secondary-foreground">Furniture</span>
+                                </div>
+                                <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wide font-medium text-primary">{product.brand}</p>
                                 <p className="text-sm text-muted-foreground leading-relaxed">
                                   {product.desc}
                                 </p>
