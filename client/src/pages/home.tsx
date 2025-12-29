@@ -273,6 +273,8 @@ const zones = [
   }
 ];
 
+import { VendorMarquee } from "@/components/vendor-marquee";
+
 export default function Home() {
   const [activeZone, setActiveZone] = useState(zones[0]);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -750,6 +752,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Vendor Marquee */}
+      <VendorMarquee />
 
       {/* Call to Action */}
       <section className="py-32 bg-primary text-primary-foreground text-center px-6">
