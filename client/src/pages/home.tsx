@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState } from "react";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+
 import { Slider } from "@/components/ui/slider";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
@@ -40,72 +42,136 @@ import zone10c from "@assets/zones/zone10_cafe3_power.svg";
 import zone11a from "@assets/zones/zone11_view2.svg";
 import zone11b from "@assets/zones/zone11_closed_mtg.svg";
 
+// FF&E Assets
+import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
+import ffeStool60 from "@assets/stock_images/artek_stool_60_stack_580858e0.jpg";
+import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
+import ffeAlcove from "@assets/stock_images/vitra_alcove_sofa_hi_354cd378.jpg";
+
 const zones = [
   {
     id: 1,
     title: "Production Suite",
     desc: "A dedicated environment for high-output teams.",
-    images: [zone1]
+    images: [zone1],
+    products: [
+      {
+        name: "Aluminum Group EA 117",
+        brand: "Vitra",
+        image: ffeEames,
+        url: "#",
+        desc: "The classic Eames office chair combining comfort with a prestigious silhouette."
+      },
+      {
+        name: "Joyn Conference",
+        brand: "Vitra",
+        image: ffeJoyn,
+        url: "#",
+        desc: "A flexible office platform that promotes dynamic communication."
+      }
+    ]
   },
   {
     id: 2,
     title: "Green Nook & Reception",
     desc: "Biophilic arrival experience and reception.",
-    images: [zone2]
+    images: [zone2],
+    products: []
   },
   {
     id: 3,
     title: "Lounge Area",
     desc: "Informal social condenser.",
-    images: [zone3]
+    images: [zone3],
+    products: [
+      {
+        name: "Alcove Highback",
+        brand: "Vitra",
+        image: ffeAlcove,
+        url: "#",
+        desc: "A room within a room for focused work or small meetings in open areas."
+      }
+    ]
   },
   {
     id: 4,
     title: "Conference Area",
     desc: "High-stakes strategy room.",
-    images: [zone4]
+    images: [zone4],
+    products: [
+      {
+        name: "Eames Aluminum Group",
+        brand: "Vitra",
+        image: ffeEames,
+        url: "#",
+        desc: "Timeless elegance for the executive boardroom."
+      }
+    ]
   },
   {
     id: 5,
     title: "Private Office",
     desc: "Flexible private workspace with multiple configurations.",
-    images: [zone5a, zone5b]
+    images: [zone5a, zone5b],
+    products: [
+      {
+        name: "Stool 60",
+        brand: "Artek",
+        image: ffeStool60,
+        url: "#",
+        desc: "The iconic three-legged stool designed by Alvar Aalto."
+      }
+    ]
   },
   {
     id: 6,
     title: "Team Offices",
     desc: "Collaborative suites for small groups.",
-    images: [zone6]
+    images: [zone6],
+    products: []
   },
   {
     id: 7,
     title: "Resource Room",
     desc: "Utility and production hub.",
-    images: [zone7]
+    images: [zone7],
+    products: []
   },
   {
     id: 8,
     title: "Dynamic Space",
     desc: "Aggressively flexible collaborative area.",
-    images: [zone8a, zone8b, zone8c, zone8d]
+    images: [zone8a, zone8b, zone8c, zone8d],
+    products: [
+        {
+        name: "Joyn",
+        brand: "Vitra",
+        image: ffeJoyn,
+        url: "#",
+        desc: "Configurable work tables for project-based collaboration."
+      }
+    ]
   },
   {
     id: 9,
     title: "Break Room",
     desc: "Hospitality-grade refreshment zone.",
-    images: [zone9a, zone9b]
+    images: [zone9a, zone9b],
+    products: []
   },
   {
     id: 10,
     title: "Diner",
     desc: "Social hearth with integrated power.",
-    images: [zone10a, zone10b, zone10c]
+    images: [zone10a, zone10b, zone10c],
+    products: []
   },
   {
     id: 11,
     title: "The Lantern",
     desc: "The beacon of transparency.",
-    images: [zone11a, zone11b]
+    images: [zone11a, zone11b],
+    products: []
   }
 ];
 
@@ -510,9 +576,55 @@ export default function Home() {
 
                 <div className="text-center">
                   <h3 className="font-serif text-3xl mb-4">{activeZone.title}</h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
+                  <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto mb-8">
                     {activeZone.desc}
                   </p>
+
+                  {/* FF&E Selection */}
+                  {activeZone.products && activeZone.products.length > 0 && (
+                    <div className="border-t border-border pt-8 mt-8">
+                      <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold block mb-6">
+                        Curated Furnishings
+                      </span>
+                      <div className="flex flex-wrap justify-center gap-4">
+                        {activeZone.products.map((product, idx) => (
+                          <HoverCard key={idx}>
+                            <HoverCardTrigger asChild>
+                              <a 
+                                href={product.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-background border border-border hover:border-primary/50 rounded-full transition-all group"
+                              >
+                                <span className="w-2 h-2 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
+                                <span className="font-medium text-sm">{product.brand}</span>
+                                <span className="text-muted-foreground text-sm">• {product.name}</span>
+                              </a>
+                            </HoverCardTrigger>
+                            <HoverCardContent className="w-80 p-0 overflow-hidden border-border bg-background shadow-xl" sideOffset={10}>
+                              <div className="aspect-[4/3] bg-muted relative">
+                                <img 
+                                  src={product.image} 
+                                  alt={product.name}
+                                  className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity">
+                                  <span className="text-white text-xs font-medium uppercase tracking-wider">View Product Specs →</span>
+                                </div>
+                              </div>
+                              <div className="p-4">
+                                <h4 className="font-serif text-lg mb-1">{product.name}</h4>
+                                <p className="text-xs text-muted-foreground mb-3 uppercase tracking-wide">{product.brand}</p>
+                                <p className="text-sm text-muted-foreground leading-relaxed">
+                                  {product.desc}
+                                </p>
+                              </div>
+                            </HoverCardContent>
+                          </HoverCard>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
