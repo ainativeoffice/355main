@@ -86,7 +86,7 @@ const zones = [
   {
     id: 8,
     title: "Dynamic Space",
-    desc: "Aggressively flexible town hall area.",
+    desc: "Aggressively flexible collaborative area.",
     images: [zone8a, zone8b, zone8c, zone8d]
   },
   {
@@ -143,7 +143,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.1] tracking-tight"
           >
-            A Design-Led Workplace
+            A Design-Led<br />Workplace
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
