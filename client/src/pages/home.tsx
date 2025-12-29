@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee } from "lucide-react";
+import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers } from "lucide-react";
 import { Layout } from "@/components/layout";
+import { useState } from "react";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -10,7 +11,104 @@ import constructionImage from "@assets/generated_images/empty_office_interior_un
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
+// Campus & Floorplate Assets
+import building3d from "@assets/building3d.svg";
+import buildingPlate from "@assets/building.svg";
+
+// Zone Assets
+import zone1 from "@assets/zones/zone2_201.svg";
+import zone2 from "@assets/zones/zone2_reception.svg";
+import zone3 from "@assets/zones/zone3_lounge.svg";
+import zone4 from "@assets/zones/zone4.svg";
+import zone5a from "@assets/zones/zone5_opt_b.svg";
+import zone5b from "@assets/zones/zone5_opt_2.svg";
+import zone6 from "@assets/zones/zone6_suite207.svg";
+import zone7 from "@assets/zones/zone7_copy.svg";
+import zone8a from "@assets/zones/zone8_opt3_focus.svg";
+import zone8b from "@assets/zones/zone8_opt4_standup.svg";
+import zone8c from "@assets/zones/zone8_opt5_symposium.svg";
+import zone8d from "@assets/zones/zone8_opt2_pres.svg";
+import zone9a from "@assets/zones/zone9_break1.svg";
+import zone9b from "@assets/zones/zone9_break2.svg";
+import zone10a from "@assets/zones/zone10_cafe.svg";
+import zone10b from "@assets/zones/zone10_cafe1.svg";
+import zone10c from "@assets/zones/zone10_cafe3_power.svg";
+import zone11a from "@assets/zones/zone11_view2.svg";
+import zone11b from "@assets/zones/zone11_closed_mtg.svg";
+
+const zones = [
+  {
+    id: 1,
+    title: "Production Suite",
+    desc: "A dedicated environment for high-output teams.",
+    images: [zone1]
+  },
+  {
+    id: 2,
+    title: "Green Nook & Reception",
+    desc: "Biophilic arrival experience and reception.",
+    images: [zone2]
+  },
+  {
+    id: 3,
+    title: "Lounge Area",
+    desc: "Informal social condenser.",
+    images: [zone3]
+  },
+  {
+    id: 4,
+    title: "Conference Area",
+    desc: "High-stakes strategy room.",
+    images: [zone4]
+  },
+  {
+    id: 5,
+    title: "Private Office",
+    desc: "Flexible private workspace with multiple configurations.",
+    images: [zone5a, zone5b]
+  },
+  {
+    id: 6,
+    title: "Team Offices",
+    desc: "Collaborative suites for small groups.",
+    images: [zone6]
+  },
+  {
+    id: 7,
+    title: "Resource Room",
+    desc: "Utility and production hub.",
+    images: [zone7]
+  },
+  {
+    id: 8,
+    title: "Dynamic Space",
+    desc: "Aggressively flexible town hall area.",
+    images: [zone8a, zone8b, zone8c, zone8d]
+  },
+  {
+    id: 9,
+    title: "Break Room",
+    desc: "Hospitality-grade refreshment zone.",
+    images: [zone9a, zone9b]
+  },
+  {
+    id: 10,
+    title: "Diner",
+    desc: "Social hearth with integrated power.",
+    images: [zone10a, zone10b, zone10c]
+  },
+  {
+    id: 11,
+    title: "The Lantern",
+    desc: "The beacon of transparency.",
+    images: [zone11a, zone11b]
+  }
+];
+
 export default function Home() {
+  const [activeZone, setActiveZone] = useState(zones[0]);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
   return (
     <Layout>
       {/* Hero Section - Refined & Timeless */}
@@ -93,7 +191,93 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Offering - Brochure Integration */}
+      {/* Campus Architecture Section */}
+      <section className="py-24 bg-muted/20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">The Campus</span>
+            <h2 className="font-serif text-4xl mt-4">Armonk Professional Center</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <motion.div 
+               initial={{ opacity: 0, x: -20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6 }}
+               className="space-y-6 text-lg leading-relaxed text-muted-foreground"
+            >
+              <p>
+                The original Armonk Professional Center, built in the 1960s, is a 2-story office building with a rich history. 
+              </p>
+              <p>
+                An addition to the lobby by famed <span className="text-foreground font-medium">Architect Vatche Simonian</span> seamlessly merges old and new. 
+                The new two-story glass enclosure and stone-clad elevator tower contrast with and yet complement the structure’s original brick facade.
+              </p>
+              <p>
+                The elevator tower is clad with oversized stone panels that continue to the interior of the lobby and conceal the mechanical room doors,
+                creating a monolithic anchor for the site.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6 }}
+               className="grid grid-cols-2 gap-4"
+            >
+              <img src={lanternImage} alt="Glass Facade" className="w-full h-64 object-cover" />
+              <img src={entranceImage} alt="Main Entrance" className="w-full h-64 object-cover translate-y-8" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Blueprint Section - Floor Plate & FF&E */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">The Blueprint</span>
+            <h2 className="font-serif text-4xl mt-4">Spatial Intelligence</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="bg-muted/10 p-8 border border-border"
+            >
+              <h3 className="font-serif text-xl mb-6 flex items-center gap-2">
+                <MapPin className="w-5 h-5 text-primary" />
+                Building Floor Plate
+              </h3>
+              <div className="aspect-square bg-white p-6 flex items-center justify-center border border-border/50">
+                <img src={buildingPlate} alt="Building Floor Plate" className="w-full h-full object-contain" />
+              </div>
+            </motion.div>
+
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.1 }}
+               className="bg-muted/10 p-8 border border-border"
+            >
+              <h3 className="font-serif text-xl mb-6 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-primary" />
+                Vitra FF&E Layout
+              </h3>
+              <div className="aspect-square bg-white p-6 flex items-center justify-center border border-border/50">
+                <img src={building3d} alt="Vitra FF&E Layout" className="w-full h-full object-contain" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Offering */}
       <section className="py-24 bg-secondary/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -149,80 +333,77 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Zones Grid - Refined */}
+      {/* The Zones Detail Section - Interactive */}
       <section id="zones" className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">Visual Tour</span>
-            <h2 className="font-serif text-4xl mt-4">Form Follows Function</h2>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">Interior Architecture</span>
+            <h2 className="font-serif text-4xl mt-4">Zone by Zone</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-1 bg-white p-1 shadow-2xl shadow-black/5">
-            {/* Lantern Feature */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative aspect-[4/3] md:aspect-auto md:row-span-2 group overflow-hidden"
-            >
-              <img 
-                src={lanternImage} 
-                alt="The Lantern" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors" />
-              <div className="absolute bottom-0 left-0 p-8 md:p-12 text-white">
-                <h3 className="font-serif text-3xl mb-2">The Lantern</h3>
-                <p className="text-white/80 max-w-sm">
-                  A beacon of transparency, dissolving the threshold between the street and the suite.
-                </p>
-              </div>
-            </motion.div>
+          <div className="grid lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
+            {/* Zone List */}
+            <div className="lg:col-span-4 space-y-2 h-[600px] overflow-y-auto pr-4 scrollbar-hide">
+              {zones.map((zone) => (
+                <button 
+                  key={zone.id}
+                  onClick={() => { setActiveZone(zone); setActiveImageIndex(0); }}
+                  className={`w-full text-left p-6 border transition-all duration-300 group ${
+                    activeZone.id === zone.id 
+                      ? "bg-primary text-primary-foreground border-primary" 
+                      : "bg-background border-border hover:border-primary/30"
+                  }`}
+                >
+                  <span className={`text-xs uppercase tracking-widest block mb-2 ${
+                    activeZone.id === zone.id ? "text-primary-foreground/70" : "text-muted-foreground"
+                  }`}>
+                    Zone {zone.id}
+                  </span>
+                  <h3 className="font-serif text-xl">{zone.title}</h3>
+                </button>
+              ))}
+            </div>
 
-            {/* Town Square */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative aspect-[4/3] group overflow-hidden"
-            >
-              <img 
-                src={townSquareImage} 
-                alt="Town Square" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-              <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="font-serif text-2xl mb-2">The Club Lounge</h3>
-                <p className="text-white/80 text-sm">
-                  A central hearth for coffee, conversation, and community events.
-                </p>
-              </div>
-            </motion.div>
+            {/* Zone Display */}
+            <div className="lg:col-span-8 bg-muted/10 border border-border p-8 md:p-12 flex flex-col items-center justify-center min-h-[600px] relative">
+              <div className="w-full max-w-2xl">
+                <motion.div
+                  key={`${activeZone.id}-${activeImageIndex}`}
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="aspect-[16/9] bg-white border border-border shadow-sm p-4 mb-8 flex items-center justify-center"
+                >
+                  <img 
+                    src={activeZone.images[activeImageIndex]} 
+                    alt={activeZone.title} 
+                    className="w-full h-full object-contain" 
+                  />
+                </motion.div>
 
-            {/* Green Nook */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative aspect-[4/3] group overflow-hidden"
-            >
-              <img 
-                src={greenNookImage} 
-                alt="Green Nook" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-              <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="font-serif text-2xl mb-2">Focus Nooks</h3>
-                <p className="text-white/80 text-sm">
-                  Quiet alcoves with acoustic privacy for deep work and reflection.
-                </p>
+                {/* Image Toggles if multiple */}
+                {activeZone.images.length > 1 && (
+                  <div className="flex justify-center gap-4 mb-8">
+                    {activeZone.images.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveImageIndex(idx)}
+                        className={`w-3 h-3 rounded-full transition-colors ${
+                          activeImageIndex === idx ? "bg-primary" : "bg-border hover:bg-primary/50"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
+
+                <div className="text-center">
+                  <h3 className="font-serif text-3xl mb-4">{activeZone.title}</h3>
+                  <p className="text-muted-foreground text-lg leading-relaxed max-w-lg mx-auto">
+                    {activeZone.desc}
+                  </p>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
