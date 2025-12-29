@@ -288,7 +288,7 @@ export default function Home() {
   };
 
   const handleZoomIn = () => {
-    setZoomLevel(prev => Math.min(prev + 0.5, 3));
+    setZoomLevel(prev => Math.min(prev + 0.5, 4));
   };
 
   const handleZoomOut = () => {
@@ -593,11 +593,11 @@ export default function Home() {
                         animate={{ opacity: 1, scale: zoomLevel }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
-                        className="absolute inset-0 w-full h-full origin-center"
+                        className="absolute inset-0 w-full h-full origin-center flex items-center justify-center p-8"
                       >
                         <img 
                             src={activeZone.images[activeImageIndex]}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                             alt={`${activeZone.title} View`}
                         />
                       </motion.div>
