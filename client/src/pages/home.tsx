@@ -61,6 +61,8 @@ import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jp
 import ffe03 from "@assets/stock_images/vitra_.03_chair_maar_ed81eaa6.jpg";
 import ffe04 from "@assets/stock_images/vitra_.04_chair_offi_b4b13e10.jpg";
 import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
+import ffe05 from "@assets/stock_images/vitra_.05_chair_maar_01327ebe.jpg";
+import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
 
 const zones = [
   {
@@ -196,6 +198,14 @@ const zones = [
         url: "https://www.vitra.com/en-us/product/joyn-2",
         pdf: "/documents/joyn2.pdf",
         desc: "Adaptable office table system for teamwork."
+      },
+      {
+        name: "Follow Me",
+        brand: "Vitra",
+        image: ffeFollowMe,
+        url: "https://www.vitra.com/en-us/product/follow-me",
+        pdf: "/documents/follow_me.pdf",
+        desc: "Robust, lockable mobile pedestal with a decorative pull strap."
       }
     ]
   },
@@ -275,6 +285,14 @@ const zones = [
         url: "https://www.vitra.com/en-us/product/03",
         pdf: "/documents/03_chair.pdf",
         desc: "Sleek, slim shape with extraordinary comfort."
+      },
+      {
+        name: ".05 Chair",
+        brand: "Vitra",
+        image: ffe05,
+        url: "https://www.vitra.com/en-us/product/05",
+        pdf: "/documents/05_chair.pdf",
+        desc: "Uncompromising form and flexible comfort in a cantilever chair."
       }
     ]
   },
