@@ -757,11 +757,20 @@ export default function Home() {
            <p className="text-xl text-muted-foreground mb-12">
              Join the wait list to secure a membership or private office today. Limited availability. Opus 355 is set to open in February 2026.
            </p>
-           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             <button className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto">
-               Contact Leasing
-             </button>
-             <button className="bg-muted text-foreground px-8 py-4 text-lg font-medium hover:bg-muted/80 transition-colors w-full sm:w-auto">
+           <div className="flex flex-col items-center gap-8">
+             <div className="w-full max-w-md flex flex-col sm:flex-row gap-2">
+               <input 
+                 type="email" 
+                 placeholder="Enter your email address" 
+                 className="flex-1 bg-muted/50 border border-border px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-primary/20 transition-all rounded-none"
+               />
+               <button className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
+                 Join Waitlist
+               </button>
+             </div>
+             
+             <button className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1">
+               <Download className="w-4 h-4" />
                Download Brochure
              </button>
            </div>
