@@ -529,9 +529,9 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-serif text-3xl md:text-5xl mb-6">Secure Your Citizenship</h2>
+            <h2 className="font-serif text-3xl md:text-5xl mb-6">Secure Your Membership</h2>
             <p className="text-muted-foreground mb-10">
-              Citizenship at Opus 355 is limited. Join the waitlist to be notified when applications open.
+              Membership at Opus 355 is limited. Join the waitlist to be notified when applications open.
             </p>
             
             <form className="flex flex-col md:flex-row gap-4 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
