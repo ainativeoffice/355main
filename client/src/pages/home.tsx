@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState, useEffect } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -279,10 +279,20 @@ export default function Home() {
   const [activeZone, setActiveZone] = useState(zones[0]);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
+  const [zoomLevel, setZoomLevel] = useState(1);
   
   const openZone = (zone: typeof zones[0]) => {
     setActiveZone(zone);
     setActiveImageIndex(0);
+    setZoomLevel(1);
+  };
+
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.5, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.5, 1));
   };
 
   const nextZone = () => {
@@ -575,18 +585,22 @@ export default function Home() {
                  </div>
 
                  {/* Right: Visuals */}
-                 <div className="relative h-[400px] md:h-auto bg-muted">
+                 <div className="relative h-[400px] md:h-auto bg-muted overflow-hidden">
                     <AnimatePresence mode="wait">
-                      <motion.img 
+                      <motion.div 
                         key={`${activeZone.id}-${activeImageIndex}`}
-                        src={activeZone.images[activeImageIndex]}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        animate={{ opacity: 1, scale: zoomLevel }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        alt={`${activeZone.title} View`}
-                      />
+                        className="absolute inset-0 w-full h-full origin-center"
+                      >
+                        <img 
+                            src={activeZone.images[activeImageIndex]}
+                            className="w-full h-full object-cover"
+                            alt={`${activeZone.title} View`}
+                        />
+                      </motion.div>
                     </AnimatePresence>
                     
                     {/* Image Navigation Dots if Multiple Images */}
@@ -595,7 +609,10 @@ export default function Home() {
                         {activeZone.images.map((_, idx) => (
                           <button
                             key={idx}
-                            onClick={() => setActiveImageIndex(idx)}
+                            onClick={() => {
+                                setActiveImageIndex(idx);
+                                setZoomLevel(1);
+                            }}
                             className={`w-2 h-2 rounded-full transition-all shadow-sm ${
                               idx === activeImageIndex 
                                 ? "bg-white w-4" 
@@ -606,9 +623,19 @@ export default function Home() {
                       </div>
                     )}
 
-                    <div className="absolute top-4 right-4">
-                      <button className="bg-black/20 backdrop-blur-md hover:bg-black/40 text-white p-2 rounded-full transition-colors">
+                    <div className="absolute top-4 right-4 flex flex-col gap-2 z-20">
+                      <button 
+                        onClick={handleZoomIn}
+                        className="bg-black/20 backdrop-blur-md hover:bg-black/40 text-white p-2 rounded-full transition-colors"
+                      >
                          <ZoomIn className="w-5 h-5" />
+                      </button>
+                      <button 
+                        onClick={handleZoomOut}
+                        disabled={zoomLevel <= 1}
+                        className={`bg-black/20 backdrop-blur-md text-white p-2 rounded-full transition-colors ${zoomLevel <= 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/40'}`}
+                      >
+                         <ZoomOut className="w-5 h-5" />
                       </button>
                     </div>
                  </div>
