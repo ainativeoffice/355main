@@ -292,7 +292,7 @@ export default function Home() {
   };
 
   const handleZoomOut = () => {
-    setZoomLevel(prev => Math.max(prev - 0.5, 1));
+    setZoomLevel(prev => Math.max(prev - 0.5, 0.5));
   };
 
   const nextZone = () => {
@@ -632,8 +632,8 @@ export default function Home() {
                       </button>
                       <button 
                         onClick={handleZoomOut}
-                        disabled={zoomLevel <= 1}
-                        className={`bg-black/20 backdrop-blur-md text-white p-2 rounded-full transition-colors ${zoomLevel <= 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/40'}`}
+                        disabled={zoomLevel <= 0.5}
+                        className={`bg-black/20 backdrop-blur-md text-white p-2 rounded-full transition-colors ${zoomLevel <= 0.5 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/40'}`}
                       >
                          <ZoomOut className="w-5 h-5" />
                       </button>
