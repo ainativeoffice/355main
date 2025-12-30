@@ -676,9 +676,9 @@ export default function Home() {
 
             {/* Zone Detail View (Always Visible Panel) */}
             <div className="bg-background">
-               <div className="grid md:grid-cols-2">
+               <div className="flex flex-col md:grid md:grid-cols-2">
                  {/* Left: Content & Products */}
-                 <div className="p-8 md:p-12 flex flex-col h-full border-r border-border">
+                 <div className="p-6 md:p-12 flex flex-col h-full md:border-r border-border order-2 md:order-1">
                     <div className="mb-8">
                        <div className="flex items-center justify-between mb-4">
                          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
@@ -728,7 +728,7 @@ export default function Home() {
                  </div>
 
                  {/* Right: Visuals */}
-                 <div className="relative h-[400px] md:h-auto bg-muted overflow-hidden">
+                 <div className="relative h-[300px] md:h-auto min-h-[300px] bg-muted overflow-hidden order-1 md:order-2">
                     <AnimatePresence mode="wait">
                       <motion.div 
                         key={`${activeZone.id}-${activeImageIndex}`}
