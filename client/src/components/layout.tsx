@@ -50,16 +50,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </a>
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Partners</h3>
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Solutions</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/brokers">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers">Brokers</a>
+              <Link href="/solutions/custom-offices">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-custom-offices">Custom Offices</a>
               </Link>
-              <Link href="/enterprise">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise">Enterprise</a>
+              <Link href="/solutions/private-offices">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-private-offices">Private Offices</a>
               </Link>
-              <Link href="/landlords">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords">Landlords</a>
+              <Link href="/solutions/hybrid">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid">Hybrid Memberships</a>
               </Link>
             </nav>
           </div>
