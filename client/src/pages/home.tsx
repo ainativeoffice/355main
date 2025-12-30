@@ -103,7 +103,7 @@ const zones = [
     id: 4,
     title: "Conference Area",
     desc: "High-stakes strategy room.",
-    x: 36.5, y: 36.5,
+    x: 10.5, y: 41.5,
     images: [zone4],
     products: [
       {
@@ -128,7 +128,7 @@ const zones = [
     id: 5,
     title: "Private Office",
     desc: "Flexible private workspace with multiple configurations.",
-    x: 23.5, y: 49.5,
+    x: 26.5, y: 49,
     images: [zone5a, zone5b],
     products: [
       {
@@ -153,7 +153,7 @@ const zones = [
     id: 6,
     title: "Team Offices",
     desc: "Collaborative suites for small groups.",
-    x: 25, y: 55,
+    x: 31, y: 54.5,
     images: [zone6],
     products: [
        {
@@ -178,7 +178,7 @@ const zones = [
     id: 7,
     title: "Resource Room",
     desc: "Utility and production hub.",
-    x: 36.5, y: 40,
+    x: 42, y: 50.5,
     images: [zone7],
     products: []
   },
@@ -186,7 +186,7 @@ const zones = [
     id: 8,
     title: "Dynamic Space",
     desc: "Aggressively flexible collaborative area.",
-    x: 65, y: 35,
+    x: 57.5, y: 55,
     images: [zone8a, zone8b, zone8c, zone8d],
     products: [
        {
@@ -219,7 +219,7 @@ const zones = [
     id: 9,
     title: "Break Room",
     desc: "Hospitality-grade refreshment zone.",
-    x: 81, y: 56,
+    x: 85.5, y: 58.5,
     images: [zone9a, zone9b],
     products: [
        {
@@ -236,7 +236,7 @@ const zones = [
     id: 10,
     title: "Diner",
     desc: "Social hearth with integrated power.",
-    x: 30, y: 70,
+    x: 48, y: 36.5,
     images: [zone10a, zone10b, zone10c],
     products: [
       {
@@ -269,7 +269,7 @@ const zones = [
     id: 11,
     title: "The Lantern",
     desc: "The beacon of transparency.",
-    x: 50, y: 15,
+    x: 36.5, y: 34,
     images: [zone11a, zone11b],
     products: []
   }
