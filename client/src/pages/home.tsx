@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from "lucide-react";
+import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Sliders, Copy, CheckCheck } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState, useEffect } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -285,6 +285,33 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
   
+  const [showTuner, setShowTuner] = useState(false);
+  const [zoneCoords, setZoneCoords] = useState<Record<number, {x: number, y: number}>>(
+    Object.fromEntries(zones.map(z => [z.id, { x: z.x, y: z.y }]))
+  );
+  const [copiedConfig, setCopiedConfig] = useState(false);
+
+  const updateZoneCoord = (id: number, axis: 'x' | 'y', value: number) => {
+    setZoneCoords(prev => ({
+      ...prev,
+      [id]: { ...prev[id], [axis]: value }
+    }));
+  };
+
+  const copyZoneConfig = () => {
+    const config = zones.map(z => ({
+      id: z.id,
+      title: z.title,
+      x: zoneCoords[z.id].x,
+      y: zoneCoords[z.id].y
+    }));
+    navigator.clipboard.writeText(JSON.stringify(config, null, 2));
+    setCopiedConfig(true);
+    setTimeout(() => setCopiedConfig(false), 2000);
+  };
+
+  const getZoneCoord = (zone: typeof zones[0]) => zoneCoords[zone.id] || { x: zone.x, y: zone.y };
+  
   const openZone = (zone: typeof zones[0]) => {
     setActiveZone(zone);
     setActiveImageIndex(0);
@@ -543,12 +570,14 @@ export default function Home() {
                />
                
                {/* Hotspots */}
-               {zones.map((zone) => (
+               {zones.map((zone) => {
+                 const coords = getZoneCoord(zone);
+                 return (
                  <motion.button
                    key={zone.id}
                    style={{ 
-                     top: `${zone.y}%`, 
-                     left: `${zone.x}%` 
+                     top: `${coords.y}%`, 
+                     left: `${coords.x}%` 
                    }}
                    className="absolute -translate-x-1/2 -translate-y-1/2 group z-10"
                    onClick={() => openZone(zone)}
@@ -570,7 +599,8 @@ export default function Home() {
                      </div>
                    </div>
                  </motion.button>
-               ))}
+               );
+               })}
             </div>
 
             {/* Zone Detail View (Always Visible Panel) */}
@@ -683,6 +713,78 @@ export default function Home() {
                  </div>
                </div>
             </div>
+          </div>
+          
+          {/* Zone Tuner - Development Tool */}
+          <div className="mt-8 max-w-5xl mx-auto">
+            <button
+              onClick={() => setShowTuner(!showTuner)}
+              className="flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider"
+            >
+              <Sliders className="w-4 h-4" />
+              {showTuner ? "Hide" : "Show"} Zone Tuner
+            </button>
+            
+            {showTuner && (
+              <div className="mt-4 p-6 bg-muted/50 border border-border rounded-lg">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-medium text-sm">Zone Coordinates</h4>
+                  <button
+                    onClick={copyZoneConfig}
+                    className="flex items-center gap-2 text-xs bg-primary text-primary-foreground px-3 py-1.5 rounded hover:bg-primary/90 transition-colors"
+                  >
+                    {copiedConfig ? <CheckCheck className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                    {copiedConfig ? "Copied!" : "Copy Config"}
+                  </button>
+                </div>
+                
+                <div className="grid gap-3 max-h-80 overflow-y-auto pr-2">
+                  {zones.map((zone) => {
+                    const coords = getZoneCoord(zone);
+                    const isActive = activeZone.id === zone.id;
+                    return (
+                      <div 
+                        key={zone.id}
+                        className={`p-3 rounded border transition-colors cursor-pointer ${
+                          isActive ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
+                        }`}
+                        onClick={() => openZone(zone)}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-sm font-medium">
+                            Zone {zone.id}: {zone.title}
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="flex items-center gap-2">
+                            <label className="text-xs text-muted-foreground w-6">X:</label>
+                            <input
+                              type="number"
+                              step="0.5"
+                              value={coords.x}
+                              onChange={(e) => updateZoneCoord(zone.id, 'x', parseFloat(e.target.value) || 0)}
+                              onClick={(e) => e.stopPropagation()}
+                              className="flex-1 bg-background border border-border rounded px-2 py-1 text-sm w-full"
+                            />
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <label className="text-xs text-muted-foreground w-6">Y:</label>
+                            <input
+                              type="number"
+                              step="0.5"
+                              value={coords.y}
+                              onChange={(e) => updateZoneCoord(zone.id, 'y', parseFloat(e.target.value) || 0)}
+                              onClick={(e) => e.stopPropagation()}
+                              className="flex-1 bg-background border border-border rounded px-2 py-1 text-sm w-full"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
