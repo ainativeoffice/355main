@@ -87,9 +87,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </a>
           </div>
         </div>
-        <div className="container mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-xs text-white/30 flex justify-between">
+        <div className="container mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-xs text-white/30">
           <span>© 2025 Opus 355. All rights reserved.</span>
-          <span>Designed with Replit</span>
         </div>
       </footer>
     </div>
