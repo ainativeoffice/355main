@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer className="bg-foreground text-background py-20 border-t border-white/10" id="contact">
-        <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-12">
           <div>
             <h2 className="font-serif text-3xl mb-6">Opus 355</h2>
             <p className="text-white/60 max-w-md leading-relaxed">
@@ -60,6 +60,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <Link href="/solutions/hybrid">
                 <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid">Hybrid Memberships</a>
+              </Link>
+            </nav>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Partners</h3>
+            <nav className="flex flex-col gap-3">
+              <Link href="/brokers">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers">Brokers</a>
+              </Link>
+              <Link href="/enterprise">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise">Enterprise</a>
+              </Link>
+              <Link href="/landlords">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords">Landlords</a>
               </Link>
             </nav>
           </div>
