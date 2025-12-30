@@ -1,0 +1,1079 @@
+<mcp_external_output>
+
+### Content Block 1 (Text)
+<canvas id="0:1" name="Styleguide" x="0" y="0" width="0" height="0">
+  <frame id="1:1295" name="Webflow Elements" x="12644" y="-5286" width="1440" height="2014">
+    <instance id="1:1296" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:1297" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="677">
+      <frame id="1:1299" name="styleguide_item" x="0" y="0" width="1312" height="677">
+        <instance id="1:1300" name="styleguide_label" x="0" y="0" width="156" height="35" />
+        <text id="1:1378" name="Example of a form component using Folders" x="0" y="53" width="415" height="30" />
+        <frame id="1:1394" name="form_component" x="0" y="101" width="1312" height="364">
+          <frame id="1:1393" name="form_form" x="0" y="0" width="1312" height="364">
+            <frame id="1:1490" name="Form/Field Wrapper" x="0" y="0" width="650" height="364">
+              <symbol id="1:1491" name="Type=Default" x="16" y="16" width="618" height="76" />
+              <symbol id="1:1494" name="Type=is-text-area" x="16" y="104" width="618" height="156" />
+              <symbol id="1:1497" name="Type=is-select" x="16" y="272" width="618" height="76" />
+            </frame>
+            <frame id="1:1410" name="Form/Input" x="662" y="0" width="650" height="280">
+              <symbol id="1:1401" name="Type=Default" x="16" y="16" width="618" height="48" />
+              <symbol id="1:1411" name="Type=is-text-area" x="16" y="76" width="618" height="128" />
+              <symbol id="1:1418" name="Type=is-select-input" x="16" y="216" width="618" height="48" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="1:1446" name="Form/Checkbox" x="0" y="483" width="374" height="64">
+          <symbol id="1:1447" name="State=none" x="16" y="16" width="98" height="32" />
+          <symbol id="208:227" name="State=Focused" x="138" y="16" width="98" height="32" />
+          <symbol id="208:222" name="State=Checked" x="260" y="16" width="98" height="32" />
+        </frame>
+        <frame id="1:1454" name="Form/Radio" x="0" y="565" width="275" height="64">
+          <symbol id="1:1455" name="State=None" x="16" y="16" width="65" height="32" />
+          <symbol id="208:230" name="State=Focused" x="105" y="16" width="65" height="32" />
+          <symbol id="1:1458" name="State=Checked" x="194" y="16" width="65" height="32" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:1505" name="styleguide_item-wrapper" x="64" y="1036" width="1312" height="930">
+      <frame id="1:1506" name="styleguide_item" x="0" y="0" width="1312" height="930">
+        <instance id="1:1507" name="styleguide_label" x="0" y="0" width="129" height="35" />
+        <frame id="1:1572" name="text-rich-text" x="0" y="53" width="1312" height="829">
+          <symbol id="1:1571" name="text-rich-text=All H1 Headings" x="16" y="16" width="1280" height="110" />
+          <symbol id="1:1573" name="text-rich-text=All H2 Headings" x="16" y="126" width="1280" height="98" />
+          <symbol id="1:1577" name="text-rich-text=All H3 Headings" x="16" y="224" width="1280" height="78" />
+          <symbol id="1:1580" name="text-rich-text=All H4 Headings" x="16" y="302" width="1280" height="69" />
+          <symbol id="1:1585" name="text-rich-text=All H5 Headings" x="16" y="371" width="1280" height="64" />
+          <symbol id="1:1588" name="text-rich-text=All H6 Headings" x="16" y="435" width="1280" height="58" />
+          <symbol id="1:1593" name="text-rich-text=All Paragraphs" x="16" y="493" width="1280" height="64" />
+          <symbol id="1:1596" name="text-rich-text=All Unordered Lists" x="16" y="557" width="1280" height="98" />
+          <symbol id="1:1599" name="text-rich-text=All Numbered Lists" x="16" y="655" width="1280" height="98" />
+          <symbol id="1:1610" name="text-rich-text=All Block Quotes" x="16" y="753" width="1280" height="60" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:170" name="Text Classes" x="3644" y="-5286" width="1440" height="2349">
+    <instance id="1:171" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:172" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="540">
+      <instance id="1:203" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:205" name="styleguide_3-col" x="0" y="119" width="1312" height="209">
+        <frame id="1:173" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="209">
+          <instance id="1:174" name="styleguide_label" x="0" y="0" width="139" height="35" />
+          <text id="1:175" name="Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="405.3333435058594" height="108" />
+        </frame>
+        <frame id="1:176" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="209">
+          <instance id="1:177" name="styleguide_label" x="0" y="0" width="163" height="35" />
+          <text id="1:178" name="Sample text is being used as a placeholder for real text that is normally present on your website." x="0" y="53" width="405.3333435058594" height="90" />
+        </frame>
+        <frame id="1:179" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="209">
+          <instance id="1:180" name="styleguide_label" x="0" y="0" width="156" height="35" />
+          <text id="1:181" name="Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look on your website." x="0" y="53" width="405.3333435058594" height="72" />
+        </frame>
+      </frame>
+      <frame id="1:217" name="styleguide_3-col" x="0" y="376" width="1312" height="164">
+        <frame id="1:218" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="164">
+          <instance id="1:219" name="styleguide_label" x="0" y="0" width="141" height="35" />
+          <text id="1:220" name="Sample text is being used as a placeholder for real text that is normally present on your website. Sample text helps you understand how real text may look on your website." x="0" y="53" width="405.3333435058594" height="63" />
+        </frame>
+        <frame id="1:221" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="164">
+          <instance id="1:222" name="styleguide_label" x="0" y="0" width="130" height="35" />
+          <text id="1:223" name="Sample text is being used as a placeholder for real text that is normally present on your website. Sample text helps you understand how real text may look on your website." x="0" y="53" width="405.3333435058594" height="54" />
+        </frame>
+        <frame id="1:224" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="164" />
+      </frame>
+    </frame>
+    <frame id="1:231" name="styleguide_item-wrapper" x="64" y="899" width="1312" height="613">
+      <instance id="1:232" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:233" name="styleguide_3-col" x="0" y="119" width="1312" height="120">
+        <frame id="1:234" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="120">
+          <instance id="1:235" name="styleguide_label" x="0" y="0" width="212" height="35" />
+          <text id="1:236" name="text-style-strikethrough" x="0" y="53" width="405.3333435058594" height="19" />
+        </frame>
+        <frame id="1:237" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="120">
+          <instance id="1:238" name="styleguide_label" x="0" y="0" width="144" height="35" />
+          <text id="1:239" name="text-style-italic" x="0" y="53" width="405.3333435058594" height="19" />
+        </frame>
+        <frame id="1:240" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="120">
+          <instance id="1:241" name="styleguide_label" x="0" y="0" width="157" height="35" />
+          <symbol id="1:319" name="text-syle-muted" x="0" y="53" width="405.3333435058594" height="19" />
+        </frame>
+      </frame>
+      <frame id="1:243" name="styleguide_3-col" x="0" y="287" width="1312" height="120">
+        <frame id="1:244" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="120">
+          <instance id="1:245" name="styleguide_label" x="0" y="0" width="162" height="35" />
+          <text id="1:246" name="text-style-allcaps" x="0" y="53" width="405.3333435058594" height="19" />
+        </frame>
+        <frame id="1:247" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="120">
+          <instance id="1:248" name="styleguide_label" x="0" y="0" width="165" height="35" />
+          <text id="1:249" name="text-style-nowrap" x="0" y="53" width="405.3333435058594" height="19" />
+        </frame>
+        <frame id="1:261" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="120">
+          <instance id="1:262" name="styleguide_label" x="0" y="0" width="134" height="35" />
+          <text id="1:263" name="text-style-link" x="0" y="53" width="405.3333435058594" height="19" />
+        </frame>
+      </frame>
+      <frame id="1:265" name="styleguide_3-col" x="0" y="455" width="1312" height="158">
+        <frame id="1:266" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="158">
+          <instance id="1:267" name="styleguide_label" x="0" y="0" width="152" height="35" />
+          <frame id="1:330" name="Frame 2" x="0" y="53" width="405.3333435058594" height="48">
+            <text id="1:268" name="Sample text is being used as a placeholder." x="20" y="0" width="365.3333435058594" height="48" />
+          </frame>
+        </frame>
+        <frame id="1:269" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="158">
+          <instance id="1:270" name="styleguide_label" x="0" y="0" width="153" height="35" />
+          <text id="1:271" name="Sample text is being used as a placeholder for real text that is ..." x="0" y="53" width="405.3333435058594" height="38" />
+        </frame>
+        <frame id="1:272" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="158">
+          <instance id="1:273" name="styleguide_label" x="0" y="0" width="154" height="35" />
+          <text id="1:274" name="Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may ..." x="0" y="53" width="405.3333435058594" height="57" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:416" name="styleguide_item-wrapper" x="64" y="1576" width="1312" height="417">
+      <instance id="1:417" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:418" name="styleguide_3-col" x="0" y="119" width="1312" height="125">
+        <frame id="1:460" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="125">
+          <instance id="1:461" name="styleguide_label" x="0" y="0" width="165" height="35" />
+          <text id="1:462" name="text-weight-xbold" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:464" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="125">
+          <instance id="1:465" name="styleguide_label" x="0" y="0" width="156" height="35" />
+          <text id="1:466" name="text-weight-bold" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:468" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="125">
+          <instance id="1:469" name="styleguide_label" x="0" y="0" width="193" height="35" />
+          <text id="1:470" name="text-weight-semibold" x="0" y="53" width="405.3333435058594" height="20" />
+        </frame>
+      </frame>
+      <frame id="1:472" name="styleguide_3-col" x="0" y="292" width="1312" height="125">
+        <frame id="1:473" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="125">
+          <instance id="1:474" name="styleguide_label" x="0" y="0" width="184" height="35" />
+          <text id="1:475" name="text-weight-medium" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:476" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="125">
+          <instance id="1:477" name="styleguide_label" x="0" y="0" width="175" height="35" />
+          <text id="1:478" name="text-weight-normal" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:479" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="125">
+          <instance id="1:480" name="styleguide_label" x="0" y="0" width="156" height="35" />
+          <text id="1:481" name="text-weight-light" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:485" name="styleguide_item-wrapper" x="64" y="2057" width="1312" height="244">
+      <instance id="1:486" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:487" name="styleguide_3-col" x="0" y="119" width="1312" height="125">
+        <frame id="1:488" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="125">
+          <instance id="1:489" name="styleguide_label" x="0" y="0" width="133" height="35" />
+          <text id="1:490" name="text-align-left" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:491" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="125">
+          <instance id="1:492" name="styleguide_label" x="0" y="0" width="157" height="35" />
+          <text id="1:493" name="text-align-center" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:494" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="125">
+          <instance id="1:495" name="styleguide_label" x="0" y="0" width="143" height="35" />
+          <text id="1:496" name="text-align-right" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:135" name="Structure Classes" x="-2372" y="-5286" width="1440" height="2665">
+    <instance id="1:166" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:138" name="styleguide_item" x="64" y="295" width="1312" height="149">
+      <instance id="1:139" name="styleguide_label" x="0" y="0" width="135" height="35" />
+      <symbol id="102:146" name="page-wrapper" x="0" y="53" width="48" height="48" />
+    </frame>
+    <frame id="223:398" name="styleguide_item" x="64" y="508" width="1312" height="149">
+      <instance id="223:399" name="styleguide_label" x="0" y="0" width="134" height="35" />
+      <symbol id="223:405" name="main-wrapper" x="0" y="53" width="48" height="48" />
+    </frame>
+    <frame id="102:148" name="styleguide_item" x="64" y="721" width="1312" height="447">
+      <frame id="102:202" name="styleguide_label-wrapper" x="0" y="0" width="167" height="141">
+        <instance id="102:149" name="styleguide_label" x="0" y="0" width="146" height="35" />
+        <instance id="102:198" name="styleguide_label" x="0" y="53" width="167" height="35" />
+        <instance id="102:200" name="styleguide_label" x="0" y="106" width="144" height="35" />
+      </frame>
+      <frame id="102:157" name="container" x="0" y="159" width="1312" height="240">
+        <symbol id="102:160" name="Size=small" x="272" y="24" width="768" height="48" />
+        <symbol id="102:166" name="Size=medium" x="144" y="96" width="1024" height="48" />
+        <symbol id="102:167" name="Size=large" x="16" y="168" width="1280" height="48" />
+      </frame>
+    </frame>
+    <frame id="223:406" name="styleguide_item" x="64" y="1232" width="1312" height="149">
+      <frame id="223:407" name="styleguide_label-wrapper" x="0" y="0" width="143" height="35">
+        <instance id="223:408" name="styleguide_label" x="0" y="0" width="143" height="35" />
+      </frame>
+      <symbol id="223:427" name="padding-global" x="0" y="53" width="1312" height="48" />
+    </frame>
+    <frame id="102:203" name="styleguide_item" x="64" y="1445" width="1312" height="959">
+      <frame id="102:204" name="styleguide_label-wrapper" x="0" y="0" width="222" height="141">
+        <instance id="102:205" name="styleguide_label" x="0" y="0" width="201" height="35" />
+        <instance id="102:206" name="styleguide_label" x="0" y="53" width="222" height="35" />
+        <instance id="102:207" name="styleguide_label" x="0" y="106" width="199" height="35" />
+      </frame>
+      <frame id="102:208" name="padding-section" x="0" y="159" width="1312" height="752">
+        <symbol id="102:209" name="Size=small" x="24" y="24" width="1264" height="144" />
+        <symbol id="102:217" name="Size=medium" x="24" y="192" width="1264" height="208" />
+        <symbol id="102:219" name="Size=large" x="24" y="424" width="1264" height="304" />
+      </frame>
+    </frame>
+    <frame id="102:221" name="styleguide_item" x="64" y="2468" width="1312" height="149">
+      <frame id="102:222" name="styleguide_label-wrapper" x="0" y="0" width="129" height="35">
+        <instance id="102:223" name="styleguide_label" x="0" y="0" width="129" height="35" />
+      </frame>
+      <symbol id="102:241" name="button-group" x="0" y="53" width="112" height="48" />
+    </frame>
+  </frame>
+  <frame id="206:389" name="Paddings" x="9660" y="-5286" width="1440" height="11910">
+    <instance id="206:390" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="206:441" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="465">
+      <instance id="206:442" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="208:1479" name="styleguide_3-col" x="0" y="119" width="1312" height="149">
+        <frame id="208:1480" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="149">
+          <instance id="208:1481" name="styleguide_label" x="0" y="0" width="151" height="35" />
+          <instance id="208:1511" name="padding" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:1513" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="149">
+          <instance id="208:1514" name="styleguide_label" x="0" y="0" width="121" height="35" />
+          <instance id="208:1515" name="padding" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:1519" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="149">
+          <instance id="208:1520" name="styleguide_label" x="0" y="0" width="153" height="35" />
+          <instance id="208:1521" name="padding" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+      </frame>
+      <frame id="208:1525" name="styleguide_3-col" x="0" y="316" width="1312" height="149">
+        <frame id="208:1526" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="149">
+          <instance id="208:1527" name="styleguide_label" x="0" y="0" width="173" height="35" />
+          <instance id="208:1528" name="padding" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:1529" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="149">
+          <instance id="208:1530" name="styleguide_label" x="0" y="0" width="121" height="35" />
+          <instance id="208:1531" name="padding" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:1532" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="149">
+          <instance id="208:1533" name="styleguide_label" x="0" y="0" width="132" height="35" />
+          <instance id="208:1534" name="padding" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="208:1544" name="styleguide_item-wrapper" x="64" y="824" width="1312" height="2627">
+      <instance id="208:1545" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="208:1546" name="styleguide_3-col" x="0" y="119" width="1312" height="153">
+        <frame id="208:1547" name="styleguide_item" x="0" y="0" width="632" height="149">
+          <instance id="208:1548" name="styleguide_label" x="0" y="0" width="106" height="35" />
+          <instance id="208:1549" name="padding" x="0" y="53" width="632" height="48" />
+        </frame>
+        <frame id="208:2057" name="styleguide_item" x="680" y="0" width="632" height="153">
+          <instance id="208:2058" name="styleguide_label" x="0" y="0" width="124" height="35" />
+          <instance id="208:2059" name="padding" x="0" y="53" width="632" height="52" />
+        </frame>
+      </frame>
+      <frame id="208:2085" name="styleguide_3-col" x="0" y="320" width="1312" height="165">
+        <frame id="208:2131" name="styleguide_item" x="0" y="0" width="632" height="165">
+          <instance id="208:2132" name="styleguide_label" x="0" y="0" width="145" height="35" />
+          <instance id="208:2133" name="padding" x="0" y="53" width="632" height="64" />
+        </frame>
+        <frame id="208:2246" name="styleguide_item" x="680" y="0" width="632" height="157">
+          <instance id="208:2247" name="styleguide_label" x="0" y="0" width="154" height="35" />
+          <instance id="208:2248" name="padding" x="0" y="53" width="632" height="56" />
+        </frame>
+      </frame>
+      <frame id="208:2114" name="styleguide_3-col" x="0" y="533" width="1312" height="213">
+        <frame id="208:2252" name="styleguide_item" x="0" y="0" width="632" height="213">
+          <instance id="208:2253" name="styleguide_label" x="0" y="0" width="136" height="35" />
+          <instance id="208:2254" name="padding" x="0" y="53" width="632" height="80" />
+        </frame>
+        <frame id="208:2162" name="styleguide_item" x="680" y="0" width="632" height="213">
+          <instance id="208:2163" name="styleguide_label" x="0" y="0" width="157" height="35" />
+          <instance id="208:2164" name="padding" x="0" y="53" width="632" height="112" />
+        </frame>
+      </frame>
+      <frame id="208:2136" name="styleguide_3-col" x="0" y="794" width="1312" height="277">
+        <frame id="208:2257" name="styleguide_item" x="0" y="0" width="632" height="245">
+          <instance id="208:2258" name="styleguide_label" x="0" y="0" width="134" height="35" />
+          <instance id="208:2259" name="padding" x="0" y="53" width="632" height="144" />
+        </frame>
+        <frame id="208:2137" name="styleguide_item" x="680" y="0" width="632" height="277">
+          <instance id="208:2138" name="styleguide_label" x="0" y="0" width="143" height="35" />
+          <instance id="208:2139" name="padding" x="0" y="53" width="632" height="176" />
+        </frame>
+      </frame>
+      <frame id="208:2168" name="styleguide_3-col" x="0" y="1119" width="1312" height="341">
+        <frame id="208:2262" name="styleguide_item" x="0" y="0" width="632" height="341">
+          <instance id="208:2263" name="styleguide_label" x="0" y="0" width="152" height="35" />
+          <instance id="208:2264" name="padding" x="0" y="53" width="632" height="208" />
+        </frame>
+        <frame id="208:2169" name="styleguide_item" x="680" y="0" width="632" height="341">
+          <instance id="208:2170" name="styleguide_label" x="0" y="0" width="134" height="35" />
+          <instance id="208:2171" name="padding" x="0" y="53" width="632" height="240" />
+        </frame>
+      </frame>
+      <frame id="208:2181" name="styleguide_3-col" x="0" y="1508" width="1312" height="533">
+        <frame id="208:2267" name="styleguide_item" x="0" y="0" width="632" height="533">
+          <instance id="208:2268" name="styleguide_label" x="0" y="0" width="143" height="35" />
+          <instance id="208:2269" name="padding" x="0" y="53" width="632" height="304" />
+        </frame>
+        <frame id="208:2182" name="styleguide_item" x="680" y="0" width="632" height="533">
+          <instance id="208:2183" name="styleguide_label" x="0" y="0" width="152" height="35" />
+          <instance id="208:2184" name="padding" x="0" y="53" width="632" height="432" />
+        </frame>
+      </frame>
+      <frame id="208:2194" name="styleguide_3-col" x="0" y="2089" width="1312" height="229">
+        <frame id="208:2272" name="styleguide_item" x="0" y="0" width="632" height="229">
+          <instance id="208:2273" name="styleguide_label" x="0" y="0" width="160" height="35" />
+          <instance id="208:2274" name="padding" x="0" y="53" width="632" height="96" />
+        </frame>
+        <frame id="208:2198" name="styleguide_item" x="680" y="0" width="632" height="229">
+          <instance id="208:2199" name="styleguide_label" x="0" y="0" width="163" height="35" />
+          <instance id="208:2200" name="padding" x="0" y="53" width="632" height="128" />
+        </frame>
+      </frame>
+      <frame id="208:2277" name="styleguide_3-col" x="0" y="2366" width="1312" height="261">
+        <frame id="208:2281" name="styleguide_item" x="0" y="0" width="632" height="261">
+          <instance id="208:2282" name="styleguide_label" x="0" y="0" width="163" height="35" />
+          <instance id="208:2283" name="padding" x="0" y="53" width="632" height="160" />
+        </frame>
+        <frame id="208:2298" name="styleguide_item" x="680" y="0" width="632" height="261" />
+      </frame>
+    </frame>
+    <frame id="208:1800" name="styleguide_item-wrapper" x="64" y="3515" width="1312" height="8347">
+      <instance id="223:428" name="styleguide_item-header" x="0" y="0" width="1312" height="121" />
+      <frame id="208:1823" name="styleguide_item" x="0" y="169" width="1312" height="8178">
+        <frame id="208:1824" name="padding" x="0" y="0" width="999" height="8130">
+          <symbol id="208:1865" name="Direction=vertical, Size=xxsmall" x="577" y="4026" width="405.3333435058594" height="56" />
+          <symbol id="208:1931" name="Direction=vertical, Size=xxlarge" x="577" y="4850" width="405.3333435058594" height="208" />
+          <symbol id="208:1967" name="Direction=vertical, Size=xxhuge" x="577" y="5698" width="405.3333435058594" height="432" />
+          <symbol id="208:1871" name="Direction=vertical, Size=xsmall" x="577" y="4114" width="405.3333435058594" height="64" />
+          <symbol id="208:1919" name="Direction=vertical, Size=xlarge" x="577" y="4642" width="405.3333435058594" height="176" />
+          <symbol id="208:1955" name="Direction=vertical, Size=xhuge" x="577" y="5362" width="405.3333435058594" height="304" />
+          <symbol id="208:1853" name="Direction=vertical, Size=tiny" x="577" y="3942" width="405.3333435058594" height="52" />
+          <symbol id="208:1883" name="Direction=vertical, Size=small" x="577" y="4210" width="405.3333435058594" height="80" />
+          <symbol id="208:1829" name="Direction=vertical, Size=none" x="577" y="3782" width="405.3333435058594" height="48" />
+          <symbol id="208:1895" name="Direction=vertical, Size=medium" x="577" y="4322" width="405.3333435058594" height="112" />
+          <symbol id="208:1907" name="Direction=vertical, Size=large" x="577" y="4466" width="405.3333435058594" height="144" />
+          <symbol id="208:1943" name="Direction=vertical, Size=huge" x="577" y="5090" width="405.3333435058594" height="240" />
+          <symbol id="208:2003" name="Direction=vertical, Size=custom3" x="577" y="6450" width="405.3333435058594" height="160" />
+          <symbol id="208:1991" name="Direction=vertical, Size=custom2" x="577" y="6290" width="405.3333435058594" height="128" />
+          <symbol id="208:1979" name="Direction=vertical, Size=custom1" x="577" y="6162" width="405.3333435058594" height="96" />
+          <symbol id="208:1841" name="Direction=vertical, Size=0" x="577" y="3862" width="405.3333435058594" height="48" />
+          <symbol id="208:1863" name="Direction=top, Size=xxsmall" x="577" y="258" width="405.3333435058594" height="52" />
+          <symbol id="208:1929" name="Direction=top, Size=xxlarge" x="577" y="910" width="405.3333435058594" height="128" />
+          <symbol id="208:1965" name="Direction=top, Size=xxhuge" x="577" y="1454" width="405.3333435058594" height="240" />
+          <symbol id="208:1869" name="Direction=top, Size=xsmall" x="577" y="342" width="405.3333435058594" height="56" />
+          <symbol id="208:1917" name="Direction=top, Size=xlarge" x="577" y="766" width="405.3333435058594" height="112" />
+          <symbol id="208:1953" name="Direction=top, Size=xhuge" x="577" y="1246" width="405.3333435058594" height="176" />
+          <symbol id="208:1851" name="Direction=top, Size=tiny" x="577" y="176" width="405.3333435058594" height="50" />
+          <symbol id="208:1881" name="Direction=top, Size=small" x="577" y="430" width="405.3333435058594" height="64" />
+          <symbol id="208:1827" name="Direction=top, Size=none" x="577" y="16" width="405.3333435058594" height="48" />
+          <symbol id="208:1893" name="Direction=top, Size=medium" x="577" y="526" width="405.3333435058594" height="80" />
+          <symbol id="208:1905" name="Direction=top, Size=large" x="577" y="638" width="405.3333435058594" height="96" />
+          <symbol id="208:1941" name="Direction=top, Size=huge" x="577" y="1070" width="405.3333435058594" height="144" />
+          <symbol id="208:2001" name="Direction=top, Size=custom3" x="577" y="1950" width="405.3333435058594" height="104" />
+          <symbol id="208:1989" name="Direction=top, Size=custom2" x="577" y="1830" width="405.3333435058594" height="88" />
+          <symbol id="208:1977" name="Direction=top, Size=custom1" x="577" y="1726" width="405.3333435058594" height="72" />
+          <symbol id="208:1839" name="Direction=top, Size=0" x="577" y="96" width="405.3333435058594" height="48" />
+          <symbol id="208:2222" name="Direction=right, Size=xxsmall" x="16" y="2534" width="405.3333435058594" height="48" />
+          <symbol id="208:1937" name="Direction=right, Size=xxlarge" x="16" y="3014" width="405.3333435058594" height="48" />
+          <symbol id="208:1973" name="Direction=right, Size=xxhuge" x="16" y="3254" width="405.3333435058594" height="48" />
+          <symbol id="208:1877" name="Direction=right, Size=xsmall" x="16" y="2614" width="405.3333435058594" height="48" />
+          <symbol id="208:1925" name="Direction=right, Size=xlarge" x="16" y="2934" width="405.3333435058594" height="48" />
+          <symbol id="208:1961" name="Direction=right, Size=xhuge" x="16" y="3174" width="405.3333435058594" height="48" />
+          <symbol id="208:1859" name="Direction=right, Size=tiny" x="16" y="2454" width="405.3333435058594" height="48" />
+          <symbol id="208:1889" name="Direction=right, Size=small" x="16" y="2694" width="405.3333435058594" height="48" />
+          <symbol id="208:1835" name="Direction=right, Size=none" x="16" y="2294" width="405.3333435058594" height="48" />
+          <symbol id="208:1901" name="Direction=right, Size=medium" x="16" y="2774" width="405.3333435058594" height="48" />
+          <symbol id="208:1913" name="Direction=right, Size=large" x="16" y="2854" width="405.3333435058594" height="48" />
+          <symbol id="208:1949" name="Direction=right, Size=huge" x="16" y="3094" width="405.3333435058594" height="48" />
+          <symbol id="208:2039" name="Direction=right, Size=custom3" x="16" y="3494" width="405.3333435058594" height="48" />
+          <symbol id="208:1997" name="Direction=right, Size=custom2" x="16" y="3414" width="405.3333435058594" height="48" />
+          <symbol id="208:1985" name="Direction=right, Size=custom1" x="16" y="3334" width="405.3333435058594" height="48" />
+          <symbol id="208:1847" name="Direction=right, Size=0" x="16" y="2374" width="405.3333435058594" height="48" />
+          <symbol id="208:2224" name="Direction=none, Size=xxsmall" x="16" y="4026" width="405.3333435058594" height="56" />
+          <symbol id="208:2023" name="Direction=none, Size=xxlarge" x="16" y="4850" width="405.3333435058594" height="208" />
+          <symbol id="208:2029" name="Direction=none, Size=xxhuge" x="16" y="5698" width="405.3333435058594" height="432" />
+          <symbol id="208:2013" name="Direction=none, Size=xsmall" x="16" y="4114" width="405.3333435058594" height="64" />
+          <symbol id="208:2021" name="Direction=none, Size=xlarge" x="16" y="4642" width="405.3333435058594" height="176" />
+          <symbol id="208:2027" name="Direction=none, Size=xhuge" x="16" y="5362" width="405.3333435058594" height="304" />
+          <symbol id="208:2011" name="Direction=none, Size=tiny" x="16" y="3942" width="405.3333435058594" height="52" />
+          <symbol id="208:2015" name="Direction=none, Size=small" x="16" y="4210" width="405.3333435058594" height="80" />
+          <symbol id="208:2007" name="Direction=none, Size=none" x="16" y="3782" width="405.3333435058594" height="48" />
+          <symbol id="208:2017" name="Direction=none, Size=medium" x="16" y="4322" width="405.3333435058594" height="112" />
+          <symbol id="208:2019" name="Direction=none, Size=large" x="16" y="4466" width="405.3333435058594" height="144" />
+          <symbol id="208:2025" name="Direction=none, Size=huge" x="16" y="5090" width="405.3333435058594" height="240" />
+          <symbol id="208:2035" name="Direction=none, Size=custom3" x="16" y="6450" width="405.3333435058594" height="160" />
+          <symbol id="208:2033" name="Direction=none, Size=custom2" x="16" y="6290" width="405.3333435058594" height="128" />
+          <symbol id="208:2031" name="Direction=none, Size=custom1" x="16" y="6162" width="405.3333435058594" height="96" />
+          <symbol id="208:2009" name="Direction=none, Size=0" x="16" y="3862" width="405.3333435058594" height="48" />
+          <symbol id="208:2220" name="Direction=left, Size=xxsmall" x="577" y="2534" width="405.3333435058594" height="48" />
+          <symbol id="208:1935" name="Direction=left, Size=xxlarge" x="577" y="3014" width="405.3333435058594" height="48" />
+          <symbol id="208:1971" name="Direction=left, Size=xxhuge" x="577" y="3254" width="405.3333435058594" height="48" />
+          <symbol id="208:1875" name="Direction=left, Size=xsmall" x="577" y="2614" width="405.3333435058594" height="48" />
+          <symbol id="208:1923" name="Direction=left, Size=xlarge" x="577" y="2934" width="405.3333435058594" height="48" />
+          <symbol id="208:1959" name="Direction=left, Size=xhuge" x="577" y="3174" width="405.3333435058594" height="48" />
+          <symbol id="208:1857" name="Direction=left, Size=tiny" x="577" y="2454" width="405.3333435058594" height="48" />
+          <symbol id="208:1887" name="Direction=left, Size=small" x="577" y="2694" width="405.3333435058594" height="48" />
+          <symbol id="208:1833" name="Direction=left, Size=none" x="577" y="2294" width="405.3333435058594" height="48" />
+          <symbol id="208:1899" name="Direction=left, Size=medium" x="577" y="2774" width="405.3333435058594" height="48" />
+          <symbol id="208:1911" name="Direction=left, Size=large" x="577" y="2854" width="405.3333435058594" height="48" />
+          <symbol id="208:1947" name="Direction=left, Size=huge" x="577" y="3094" width="405.3333435058594" height="48" />
+          <symbol id="208:2037" name="Direction=left, Size=custom3" x="577" y="3494" width="405.3333435058594" height="48" />
+          <symbol id="208:1995" name="Direction=left, Size=custom2" x="577" y="3414" width="405.3333435058594" height="48" />
+          <symbol id="208:1983" name="Direction=left, Size=custom1" x="577" y="3334" width="405.3333435058594" height="48" />
+          <symbol id="208:1845" name="Direction=left, Size=0" x="577" y="2374" width="405.3333435058594" height="48" />
+          <symbol id="208:2218" name="Direction=horizontal, Size=xxsmall" x="16" y="7106" width="405.3333435058594" height="48" />
+          <symbol id="208:1933" name="Direction=horizontal, Size=xxlarge" x="16" y="7586" width="405.3333435058594" height="48" />
+          <symbol id="208:1969" name="Direction=horizontal, Size=xxhuge" x="16" y="7826" width="405.3333435058594" height="48" />
+          <symbol id="208:1873" name="Direction=horizontal, Size=xsmall" x="16" y="7186" width="405.3333435058594" height="48" />
+          <symbol id="208:1921" name="Direction=horizontal, Size=xlarge" x="16" y="7506" width="405.3333435058594" height="48" />
+          <symbol id="208:1957" name="Direction=horizontal, Size=xhuge" x="16" y="7746" width="405.3333435058594" height="48" />
+          <symbol id="208:1855" name="Direction=horizontal, Size=tiny" x="16" y="7026" width="405.3333435058594" height="48" />
+          <symbol id="208:1885" name="Direction=horizontal, Size=small" x="16" y="7266" width="405.3333435058594" height="48" />
+          <symbol id="208:1831" name="Direction=horizontal, Size=none" x="16" y="6866" width="405.3333435058594" height="48" />
+          <symbol id="208:1897" name="Direction=horizontal, Size=medium" x="16" y="7346" width="405.3333435058594" height="48" />
+          <symbol id="208:1909" name="Direction=horizontal, Size=large" x="16" y="7426" width="405.3333435058594" height="48" />
+          <symbol id="208:1945" name="Direction=horizontal, Size=huge" x="16" y="7666" width="405.3333435058594" height="48" />
+          <symbol id="208:2005" name="Direction=horizontal, Size=custom3" x="16" y="8066" width="405.3333435058594" height="48" />
+          <symbol id="208:1993" name="Direction=horizontal, Size=custom2" x="16" y="7986" width="405.3333435058594" height="48" />
+          <symbol id="208:1981" name="Direction=horizontal, Size=custom1" x="16" y="7906" width="405.3333435058594" height="48" />
+          <symbol id="208:1843" name="Direction=horizontal, Size=0" x="16" y="6946" width="405.3333435058594" height="48" />
+          <symbol id="208:1861" name="Direction=bottom, Size=xxsmall" x="16" y="258" width="405.3333435058594" height="52" />
+          <symbol id="208:1927" name="Direction=bottom, Size=xxlarge" x="16" y="910" width="405.3333435058594" height="128" />
+          <symbol id="208:1963" name="Direction=bottom, Size=xxhuge" x="16" y="1454" width="405.3333435058594" height="240" />
+          <symbol id="208:1867" name="Direction=bottom, Size=xsmall" x="16" y="342" width="405.3333435058594" height="56" />
+          <symbol id="208:1915" name="Direction=bottom, Size=xlarge" x="16" y="766" width="405.3333435058594" height="112" />
+          <symbol id="208:1951" name="Direction=bottom, Size=xhuge" x="16" y="1246" width="405.3333435058594" height="176" />
+          <symbol id="208:1849" name="Direction=bottom, Size=tiny" x="16" y="176" width="405.3333435058594" height="50" />
+          <symbol id="208:1879" name="Direction=bottom, Size=small" x="16" y="430" width="405.3333435058594" height="64" />
+          <symbol id="208:1825" name="Direction=bottom, Size=none" x="16" y="16" width="405.3333435058594" height="48" />
+          <symbol id="208:1891" name="Direction=bottom, Size=medium" x="16" y="526" width="405.3333435058594" height="80" />
+          <symbol id="208:1903" name="Direction=bottom, Size=large" x="16" y="638" width="405.3333435058594" height="96" />
+          <symbol id="208:1939" name="Direction=bottom, Size=huge" x="16" y="1070" width="405.3333435058594" height="144" />
+          <symbol id="208:1999" name="Direction=bottom, Size=custom3" x="16" y="1950" width="405.3333435058594" height="104" />
+          <symbol id="208:1987" name="Direction=bottom, Size=custom2" x="16" y="1830" width="405.3333435058594" height="88" />
+          <symbol id="208:1975" name="Direction=bottom, Size=custom1" x="16" y="1726" width="405.3333435058594" height="72" />
+          <symbol id="208:1837" name="Direction=bottom, Size=0" x="16" y="96" width="405.3333435058594" height="48" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:971" name="Other HTML Tags" x="636" y="-5286" width="1440" height="988">
+    <instance id="1:972" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:973" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="167">
+      <frame id="1:1017" name="styleguide_3-col" x="0" y="0" width="1312" height="167">
+        <frame id="1:1030" name="styleguide_item" x="0" y="0" width="632" height="167">
+          <instance id="1:1031" name="styleguide_label" x="0" y="0" width="137" height="35" />
+          <text id="1:1032" name="Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look on your website. Sample text is being used as a placeholder for real text." x="0" y="53" width="632" height="66" />
+        </frame>
+        <frame id="1:1038" name="styleguide_item" x="680" y="0" width="632" height="167">
+          <instance id="1:1039" name="styleguide_label" x="0" y="0" width="84" height="35" />
+          <text id="1:1040" name="All links" x="0" y="53" width="632" height="22" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:1044" name="styleguide_item-wrapper" x="64" y="526" width="1312" height="175">
+      <frame id="1:1045" name="styleguide_3-col" x="0" y="0" width="1312" height="175">
+        <frame id="1:1046" name="styleguide_item" x="0" y="0" width="632" height="175">
+          <instance id="1:1047" name="styleguide_label" x="0" y="0" width="102" height="35" />
+          <symbol id="1:1056" name="All quotes" x="0" y="53" width="632" height="72" />
+        </frame>
+        <frame id="1:1049" name="styleguide_item" x="680" y="0" width="632" height="175">
+          <instance id="1:1050" name="styleguide_label" x="0" y="0" width="153" height="35" />
+          <text id="1:1058" name="Sample text is being used as a placeholder for real text that is normally present. Sample text is being used as a placeholder for real text that is normally present. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="626" height="74" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:1112" name="styleguide_item-wrapper" x="64" y="765" width="1312" height="175">
+      <frame id="1:1113" name="styleguide_3-col" x="0" y="0" width="1312" height="175">
+        <frame id="1:1117" name="styleguide_item" x="0" y="0" width="1312" height="175">
+          <instance id="1:1118" name="styleguide_label" x="0" y="0" width="171" height="35" />
+          <text id="1:1119" name="Sample text is being used as a placeholder for real text that is normally present. Sample text is being used as a placeholder for real text that is normally present. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="626" height="74" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="206:208" name="Max Widths" x="8156" y="-5286" width="1440" height="3575">
+    <instance id="206:209" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="232:400" name="styleguide_item" x="64" y="295" width="1312" height="149">
+      <instance id="232:401" name="styleguide_label" x="0" y="0" width="139" height="35" />
+      <instance id="232:402" name="max-width" x="0" y="53" width="1312" height="48" />
+    </frame>
+    <frame id="232:406" name="styleguide_item" x="64" y="508" width="1312" height="149">
+      <instance id="232:407" name="styleguide_label" x="0" y="0" width="192" height="35" />
+      <instance id="232:408" name="max-width" x="0" y="53" width="48" height="48" />
+    </frame>
+    <frame id="232:412" name="styleguide_item" x="64" y="721" width="1312" height="149">
+      <instance id="232:413" name="styleguide_label" x="0" y="0" width="265" height="35" />
+      <instance id="232:414" name="max-width" x="0" y="53" width="48" height="48" />
+    </frame>
+    <frame id="232:418" name="styleguide_item" x="64" y="934" width="1312" height="149">
+      <instance id="232:419" name="styleguide_label" x="0" y="0" width="286" height="35" />
+      <instance id="232:420" name="max-width" x="0" y="53" width="48" height="48" />
+    </frame>
+    <frame id="232:424" name="styleguide_item" x="64" y="1147" width="1312" height="149">
+      <instance id="232:425" name="styleguide_label" x="0" y="0" width="172" height="35" />
+      <instance id="232:426" name="max-width" x="0" y="53" width="1280" height="48" />
+    </frame>
+    <frame id="232:430" name="styleguide_item" x="64" y="1360" width="1312" height="149">
+      <instance id="232:431" name="styleguide_label" x="0" y="0" width="163" height="35" />
+      <instance id="232:432" name="max-width" x="0" y="53" width="1024" height="48" />
+    </frame>
+    <frame id="232:436" name="styleguide_item" x="64" y="1573" width="1312" height="149">
+      <instance id="232:437" name="styleguide_label" x="0" y="0" width="154" height="35" />
+      <instance id="232:438" name="max-width" x="0" y="53" width="768" height="48" />
+    </frame>
+    <frame id="232:442" name="styleguide_item" x="64" y="1786" width="1312" height="149">
+      <instance id="232:443" name="styleguide_label" x="0" y="0" width="177" height="35" />
+      <instance id="232:444" name="max-width" x="0" y="53" width="512" height="48" />
+    </frame>
+    <frame id="232:448" name="styleguide_item" x="64" y="1999" width="1312" height="149">
+      <instance id="232:449" name="styleguide_label" x="0" y="0" width="156" height="35" />
+      <instance id="232:450" name="max-width" x="0" y="53" width="320" height="48" />
+    </frame>
+    <frame id="232:454" name="styleguide_item" x="64" y="2212" width="1312" height="149">
+      <instance id="232:455" name="styleguide_label" x="0" y="0" width="165" height="35" />
+      <instance id="232:456" name="max-width" x="0" y="53" width="256" height="48" />
+    </frame>
+    <frame id="232:460" name="styleguide_item" x="64" y="2425" width="1312" height="149">
+      <instance id="232:461" name="styleguide_label" x="0" y="0" width="174" height="35" />
+      <instance id="232:462" name="max-width" x="0" y="53" width="192" height="48" />
+    </frame>
+    <frame id="232:470" name="styleguide_item-wrapper" x="64" y="2638" width="1312" height="889">
+      <instance id="232:468" name="styleguide_item-header" x="0" y="0" width="1312" height="121" />
+      <frame id="206:341" name="max-width" x="0" y="169" width="1312" height="720">
+        <symbol id="206:255" name="Size=full" x="0" y="16" width="1312" height="48" />
+        <symbol id="206:342" name="Size=full-tablet" x="0" y="80" width="48" height="48" />
+        <symbol id="206:344" name="Size=full-mobile-portrait" x="0" y="144" width="48" height="48" />
+        <symbol id="206:348" name="Size=full-mobile-landscape" x="0" y="208" width="48" height="48" />
+        <symbol id="206:350" name="Size=xxlarge" x="0" y="272" width="1280" height="48" />
+        <symbol id="206:352" name="Size=xlarge" x="0" y="336" width="1024" height="48" />
+        <symbol id="206:354" name="Size=large" x="0" y="400" width="768" height="48" />
+        <symbol id="206:356" name="Size=medium" x="0" y="464" width="512" height="48" />
+        <symbol id="206:358" name="Size=small" x="0" y="528" width="320" height="48" />
+        <symbol id="206:360" name="Size=xsmall" x="0" y="592" width="256" height="48" />
+        <symbol id="206:362" name="Size=xxsmall" x="0" y="656" width="192" height="48" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="208:3141" name="Margins" x="11150" y="-5286" width="1440" height="11910">
+    <instance id="208:3142" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="208:3144" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="465">
+      <instance id="208:3145" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="208:3146" name="styleguide_3-col" x="0" y="119" width="1312" height="149">
+        <frame id="208:3147" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="149">
+          <instance id="208:3148" name="styleguide_label" x="0" y="0" width="141" height="35" />
+          <instance id="208:3149" name="margin" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:3150" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="149">
+          <instance id="208:3151" name="styleguide_label" x="0" y="0" width="111" height="35" />
+          <instance id="208:3152" name="margin" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:3153" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="149">
+          <instance id="208:3154" name="styleguide_label" x="0" y="0" width="143" height="35" />
+          <instance id="208:3155" name="margin" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+      </frame>
+      <frame id="208:3156" name="styleguide_3-col" x="0" y="316" width="1312" height="149">
+        <frame id="208:3157" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="149">
+          <instance id="208:3158" name="styleguide_label" x="0" y="0" width="163" height="35" />
+          <instance id="208:3159" name="margin" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:3160" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="149">
+          <instance id="208:3161" name="styleguide_label" x="0" y="0" width="111" height="35" />
+          <instance id="208:3162" name="margin" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+        <frame id="208:3163" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="149">
+          <instance id="208:3164" name="styleguide_label" x="0" y="0" width="122" height="35" />
+          <instance id="208:3165" name="margin" x="0" y="53" width="405.3333435058594" height="48" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="208:3166" name="styleguide_item-wrapper" x="64" y="824" width="1312" height="2627">
+      <instance id="208:3167" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="208:3168" name="styleguide_3-col" x="0" y="119" width="1312" height="153">
+        <frame id="208:3169" name="styleguide_item" x="0" y="0" width="632" height="149">
+          <instance id="208:3170" name="styleguide_label" x="0" y="0" width="96" height="35" />
+          <instance id="208:3171" name="margin" x="0" y="53" width="632" height="48" />
+        </frame>
+        <frame id="208:3172" name="styleguide_item" x="680" y="0" width="632" height="153">
+          <instance id="208:3173" name="styleguide_label" x="0" y="0" width="114" height="35" />
+          <instance id="208:3174" name="margin" x="0" y="53" width="632" height="52" />
+        </frame>
+      </frame>
+      <frame id="208:3175" name="styleguide_3-col" x="0" y="320" width="1312" height="165">
+        <frame id="208:3176" name="styleguide_item" x="0" y="0" width="632" height="165">
+          <instance id="208:3177" name="styleguide_label" x="0" y="0" width="135" height="35" />
+          <instance id="208:3178" name="margin" x="0" y="53" width="632" height="64" />
+        </frame>
+        <frame id="208:3179" name="styleguide_item" x="680" y="0" width="632" height="157">
+          <instance id="208:3180" name="styleguide_label" x="0" y="0" width="144" height="35" />
+          <instance id="208:3181" name="margin" x="0" y="53" width="632" height="56" />
+        </frame>
+      </frame>
+      <frame id="208:3182" name="styleguide_3-col" x="0" y="533" width="1312" height="213">
+        <frame id="208:3183" name="styleguide_item" x="0" y="0" width="632" height="213">
+          <instance id="208:3184" name="styleguide_label" x="0" y="0" width="126" height="35" />
+          <instance id="208:3185" name="margin" x="0" y="53" width="632" height="80" />
+        </frame>
+        <frame id="208:3186" name="styleguide_item" x="680" y="0" width="632" height="213">
+          <instance id="208:3187" name="styleguide_label" x="0" y="0" width="148" height="35" />
+          <instance id="208:3188" name="margin" x="0" y="53" width="632" height="112" />
+        </frame>
+      </frame>
+      <frame id="208:3189" name="styleguide_3-col" x="0" y="794" width="1312" height="277">
+        <frame id="208:3190" name="styleguide_item" x="0" y="0" width="632" height="245">
+          <instance id="208:3191" name="styleguide_label" x="0" y="0" width="124" height="35" />
+          <instance id="208:3192" name="margin" x="0" y="53" width="632" height="144" />
+        </frame>
+        <frame id="208:3193" name="styleguide_item" x="680" y="0" width="632" height="277">
+          <instance id="208:3194" name="styleguide_label" x="0" y="0" width="133" height="35" />
+          <instance id="208:3195" name="margin" x="0" y="53" width="632" height="176" />
+        </frame>
+      </frame>
+      <frame id="208:3196" name="styleguide_3-col" x="0" y="1119" width="1312" height="341">
+        <frame id="208:3197" name="styleguide_item" x="0" y="0" width="632" height="341">
+          <instance id="208:3198" name="styleguide_label" x="0" y="0" width="142" height="35" />
+          <instance id="208:3199" name="margin" x="0" y="53" width="632" height="208" />
+        </frame>
+        <frame id="208:3200" name="styleguide_item" x="680" y="0" width="632" height="341">
+          <instance id="208:3201" name="styleguide_label" x="0" y="0" width="124" height="35" />
+          <instance id="208:3202" name="margin" x="0" y="53" width="632" height="240" />
+        </frame>
+      </frame>
+      <frame id="208:3203" name="styleguide_3-col" x="0" y="1508" width="1312" height="533">
+        <frame id="208:3204" name="styleguide_item" x="0" y="0" width="632" height="533">
+          <instance id="208:3205" name="styleguide_label" x="0" y="0" width="133" height="35" />
+          <instance id="208:3206" name="margin" x="0" y="53" width="632" height="304" />
+        </frame>
+        <frame id="208:3207" name="styleguide_item" x="680" y="0" width="632" height="533">
+          <instance id="208:3208" name="styleguide_label" x="0" y="0" width="142" height="35" />
+          <instance id="208:3209" name="margin" x="0" y="53" width="632" height="432" />
+        </frame>
+      </frame>
+      <frame id="208:3210" name="styleguide_3-col" x="0" y="2089" width="1312" height="229">
+        <frame id="208:3211" name="styleguide_item" x="0" y="0" width="632" height="229">
+          <instance id="208:3212" name="styleguide_label" x="0" y="0" width="150" height="35" />
+          <instance id="208:3213" name="margin" x="0" y="53" width="632" height="96" />
+        </frame>
+        <frame id="208:3214" name="styleguide_item" x="680" y="0" width="632" height="229">
+          <instance id="208:3215" name="styleguide_label" x="0" y="0" width="153" height="35" />
+          <instance id="208:3216" name="margin" x="0" y="53" width="632" height="128" />
+        </frame>
+      </frame>
+      <frame id="208:3217" name="styleguide_3-col" x="0" y="2366" width="1312" height="261">
+        <frame id="208:3218" name="styleguide_item" x="0" y="0" width="632" height="261">
+          <instance id="208:3219" name="styleguide_label" x="0" y="0" width="154" height="35" />
+          <instance id="208:3220" name="margin" x="0" y="53" width="632" height="160" />
+        </frame>
+        <frame id="208:3221" name="styleguide_item" x="680" y="0" width="632" height="261" />
+      </frame>
+    </frame>
+    <frame id="208:3222" name="styleguide_item-wrapper" x="64" y="3515" width="1312" height="8347">
+      <instance id="223:430" name="styleguide_item-header" x="0" y="0" width="1312" height="121" />
+      <frame id="208:3223" name="styleguide_item" x="0" y="169" width="1312" height="8178">
+        <frame id="232:1064" name="margin" x="0" y="0" width="999" height="8130">
+          <symbol id="232:1065" name="Direction=vertical, Size=xxsmall" x="577" y="4026" width="405.3333435058594" height="56" />
+          <symbol id="232:1067" name="Direction=vertical, Size=xxlarge" x="577" y="4850" width="405.3333435058594" height="208" />
+          <symbol id="232:1069" name="Direction=vertical, Size=xxhuge" x="577" y="5698" width="405.3333435058594" height="432" />
+          <symbol id="232:1071" name="Direction=vertical, Size=xsmall" x="577" y="4114" width="405.3333435058594" height="64" />
+          <symbol id="232:1073" name="Direction=vertical, Size=xlarge" x="577" y="4642" width="405.3333435058594" height="176" />
+          <symbol id="232:1075" name="Direction=vertical, Size=xhuge" x="577" y="5362" width="405.3333435058594" height="304" />
+          <symbol id="232:1077" name="Direction=vertical, Size=tiny" x="577" y="3942" width="405.3333435058594" height="52" />
+          <symbol id="232:1079" name="Direction=vertical, Size=small" x="577" y="4210" width="405.3333435058594" height="80" />
+          <symbol id="232:1081" name="Direction=vertical, Size=none" x="577" y="3782" width="405.3333435058594" height="48" />
+          <symbol id="232:1083" name="Direction=vertical, Size=medium" x="577" y="4322" width="405.3333435058594" height="112" />
+          <symbol id="232:1085" name="Direction=vertical, Size=large" x="577" y="4466" width="405.3333435058594" height="144" />
+          <symbol id="232:1087" name="Direction=vertical, Size=huge" x="577" y="5090" width="405.3333435058594" height="240" />
+          <symbol id="232:1089" name="Direction=vertical, Size=custom3" x="577" y="6450" width="405.3333435058594" height="160" />
+          <symbol id="232:1091" name="Direction=vertical, Size=custom2" x="577" y="6290" width="405.3333435058594" height="128" />
+          <symbol id="232:1093" name="Direction=vertical, Size=custom1" x="577" y="6162" width="405.3333435058594" height="96" />
+          <symbol id="232:1095" name="Direction=vertical, Size=0" x="577" y="3862" width="405.3333435058594" height="48" />
+          <symbol id="232:1097" name="Direction=top, Size=xxsmall" x="577" y="258" width="405.3333435058594" height="52" />
+          <symbol id="232:1099" name="Direction=top, Size=xxlarge" x="577" y="910" width="405.3333435058594" height="128" />
+          <symbol id="232:1101" name="Direction=top, Size=xxhuge" x="577" y="1454" width="405.3333435058594" height="240" />
+          <symbol id="232:1103" name="Direction=top, Size=xsmall" x="577" y="342" width="405.3333435058594" height="56" />
+          <symbol id="232:1105" name="Direction=top, Size=xlarge" x="577" y="766" width="405.3333435058594" height="112" />
+          <symbol id="232:1107" name="Direction=top, Size=xhuge" x="577" y="1246" width="405.3333435058594" height="176" />
+          <symbol id="232:1109" name="Direction=top, Size=tiny" x="577" y="176" width="405.3333435058594" height="50" />
+          <symbol id="232:1111" name="Direction=top, Size=small" x="577" y="430" width="405.3333435058594" height="64" />
+          <symbol id="232:1113" name="Direction=top, Size=none" x="577" y="16" width="405.3333435058594" height="48" />
+          <symbol id="232:1115" name="Direction=top, Size=medium" x="577" y="526" width="405.3333435058594" height="80" />
+          <symbol id="232:1117" name="Direction=top, Size=large" x="577" y="638" width="405.3333435058594" height="96" />
+          <symbol id="232:1119" name="Direction=top, Size=huge" x="577" y="1070" width="405.3333435058594" height="144" />
+          <symbol id="232:1121" name="Direction=top, Size=custom3" x="577" y="1950" width="405.3333435058594" height="104" />
+          <symbol id="232:1123" name="Direction=top, Size=custom2" x="577" y="1830" width="405.3333435058594" height="88" />
+          <symbol id="232:1125" name="Direction=top, Size=custom1" x="577" y="1726" width="405.3333435058594" height="72" />
+          <symbol id="232:1127" name="Direction=top, Size=0" x="577" y="96" width="405.3333435058594" height="48" />
+          <symbol id="232:1129" name="Direction=right, Size=xxsmall" x="16" y="2534" width="405.3333435058594" height="48" />
+          <symbol id="232:1131" name="Direction=right, Size=xxlarge" x="16" y="3014" width="405.3333435058594" height="48" />
+          <symbol id="232:1133" name="Direction=right, Size=xxhuge" x="16" y="3254" width="405.3333435058594" height="48" />
+          <symbol id="232:1135" name="Direction=right, Size=xsmall" x="16" y="2614" width="405.3333435058594" height="48" />
+          <symbol id="232:1137" name="Direction=right, Size=xlarge" x="16" y="2934" width="405.3333435058594" height="48" />
+          <symbol id="232:1139" name="Direction=right, Size=xhuge" x="16" y="3174" width="405.3333435058594" height="48" />
+          <symbol id="232:1141" name="Direction=right, Size=tiny" x="16" y="2454" width="405.3333435058594" height="48" />
+          <symbol id="232:1143" name="Direction=right, Size=small" x="16" y="2694" width="405.3333435058594" height="48" />
+          <symbol id="232:1145" name="Direction=right, Size=none" x="16" y="2294" width="405.3333435058594" height="48" />
+          <symbol id="232:1147" name="Direction=right, Size=medium" x="16" y="2774" width="405.3333435058594" height="48" />
+          <symbol id="232:1149" name="Direction=right, Size=large" x="16" y="2854" width="405.3333435058594" height="48" />
+          <symbol id="232:1151" name="Direction=right, Size=huge" x="16" y="3094" width="405.3333435058594" height="48" />
+          <symbol id="232:1153" name="Direction=right, Size=custom3" x="16" y="3494" width="405.3333435058594" height="48" />
+          <symbol id="232:1155" name="Direction=right, Size=custom2" x="16" y="3414" width="405.3333435058594" height="48" />
+          <symbol id="232:1157" name="Direction=right, Size=custom1" x="16" y="3334" width="405.3333435058594" height="48" />
+          <symbol id="232:1159" name="Direction=right, Size=0" x="16" y="2374" width="405.3333435058594" height="48" />
+          <symbol id="232:1161" name="Direction=none, Size=xxsmall" x="16" y="4026" width="405.3333435058594" height="56" />
+          <symbol id="232:1163" name="Direction=none, Size=xxlarge" x="16" y="4850" width="405.3333435058594" height="208" />
+          <symbol id="232:1165" name="Direction=none, Size=xxhuge" x="16" y="5698" width="405.3333435058594" height="432" />
+          <symbol id="232:1167" name="Direction=none, Size=xsmall" x="16" y="4114" width="405.3333435058594" height="64" />
+          <symbol id="232:1169" name="Direction=none, Size=xlarge" x="16" y="4642" width="405.3333435058594" height="176" />
+          <symbol id="232:1171" name="Direction=none, Size=xhuge" x="16" y="5362" width="405.3333435058594" height="304" />
+          <symbol id="232:1173" name="Direction=none, Size=tiny" x="16" y="3942" width="405.3333435058594" height="52" />
+          <symbol id="232:1175" name="Direction=none, Size=small" x="16" y="4210" width="405.3333435058594" height="80" />
+          <symbol id="232:1177" name="Direction=none, Size=none" x="16" y="3782" width="405.3333435058594" height="48" />
+          <symbol id="232:1179" name="Direction=none, Size=medium" x="16" y="4322" width="405.3333435058594" height="112" />
+          <symbol id="232:1181" name="Direction=none, Size=large" x="16" y="4466" width="405.3333435058594" height="144" />
+          <symbol id="232:1183" name="Direction=none, Size=huge" x="16" y="5090" width="405.3333435058594" height="240" />
+          <symbol id="232:1185" name="Direction=none, Size=custom3" x="16" y="6450" width="405.3333435058594" height="160" />
+          <symbol id="232:1187" name="Direction=none, Size=custom2" x="16" y="6290" width="405.3333435058594" height="128" />
+          <symbol id="232:1189" name="Direction=none, Size=custom1" x="16" y="6162" width="405.3333435058594" height="96" />
+          <symbol id="232:1191" name="Direction=none, Size=0" x="16" y="3862" width="405.3333435058594" height="48" />
+          <symbol id="232:1193" name="Direction=left, Size=xxsmall" x="577" y="2534" width="405.3333435058594" height="48" />
+          <symbol id="232:1195" name="Direction=left, Size=xxlarge" x="577" y="3014" width="405.3333435058594" height="48" />
+          <symbol id="232:1197" name="Direction=left, Size=xxhuge" x="577" y="3254" width="405.3333435058594" height="48" />
+          <symbol id="232:1199" name="Direction=left, Size=xsmall" x="577" y="2614" width="405.3333435058594" height="48" />
+          <symbol id="232:1201" name="Direction=left, Size=xlarge" x="577" y="2934" width="405.3333435058594" height="48" />
+          <symbol id="232:1203" name="Direction=left, Size=xhuge" x="577" y="3174" width="405.3333435058594" height="48" />
+          <symbol id="232:1205" name="Direction=left, Size=tiny" x="577" y="2454" width="405.3333435058594" height="48" />
+          <symbol id="232:1207" name="Direction=left, Size=small" x="577" y="2694" width="405.3333435058594" height="48" />
+          <symbol id="232:1209" name="Direction=left, Size=none" x="577" y="2294" width="405.3333435058594" height="48" />
+          <symbol id="232:1211" name="Direction=left, Size=medium" x="577" y="2774" width="405.3333435058594" height="48" />
+          <symbol id="232:1213" name="Direction=left, Size=large" x="577" y="2854" width="405.3333435058594" height="48" />
+          <symbol id="232:1215" name="Direction=left, Size=huge" x="577" y="3094" width="405.3333435058594" height="48" />
+          <symbol id="232:1217" name="Direction=left, Size=custom3" x="577" y="3494" width="405.3333435058594" height="48" />
+          <symbol id="232:1219" name="Direction=left, Size=custom2" x="577" y="3414" width="405.3333435058594" height="48" />
+          <symbol id="232:1221" name="Direction=left, Size=custom1" x="577" y="3334" width="405.3333435058594" height="48" />
+          <symbol id="232:1223" name="Direction=left, Size=0" x="577" y="2374" width="405.3333435058594" height="48" />
+          <symbol id="232:1225" name="Direction=horizontal, Size=xxsmall" x="16" y="7106" width="405.3333435058594" height="48" />
+          <symbol id="232:1227" name="Direction=horizontal, Size=xxlarge" x="16" y="7586" width="405.3333435058594" height="48" />
+          <symbol id="232:1229" name="Direction=horizontal, Size=xxhuge" x="16" y="7826" width="405.3333435058594" height="48" />
+          <symbol id="232:1231" name="Direction=horizontal, Size=xsmall" x="16" y="7186" width="405.3333435058594" height="48" />
+          <symbol id="232:1233" name="Direction=horizontal, Size=xlarge" x="16" y="7506" width="405.3333435058594" height="48" />
+          <symbol id="232:1235" name="Direction=horizontal, Size=xhuge" x="16" y="7746" width="405.3333435058594" height="48" />
+          <symbol id="232:1237" name="Direction=horizontal, Size=tiny" x="16" y="7026" width="405.3333435058594" height="48" />
+          <symbol id="232:1239" name="Direction=horizontal, Size=small" x="16" y="7266" width="405.3333435058594" height="48" />
+          <symbol id="232:1241" name="Direction=horizontal, Size=none" x="16" y="6866" width="405.3333435058594" height="48" />
+          <symbol id="232:1243" name="Direction=horizontal, Size=medium" x="16" y="7346" width="405.3333435058594" height="48" />
+          <symbol id="232:1245" name="Direction=horizontal, Size=large" x="16" y="7426" width="405.3333435058594" height="48" />
+          <symbol id="232:1247" name="Direction=horizontal, Size=huge" x="16" y="7666" width="405.3333435058594" height="48" />
+          <symbol id="232:1249" name="Direction=horizontal, Size=custom3" x="16" y="8066" width="405.3333435058594" height="48" />
+          <symbol id="232:1251" name="Direction=horizontal, Size=custom2" x="16" y="7986" width="405.3333435058594" height="48" />
+          <symbol id="232:1253" name="Direction=horizontal, Size=custom1" x="16" y="7906" width="405.3333435058594" height="48" />
+          <symbol id="232:1255" name="Direction=horizontal, Size=0" x="16" y="6946" width="405.3333435058594" height="48" />
+          <symbol id="232:1257" name="Direction=bottom, Size=xxsmall" x="16" y="258" width="405.3333435058594" height="52" />
+          <symbol id="232:1259" name="Direction=bottom, Size=xxlarge" x="16" y="910" width="405.3333435058594" height="128" />
+          <symbol id="232:1261" name="Direction=bottom, Size=xxhuge" x="16" y="1454" width="405.3333435058594" height="240" />
+          <symbol id="232:1263" name="Direction=bottom, Size=xsmall" x="16" y="342" width="405.3333435058594" height="56" />
+          <symbol id="232:1265" name="Direction=bottom, Size=xlarge" x="16" y="766" width="405.3333435058594" height="112" />
+          <symbol id="232:1267" name="Direction=bottom, Size=xhuge" x="16" y="1246" width="405.3333435058594" height="176" />
+          <symbol id="232:1269" name="Direction=bottom, Size=tiny" x="16" y="176" width="405.3333435058594" height="50" />
+          <symbol id="232:1271" name="Direction=bottom, Size=small" x="16" y="430" width="405.3333435058594" height="64" />
+          <symbol id="232:1273" name="Direction=bottom, Size=none" x="16" y="16" width="405.3333435058594" height="48" />
+          <symbol id="232:1275" name="Direction=bottom, Size=medium" x="16" y="526" width="405.3333435058594" height="80" />
+          <symbol id="232:1277" name="Direction=bottom, Size=large" x="16" y="638" width="405.3333435058594" height="96" />
+          <symbol id="232:1279" name="Direction=bottom, Size=huge" x="16" y="1070" width="405.3333435058594" height="144" />
+          <symbol id="232:1281" name="Direction=bottom, Size=custom3" x="16" y="1950" width="405.3333435058594" height="104" />
+          <symbol id="232:1283" name="Direction=bottom, Size=custom2" x="16" y="1830" width="405.3333435058594" height="88" />
+          <symbol id="232:1285" name="Direction=bottom, Size=custom1" x="16" y="1726" width="405.3333435058594" height="72" />
+          <symbol id="232:1287" name="Direction=bottom, Size=0" x="16" y="96" width="405.3333435058594" height="48" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="208:234" name="Icons" x="14148" y="-5286" width="1440" height="1319">
+    <instance id="208:235" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="208:236" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="511">
+      <frame id="208:347" name="styleguide_2-col" x="0" y="0" width="1312" height="133">
+        <frame id="208:384" name="styleguide_item" x="0" y="0" width="632" height="133">
+          <instance id="208:385" name="styleguide_label" x="0" y="0" width="162" height="35" />
+          <instance id="208:514" name="icon" x="0" y="53" width="632" height="16" />
+        </frame>
+        <frame id="208:508" name="styleguide_item" x="680" y="0" width="632" height="133">
+          <instance id="208:509" name="styleguide_label" x="0" y="0" width="184" height="35" />
+          <instance id="208:517" name="icon" x="0" y="53" width="632" height="32" />
+        </frame>
+      </frame>
+      <frame id="208:527" name="styleguide_2-col" x="0" y="181" width="1312" height="141">
+        <frame id="208:534" name="styleguide_item" x="0" y="0" width="632" height="141">
+          <instance id="208:535" name="styleguide_label" x="0" y="0" width="160" height="35" />
+          <instance id="208:536" name="icon" x="0" y="53" width="632" height="40" />
+        </frame>
+        <frame id="208:546" name="styleguide_item" x="680" y="0" width="632" height="141">
+          <instance id="208:547" name="styleguide_label" x="0" y="0" width="139" height="35" />
+          <frame id="208:559" name="styleguide_row" x="0" y="53" width="240" height="16">
+            <instance id="208:548" name="icon" x="0" y="0" width="16" height="16" />
+            <instance id="208:556" name="icon" x="28" y="0" width="16" height="16" />
+            <instance id="208:561" name="icon" x="56" y="0" width="16" height="16" />
+            <instance id="208:564" name="icon" x="84" y="0" width="16" height="16" />
+            <instance id="208:569" name="icon" x="112" y="0" width="16" height="16" />
+            <instance id="208:573" name="icon" x="140" y="0" width="16" height="16" />
+            <instance id="208:577" name="icon" x="168" y="0" width="16" height="16" />
+            <instance id="208:581" name="icon" x="196" y="0" width="16" height="16" />
+            <instance id="208:585" name="icon" x="224" y="0" width="16" height="16" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="208:589" name="styleguide_2-col" x="0" y="370" width="1312" height="141">
+        <frame id="208:593" name="styleguide_item" x="0" y="0" width="632" height="141">
+          <instance id="208:594" name="styleguide_label" x="0" y="0" width="161" height="35" />
+          <frame id="208:595" name="styleguide_row" x="0" y="53" width="384" height="32">
+            <instance id="208:597" name="icon" x="0" y="0" width="32" height="32" />
+            <instance id="208:959" name="icon" x="44" y="0" width="32" height="32" />
+            <instance id="208:598" name="icon" x="88" y="0" width="32" height="32" />
+            <instance id="208:599" name="icon" x="132" y="0" width="32" height="32" />
+            <instance id="208:600" name="icon" x="176" y="0" width="32" height="32" />
+            <instance id="208:601" name="icon" x="220" y="0" width="32" height="32" />
+            <instance id="208:602" name="icon" x="264" y="0" width="32" height="32" />
+            <instance id="208:603" name="icon" x="308" y="0" width="32" height="32" />
+            <instance id="208:604" name="icon" x="352" y="0" width="32" height="32" />
+          </frame>
+        </frame>
+        <frame id="208:645" name="styleguide_item" x="680" y="0" width="632" height="141">
+          <instance id="208:646" name="styleguide_label" x="0" y="0" width="137" height="35" />
+          <frame id="208:647" name="styleguide_row" x="0" y="53" width="456" height="40">
+            <instance id="208:648" name="icon" x="0" y="0" width="40" height="40" />
+            <instance id="208:649" name="icon" x="52" y="0" width="40" height="40" />
+            <instance id="208:650" name="icon" x="104" y="0" width="40" height="40" />
+            <instance id="208:651" name="icon" x="156" y="0" width="40" height="40" />
+            <instance id="208:652" name="icon" x="208" y="0" width="40" height="40" />
+            <instance id="208:653" name="icon" x="260" y="0" width="40" height="40" />
+            <instance id="208:654" name="icon" x="312" y="0" width="40" height="40" />
+            <instance id="208:655" name="icon" x="364" y="0" width="40" height="40" />
+            <instance id="208:656" name="icon" x="416" y="0" width="40" height="40" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="232:1310" name="styleguide_item-wrapper" x="64" y="870" width="1312" height="401">
+      <instance id="232:1425" name="styleguide_item-header" x="0" y="0" width="1312" height="121" />
+      <frame id="208:486" name="icon" x="0" y="169" width="154" height="232">
+        <symbol id="208:477" name="type=1x1, size=small" x="8" y="8" width="16" height="16" />
+        <symbol id="208:487" name="type=1x1, size=medium" x="8" y="32" width="32" height="32" />
+        <symbol id="208:490" name="type=1x1, size=large" x="8" y="72" width="40" height="40" />
+        <symbol id="208:499" name="type=height, size=small" x="8" y="120" width="138" height="16" />
+        <symbol id="208:502" name="type=height, size=medium" x="8" y="144" width="138" height="32" />
+        <symbol id="208:505" name="type=height, size=large" x="8" y="184" width="138" height="40" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:1132" name="Heading Styles" x="2140" y="-5286" width="1440" height="1777">
+    <instance id="1:1133" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:1253" name="styleguide_item" x="64" y="295" width="1312" height="241">
+      <instance id="1:1254" name="styleguide_label" x="0" y="0" width="156" height="35" />
+      <text id="1:1255" name="Sample text helps you understand how real text may look." x="0" y="53" width="1312" height="140" />
+    </frame>
+    <frame id="1:1256" name="styleguide_item" x="64" y="600" width="1312" height="217">
+      <instance id="1:1257" name="styleguide_label" x="0" y="0" width="159" height="35" />
+      <text id="1:1258" name="Sample text is being used as a placeholder. Sample text helps you understand how real text may look." x="0" y="53" width="1312" height="116" />
+    </frame>
+    <frame id="1:1259" name="styleguide_item" x="64" y="881" width="1312" height="177">
+      <instance id="1:1260" name="styleguide_label" x="0" y="0" width="160" height="35" />
+      <text id="1:1261" name="Sample text helps you understand how real text may look on your website. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="1312" height="76" />
+    </frame>
+    <frame id="1:1262" name="styleguide_item" x="64" y="1122" width="1312" height="169">
+      <instance id="1:1263" name="styleguide_label" x="0" y="0" width="160" height="35" />
+      <text id="1:1264" name="Sample text is being used as a placeholder. Sample text helps you understand how real text may look. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="1312" height="68" />
+    </frame>
+    <frame id="1:1265" name="styleguide_item" x="64" y="1355" width="1312" height="161">
+      <instance id="1:1266" name="styleguide_label" x="0" y="0" width="160" height="35" />
+      <text id="1:1267" name="Sample text is being used as a placeholder. Sample text helps you understand how real text may look. Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look." x="0" y="53" width="1312" height="60" />
+    </frame>
+    <frame id="1:1268" name="styleguide_item" x="64" y="1580" width="1312" height="149">
+      <instance id="1:1269" name="styleguide_label" x="0" y="0" width="160" height="35" />
+      <text id="1:1270" name="Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look. Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look." x="0" y="53" width="1312" height="48" />
+    </frame>
+  </frame>
+  <frame id="1:2" name="Header" x="-3876" y="-5286" width="1440" height="426">
+    <frame id="1:8" name="Content" x="64" y="112" width="547" height="202">
+      <text id="1:4" name="Client-First - Version 2" x="0" y="0" width="547" height="19" />
+      <text id="1:6" name="Style Guide" x="0" y="43" width="547" height="87" />
+      <text id="1:9" name="Client-First is a set of guidelines and strategies created by Finsweet to help you build Webflow websites." x="0" y="154" width="547" height="48" />
+    </frame>
+  </frame>
+  <frame id="101:104" name="HTML Heading Tags" x="-868" y="-5286" width="1440" height="1912">
+    <instance id="101:105" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="101:107" name="styleguide_item" x="64" y="295" width="1312" height="332">
+      <instance id="101:108" name="styleguide_label" x="0" y="0" width="44" height="35" />
+      <text id="101:109" name="Sample text helps you understand how real text may look. Sample text is being used as a placeholder." x="0" y="53" width="1312" height="231" />
+    </frame>
+    <frame id="101:110" name="styleguide_item" x="64" y="691" width="1312" height="275">
+      <instance id="101:111" name="styleguide_label" x="0" y="0" width="46" height="35" />
+      <text id="101:112" name="Sample text helps you understand how real text may look on your website. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="1312" height="174" />
+    </frame>
+    <frame id="101:113" name="styleguide_item" x="64" y="1030" width="1312" height="177">
+      <instance id="101:114" name="styleguide_label" x="0" y="0" width="47" height="35" />
+      <text id="101:115" name="Sample text helps you understand how real text may look on your website. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="1312" height="76" />
+    </frame>
+    <frame id="101:116" name="styleguide_item" x="64" y="1271" width="1312" height="163">
+      <instance id="101:117" name="styleguide_label" x="0" y="0" width="47" height="35" />
+      <text id="101:118" name="Sample text is being used as a placeholder. Sample text helps you understand how real text may look. Sample text is being used as a placeholder for real text that is normally present." x="0" y="53" width="1312" height="62" />
+    </frame>
+    <frame id="101:119" name="styleguide_item" x="64" y="1498" width="1312" height="157">
+      <instance id="101:120" name="styleguide_label" x="0" y="0" width="47" height="35" />
+      <text id="101:121" name="Sample text is being used as a placeholder. Sample text helps you understand how real text may look. Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look." x="0" y="53" width="1312" height="56" />
+    </frame>
+    <frame id="101:122" name="styleguide_item" x="64" y="1719" width="1312" height="145">
+      <instance id="101:123" name="styleguide_label" x="0" y="0" width="47" height="35" />
+      <text id="101:124" name="Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look. Sample text is being used as a placeholder for real text that is normally present. Sample text helps you understand how real text may look." x="0" y="53" width="1312" height="44" />
+    </frame>
+  </frame>
+  <frame id="1:844" name="Colors" x="6652" y="-5286" width="1440" height="1313">
+    <instance id="1:845" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:846" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="299">
+      <instance id="1:899" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:847" name="styleguide_3-col" x="0" y="119" width="1312" height="180">
+        <frame id="1:848" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="180">
+          <instance id="1:849" name="styleguide_label" x="0" y="0" width="88" height="35" />
+          <instance id="1:906" name="styleguide_color" x="0" y="53" width="405.3333435058594" height="79" />
+        </frame>
+        <frame id="1:911" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="180">
+          <instance id="1:912" name="styleguide_label" x="0" y="0" width="83" height="35" />
+          <instance id="1:913" name="styleguide_color" x="0" y="53" width="405.3333435058594" height="79" />
+        </frame>
+        <frame id="1:915" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="180">
+          <instance id="1:916" name="styleguide_label" x="0" y="0" width="65" height="35" />
+          <instance id="1:917" name="styleguide_color" x="0" y="53" width="405.3333435058594" height="79" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:919" name="styleguide_item-wrapper" x="64" y="658" width="1312" height="244">
+      <instance id="1:920" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:921" name="styleguide_3-col" x="0" y="119" width="1312" height="125">
+        <frame id="1:922" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="125">
+          <instance id="1:923" name="styleguide_label" x="0" y="0" width="150" height="35" />
+          <text id="1:937" name="text-color-black" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:943" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="125">
+          <instance id="1:944" name="styleguide_label" x="0" y="0" width="143" height="35" />
+          <text id="1:945" name="text-color-grey" x="0" y="53" width="405.3333435058594" height="24" />
+        </frame>
+        <frame id="1:947" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="125">
+          <instance id="1:948" name="styleguide_label" x="0" y="0" width="151" height="35" />
+          <frame id="1:951" name="background-color-black" x="0" y="53" width="123" height="24">
+            <text id="1:949" name="text-color-white" x="0" y="0" width="123" height="24" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="1:952" name="styleguide_item-wrapper" x="64" y="966" width="1312" height="299">
+      <instance id="1:953" name="styleguide_item-header" x="0" y="0" width="1312" height="71" />
+      <frame id="1:954" name="styleguide_3-col" x="0" y="119" width="1312" height="180">
+        <frame id="1:955" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="180">
+          <instance id="1:956" name="styleguide_label" x="0" y="0" width="213" height="35" />
+          <instance id="1:957" name="styleguide_color" x="0" y="53" width="405.3333435058594" height="79" />
+        </frame>
+        <frame id="1:958" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="180">
+          <instance id="1:959" name="styleguide_label" x="0" y="0" width="205" height="35" />
+          <instance id="1:960" name="styleguide_color" x="0" y="53" width="405.3333435058594" height="79" />
+        </frame>
+        <frame id="1:961" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="180">
+          <instance id="1:962" name="styleguide_label" x="0" y="0" width="214" height="35" />
+          <instance id="1:963" name="styleguide_color" x="0" y="53" width="405.3333435058594" height="79" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="1:514" name="Buttons" x="5148" y="-5286" width="1440" height="1743">
+    <instance id="1:515" name="styleguide_section-header" x="64" y="48" width="1312" height="183" />
+    <frame id="1:516" name="styleguide_item-wrapper" x="64" y="295" width="1312" height="1400">
+      <frame id="102:3727" name="styleguide_3-col" x="0" y="0" width="1312" height="157">
+        <frame id="102:3728" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="149">
+          <instance id="102:3729" name="styleguide_label" x="0" y="0" width="76" height="35" />
+          <instance id="102:3767" name="button" x="0" y="53" width="193" height="48" />
+        </frame>
+        <frame id="102:3737" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="157">
+          <frame id="102:3738" name="styleguide_label-wrapper" x="0" y="0" width="174" height="35">
+            <instance id="102:3739" name="styleguide_label" x="0" y="0" width="76" height="35" />
+            <instance id="102:3740" name="styleguide_label" x="88" y="0" width="86" height="35" />
+          </frame>
+          <instance id="102:3741" name="Buttons/button" x="0" y="53" width="138" height="36" hidden="true" />
+          <instance id="102:3788" name="button" x="0" y="53" width="193" height="40" />
+        </frame>
+        <frame id="102:3742" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="157">
+          <frame id="102:3743" name="styleguide_label-wrapper" x="0" y="0" width="172" height="35">
+            <instance id="102:3744" name="styleguide_label" x="0" y="0" width="76" height="35" />
+            <instance id="102:3745" name="styleguide_label" x="88" y="0" width="84" height="35" />
+          </frame>
+          <instance id="102:3746" name="Buttons/button" x="0" y="53" width="138" height="52" hidden="true" />
+          <instance id="102:3794" name="button" x="0" y="53" width="193" height="56" />
+        </frame>
+      </frame>
+      <frame id="102:251" name="styleguide_3-col" x="0" y="205" width="1312" height="149">
+        <frame id="102:252" name="styleguide_item" x="0" y="0" width="405.3333435058594" height="149">
+          <frame id="102:281" name="styleguide_label-wrapper" x="0" y="0" width="215" height="35">
+            <instance id="102:282" name="styleguide_label" x="0" y="0" width="76" height="35" />
+            <instance id="102:283" name="styleguide_label" x="88" y="0" width="127" height="35" />
+          </frame>
+          <instance id="102:3806" name="button" x="0" y="53" width="193" height="48" />
+        </frame>
+        <frame id="102:261" name="styleguide_item" x="453.3333435058594" y="0" width="405.3333435058594" height="149">
+          <frame id="102:262" name="styleguide_label-wrapper" x="0" y="0" width="163" height="35">
+            <instance id="102:263" name="styleguide_label" x="0" y="0" width="76" height="35" />
+            <instance id="102:264" name="styleguide_label" x="88" y="0" width="75" height="35" />
+          </frame>
+          <instance id="102:3818" name="button" x="0" y="53" width="193" height="48" />
+        </frame>
+        <frame id="102:266" name="styleguide_item" x="906.6666870117188" y="0" width="405.3333435058594" height="149">
+          <frame id="102:267" name="styleguide_label-wrapper" x="0" y="0" width="166" height="35">
+            <instance id="102:268" name="styleguide_label" x="0" y="0" width="76" height="35" />
+            <instance id="102:269" name="styleguide_label" x="88" y="0" width="78" height="35" />
+          </frame>
+          <instance id="102:270" name="Buttons/button" x="0" y="53" width="138" height="52" hidden="true" />
+          <instance id="102:3824" name="button" x="0" y="53" width="193" height="48" />
+        </frame>
+      </frame>
+      <frame id="102:326" name="button" x="0" y="402" width="653" height="998">
+        <symbol id="102:495" name="Size=default, Hierarchy=primary, State=Default" x="230" y="16" width="193" height="48" />
+        <symbol id="211:1310" name="Size=default, Hierarchy=secondary, State=Default" x="230" y="351" width="193" height="48" />
+        <symbol id="211:1382" name="Size=default, Hierarchy=is-text, State=Default" x="230" y="686" width="193" height="48" />
+        <symbol id="211:1268" name="Size=default, Hierarchy=primary, State=Hover" x="230" y="92" width="193" height="48" />
+        <symbol id="211:1314" name="Size=default, Hierarchy=secondary, State=Hover" x="230" y="427" width="193" height="48" />
+        <symbol id="211:1386" name="Size=default, Hierarchy=is-text, State=Hover" x="230" y="762" width="193" height="48" />
+        <symbol id="211:1274" name="Size=default, Hierarchy=primary, State=Focused" x="230" y="168" width="193" height="48" />
+        <symbol id="211:1318" name="Size=default, Hierarchy=secondary, State=Focused" x="230" y="503" width="193" height="48" />
+        <symbol id="211:1390" name="Size=default, Hierarchy=is-text, State=Focused" x="230" y="838" width="193" height="48" />
+        <symbol id="211:1280" name="Size=default, Hierarchy=primary, State=Disabled" x="230" y="244" width="193" height="48" />
+        <symbol id="211:1322" name="Size=default, Hierarchy=secondary, State=Disabled" x="230" y="579" width="193" height="48" />
+        <symbol id="211:1394" name="Size=default, Hierarchy=is-text, State=Disabled" x="230" y="914" width="193" height="48" />
+        <symbol id="102:967" name="Size=is-large, Hierarchy=primary, State=Default" x="444" y="16" width="193" height="56" />
+        <symbol id="211:1326" name="Size=is-large, Hierarchy=secondary, State=Default" x="444" y="351" width="193" height="56" />
+        <symbol id="211:1398" name="Size=is-large, Hierarchy=is-text, State=Default" x="444" y="686" width="193" height="56" />
+        <symbol id="211:1250" name="Size=is-large, Hierarchy=primary, State=Hover" x="444" y="92" width="193" height="56" />
+        <symbol id="211:1330" name="Size=is-large, Hierarchy=secondary, State=Hover" x="444" y="427" width="193" height="56" />
+        <symbol id="211:1402" name="Size=is-large, Hierarchy=is-text, State=Hover" x="444" y="762" width="193" height="56" />
+        <symbol id="211:1256" name="Size=is-large, Hierarchy=primary, State=Focused" x="444" y="168" width="193" height="56" />
+        <symbol id="211:1334" name="Size=is-large, Hierarchy=secondary, State=Focused" x="444" y="503" width="193" height="56" />
+        <symbol id="211:1406" name="Size=is-large, Hierarchy=is-text, State=Focused" x="444" y="838" width="193" height="56" />
+        <symbol id="211:1262" name="Size=is-large, Hierarchy=primary, State=Disabled" x="444" y="244" width="193" height="56" />
+        <symbol id="211:1338" name="Size=is-large, Hierarchy=secondary, State=Disabled" x="444" y="579" width="193" height="56" />
+        <symbol id="211:1410" name="Size=is-large, Hierarchy=is-text, State=Disabled" x="444" y="914" width="193" height="56" />
+        <symbol id="102:2383" name="Size=is-small, Hierarchy=primary, State=Default" x="16" y="16" width="193" height="40" />
+        <symbol id="211:1342" name="Size=is-small, Hierarchy=secondary, State=Default" x="16" y="351" width="193" height="40" />
+        <symbol id="211:1414" name="Size=is-small, Hierarchy=is-text, State=Default" x="16" y="686" width="193" height="40" />
+        <symbol id="211:1286" name="Size=is-small, Hierarchy=primary, State=Hover" x="16" y="92" width="193" height="40" />
+        <symbol id="211:1346" name="Size=is-small, Hierarchy=secondary, State=Hover" x="16" y="427" width="193" height="40" />
+        <symbol id="211:1418" name="Size=is-small, Hierarchy=is-text, State=Hover" x="16" y="762" width="193" height="40" />
+        <symbol id="211:1292" name="Size=is-small, Hierarchy=primary, State=Focused" x="16" y="168" width="193" height="40" />
+        <symbol id="211:1350" name="Size=is-small, Hierarchy=secondary, State=Focused" x="16" y="503" width="193" height="40" />
+        <symbol id="211:1422" name="Size=is-small, Hierarchy=is-text, State=Focused" x="16" y="838" width="193" height="40" />
+        <symbol id="211:1298" name="Size=is-small, Hierarchy=primary, State=Disabled" x="16" y="244" width="193" height="40" />
+        <symbol id="211:1354" name="Size=is-small, Hierarchy=secondary, State=Disabled" x="16" y="579" width="193" height="40" />
+        <symbol id="211:1426" name="Size=is-small, Hierarchy=is-text, State=Disabled" x="16" y="914" width="193" height="40" />
+      </frame>
+    </frame>
+  </frame>
+</canvas>
+
+### Content Block 2 (Text)
+IMPORTANT: After you call this tool, you MUST call get_design_context if trying to implement the design, since this tool only returns metadata. If you do not call get_design_context, the agent will not be able to implement the design.
+
+</mcp_external_output>
