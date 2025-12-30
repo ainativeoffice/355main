@@ -2,11 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { getUncachableHubSpotClient } from "./hubspot";
-import { z } from "zod";
-
-const waitlistSchema = z.object({
-  email: z.string().email("Invalid email address"),
-});
+import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -16,7 +12,17 @@ export async function registerRoutes(
   // Waitlist endpoint - adds contact to HubSpot
   app.post("/api/waitlist", async (req, res) => {
     try {
-      const { email } = waitlistSchema.parse(req.body);
+      const { email } = req.body;
+      
+      // Validate using shared validation module
+      const validation = validateWaitlistEntry({ email });
+      if (!validation.valid) {
+        res.status(400).json({ 
+          success: false, 
+          message: validation.errors[0] || "Invalid input"
+        });
+        return;
+      }
 
       const hubspotClient = await getUncachableHubSpotClient();
 

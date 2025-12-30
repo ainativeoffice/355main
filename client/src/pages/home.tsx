@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Wifi, Monitor, Armchair, Coffee, MapPin, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Sliders, Copy, CheckCheck } from "lucide-react";
+import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Sliders, Copy, CheckCheck } from "lucide-react";
 import { Layout } from "@/components/layout";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
+import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
+import { validateEmail } from "@shared/validation";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -408,20 +410,26 @@ export default function Home() {
 
   const handleWaitlistSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      waitlistMutation.mutate(email);
+    if (!validateEmail(email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return;
     }
+    waitlistMutation.mutate(email);
   };
 
   const nextZone = () => {
-    const currentIndex = zones.findIndex(z => z.id === activeZone.id);
-    const nextIndex = (currentIndex + 1) % zones.length;
+    const currentIndex = getZoneIndex(zones, activeZone.id);
+    const nextIndex = getNextZoneIndex(currentIndex, zones.length);
     openZone(zones[nextIndex]);
   };
 
   const prevZone = () => {
-    const currentIndex = zones.findIndex(z => z.id === activeZone.id);
-    const prevIndex = (currentIndex - 1 + zones.length) % zones.length;
+    const currentIndex = getZoneIndex(zones, activeZone.id);
+    const prevIndex = getPrevZoneIndex(currentIndex, zones.length);
     openZone(zones[prevIndex]);
   };
 
