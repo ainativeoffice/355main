@@ -61,5 +61,46 @@ export async function registerRoutes(
     }
   });
 
+  // Testimonials endpoints
+  app.get("/api/testimonials", async (req, res) => {
+    try {
+      const { solutionType, featured } = req.query;
+      
+      if (featured === "true") {
+        const testimonials = await storage.getFeaturedTestimonials();
+        res.json(testimonials);
+        return;
+      }
+      
+      const testimonials = await storage.getTestimonials(solutionType as string | undefined);
+      res.json(testimonials);
+    } catch (error) {
+      console.error("Error fetching testimonials:", error);
+      res.status(500).json({ message: "Failed to fetch testimonials" });
+    }
+  });
+
+  // News endpoints
+  app.get("/api/news", async (req, res) => {
+    try {
+      const { category, featured, limit } = req.query;
+      
+      if (featured === "true") {
+        const newsItems = await storage.getFeaturedNews();
+        res.json(newsItems);
+        return;
+      }
+      
+      const newsItems = await storage.getNews(
+        category as string | undefined, 
+        limit ? parseInt(limit as string) : undefined
+      );
+      res.json(newsItems);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+      res.status(500).json({ message: "Failed to fetch news" });
+    }
+  });
+
   return httpServer;
 }
