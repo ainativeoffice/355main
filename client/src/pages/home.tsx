@@ -64,8 +64,8 @@ import ffe04 from "@assets/stock_images/vitra_.04_chair_offi_b4b13e10.jpg";
 import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
 import ffe05 from "@assets/stock_images/vitra_.05_chair_maar_01327ebe.jpg";
 import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
-import ffeMyntSketch from "@assets/mynt_1767101044307.jpg";
-import ffeMikado from "@assets/mikado_1767101044307.jpg";
+import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
+import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
 
 const zones = [
   {
@@ -144,7 +144,7 @@ const zones = [
       {
         name: "Mynt",
         brand: "Vitra",
-        image: ffeMyntSketch,
+        image: ffeMyntNew,
         url: "https://www.vitra.com/en-us/product/mynt",
         pdf: "/documents/mynt.pdf",
         desc: "An ergonomic office chair for dynamic sitting."
@@ -177,7 +177,7 @@ const zones = [
       {
         name: "Mynt",
         brand: "Vitra",
-        image: ffeMyntSketch,
+        image: ffeMyntNew,
         url: "https://www.vitra.com/en-us/product/mynt",
         pdf: "/documents/mynt.pdf",
         desc: "An ergonomic office chair for dynamic sitting."
