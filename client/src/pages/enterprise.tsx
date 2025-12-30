@@ -80,7 +80,7 @@ export default function Enterprise() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 container mx-auto px-6 py-12 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
@@ -116,7 +116,7 @@ export default function Enterprise() {
           >
             <h2 className="font-serif text-2xl mb-6">Start Your Consultation</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
                   type="text"
                   placeholder="First Name"
@@ -191,7 +191,7 @@ export default function Enterprise() {
             <h2 className="font-serif text-3xl md:text-5xl mb-4">Why Enterprise Teams Choose Opus 355</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +247,7 @@ export default function Enterprise() {
             <h2 className="font-serif text-3xl md:text-5xl mb-4">Workplace Solutions Built for Change</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

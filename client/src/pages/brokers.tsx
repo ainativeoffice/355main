@@ -71,7 +71,7 @@ export default function Brokers() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ export default function Brokers() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid sm:grid-cols-2 gap-8">
               <div className="bg-white/5 border border-white/10 p-8" data-testid="card-commission-initial">
                 <h3 className="text-sm uppercase tracking-widest text-white/50 mb-4">Initial Term (12+ months)</h3>
                 <div className="text-5xl font-serif mb-4">10%</div>
