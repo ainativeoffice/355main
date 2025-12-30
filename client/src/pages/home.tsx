@@ -942,7 +942,7 @@ export default function Home() {
       </section>
 
       {/* 8. Call to Action */}
-      <section className="py-32 bg-background text-foreground text-center px-6 border-t border-border">
+      <section id="waitlist" className="py-32 bg-background text-foreground text-center px-6 border-t border-border">
          <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
            whileInView={{ opacity: 1, scale: 1 }}
