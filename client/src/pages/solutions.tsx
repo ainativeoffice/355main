@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { Link } from "wouter";
 import { ArrowRight, Building2, Users, Zap } from "lucide-react";
+import { Testimonials } from "@/components/testimonials";
+import { NewsSection } from "@/components/news-section";
 
 import customOfficeImage from "@assets/357_exterior_1.jpg";
 import privateOfficeImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
@@ -198,6 +200,10 @@ export default function Solutions() {
           </div>
         </div>
       </section>
+
+      <Testimonials featured={true} />
+
+      <NewsSection limit={3} />
 
       <section className="py-24 bg-foreground text-background">
         <div className="container mx-auto px-6 text-center">
