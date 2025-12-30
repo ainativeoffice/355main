@@ -19,7 +19,7 @@ export default function AdminDashboard() {
   const { data: admin, isLoading: checkingAuth } = useQuery({
     queryKey: ["admin-auth"],
     queryFn: async () => {
-      const response = await fetch("/api/admin/me");
+      const response = await fetch("/api/admin/me", { credentials: "include" });
       if (!response.ok) throw new Error("Not authenticated");
       return response.json();
     },
@@ -34,7 +34,7 @@ export default function AdminDashboard() {
 
   const logoutMutation = useMutation({
     mutationFn: async () => {
-      await fetch("/api/admin/logout", { method: "POST" });
+      await fetch("/api/admin/logout", { method: "POST", credentials: "include" });
     },
     onSuccess: () => {
       queryClient.clear();
@@ -113,6 +113,7 @@ function TestimonialsManager() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
+        credentials: "include",
       });
       if (!response.ok) throw new Error("Failed to create");
       return response.json();
@@ -130,6 +131,7 @@ function TestimonialsManager() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
+        credentials: "include",
       });
       if (!response.ok) throw new Error("Failed to update");
       return response.json();
@@ -143,7 +145,7 @@ function TestimonialsManager() {
 
   const deleteMutation = useMutation({
     mutationFn: async (id: number) => {
-      const response = await fetch(`/api/admin/testimonials/${id}`, { method: "DELETE" });
+      const response = await fetch(`/api/admin/testimonials/${id}`, { method: "DELETE", credentials: "include" });
       if (!response.ok) throw new Error("Failed to delete");
     },
     onSuccess: () => {
@@ -283,6 +285,7 @@ function NewsManager() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
+        credentials: "include",
       });
       if (!response.ok) throw new Error("Failed to create");
       return response.json();
@@ -300,6 +303,7 @@ function NewsManager() {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
+        credentials: "include",
       });
       if (!response.ok) throw new Error("Failed to update");
       return response.json();
@@ -313,7 +317,7 @@ function NewsManager() {
 
   const deleteMutation = useMutation({
     mutationFn: async (id: number) => {
-      const response = await fetch(`/api/admin/news/${id}`, { method: "DELETE" });
+      const response = await fetch(`/api/admin/news/${id}`, { method: "DELETE", credentials: "include" });
       if (!response.ok) throw new Error("Failed to delete");
     },
     onSuccess: () => {

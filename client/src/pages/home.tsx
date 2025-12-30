@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Sliders, Copy, CheckCheck } from "lucide-react";
+import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Sliders, Copy, CheckCheck, Building2, Users, Zap, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState, useRef, useCallback } from "react";
+import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
@@ -953,7 +954,109 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. Call to Action */}
+      {/* 8. Solutions Overview */}
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Workspace Solutions</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Find Your Perfect Space</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From dedicated private offices to flexible memberships, we offer workspace solutions designed for how you work today.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-custom"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Building2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Custom Offices</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Ground-up design-build on the parcel. A bespoke workspace tailored entirely to your organization.
+              </p>
+              <Link 
+                href="/solutions/custom-offices" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-custom"
+              >
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-private"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Private Offices</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Move-in ready private spaces with Vitra Tyde 2 configurations for teams of 1-15 people.
+              </p>
+              <Link 
+                href="/solutions/private-offices" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-private"
+              >
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-hybrid"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Hybrid Memberships</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Flexible access to shared workspaces, phone booths, and all-inclusive amenities.
+              </p>
+              <Link 
+                href="/solutions/hybrid" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-hybrid"
+              >
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link 
+              href="/solutions" 
+              className="inline-flex items-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
+              onClick={() => window.scrollTo(0, 0)}
+              data-testid="link-view-all-solutions"
+            >
+              View All Solutions
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Call to Action */}
       <section id="waitlist" className="py-32 bg-background text-foreground text-center px-6 border-t border-border">
          <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
