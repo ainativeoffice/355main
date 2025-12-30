@@ -12,6 +12,8 @@ import Solutions from "@/pages/solutions";
 import CustomOffices from "@/pages/solutions/custom-offices";
 import PrivateOffices from "@/pages/solutions/private-offices";
 import HybridMemberships from "@/pages/solutions/hybrid";
+import AdminLogin from "@/pages/admin/login";
+import AdminDashboard from "@/pages/admin/index";
 
 function Router() {
   return (
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/solutions/custom-offices" component={CustomOffices} />
       <Route path="/solutions/private-offices" component={PrivateOffices} />
       <Route path="/solutions/hybrid" component={HybridMemberships} />
+      <Route path="/admin/login" component={AdminLogin} />
+      <Route path="/admin" component={AdminDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
