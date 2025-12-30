@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer className="bg-foreground text-background py-20 border-t border-white/10" id="contact">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+        <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <h2 className="font-serif text-3xl mb-6">Opus 355</h2>
             <p className="text-white/60 max-w-md leading-relaxed">
@@ -47,6 +47,31 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40 mt-8">Inquiries</h3>
             <a href="mailto:leasing@opus355.com" className="text-lg hover:text-white/80 transition-colors block">
               leasing@opus355.com
+            </a>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Partners</h3>
+            <nav className="flex flex-col gap-3">
+              <Link href="/brokers">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers">Brokers</a>
+              </Link>
+              <Link href="/enterprise">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise">Enterprise</a>
+              </Link>
+              <Link href="/landlords">
+                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords">Landlords</a>
+              </Link>
+            </nav>
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Opening</h3>
+            <p className="text-lg">February 2026</p>
+            <a 
+              href="#waitlist" 
+              className="inline-block mt-4 bg-primary text-primary-foreground px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
+              data-testid="link-footer-waitlist"
+            >
+              Join Waitlist
             </a>
           </div>
         </div>
