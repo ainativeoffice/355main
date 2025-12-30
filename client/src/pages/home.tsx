@@ -306,62 +306,65 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
   
-  const [showTuner, setShowTuner] = useState(false);
-  const [zoneCoords, setZoneCoords] = useState<Record<number, {x: number, y: number}>>(
-    Object.fromEntries(zones.map(z => [z.id, { x: z.x, y: z.y }]))
-  );
-  const [copiedConfig, setCopiedConfig] = useState(false);
-  const [draggingZone, setDraggingZone] = useState<number | null>(null);
-  const floorPlanRef = useRef<HTMLDivElement>(null);
+  // Zone Tuner - Commented out for production
+  // const [showTuner, setShowTuner] = useState(false);
+  // const [zoneCoords, setZoneCoords] = useState<Record<number, {x: number, y: number}>>(
+  //   Object.fromEntries(zones.map(z => [z.id, { x: z.x, y: z.y }]))
+  // );
+  // const [copiedConfig, setCopiedConfig] = useState(false);
+  // const [draggingZone, setDraggingZone] = useState<number | null>(null);
+  // const floorPlanRef = useRef<HTMLDivElement>(null);
 
-  const updateZoneCoord = (id: number, axis: 'x' | 'y', value: number) => {
-    setZoneCoords(prev => ({
-      ...prev,
-      [id]: { ...prev[id], [axis]: value }
-    }));
-  };
+  // Zone Tuner functions - Commented out for production
+  // const updateZoneCoord = (id: number, axis: 'x' | 'y', value: number) => {
+  //   setZoneCoords(prev => ({
+  //     ...prev,
+  //     [id]: { ...prev[id], [axis]: value }
+  //   }));
+  // };
 
-  const handleDragStart = useCallback((zoneId: number, e: React.PointerEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDraggingZone(zoneId);
-    openZone(zones.find(z => z.id === zoneId)!);
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-  }, []);
+  // const handleDragStart = useCallback((zoneId: number, e: React.PointerEvent) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   setDraggingZone(zoneId);
+  //   openZone(zones.find(z => z.id === zoneId)!);
+  //   (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  // }, []);
 
-  const handleDragMove = useCallback((e: React.PointerEvent) => {
-    if (draggingZone === null || !floorPlanRef.current) return;
-    
-    const rect = floorPlanRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
-    const clampedX = Math.max(0, Math.min(100, x));
-    const clampedY = Math.max(0, Math.min(100, y));
-    
-    setZoneCoords(prev => ({
-      ...prev,
-      [draggingZone]: { x: Math.round(clampedX * 2) / 2, y: Math.round(clampedY * 2) / 2 }
-    }));
-  }, [draggingZone]);
+  // const handleDragMove = useCallback((e: React.PointerEvent) => {
+  //   if (draggingZone === null || !floorPlanRef.current) return;
+  //   
+  //   const rect = floorPlanRef.current.getBoundingClientRect();
+  //   const x = ((e.clientX - rect.left) / rect.width) * 100;
+  //   const y = ((e.clientY - rect.top) / rect.height) * 100;
+  //   
+  //   const clampedX = Math.max(0, Math.min(100, x));
+  //   const clampedY = Math.max(0, Math.min(100, y));
+  //   
+  //   setZoneCoords(prev => ({
+  //     ...prev,
+  //     [draggingZone]: { x: Math.round(clampedX * 2) / 2, y: Math.round(clampedY * 2) / 2 }
+  //   }));
+  // }, [draggingZone]);
 
-  const handleDragEnd = useCallback(() => {
-    setDraggingZone(null);
-  }, []);
+  // const handleDragEnd = useCallback(() => {
+  //   setDraggingZone(null);
+  // }, []);
 
-  const copyZoneConfig = () => {
-    const config = zones.map(z => ({
-      id: z.id,
-      title: z.title,
-      x: zoneCoords[z.id].x,
-      y: zoneCoords[z.id].y
-    }));
-    navigator.clipboard.writeText(JSON.stringify(config, null, 2));
-    setCopiedConfig(true);
-    setTimeout(() => setCopiedConfig(false), 2000);
-  };
+  // const copyZoneConfig = () => {
+  //   const config = zones.map(z => ({
+  //     id: z.id,
+  //     title: z.title,
+  //     x: zoneCoords[z.id].x,
+  //     y: zoneCoords[z.id].y
+  //   }));
+  //   navigator.clipboard.writeText(JSON.stringify(config, null, 2));
+  //   setCopiedConfig(true);
+  //   setTimeout(() => setCopiedConfig(false), 2000);
+  // };
 
-  const getZoneCoord = (zone: typeof zones[0]) => zoneCoords[zone.id] || { x: zone.x, y: zone.y };
+  // const getZoneCoord = (zone: typeof zones[0]) => zoneCoords[zone.id] || { x: zone.x, y: zone.y };
+  const getZoneCoord = (zone: typeof zones[0]) => ({ x: zone.x, y: zone.y });
   
   const openZone = (zone: typeof zones[0]) => {
     setActiveZone(zone);
@@ -620,11 +623,7 @@ export default function Home() {
           <div className="relative max-w-5xl mx-auto bg-muted/5 border border-border/50 rounded-lg overflow-hidden shadow-2xl">
             {/* Interactive Floor Plan Map */}
             <div 
-              ref={floorPlanRef}
               className="relative aspect-[16/9] w-full bg-[#f8f8f8] border-b border-border"
-              onPointerMove={handleDragMove}
-              onPointerUp={handleDragEnd}
-              onPointerLeave={handleDragEnd}
             >
                <img 
                  src={buildingPlate} 
@@ -635,7 +634,6 @@ export default function Home() {
                {/* Hotspots */}
                {zones.map((zone) => {
                  const coords = getZoneCoord(zone);
-                 const isDragging = draggingZone === zone.id;
                  return (
                  <div
                    key={zone.id}
@@ -643,40 +641,26 @@ export default function Home() {
                      top: `${coords.y}%`, 
                      left: `${coords.x}%` 
                    }}
-                   className={`absolute -translate-x-1/2 -translate-y-1/2 group z-10 touch-none ${isDragging ? 'cursor-grabbing z-50' : 'cursor-grab'}`}
-                   onPointerDown={(e) => handleDragStart(zone.id, e)}
+                   className="absolute -translate-x-1/2 -translate-y-1/2 group z-10 cursor-pointer"
                    onClick={(e) => {
-                     if (!isDragging) {
-                       e.stopPropagation();
-                       openZone(zone);
-                     }
+                     e.stopPropagation();
+                     openZone(zone);
                    }}
                  >
-                   <div className={`relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${activeZone.id === zone.id ? 'scale-125' : 'opacity-80 hover:opacity-100'} ${isDragging ? 'scale-150' : ''}`}>
-                     {activeZone.id === zone.id && !isDragging && (
+                   <div className={`relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${activeZone.id === zone.id ? 'scale-125' : 'opacity-80 hover:opacity-100'}`}>
+                     {activeZone.id === zone.id && (
                        <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping opacity-75" />
                      )}
-                     <div className={`absolute inset-0 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] border-2 transition-colors ${activeZone.id === zone.id ? 'bg-primary border-primary' : 'bg-white border-primary/10 group-hover:border-primary'} ${isDragging ? 'ring-4 ring-primary/50' : ''}`} />
+                     <div className={`absolute inset-0 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] border-2 transition-colors ${activeZone.id === zone.id ? 'bg-primary border-primary' : 'bg-white border-primary/10 group-hover:border-primary'}`} />
                      <div className={`absolute w-2 h-2 rounded-full ${activeZone.id === zone.id ? 'bg-white' : 'bg-primary'}`} />
                      
                      {/* Tooltip on Hover */}
-                     {!isDragging && (
-                       <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20 pointer-events-none">
-                         <div className="bg-zinc-900 text-white text-xs px-2 py-1 rounded shadow-lg">
-                           {zone.title}
-                         </div>
-                         <div className="w-2 h-2 bg-zinc-900 rotate-45 absolute bottom-[-4px] left-1/2 -translate-x-1/2" />
+                     <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-20 pointer-events-none">
+                       <div className="bg-zinc-900 text-white text-xs px-2 py-1 rounded shadow-lg">
+                         {zone.title}
                        </div>
-                     )}
-                     
-                     {/* Coordinates display while dragging */}
-                     {isDragging && (
-                       <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap z-20 pointer-events-none">
-                         <div className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded shadow-lg font-mono">
-                           x: {coords.x.toFixed(1)}, y: {coords.y.toFixed(1)}
-                         </div>
-                       </div>
-                     )}
+                       <div className="w-2 h-2 bg-zinc-900 rotate-45 absolute bottom-[-4px] left-1/2 -translate-x-1/2" />
+                     </div>
                    </div>
                  </div>
                );
@@ -795,7 +779,7 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Zone Tuner - Development Tool */}
+          {/* Zone Tuner - Commented out for production
           <div className="mt-8 max-w-5xl mx-auto">
             <button
               onClick={() => setShowTuner(!showTuner)}
@@ -866,6 +850,7 @@ export default function Home() {
               </div>
             )}
           </div>
+          */}
         </div>
       </section>
 

@@ -50,13 +50,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="space-y-4">
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Solutions</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/solutions/custom-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-custom-offices">
+              <Link href="/solutions/custom-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-custom-offices" onClick={() => window.scrollTo(0, 0)}>
                 Custom Offices
               </Link>
-              <Link href="/solutions/private-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-private-offices">
+              <Link href="/solutions/private-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-private-offices" onClick={() => window.scrollTo(0, 0)}>
                 Private Offices
               </Link>
-              <Link href="/solutions/hybrid" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid">
+              <Link href="/solutions/hybrid" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid" onClick={() => window.scrollTo(0, 0)}>
                 Hybrid Memberships
               </Link>
             </nav>
@@ -64,13 +64,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="space-y-4">
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Partners</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/brokers" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers">
+              <Link href="/brokers" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers" onClick={() => window.scrollTo(0, 0)}>
                 Brokers
               </Link>
-              <Link href="/enterprise" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise">
+              <Link href="/enterprise" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise" onClick={() => window.scrollTo(0, 0)}>
                 Enterprise
               </Link>
-              <Link href="/landlords" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords">
+              <Link href="/landlords" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords" onClick={() => window.scrollTo(0, 0)}>
                 Landlords
               </Link>
             </nav>
