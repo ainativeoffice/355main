@@ -1,14 +1,27 @@
+import { useState } from "react";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-primary/20">
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-md transition-all duration-300">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="font-serif text-2xl tracking-tight hover:opacity-80 transition-opacity">
+        <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+          <Link href="/" className="font-serif text-xl sm:text-2xl tracking-tight hover:opacity-80 transition-opacity z-10" data-testid="link-logo">
             Opus 355
           </Link>
+
+          <button 
+            className="md:hidden p-2 text-foreground z-10" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+            data-testid="button-mobile-menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
 
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-muted-foreground items-center">
             <a href="#concept" className="hover:text-primary transition-colors">The Concept</a>
@@ -23,9 +36,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </a>
           </nav>
         </div>
+
+        {mobileMenuOpen && (
+          <nav className="md:hidden bg-background border-t border-border px-4 py-6 flex flex-col gap-4">
+            <a href="#concept" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>The Concept</a>
+            <a href="#zones" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>The Zones</a>
+            <a href="#philosophy" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>Philosophy</a>
+            <a href="#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            <a 
+              href="#waitlist" 
+              className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Join Waitlist
+            </a>
+          </nav>
+        )}
       </header>
 
-      <main className="flex-grow pt-20">
+      <main className="flex-grow pt-16 sm:pt-20">
         {children}
       </main>
 
