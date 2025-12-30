@@ -64,6 +64,8 @@ import ffe04 from "@assets/stock_images/vitra_.04_chair_offi_b4b13e10.jpg";
 import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
 import ffe05 from "@assets/stock_images/vitra_.05_chair_maar_01327ebe.jpg";
 import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
+import ffeMyntSketch from "@assets/mynt_1767101044307.jpg";
+import ffeMikado from "@assets/mikado_1767101044307.jpg";
 
 const zones = [
   {
@@ -74,12 +76,12 @@ const zones = [
     images: [zone1],
     products: [
       {
-        name: "Mynt",
+        name: "Joyn 2",
         brand: "Vitra",
-        image: ffeMynt,
-        url: "https://www.vitra.com/en-us/product/mynt",
-        pdf: "/documents/mynt.pdf",
-        desc: "An ergonomic office chair for dynamic sitting."
+        image: ffeJoyn2,
+        url: "https://www.vitra.com/en-us/product/joyn-2",
+        pdf: "/documents/joyn2.pdf",
+        desc: "Adaptable office table system for teamwork and collaboration."
       },
       {
         name: ".04 Chair",
@@ -90,12 +92,12 @@ const zones = [
         desc: "Unobtrusive design with ergonomic comfort for long periods of sitting."
       },
       {
-        name: "Tyde 2",
+        name: "Dancing Wall",
         brand: "Vitra",
-        image: ffeTyde2,
-        url: "https://www.vitra.com/en-us/product/tyde-2",
-        pdf: "/documents/tyde2.pdf",
-        desc: "Height-adjustable sit-stand table system."
+        image: ffeDancingWall,
+        url: "https://www.vitra.com/en-us/product/dancing-wall",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Mobile partition that can be used to divide offices into zones."
       }
     ]
   },
@@ -132,20 +134,28 @@ const zones = [
     images: [zone5a, zone5b],
     products: [
       {
-        name: "Fauteuil Direction",
+        name: "Tyde 2",
         brand: "Vitra",
-        image: ffeFauteuilDirection,
-        url: "https://www.vitra.com/en-us/product/fauteuil-direction",
-        pdf: "/documents/fauteuil_direction.pdf",
-        desc: "Comfortable armchair especially suited for table seating."
+        image: ffeTyde2,
+        url: "https://www.vitra.com/en-us/product/tyde-2",
+        pdf: "/documents/tyde2.pdf",
+        desc: "Height-adjustable sit-stand table system."
       },
-       {
-        name: "Stool 60",
-        brand: "Artek",
-        image: ffeStool60,
-        url: "https://www.artek.fi/en/products/stool-60",
-        pdf: "#",
-        desc: "The iconic three-legged stool designed by Alvar Aalto."
+      {
+        name: "Mynt",
+        brand: "Vitra",
+        image: ffeMyntSketch,
+        url: "https://www.vitra.com/en-us/product/mynt",
+        pdf: "/documents/mynt.pdf",
+        desc: "An ergonomic office chair for dynamic sitting."
+      },
+      {
+        name: "Mikado Side Chair",
+        brand: "Vitra",
+        image: ffeMikado,
+        url: "https://www.vitra.com/en-us/product/mikado",
+        pdf: "/documents/mikado.pdf",
+        desc: "Elegant side chair with a flexible backrest for comfort."
       }
     ]
   },
@@ -156,21 +166,29 @@ const zones = [
     x: 31, y: 54.5,
     images: [zone6],
     products: [
-       {
-        name: "Joyn 2",
+      {
+        name: "Tyde 2",
         brand: "Vitra",
-        image: ffeJoyn2,
-        url: "https://www.vitra.com/en-us/product/joyn-2",
-        pdf: "/documents/joyn2.pdf",
-        desc: "Adaptable office table system for teamwork."
+        image: ffeTyde2,
+        url: "https://www.vitra.com/en-us/product/tyde-2",
+        pdf: "/documents/tyde2.pdf",
+        desc: "Height-adjustable sit-stand table system."
       },
       {
-        name: "Follow Me",
+        name: "Mynt",
         brand: "Vitra",
-        image: ffeFollowMe,
-        url: "https://www.vitra.com/en-us/product/follow-me",
-        pdf: "/documents/follow_me.pdf",
-        desc: "Robust, lockable mobile pedestal with a decorative pull strap."
+        image: ffeMyntSketch,
+        url: "https://www.vitra.com/en-us/product/mynt",
+        pdf: "/documents/mynt.pdf",
+        desc: "An ergonomic office chair for dynamic sitting."
+      },
+      {
+        name: "Mikado Side Chair",
+        brand: "Vitra",
+        image: ffeMikado,
+        url: "https://www.vitra.com/en-us/product/mikado",
+        pdf: "/documents/mikado.pdf",
+        desc: "Elegant side chair with a flexible backrest for comfort."
       }
     ]
   },
