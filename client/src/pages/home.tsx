@@ -66,6 +66,7 @@ import ffe05 from "@assets/stock_images/vitra_.05_chair_maar_01327ebe.jpg";
 import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
 import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
+import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
 
 const zones = [
   {
@@ -991,10 +992,14 @@ export default function Home() {
                </button>
              </div>
              
-             <button type="button" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1">
+             <a 
+               href={listingBrochure} 
+               download="Opus_355_Listing_Brochure.pdf"
+               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1"
+             >
                <Download className="w-4 h-4" />
                Download Brochure
-             </button>
+             </a>
            </form>
          </motion.div>
       </section>
