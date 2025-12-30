@@ -209,13 +209,12 @@ export default function Brokers() {
             >
               Contact Our Team
             </a>
-            <Link href="/">
-              <a 
-                className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
-                data-testid="link-explore-space"
-              >
-                Explore the Space
-              </a>
+            <Link 
+              href="/"
+              className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
+              data-testid="link-explore-space"
+            >
+              Explore the Space
             </Link>
           </div>
         </div>

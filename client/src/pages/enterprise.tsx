@@ -321,14 +321,13 @@ export default function Enterprise() {
           <p className="text-white/70 max-w-xl mx-auto mb-8">
             Be among the first enterprises to establish presence at Opus 355. Early partners receive priority access and preferred terms.
           </p>
-          <Link href="/">
-            <a 
-              className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
-              data-testid="link-explore-space"
-            >
-              Explore the Space
-              <ArrowRight className="w-4 h-4" />
-            </a>
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
+            data-testid="link-explore-space"
+          >
+            Explore the Space
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

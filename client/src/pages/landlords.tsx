@@ -221,13 +221,12 @@ export default function Landlords() {
               >
                 Discuss Partnership
               </a>
-              <Link href="/">
-                <a 
-                  className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
-                  data-testid="link-see-opus355"
-                >
-                  See Opus 355
-                </a>
+              <Link 
+                href="/"
+                className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
+                data-testid="link-see-opus355"
+              >
+                See Opus 355
               </Link>
             </div>
           </div>

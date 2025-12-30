@@ -6,10 +6,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-primary/20">
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-md transition-all duration-300">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/">
-            <a className="font-serif text-2xl tracking-tight hover:opacity-80 transition-opacity">
-              Opus 355
-            </a>
+          <Link href="/" className="font-serif text-2xl tracking-tight hover:opacity-80 transition-opacity">
+            Opus 355
           </Link>
 
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-muted-foreground items-center">
@@ -52,28 +50,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="space-y-4">
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Solutions</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/solutions/custom-offices">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-custom-offices">Custom Offices</a>
+              <Link href="/solutions/custom-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-custom-offices">
+                Custom Offices
               </Link>
-              <Link href="/solutions/private-offices">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-private-offices">Private Offices</a>
+              <Link href="/solutions/private-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-private-offices">
+                Private Offices
               </Link>
-              <Link href="/solutions/hybrid">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid">Hybrid Memberships</a>
+              <Link href="/solutions/hybrid" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid">
+                Hybrid Memberships
               </Link>
             </nav>
           </div>
           <div className="space-y-4">
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Partners</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/brokers">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers">Brokers</a>
+              <Link href="/brokers" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-brokers">
+                Brokers
               </Link>
-              <Link href="/enterprise">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise">Enterprise</a>
+              <Link href="/enterprise" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-enterprise">
+                Enterprise
               </Link>
-              <Link href="/landlords">
-                <a className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords">Landlords</a>
+              <Link href="/landlords" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-landlords">
+                Landlords
               </Link>
             </nav>
           </div>

@@ -48,7 +48,7 @@ export default function Solutions() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             <Link href="/solutions/custom-offices">
-              <motion.a
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -90,11 +90,11 @@ export default function Solutions() {
                     Learn More <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-              </motion.a>
+              </motion.div>
             </Link>
 
             <Link href="/solutions/private-offices">
-              <motion.a
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -136,7 +136,7 @@ export default function Solutions() {
                     Learn More <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-              </motion.a>
+              </motion.div>
             </Link>
           </div>
         </div>
@@ -151,7 +151,7 @@ export default function Solutions() {
 
           <div className="max-w-2xl mx-auto">
             <Link href="/solutions/hybrid">
-              <motion.a
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -193,7 +193,7 @@ export default function Solutions() {
                     Learn More <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
-              </motion.a>
+              </motion.div>
             </Link>
           </div>
         </div>

@@ -22,11 +22,9 @@ export default function CustomOffices() {
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-          <Link href="/solutions">
-            <a className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors" data-testid="link-back-solutions">
-              <ArrowLeft className="w-4 h-4" />
-              <span className="text-sm uppercase tracking-widest">All Solutions</span>
-            </a>
+          <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors" data-testid="link-back-solutions">
+            <ArrowLeft className="w-4 h-4" />
+            <span className="text-sm uppercase tracking-widest">All Solutions</span>
           </Link>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -221,15 +219,11 @@ export default function CustomOffices() {
             Not ready for a custom build? Explore our private offices and hybrid memberships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/solutions/private-offices">
-              <a className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors" data-testid="link-private-offices">
-                Private Offices
-              </a>
+            <Link href="/solutions/private-offices" className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors" data-testid="link-private-offices">
+              Private Offices
             </Link>
-            <Link href="/solutions/hybrid">
-              <a className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors" data-testid="link-hybrid">
-                Hybrid Memberships
-              </a>
+            <Link href="/solutions/hybrid" className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors" data-testid="link-hybrid">
+              Hybrid Memberships
             </Link>
           </div>
         </div>
