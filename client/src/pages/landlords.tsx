@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout";
 import { ArrowRight, TrendingUp, Users, Building2, Star, Lightbulb, Leaf } from "lucide-react";
 import { Link } from "wouter";
 
-import heroImage from "@assets/stock_images/commercial_real_esta_00653829.jpg";
+import heroImage from "@assets/355-main-office-bigcover-7_1767123943623.jpg";
 import buildingImage from "@assets/stock_images/commercial_real_esta_82168a19.jpg";
 import exteriorImage from "@assets/vs_exterior_glass.jpg";
 import building357Exterior from "@assets/357_exterior_1.jpg";
