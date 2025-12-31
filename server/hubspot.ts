@@ -1,8 +1,9 @@
 import { Client } from '@hubspot/api-client';
+import { config } from './config';
 
 let connectionSettings: any;
 
-async function getAccessToken() {
+async function getOAuthAccessToken() {
   if (connectionSettings && connectionSettings.settings.expires_at && new Date(connectionSettings.settings.expires_at).getTime() > Date.now()) {
     return connectionSettings.settings.access_token;
   }
@@ -34,6 +35,13 @@ async function getAccessToken() {
     throw new Error('HubSpot not connected');
   }
   return accessToken;
+}
+
+async function getAccessToken(): Promise<string> {
+  if (config.isDevelopment && process.env.HUBSPOT_DEV_ACCESS_TOKEN) {
+    return process.env.HUBSPOT_DEV_ACCESS_TOKEN;
+  }
+  return getOAuthAccessToken();
 }
 
 // WARNING: Never cache this client.
