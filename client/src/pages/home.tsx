@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
 import { JoinMembershipDialog } from "@/components/join-membership-dialog";
 
-import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
+import heroImage from "@assets/Hero_1767201488037.png";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
 import entranceImage from "@assets/vs_entrance.jpg";
 import elevatorImage from "@assets/opus_elevator.jpg";
