@@ -1,8 +1,10 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 import bcrypt from "bcrypt";
 import { storage } from "./storage";
+import { pool } from "./db";
 import { getUncachableHubSpotClient } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 import { insertTestimonialSchema, insertNewsSchema } from "@shared/schema";
@@ -37,7 +39,15 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
   
+  const PgSession = connectPgSimple(session);
+  
   app.use(session({
+    store: new PgSession({
+      pool: pool,
+      tableName: 'session',
+      createTableIfMissing: true,
+      pruneSessionInterval: 60 * 15
+    }),
     secret: process.env.SESSION_SECRET || "opus355-admin-secret-key",
     resave: false,
     saveUninitialized: false,
