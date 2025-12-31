@@ -594,7 +594,7 @@ export async function registerRoutes(
         case "invoice.paid": {
           const invoice = event.data.object as Stripe.Invoice;
           const customerId = invoice.customer as string;
-          const subscriptionId = invoice.subscription as string;
+          const subscriptionId = (invoice as any).subscription as string;
 
           const member = await findMemberByStripeCustomerId(customerId);
           if (member) {
