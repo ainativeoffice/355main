@@ -115,7 +115,10 @@ export async function registerRoutes(
 
     // Use X-Forwarded-Proto header for proper HTTPS detection behind proxy
     const protocol = req.get("x-forwarded-proto") || req.protocol;
-    const redirectUri = `${protocol}://${req.get("host")}/api/auth/callback`;
+    const host = req.get("host");
+    const redirectUri = `${protocol}://${host}/api/auth/callback`;
+    
+    console.log("WorkOS redirect URI:", redirectUri);
     
     const authorizationUrl = workos.userManagement.getAuthorizationUrl({
       provider: "authkit",
@@ -123,6 +126,7 @@ export async function registerRoutes(
       clientId,
     });
 
+    console.log("WorkOS authorization URL:", authorizationUrl);
     res.redirect(authorizationUrl);
   });
 
