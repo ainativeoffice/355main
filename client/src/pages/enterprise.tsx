@@ -261,6 +261,7 @@ export default function Enterprise() {
                   src={townSquareImage} 
                   alt="Hybrid workspace" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <h3 className="font-serif text-2xl mb-3">Hybrid Workforce</h3>
@@ -282,6 +283,7 @@ export default function Enterprise() {
                   src={interiorImage} 
                   alt="Local hub" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <h3 className="font-serif text-2xl mb-3">Westchester Hub</h3>
@@ -303,6 +305,7 @@ export default function Enterprise() {
                   src={teamImage} 
                   alt="Distributed teams" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
               <h3 className="font-serif text-2xl mb-3">Distributed Teams</h3>

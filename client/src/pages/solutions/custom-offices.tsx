@@ -89,6 +89,7 @@ export default function CustomOffices() {
                 src={exteriorImage} 
                 alt="Building Exterior" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-exterior"
               />
             </div>
@@ -205,6 +206,7 @@ export default function CustomOffices() {
                 src={interiorImage} 
                 alt="Office Interior" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-interior"
               />
             </div>

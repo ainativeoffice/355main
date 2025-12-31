@@ -600,12 +600,14 @@ export default function Home() {
               <img 
                 src={activeBuilding === "355" ? lanternImage : building357Exterior} 
                 alt="Exterior Facade" 
-                className="w-full h-64 object-cover" 
+                className="w-full h-64 object-cover"
+                loading="lazy"
               />
               <img 
                 src={activeBuilding === "355" ? entranceImage : building357Interior} 
                 alt="Interior/Detail" 
-                className="w-full h-64 object-cover translate-y-8" 
+                className="w-full h-64 object-cover translate-y-8"
+                loading="lazy"
               />
             </motion.div>
           </div>
@@ -637,6 +639,7 @@ export default function Home() {
                    src={buildingPlate} 
                    alt="Interactive Floor Plan" 
                    className="w-full h-full object-contain scale-110 pointer-events-none select-none"
+                   loading="lazy"
                  />
                
                {/* Hotspots */}
@@ -708,7 +711,7 @@ export default function Home() {
                           {activeZone.products.map((product, idx) => (
                              <div key={idx} className="group flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
                                 <div className="w-12 h-12 bg-white rounded border border-border overflow-hidden shrink-0">
-                                   <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" />
+                                   <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" loading="lazy" />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                    <div className="flex items-baseline justify-between mb-1">
@@ -746,6 +749,7 @@ export default function Home() {
                             src={activeZone.images[activeImageIndex]}
                             className="w-full h-full object-contain"
                             alt={`${activeZone.title} View`}
+                            loading="lazy"
                         />
                       </motion.div>
                     </AnimatePresence>
@@ -938,6 +942,7 @@ export default function Home() {
                   src={constructionImage} 
                   alt="Construction Progress - Flooring Prep" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
                   Live Update

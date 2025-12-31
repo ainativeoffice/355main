@@ -293,6 +293,7 @@ export default function HybridMemberships() {
                 src={coworkingImage} 
                 alt="Coworking Space" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-coworking"
               />
             </div>

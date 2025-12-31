@@ -78,6 +78,7 @@ export default function Landlords() {
                   src={interiorImage} 
                   alt="Premium interior" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <h3 className="font-serif text-2xl mb-4">Highest Quality Standards</h3>
@@ -99,6 +100,7 @@ export default function Landlords() {
                   src={exteriorImage} 
                   alt="Building exterior" 
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <h3 className="font-serif text-2xl mb-4">Increase Portfolio Value</h3>
@@ -260,6 +262,7 @@ export default function Landlords() {
                 src={building357Exterior} 
                 alt="North Castle Ventures project" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-ncv-project"
               />
             </div>

@@ -61,6 +61,7 @@ export default function PrivateOffices() {
                 src={tyde2Image} 
                 alt="Vitra Tyde 2 Desk" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-tyde2"
               />
             </div>
@@ -244,6 +245,7 @@ export default function PrivateOffices() {
                 src={officeImage} 
                 alt="Team Office Configuration" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-team-office"
               />
             </div>

@@ -63,6 +63,7 @@ export default function Solutions() {
                     src={customOfficeImage} 
                     alt="Custom Offices" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-8">
@@ -109,6 +110,7 @@ export default function Solutions() {
                     src={privateOfficeImage} 
                     alt="Private Offices" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-8">
@@ -166,6 +168,7 @@ export default function Solutions() {
                     src={hybridImage} 
                     alt="Hybrid Membership" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-8">

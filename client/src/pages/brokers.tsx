@@ -153,6 +153,7 @@ export default function Brokers() {
                 src={buildingExterior} 
                 alt="Opus 355 Exterior" 
                 className="w-full aspect-[4/3] object-cover"
+                loading="lazy"
                 data-testid="img-building-exterior"
               />
             </div>
