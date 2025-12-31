@@ -615,7 +615,7 @@ export default function Home() {
       </section>
 
       {/* 4. The Zones Detail Section - Interactive Map & Overlay */}
-      <section id="zones" className="py-24 bg-background overflow-hidden">
+      <section id="blueprint" className="py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="mb-12 text-center">
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">The Blueprint</span>
