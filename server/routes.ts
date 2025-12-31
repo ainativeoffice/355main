@@ -4,6 +4,7 @@ import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 import bcrypt from "bcrypt";
 import { WorkOS } from "@workos-inc/node";
+import Stripe from "stripe";
 import { storage } from "./storage";
 import { pool } from "./db";
 import { getUncachableHubSpotClient } from "./hubspot";
@@ -13,6 +14,35 @@ import { insertTestimonialSchema, insertNewsSchema, insertMemberSchema, insertMe
 // Initialize WorkOS
 const workos = new WorkOS(process.env.WORKOS_API_KEY);
 const clientId = process.env.WORKOS_CLIENT_ID;
+
+// Initialize Stripe
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+
+// Membership tier pricing (price IDs would come from Stripe dashboard in production)
+const MEMBERSHIP_TIERS = {
+  free: {
+    name: "Explorer",
+    price: 0,
+    features: ["Day pass access", "Community events", "Basic amenities"],
+  },
+  hybrid: {
+    name: "Hybrid",
+    price: 299,
+    priceId: "price_hybrid_monthly", // Replace with actual Stripe price ID
+    features: ["5 days/month access", "Dedicated desk hours", "All amenities", "Meeting room credits"],
+  },
+  private: {
+    name: "Private Office",
+    price: 599,
+    priceId: "price_private_monthly", // Replace with actual Stripe price ID  
+    features: ["Unlimited access", "Private office space", "All amenities", "Priority support"],
+  },
+  enterprise: {
+    name: "Enterprise",
+    price: null, // Custom pricing
+    features: ["Custom floor plans", "Dedicated team spaces", "Concierge support", "Custom integrations"],
+  },
+};
 
 declare module "express-session" {
   interface SessionData {
@@ -203,6 +233,10 @@ export async function registerRoutes(
           jobRole: member.jobRole,
           role: member.role,
           organizationId: member.organizationId,
+          stripeCustomerId: member.stripeCustomerId,
+          subscriptionId: member.subscriptionId,
+          subscriptionStatus: member.subscriptionStatus,
+          subscriptionTier: member.subscriptionTier,
         },
         preferences,
         organization,
@@ -238,6 +272,180 @@ export async function registerRoutes(
 
   // ==========================================
   // End WorkOS Authentication Routes
+  // ==========================================
+
+  // ==========================================
+  // Stripe Subscription Routes
+  // ==========================================
+
+  // Get membership tiers and pricing
+  app.get("/api/membership/tiers", (req, res) => {
+    res.json(MEMBERSHIP_TIERS);
+  });
+
+  // Create checkout session for subscription
+  app.post("/api/stripe/create-checkout-session", requireMember, async (req, res) => {
+    try {
+      const { tier } = req.body;
+      const memberId = req.session.memberId!;
+
+      if (!tier || !["hybrid", "private"].includes(tier)) {
+        res.status(400).json({ error: "Invalid membership tier" });
+        return;
+      }
+
+      const member = await storage.getMemberById(memberId);
+      if (!member) {
+        res.status(404).json({ error: "Member not found" });
+        return;
+      }
+
+      // Get or create Stripe customer
+      let customerId = member.stripeCustomerId;
+      if (!customerId) {
+        const customer = await stripe.customers.create({
+          email: member.email,
+          name: `${member.firstName || ""} ${member.lastName || ""}`.trim() || undefined,
+          metadata: {
+            memberId: memberId.toString(),
+          },
+        });
+        customerId = customer.id;
+        await storage.updateMember(memberId, { stripeCustomerId: customerId } as any);
+      }
+
+      const tierConfig = MEMBERSHIP_TIERS[tier as keyof typeof MEMBERSHIP_TIERS];
+      if (!tierConfig || !("priceId" in tierConfig)) {
+        res.status(400).json({ error: "Tier not available for checkout" });
+        return;
+      }
+
+      // Create checkout session
+      const session = await stripe.checkout.sessions.create({
+        customer: customerId,
+        payment_method_types: ["card"],
+        line_items: [
+          {
+            price: tierConfig.priceId,
+            quantity: 1,
+          },
+        ],
+        mode: "subscription",
+        success_url: `${req.headers.origin}/dashboard?subscription=success`,
+        cancel_url: `${req.headers.origin}/dashboard?subscription=cancelled`,
+        metadata: {
+          memberId: memberId.toString(),
+          tier,
+        },
+      });
+
+      res.json({ sessionId: session.id, url: session.url });
+    } catch (error) {
+      console.error("Stripe checkout error:", error);
+      res.status(500).json({ error: "Failed to create checkout session" });
+    }
+  });
+
+  // Create customer portal session for managing subscription
+  app.post("/api/stripe/create-portal-session", requireMember, async (req, res) => {
+    try {
+      const memberId = req.session.memberId!;
+      const member = await storage.getMemberById(memberId);
+
+      if (!member?.stripeCustomerId) {
+        res.status(400).json({ error: "No subscription found" });
+        return;
+      }
+
+      const session = await stripe.billingPortal.sessions.create({
+        customer: member.stripeCustomerId,
+        return_url: `${req.headers.origin}/dashboard`,
+      });
+
+      res.json({ url: session.url });
+    } catch (error) {
+      console.error("Stripe portal error:", error);
+      res.status(500).json({ error: "Failed to create portal session" });
+    }
+  });
+
+  // Stripe webhook handler
+  app.post("/api/stripe/webhook", async (req, res) => {
+    const sig = req.headers["stripe-signature"] as string;
+    
+    let event: Stripe.Event;
+    try {
+      // Use rawBody from Express middleware configured in index.ts
+      const rawBody = req.rawBody as Buffer;
+      if (!rawBody) {
+        console.error("No raw body available for webhook verification");
+        res.status(400).send("Webhook Error: No raw body");
+        return;
+      }
+      event = stripe.webhooks.constructEvent(
+        rawBody,
+        sig,
+        process.env.STRIPE_WEBHOOK_SECRET!
+      );
+    } catch (err) {
+      console.error("Webhook signature verification failed:", err);
+      res.status(400).send("Webhook Error");
+      return;
+    }
+
+    // Handle subscription events
+    switch (event.type) {
+      case "checkout.session.completed": {
+        const session = event.data.object as Stripe.Checkout.Session;
+        const memberId = parseInt(session.metadata?.memberId || "0");
+        const tier = session.metadata?.tier;
+
+        if (memberId && tier) {
+          await storage.updateMember(memberId, {
+            subscriptionId: session.subscription as string,
+            subscriptionStatus: "active",
+            subscriptionTier: tier,
+          } as any);
+        }
+        break;
+      }
+
+      case "customer.subscription.updated": {
+        const subscription = event.data.object as Stripe.Subscription;
+        const customerId = subscription.customer as string;
+        
+        // Find member by customer ID and update status
+        const members = await storage.getMembers();
+        const member = members.find(m => m.stripeCustomerId === customerId);
+        if (member) {
+          await storage.updateMember(member.id, {
+            subscriptionStatus: subscription.status,
+          } as any);
+        }
+        break;
+      }
+
+      case "customer.subscription.deleted": {
+        const subscription = event.data.object as Stripe.Subscription;
+        const customerId = subscription.customer as string;
+        
+        const members = await storage.getMembers();
+        const member = members.find(m => m.stripeCustomerId === customerId);
+        if (member) {
+          await storage.updateMember(member.id, {
+            subscriptionStatus: "cancelled",
+            subscriptionTier: "free",
+          } as any);
+        }
+        break;
+      }
+    }
+
+    res.json({ received: true });
+  });
+
+  // ==========================================
+  // End Stripe Subscription Routes
   // ==========================================
 
   // Waitlist endpoint - adds contact to HubSpot

@@ -9,6 +9,10 @@ interface AuthMember {
   jobRole: string | null;
   role: string | null;
   organizationId: number | null;
+  stripeCustomerId: string | null;
+  subscriptionId: string | null;
+  subscriptionStatus: string | null;
+  subscriptionTier: string | null;
 }
 
 interface MemberPreferences {

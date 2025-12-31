@@ -122,15 +122,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getNews(category?: string, limit?: number): Promise<News[]> {
-    let query = db.select().from(news).orderBy(desc(news.publishedAt));
+    let results: News[];
     
     if (category) {
-      query = db.select().from(news)
+      results = await db.select().from(news)
         .where(eq(news.category, category))
         .orderBy(desc(news.publishedAt));
+    } else {
+      results = await db.select().from(news).orderBy(desc(news.publishedAt));
     }
     
-    const results = await query;
     return limit ? results.slice(0, limit) : results;
   }
 

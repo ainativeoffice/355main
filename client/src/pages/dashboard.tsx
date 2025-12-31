@@ -142,15 +142,87 @@ export default function Dashboard() {
                 <CreditCard className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <Badge className="bg-amber-500/10 text-amber-600 border-amber-500/20">
-                  Waitlist
-                </Badge>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Opening February 2026
-                </p>
-                <Button variant="link" className="p-0 h-auto mt-4" data-testid="button-view-plans">
-                  View Plans
-                </Button>
+                {member?.subscriptionTier && member.subscriptionTier !== "free" ? (
+                  <>
+                    <Badge className={
+                      member.subscriptionStatus === "active" 
+                        ? "bg-emerald-500/10 text-emerald-600 border-emerald-500/20"
+                        : "bg-amber-500/10 text-amber-600 border-amber-500/20"
+                    }>
+                      {member.subscriptionTier === "hybrid" ? "Hybrid" : "Private Office"}
+                      {member.subscriptionStatus === "active" ? " - Active" : ` - ${member.subscriptionStatus}`}
+                    </Badge>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      {member.subscriptionTier === "hybrid" ? "$299/month" : "$599/month"}
+                    </p>
+                    <Button 
+                      variant="link" 
+                      className="p-0 h-auto mt-4" 
+                      data-testid="button-manage-subscription"
+                      onClick={async () => {
+                        try {
+                          const res = await fetch("/api/stripe/create-portal-session", { method: "POST" });
+                          const data = await res.json();
+                          if (data.url) window.location.href = data.url;
+                        } catch (e) {
+                          console.error("Portal session error:", e);
+                        }
+                      }}
+                    >
+                      Manage Subscription
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <Badge className="bg-slate-500/10 text-slate-600 border-slate-500/20">
+                      Explorer (Free)
+                    </Badge>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Day pass access • Opening February 2026
+                    </p>
+                    <div className="flex gap-2 mt-4">
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        data-testid="button-upgrade-hybrid"
+                        onClick={async () => {
+                          try {
+                            const res = await fetch("/api/stripe/create-checkout-session", {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({ tier: "hybrid" }),
+                            });
+                            const data = await res.json();
+                            if (data.url) window.location.href = data.url;
+                          } catch (e) {
+                            console.error("Checkout error:", e);
+                          }
+                        }}
+                      >
+                        Upgrade to Hybrid
+                      </Button>
+                      <Button 
+                        size="sm"
+                        data-testid="button-upgrade-private"
+                        onClick={async () => {
+                          try {
+                            const res = await fetch("/api/stripe/create-checkout-session", {
+                              method: "POST",
+                              headers: { "Content-Type": "application/json" },
+                              body: JSON.stringify({ tier: "private" }),
+                            });
+                            const data = await res.json();
+                            if (data.url) window.location.href = data.url;
+                          } catch (e) {
+                            console.error("Checkout error:", e);
+                          }
+                        }}
+                      >
+                        Upgrade to Private
+                      </Button>
+                    </div>
+                  </>
+                )}
               </CardContent>
             </Card>
           </div>

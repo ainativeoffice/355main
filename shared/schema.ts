@@ -99,6 +99,10 @@ export const members = pgTable("members", {
   workosUserId: text("workos_user_id"),
   organizationId: integer("organization_id").references(() => organizations.id),
   role: text("role").default("member"),
+  stripeCustomerId: text("stripe_customer_id"),
+  subscriptionId: text("subscription_id"),
+  subscriptionStatus: text("subscription_status"),
+  subscriptionTier: text("subscription_tier").default("free"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
