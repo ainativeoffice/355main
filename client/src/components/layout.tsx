@@ -24,32 +24,34 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </button>
 
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-muted-foreground items-center">
-            <a href="#concept" className="hover:text-primary transition-colors">The Concept</a>
-            <a href="#zones" className="hover:text-primary transition-colors">The Zones</a>
-            <a href="#philosophy" className="hover:text-primary transition-colors">Philosophy</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-            <a 
-              href="#waitlist" 
+            <Link href="/#concept" className="hover:text-primary transition-colors" data-testid="link-nav-concept">The Concept</Link>
+            <Link href="/#zones" className="hover:text-primary transition-colors" data-testid="link-nav-zones">The Zones</Link>
+            <Link href="/solutions" className="hover:text-primary transition-colors" data-testid="link-nav-solutions">Solutions</Link>
+            <Link href="/#contact" className="hover:text-primary transition-colors" data-testid="link-nav-contact">Contact</Link>
+            <Link 
+              href="/#waitlist" 
               className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
+              data-testid="link-nav-waitlist"
             >
               Join Waitlist
-            </a>
+            </Link>
           </nav>
         </div>
 
         {mobileMenuOpen && (
           <nav className="md:hidden bg-background border-t border-border px-4 py-6 flex flex-col gap-4">
-            <a href="#concept" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>The Concept</a>
-            <a href="#zones" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>The Zones</a>
-            <a href="#philosophy" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>Philosophy</a>
-            <a href="#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <a 
-              href="#waitlist" 
+            <Link href="/#concept" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-concept">The Concept</Link>
+            <Link href="/#zones" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-zones">The Zones</Link>
+            <Link href="/solutions" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-solutions">Solutions</Link>
+            <Link href="/#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-contact">Contact</Link>
+            <Link 
+              href="/#waitlist" 
               className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
               onClick={() => setMobileMenuOpen(false)}
+              data-testid="link-mobile-waitlist"
             >
               Join Waitlist
-            </a>
+            </Link>
           </nav>
         )}
       </header>
