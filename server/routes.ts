@@ -106,6 +106,7 @@ export async function registerRoutes(
 
   // Get authorization URL for login
   app.get("/api/auth/login", (req, res) => {
+    console.log("WorkOS login attempt - clientId exists:", !!clientId, "clientId prefix:", clientId?.substring(0, 10));
     if (!clientId || !process.env.WORKOS_API_KEY) {
       console.error("WorkOS credentials not configured");
       res.status(500).json({ error: "Authentication not configured. Please contact support." });
