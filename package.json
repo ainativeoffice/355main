@@ -50,6 +50,8 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/bcrypt": "^6.0.0",
     "@vitest/coverage-v8": "^4.0.16",
+    "@workos-inc/authkit-react": "^0.15.0",
+    "@workos-inc/node": "^7.79.2",
     "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
