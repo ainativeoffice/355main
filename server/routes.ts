@@ -12,26 +12,28 @@ import { getUncachableHubSpotClient } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 import { insertTestimonialSchema, insertNewsSchema, insertMemberSchema, insertMemberPreferencesSchema } from "@shared/schema";
 
-// Environment-aware credentials
-const workosApiKey = config.isDevelopment 
-  ? process.env.WORKOS_API_KEY_DEV 
-  : process.env.WORKOS_API_KEY;
-const workosClientId = config.isDevelopment 
-  ? process.env.WORKOS_CLIENT_ID_DEV 
-  : process.env.WORKOS_CLIENT_ID;
-const stripeSecretKey = config.isDevelopment 
-  ? process.env.STRIPE_SECRET_KEY_DEV 
-  : process.env.STRIPE_SECRET_KEY;
-const stripeWebhookSecret = config.isDevelopment 
-  ? process.env.STRIPE_WEBHOOK_SECRET_DEV 
-  : process.env.STRIPE_WEBHOOK_SECRET;
+// Environment-aware credentials - resolved lazily in registerRoutes
+let workos: WorkOS | null = null;
+let stripe: Stripe | null = null;
+let clientId: string | undefined;
+let stripeWebhookSecret: string | undefined;
 
-// Initialize WorkOS
-const workos = new WorkOS(workosApiKey);
-const clientId = workosClientId;
-
-// Initialize Stripe
-const stripe = new Stripe(stripeSecretKey!);
+function getEnvironmentCredentials() {
+  const workosApiKey = config.isDevelopment 
+    ? process.env.WORKOS_API_KEY_DEV 
+    : process.env.WORKOS_API_KEY;
+  const workosClientId = config.isDevelopment 
+    ? process.env.WORKOS_CLIENT_ID_DEV 
+    : process.env.WORKOS_CLIENT_ID;
+  const stripeSecretKey = config.isDevelopment 
+    ? process.env.STRIPE_SECRET_KEY_DEV 
+    : process.env.STRIPE_SECRET_KEY;
+  const webhookSecret = config.isDevelopment 
+    ? process.env.STRIPE_WEBHOOK_SECRET_DEV 
+    : process.env.STRIPE_WEBHOOK_SECRET;
+  
+  return { workosApiKey, workosClientId, stripeSecretKey, webhookSecret };
+}
 
 // Membership tier pricing (price IDs would come from Stripe dashboard in production)
 const MEMBERSHIP_TIERS = {
@@ -125,6 +127,26 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
   
+  // Lazy initialization of external service clients with validation
+  const creds = getEnvironmentCredentials();
+  const envName = config.isDevelopment ? "development" : "production";
+  
+  if (creds.workosApiKey) {
+    workos = new WorkOS(creds.workosApiKey);
+    clientId = creds.workosClientId;
+    console.log(`[startup] WorkOS initialized for ${envName}`);
+  } else {
+    console.warn(`[startup] WorkOS not configured - missing API key for ${envName}`);
+  }
+  
+  if (creds.stripeSecretKey) {
+    stripe = new Stripe(creds.stripeSecretKey);
+    stripeWebhookSecret = creds.webhookSecret;
+    console.log(`[startup] Stripe initialized for ${envName}`);
+  } else {
+    console.warn(`[startup] Stripe not configured - missing secret key for ${envName}`);
+  }
+  
   const PgSession = connectPgSimple(session);
   
   app.use(session({
@@ -162,7 +184,7 @@ export async function registerRoutes(
   // Get authorization URL for login
   app.get("/api/auth/login", (req, res) => {
     console.log("WorkOS login attempt - clientId exists:", !!clientId, "clientId prefix:", clientId?.substring(0, 10));
-    if (!clientId || !workosApiKey) {
+    if (!workos || !clientId) {
       console.error("WorkOS credentials not configured");
       res.status(500).json({ error: "Authentication not configured. Please contact support." });
       return;
@@ -188,7 +210,7 @@ export async function registerRoutes(
   // Handle OAuth callback from WorkOS
   app.get("/api/auth/callback", async (req, res) => {
     try {
-      if (!clientId || !workosApiKey) {
+      if (!workos || !clientId) {
         console.error("WorkOS credentials not configured");
         res.redirect("/?error=auth_not_configured");
         return;
@@ -335,6 +357,10 @@ export async function registerRoutes(
 
   // Helper to refresh WorkOS access token if expired (per best practices)
   async function refreshWorkosTokenIfNeeded(req: Request): Promise<boolean> {
+    if (!workos || !clientId) {
+      return false; // WorkOS not configured
+    }
+    
     if (!req.session.workosRefreshToken || !req.session.workosTokenExpiresAt) {
       return false;
     }
@@ -346,7 +372,7 @@ export async function registerRoutes(
 
     try {
       const { accessToken, refreshToken } = await workos.userManagement.authenticateWithRefreshToken({
-        clientId: clientId!,
+        clientId,
         refreshToken: req.session.workosRefreshToken,
       });
 
@@ -393,6 +419,11 @@ export async function registerRoutes(
 
   // Create checkout session for subscription
   app.post("/api/stripe/create-checkout-session", requireMember, async (req, res) => {
+    if (!stripe) {
+      res.status(500).json({ error: "Payment system not configured" });
+      return;
+    }
+    
     try {
       const { tier } = req.body;
       const memberId = req.session.memberId!;
@@ -456,6 +487,11 @@ export async function registerRoutes(
 
   // Create customer portal session for managing subscription
   app.post("/api/stripe/create-portal-session", requireMember, async (req, res) => {
+    if (!stripe) {
+      res.status(500).json({ error: "Payment system not configured" });
+      return;
+    }
+    
     try {
       const memberId = req.session.memberId!;
       const member = await storage.getMemberById(memberId);
@@ -507,6 +543,11 @@ export async function registerRoutes(
 
   // Stripe webhook handler - optimized per Stripe best practices
   app.post("/api/stripe/webhook", async (req, res) => {
+    if (!stripe || !stripeWebhookSecret) {
+      res.status(500).send("Payment webhook not configured");
+      return;
+    }
+    
     const sig = req.headers["stripe-signature"] as string;
     
     let event: Stripe.Event;
@@ -520,7 +561,7 @@ export async function registerRoutes(
       event = stripe.webhooks.constructEvent(
         rawBody,
         sig,
-        stripeWebhookSecret!
+        stripeWebhookSecret
       );
     } catch (err) {
       console.error("Webhook signature verification failed:", err);
