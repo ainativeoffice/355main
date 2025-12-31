@@ -66,7 +66,7 @@ function mapTeamSizeToHubSpot(teamSize: string): string {
     "2-5": "1-5",
     "6-15": "5-25",
     "16-30": "25-50",
-    "30+": "50-100",
+    "30+": "25-50",
   };
   return mapping[teamSize] || teamSize;
 }
