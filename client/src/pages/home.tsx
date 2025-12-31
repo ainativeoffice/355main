@@ -622,15 +622,20 @@ export default function Home() {
           </div>
 
           <div className="relative max-w-5xl mx-auto bg-muted/5 border border-border/50 rounded-lg overflow-hidden shadow-2xl">
-            {/* Interactive Floor Plan Map */}
-            <div 
-              className="relative aspect-[16/9] w-full bg-[#f8f8f8] border-b border-border"
-            >
-               <img 
-                 src={buildingPlate} 
-                 alt="Interactive Floor Plan" 
-                 className="w-full h-full object-contain scale-110 pointer-events-none select-none"
-               />
+            {/* Interactive Floor Plan Map - Scrollable on mobile for better viewing */}
+            <div className="relative">
+              <div className="overflow-x-auto md:overflow-x-visible -mx-6 md:mx-0 px-6 md:px-0 scrollbar-hide">
+                <p className="md:hidden text-xs text-muted-foreground text-center py-2 bg-muted/50 border-b border-border">
+                  ← Swipe to explore the floor plan →
+                </p>
+              <div 
+                className="relative aspect-[16/9] w-[150%] md:w-full bg-[#f8f8f8] border-b border-border min-w-[500px] md:min-w-0"
+              >
+                 <img 
+                   src={buildingPlate} 
+                   alt="Interactive Floor Plan" 
+                   className="w-full h-full object-contain scale-110 pointer-events-none select-none"
+                 />
                
                {/* Hotspots */}
                {zones.map((zone) => {
@@ -666,6 +671,8 @@ export default function Home() {
                  </div>
                );
                })}
+              </div>
+              </div>
             </div>
 
             {/* Zone Detail View (Always Visible Panel) */}
