@@ -7,16 +7,31 @@ import { WorkOS } from "@workos-inc/node";
 import Stripe from "stripe";
 import { storage } from "./storage";
 import { pool } from "./db";
+import { config } from "./config";
 import { getUncachableHubSpotClient } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 import { insertTestimonialSchema, insertNewsSchema, insertMemberSchema, insertMemberPreferencesSchema } from "@shared/schema";
 
+// Environment-aware credentials
+const workosApiKey = config.isDevelopment 
+  ? process.env.WORKOS_API_KEY_DEV 
+  : process.env.WORKOS_API_KEY;
+const workosClientId = config.isDevelopment 
+  ? process.env.WORKOS_CLIENT_ID_DEV 
+  : process.env.WORKOS_CLIENT_ID;
+const stripeSecretKey = config.isDevelopment 
+  ? process.env.STRIPE_SECRET_KEY_DEV 
+  : process.env.STRIPE_SECRET_KEY;
+const stripeWebhookSecret = config.isDevelopment 
+  ? process.env.STRIPE_WEBHOOK_SECRET_DEV 
+  : process.env.STRIPE_WEBHOOK_SECRET;
+
 // Initialize WorkOS
-const workos = new WorkOS(process.env.WORKOS_API_KEY);
-const clientId = process.env.WORKOS_CLIENT_ID;
+const workos = new WorkOS(workosApiKey);
+const clientId = workosClientId;
 
 // Initialize Stripe
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const stripe = new Stripe(stripeSecretKey!);
 
 // Membership tier pricing (price IDs would come from Stripe dashboard in production)
 const MEMBERSHIP_TIERS = {
@@ -147,7 +162,7 @@ export async function registerRoutes(
   // Get authorization URL for login
   app.get("/api/auth/login", (req, res) => {
     console.log("WorkOS login attempt - clientId exists:", !!clientId, "clientId prefix:", clientId?.substring(0, 10));
-    if (!clientId || !process.env.WORKOS_API_KEY) {
+    if (!clientId || !workosApiKey) {
       console.error("WorkOS credentials not configured");
       res.status(500).json({ error: "Authentication not configured. Please contact support." });
       return;
@@ -173,7 +188,7 @@ export async function registerRoutes(
   // Handle OAuth callback from WorkOS
   app.get("/api/auth/callback", async (req, res) => {
     try {
-      if (!clientId || !process.env.WORKOS_API_KEY) {
+      if (!clientId || !workosApiKey) {
         console.error("WorkOS credentials not configured");
         res.redirect("/?error=auth_not_configured");
         return;
@@ -505,7 +520,7 @@ export async function registerRoutes(
       event = stripe.webhooks.constructEvent(
         rawBody,
         sig,
-        process.env.STRIPE_WEBHOOK_SECRET!
+        stripeWebhookSecret!
       );
     } catch (err) {
       console.error("Webhook signature verification failed:", err);

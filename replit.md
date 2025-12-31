@@ -74,12 +74,16 @@ Preferred communication style: Simple, everyday language.
 
 #### HubSpot CRM
 - **Lead Capture**: Contact management via `@hubspot/api-client`
-- **Authentication**: Replit Connectors (OAuth token refresh)
-- **Custom Properties**: `opus_membership_tier`, `opus_subscription_status`, `opus_member_id`, workspace preferences
+- **Authentication**: 
+  - **Production**: Replit Connectors (OAuth token refresh)
+  - **Development**: Private App token via `HUBSPOT_DEV_ACCESS_TOKEN`
+- **Custom Properties**: `opus_membership_tier`, `opus_subscription_status`, `opus_member_id`, `opus_move_in_timing`, workspace preferences
+- **Team Size Mapping**: App values mapped to HubSpot `numemployees` format (e.g., "1" → "1-5", "30+" → "25-50")
 - **Lifecycle Automation**: Lead → Subscriber on tier upgrade, sync on subscription changes
 
 ### Analytics
 - **Google Analytics 4**: Tracking via gtag.js (ID: G-2VR7386HM6)
+- **Environment-aware**: GA only loads in production (via `/api/config` endpoint)
 
 ### Infrastructure
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
