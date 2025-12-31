@@ -45,3 +45,8 @@ waitForPort = 5000
 [agent]
 mockupState = "FULLSTACK"
 integrations = ["hubspot:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+WORKOS_API_KEY = "sk_a2V5XzAxS0RUVkFSQlhTVzZDN1pNME1USEJZWkdHLEphOWx4RmZORkN6YmlzN0ViMVRwZXFka1E"
