@@ -70,6 +70,22 @@ export const insertNewsSchema = createInsertSchema(news).omit({
 export type InsertNews = z.infer<typeof insertNewsSchema>;
 export type News = typeof news.$inferSelect;
 
+export const organizations = pgTable("organizations", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  domain: text("domain"),
+  workosOrgId: text("workos_org_id"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertOrganizationSchema = createInsertSchema(organizations).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertOrganization = z.infer<typeof insertOrganizationSchema>;
+export type Organization = typeof organizations.$inferSelect;
+
 export const members = pgTable("members", {
   id: serial("id").primaryKey(),
   email: text("email").notNull().unique(),
@@ -80,6 +96,9 @@ export const members = pgTable("members", {
   teamSize: text("team_size"),
   moveInTiming: text("move_in_timing"),
   hubspotContactId: text("hubspot_contact_id"),
+  workosUserId: text("workos_user_id"),
+  organizationId: integer("organization_id").references(() => organizations.id),
+  role: text("role").default("member"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

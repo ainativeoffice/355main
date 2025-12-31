@@ -7,6 +7,7 @@ import {
   news,
   members,
   memberPreferences,
+  organizations,
   type User, 
   type InsertUser,
   type AdminUser,
@@ -18,7 +19,9 @@ import {
   type InsertMember,
   type MemberPreferences,
   type InsertMemberPreferences,
-  type MemberWithPreferences
+  type MemberWithPreferences,
+  type Organization,
+  type InsertOrganization
 } from "@shared/schema";
 
 export interface IStorage {
@@ -52,6 +55,11 @@ export interface IStorage {
   getMemberPreferences(memberId: number): Promise<MemberPreferences | undefined>;
   createMemberPreferences(preferences: InsertMemberPreferences): Promise<MemberPreferences>;
   updateMemberPreferences(memberId: number, preferences: Partial<InsertMemberPreferences>): Promise<MemberPreferences | undefined>;
+  
+  getOrganization(id: number): Promise<Organization | undefined>;
+  createOrganization(org: InsertOrganization): Promise<Organization>;
+  getOrganizationMembers(orgId: number): Promise<Member[]>;
+  updateMemberOrganization(memberId: number, orgId: number, role?: string): Promise<Member | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -213,6 +221,28 @@ export class DatabaseStorage implements IStorage {
     const [updated] = await db.update(memberPreferences)
       .set(preferences)
       .where(eq(memberPreferences.memberId, memberId))
+      .returning();
+    return updated;
+  }
+
+  async getOrganization(id: number): Promise<Organization | undefined> {
+    const [org] = await db.select().from(organizations).where(eq(organizations.id, id));
+    return org;
+  }
+
+  async createOrganization(org: InsertOrganization): Promise<Organization> {
+    const [created] = await db.insert(organizations).values(org).returning();
+    return created;
+  }
+
+  async getOrganizationMembers(orgId: number): Promise<Member[]> {
+    return db.select().from(members).where(eq(members.organizationId, orgId));
+  }
+
+  async updateMemberOrganization(memberId: number, orgId: number, role: string = "member"): Promise<Member | undefined> {
+    const [updated] = await db.update(members)
+      .set({ organizationId: orgId, role })
+      .where(eq(members.id, memberId))
       .returning();
     return updated;
   }

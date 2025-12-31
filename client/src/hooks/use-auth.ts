@@ -7,6 +7,8 @@ interface AuthMember {
   lastName: string | null;
   company: string | null;
   jobRole: string | null;
+  role: string | null;
+  organizationId: number | null;
 }
 
 interface MemberPreferences {
@@ -22,10 +24,26 @@ interface MemberPreferences {
   notes: string | null;
 }
 
+interface Organization {
+  id: number;
+  name: string;
+  domain: string | null;
+}
+
+interface TeamMember {
+  id: number;
+  email: string;
+  firstName: string | null;
+  lastName: string | null;
+  role: string | null;
+}
+
 interface AuthResponse {
   authenticated: boolean;
   member?: AuthMember;
   preferences?: MemberPreferences;
+  organization?: Organization | null;
+  teamMembers?: TeamMember[];
 }
 
 export function useAuth() {
@@ -68,11 +86,16 @@ export function useAuth() {
     logoutMutation.mutate();
   };
 
+  const isAdmin = data?.member?.role === "admin";
+
   return {
     isAuthenticated: data?.authenticated ?? false,
     isLoading,
     member: data?.member ?? null,
     preferences: data?.preferences ?? null,
+    organization: data?.organization ?? null,
+    teamMembers: data?.teamMembers ?? [],
+    isAdmin,
     login,
     logout,
     error,

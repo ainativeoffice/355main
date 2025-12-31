@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { 
   User, 
   Building2, 
@@ -16,12 +17,15 @@ import {
   Loader2,
   MapPin,
   Users,
-  Zap
+  Zap,
+  Crown,
+  Mail,
+  UserPlus
 } from "lucide-react";
 
 export default function Dashboard() {
   const [, setLocation] = useLocation();
-  const { isAuthenticated, isLoading, member, preferences, logout } = useAuth();
+  const { isAuthenticated, isLoading, member, preferences, organization, teamMembers, isAdmin, logout } = useAuth();
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
@@ -225,6 +229,111 @@ export default function Dashboard() {
               )}
             </CardContent>
           </Card>
+
+          {/* Organization Admin Section */}
+          {isAdmin && organization && (
+            <>
+              <Separator className="my-8" />
+              
+              <Card data-testid="card-organization">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <CardTitle className="flex items-center gap-2">
+                        <Building2 className="h-5 w-5" />
+                        {organization.name}
+                        <Badge variant="outline" className="ml-2">
+                          <Crown className="h-3 w-3 mr-1" />
+                          Admin
+                        </Badge>
+                      </CardTitle>
+                      <CardDescription>Organization management</CardDescription>
+                    </div>
+                    <Button variant="outline" size="sm" data-testid="button-invite-member">
+                      <UserPlus className="h-4 w-4 mr-2" />
+                      Invite Member
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <h4 className="text-sm font-medium mb-4">Team Members ({teamMembers.length})</h4>
+                  {teamMembers.length > 0 ? (
+                    <div className="space-y-3">
+                      {teamMembers.map((teamMember) => (
+                        <div 
+                          key={teamMember.id} 
+                          className="flex items-center justify-between p-3 rounded-lg border"
+                          data-testid={`team-member-${teamMember.id}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <Avatar className="h-9 w-9">
+                              <AvatarFallback className="text-xs">
+                                {teamMember.firstName?.[0] || teamMember.email[0].toUpperCase()}
+                                {teamMember.lastName?.[0] || ''}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="text-sm font-medium">
+                                {teamMember.firstName && teamMember.lastName 
+                                  ? `${teamMember.firstName} ${teamMember.lastName}`
+                                  : teamMember.email}
+                              </p>
+                              <p className="text-xs text-muted-foreground flex items-center gap-1">
+                                <Mail className="h-3 w-3" />
+                                {teamMember.email}
+                              </p>
+                            </div>
+                          </div>
+                          <Badge variant={teamMember.role === "admin" ? "default" : "secondary"}>
+                            {teamMember.role === "admin" ? (
+                              <>
+                                <Crown className="h-3 w-3 mr-1" />
+                                Admin
+                              </>
+                            ) : "Member"}
+                          </Badge>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-muted-foreground text-sm">No team members yet. Invite your team to get started.</p>
+                  )}
+                </CardContent>
+              </Card>
+            </>
+          )}
+
+          {/* Create Organization Prompt for Non-Org Members */}
+          {!organization && (
+            <>
+              <Separator className="my-8" />
+              
+              <Card data-testid="card-create-organization">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Building2 className="h-5 w-5" />
+                    Organization
+                  </CardTitle>
+                  <CardDescription>Create or join an organization to manage your team</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-center py-4">
+                    <Building2 className="h-12 w-12 mx-auto mb-4 text-muted-foreground opacity-20" />
+                    <p className="text-muted-foreground mb-4">You're not part of an organization yet</p>
+                    <div className="flex gap-3 justify-center">
+                      <Button variant="outline" data-testid="button-join-organization">
+                        Join Organization
+                      </Button>
+                      <Button data-testid="button-create-organization">
+                        <Building2 className="h-4 w-4 mr-2" />
+                        Create Organization
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          )}
         </motion.div>
       </div>
     </div>

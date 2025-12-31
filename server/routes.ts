@@ -139,6 +139,11 @@ export async function registerRoutes(
           moveInTiming: null,
         });
       }
+      
+      // Update workosUserId if not set
+      if (!member.workosUserId) {
+        await storage.updateMember(member.id, { workosUserId: user.id } as any);
+      }
 
       // Store in session
       req.session.memberId = member.id;
@@ -170,6 +175,23 @@ export async function registerRoutes(
 
       const preferences = await storage.getMemberPreferences(member.id);
       
+      // Get organization info if member belongs to one
+      let organization = null;
+      let teamMembers: any[] = [];
+      if (member.organizationId) {
+        organization = await storage.getOrganization(member.organizationId);
+        if (organization && member.role === "admin") {
+          const orgMembers = await storage.getOrganizationMembers(member.organizationId);
+          teamMembers = orgMembers.map(m => ({
+            id: m.id,
+            email: m.email,
+            firstName: m.firstName,
+            lastName: m.lastName,
+            role: m.role,
+          }));
+        }
+      }
+      
       res.json({
         authenticated: true,
         member: {
@@ -179,8 +201,12 @@ export async function registerRoutes(
           lastName: member.lastName,
           company: member.company,
           jobRole: member.jobRole,
+          role: member.role,
+          organizationId: member.organizationId,
         },
         preferences,
+        organization,
+        teamMembers,
       });
     } catch (error) {
       console.error("Auth check error:", error);
