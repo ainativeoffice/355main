@@ -59,9 +59,24 @@ Preferred communication style: Simple, everyday language.
 ## External Dependencies
 
 ### Third-Party Services
-- **HubSpot CRM**: Lead capture and contact management via `@hubspot/api-client`
-  - Authentication handled through Replit Connectors (OAuth token refresh)
-  - Waitlist signups create contacts with "lead" lifecycle stage
+
+#### WorkOS Authentication
+- **Authentication**: WorkOS AuthKit with OAuth 2.0 flow
+- **Session**: Tokens stored server-side in encrypted session (HttpOnly cookies)
+- **Token Refresh**: Automatic refresh when access token expires (5 min default)
+- **Integration Pattern**: Store access + refresh tokens, rotate on refresh
+
+#### Stripe Subscriptions  
+- **Payments**: Stripe Checkout Sessions for subscription signup
+- **Webhooks**: `invoice.paid` as primary access granter (more reliable than checkout.session.completed)
+- **Idempotency**: Event ID tracking to prevent duplicate processing
+- **Customer Portal**: Self-service billing management
+
+#### HubSpot CRM
+- **Lead Capture**: Contact management via `@hubspot/api-client`
+- **Authentication**: Replit Connectors (OAuth token refresh)
+- **Custom Properties**: `opus_membership_tier`, `opus_subscription_status`, `opus_member_id`, workspace preferences
+- **Lifecycle Automation**: Lead → Subscriber on tier upgrade, sync on subscription changes
 
 ### Analytics
 - **Google Analytics 4**: Tracking via gtag.js (ID: G-2VR7386HM6)
@@ -69,6 +84,13 @@ Preferred communication style: Simple, everyday language.
 ### Infrastructure
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
 - **Session Storage**: connect-pg-simple for PostgreSQL-backed sessions
+
+## Integration Best Practices
+
+- **Stripe**: Use `invoice.paid` (not `checkout.session.completed`) as most reliable event for granting access
+- **WorkOS**: Access tokens expire in 5 minutes; refresh tokens rotate on each use; clear session on refresh failure
+- **HubSpot**: Provision custom properties in portal; fail gracefully on API errors to not block primary flows
+- **Architecture**: Services should fail gracefully—external service failures shouldn't break core flows
 
 ### Development Tools
 - **Replit Plugins**: 
