@@ -654,6 +654,7 @@ export default function Home() {
                      e.stopPropagation();
                      openZone(zone);
                    }}
+                   data-testid={`button-zone-${zone.id}`}
                  >
                    <div className={`relative w-6 h-6 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${activeZone.id === zone.id ? 'scale-125' : 'opacity-80 hover:opacity-100'}`}>
                      {activeZone.id === zone.id && (
@@ -716,7 +717,7 @@ export default function Home() {
                                    </div>
                                    <p className="text-xs text-muted-foreground line-clamp-1">{product.desc}</p>
                                 </div>
-                                <a href={product.pdf} target="_blank" rel="noopener noreferrer" className="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:text-primary">
+                                <a href={product.pdf} target="_blank" rel="noopener noreferrer" className="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:text-primary" data-testid={`link-product-download-${idx}`}>
                                   <Download className="w-4 h-4" />
                                 </a>
                              </div>
@@ -764,6 +765,7 @@ export default function Home() {
                                 ? "bg-white w-4" 
                                 : "bg-white/50 hover:bg-white/80"
                             }`}
+                            data-testid={`button-image-nav-${idx}`}
                           />
                         ))}
                       </div>
