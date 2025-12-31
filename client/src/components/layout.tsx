@@ -25,7 +25,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           <nav className="hidden md:flex gap-8 text-sm uppercase tracking-widest font-medium text-muted-foreground items-center">
             <Link href="/#concept" className="hover:text-primary transition-colors" data-testid="link-nav-concept">The Concept</Link>
-            <Link href="/#blueprint" className="hover:text-primary transition-colors" data-testid="link-nav-blueprint">Blueprint</Link>
+            <Link href="/#blueprint" className="hover:text-primary transition-colors" data-testid="link-nav-blueprint">The Blueprint</Link>
             <Link href="/solutions" className="hover:text-primary transition-colors" data-testid="link-nav-solutions">Solutions</Link>
             <Link href="/#contact" className="hover:text-primary transition-colors" data-testid="link-nav-contact">Contact</Link>
             <Link 
@@ -41,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {mobileMenuOpen && (
           <nav className="md:hidden bg-background border-t border-border px-4 py-6 flex flex-col gap-4">
             <Link href="/#concept" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-concept">The Concept</Link>
-            <Link href="/#blueprint" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-blueprint">Blueprint</Link>
+            <Link href="/#blueprint" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-blueprint">The Blueprint</Link>
             <Link href="/solutions" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-solutions">Solutions</Link>
             <Link href="/#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-contact">Contact</Link>
             <Link 
