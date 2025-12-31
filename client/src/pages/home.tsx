@@ -534,6 +534,7 @@ export default function Home() {
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeBuilding === "355" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
+                data-testid="button-building-355"
               >
                 355 Main Street
               </button>
@@ -542,6 +543,7 @@ export default function Home() {
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                   activeBuilding === "357" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
+                data-testid="button-building-357"
               >
                 357 Main Street
               </button>
@@ -686,10 +688,10 @@ export default function Home() {
                            Zone {activeZone.id.toString().padStart(2, '0')}
                          </span>
                          <div className="flex gap-2">
-                           <button onClick={prevZone} className="p-2 hover:bg-muted rounded-full transition-colors">
+                           <button onClick={prevZone} className="p-2 hover:bg-muted rounded-full transition-colors" data-testid="button-prev-zone">
                              <ChevronLeft className="w-4 h-4" />
                            </button>
-                           <button onClick={nextZone} className="p-2 hover:bg-muted rounded-full transition-colors">
+                           <button onClick={nextZone} className="p-2 hover:bg-muted rounded-full transition-colors" data-testid="button-next-zone">
                              <ChevronRight className="w-4 h-4" />
                            </button>
                          </div>
@@ -771,6 +773,7 @@ export default function Home() {
                       <button 
                         onClick={handleZoomIn}
                         className="bg-black/20 backdrop-blur-md hover:bg-black/40 text-white p-2 rounded-full transition-colors"
+                        data-testid="button-zoom-in"
                       >
                          <ZoomIn className="w-5 h-5" />
                       </button>
@@ -778,6 +781,7 @@ export default function Home() {
                         onClick={handleZoomOut}
                         disabled={zoomLevel <= 0.5}
                         className={`bg-black/20 backdrop-blur-md text-white p-2 rounded-full transition-colors ${zoomLevel <= 0.5 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-black/40'}`}
+                        data-testid="button-zoom-out"
                       >
                          <ZoomOut className="w-5 h-5" />
                       </button>
@@ -1085,11 +1089,13 @@ export default function Home() {
                  placeholder="Enter your email address" 
                  className="flex-1 bg-muted/50 border border-border px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-primary/20 transition-all rounded-none"
                  required
+                 data-testid="input-waitlist-email"
                />
                <button 
                  type="submit"
                  disabled={waitlistMutation.isPending}
                  className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap disabled:opacity-50"
+                 data-testid="button-waitlist-submit"
                >
                  {waitlistMutation.isPending ? "Joining..." : "Join Waitlist"}
                </button>
@@ -1099,6 +1105,7 @@ export default function Home() {
                href={listingBrochure} 
                download="Opus_355_Listing_Brochure.pdf"
                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1"
+               data-testid="link-download-brochure"
              >
                <Download className="w-4 h-4" />
                Download Brochure
