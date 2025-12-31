@@ -6,7 +6,7 @@ import { Testimonials } from "@/components/testimonials";
 import { NewsSection } from "@/components/news-section";
 
 import customOfficeImage from "@assets/357_exterior_1.jpg";
-import privateOfficeImage from "@assets/Hero_1767201488037.png";
+import privateOfficeImage from "@assets/Hero_1767216807768.png";
 import hybridImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 
 export default function Solutions() {

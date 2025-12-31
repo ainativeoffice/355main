@@ -7,7 +7,7 @@ import { JoinMembershipDialog } from "@/components/join-membership-dialog";
 
 import heroImage from "@assets/stock_images/modern_corporate_ent_54a2da38.jpg";
 import teamImage from "@assets/stock_images/modern_corporate_ent_56277f1f.jpg";
-import interiorImage from "@assets/Hero_1767201488037.png";
+import interiorImage from "@assets/Hero_1767216807768.png";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 
 export default function Enterprise() {
