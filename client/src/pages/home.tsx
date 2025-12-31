@@ -525,6 +525,16 @@ export default function Home() {
           <div className="text-center mb-16">
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">The Campus</span>
             <h2 className="font-serif text-4xl mt-4">Armonk Professional Center</h2>
+            <a 
+              href="https://armonkprofessionalcenter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-muted-foreground hover:text-primary transition-colors"
+              data-testid="link-armonk-professional-center"
+            >
+              armonkprofessionalcenter.com
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
           
           <div className="flex justify-center mb-12">
