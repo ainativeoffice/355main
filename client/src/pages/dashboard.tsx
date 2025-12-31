@@ -42,7 +42,14 @@ export default function Dashboard() {
   }
 
   if (!isAuthenticated || !member) {
-    return null;
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary mx-auto mb-4" />
+          <p className="text-muted-foreground">Redirecting...</p>
+        </div>
+      </div>
+    );
   }
 
   const memberName = member.firstName 
