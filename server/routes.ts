@@ -19,20 +19,14 @@ let clientId: string | undefined;
 let stripeWebhookSecret: string | undefined;
 
 function getEnvironmentCredentials() {
-  const workosApiKey = config.isDevelopment 
-    ? process.env.WORKOS_API_KEY_DEV 
-    : process.env.WORKOS_API_KEY;
-  const workosClientId = config.isDevelopment 
-    ? process.env.WORKOS_CLIENT_ID_DEV 
-    : process.env.WORKOS_CLIENT_ID;
-  const stripeSecretKey = config.isDevelopment 
-    ? process.env.STRIPE_SECRET_KEY_DEV 
-    : process.env.STRIPE_SECRET_KEY;
-  const webhookSecret = config.isDevelopment 
-    ? process.env.STRIPE_WEBHOOK_SECRET_DEV 
-    : process.env.STRIPE_WEBHOOK_SECRET;
-  
-  return { workosApiKey, workosClientId, stripeSecretKey, webhookSecret };
+  // Simplified: use same secrets for dev and production
+  // Secrets are managed in Replit's Secrets panel
+  return {
+    workosApiKey: process.env.WORKOS_API_KEY,
+    workosClientId: process.env.WORKOS_CLIENT_ID,
+    stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+  };
 }
 
 // Membership tier pricing (price IDs would come from Stripe dashboard in production)
