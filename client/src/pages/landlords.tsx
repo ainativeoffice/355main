@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
-import { ArrowRight, TrendingUp, Users, Building2, Star, Lightbulb, Leaf } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Building2, Star, Lightbulb, Leaf, Wifi, Monitor, Zap } from "lucide-react";
 import { Link } from "wouter";
 
 import heroImage from "@assets/355-main-office-bigcover-7_1767123943623.jpg";
@@ -166,6 +166,68 @@ export default function Landlords() {
         </div>
       </section>
 
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Infrastructure</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">The Nervous System</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Behind every seamless experience is invisible technology that just works. We've solved your IT headaches before you even tour.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-muted/30 border border-border p-8"
+              data-testid="card-tech-lighting"
+            >
+              <Zap className="w-10 h-10 text-primary mb-6" />
+              <h3 className="font-serif text-xl mb-2">Casambi Wireless Mesh</h3>
+              <p className="text-sm text-muted-foreground mb-4">Intelligent Lighting Control</p>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                Lighting that adjusts to your circadian rhythm automatically. Bluetooth-based controls mean no complex wiring, easy reconfiguration, and energy savings up to 80%.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-muted/30 border border-border p-8"
+              data-testid="card-tech-av"
+            >
+              <Monitor className="w-10 h-10 text-primary mb-6" />
+              <h3 className="font-serif text-xl mb-2">Dante AV Network</h3>
+              <p className="text-sm text-muted-foreground mb-4">Professional Audio/Video</p>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                Conference calls that just work, in any room. Broadcast-quality AV over standard ethernet means crystal-clear audio and seamless video from day one.
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-muted/30 border border-border p-8"
+              data-testid="card-tech-connectivity"
+            >
+              <Wifi className="w-10 h-10 text-primary mb-6" />
+              <h3 className="font-serif text-xl mb-2">Lightpath Fiber</h3>
+              <p className="text-sm text-muted-foreground mb-4">Enterprise Connectivity</p>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                Enterprise-grade fiber with 99.99% uptime. Dedicated connectivity means your team is never fighting for bandwidth, even during all-hands video calls.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 bg-foreground text-background">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -176,7 +238,7 @@ export default function Landlords() {
                 North Castle Ventures is developing a new paradigm for commercial real estate in the Northern Westchester corridor. Our approach combines design excellence, operational expertise, and deep local knowledge.
               </p>
               <p className="text-white/70 leading-relaxed mb-8">
-                Opus 355 at 355 Main Street, Armonk represents our flagship project — a "Commercial Town Hall" that reimagines the office for the distributed work era. We're actively seeking partnerships with property owners who share our vision for elevating the workplace experience.
+                Opus 355 at 355 Main Street, Armonk represents our flagship project — a dynamic workplace destination that reimagines the office for the distributed work era. We're actively seeking partnerships with property owners who share our vision for elevating the workplace experience.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
