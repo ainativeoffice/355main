@@ -29,6 +29,8 @@ interface MemberData {
 
 interface PreferencesData {
   workspaceArchetype?: string;
+  privateOfficeDesks?: number;
+  hybridMemberships?: number;
   collaborationModes?: string[];
   amenities?: string[];
   techStack?: string[];
@@ -193,7 +195,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
               <p className="text-muted-foreground text-sm">
                 {step === 1 && "Get news, updates, and priority access to Opus 355."}
                 {step === 2 && "Help us understand your workspace needs."}
-                {step === 3 && "What type of workspace fits your team?"}
+                {step === 3 && "Configure your workspace mix"}
                 {step === 4 && "Pick the gear that matters to you."}
               </p>
             </DialogHeader>
@@ -245,13 +247,13 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="company">Company</Label>
+                    <Label htmlFor="company">Organization</Label>
                     <Input
                       id="company"
-                      placeholder="Your company name"
+                      placeholder="Your organization name"
                       value={memberData.company || ""}
                       onChange={(e) => setMemberData({ ...memberData, company: e.target.value })}
-                      data-testid="input-member-company"
+                      data-testid="input-member-organization"
                     />
                   </div>
                 </div>
@@ -315,40 +317,127 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
               )}
 
               {step === 3 && (
-                <div className="space-y-4">
-                  {WORKSPACE_ARCHETYPES.map((archetype) => {
-                    const Icon = archetype.icon;
-                    return (
-                      <button
-                        key={archetype.id}
-                        onClick={() => setPreferences({ ...preferences, workspaceArchetype: archetype.id })}
-                        className={cn(
-                          "w-full p-4 rounded-lg border text-left flex items-start gap-4 transition-all",
-                          preferences.workspaceArchetype === archetype.id
-                            ? "bg-primary/5 border-primary"
-                            : "bg-background border-border hover:border-primary/50"
-                        )}
-                        data-testid={`button-archetype-${archetype.id}`}
-                      >
-                        <div className={cn(
-                          "w-12 h-12 rounded-lg flex items-center justify-center shrink-0",
-                          preferences.workspaceArchetype === archetype.id ? "bg-primary/10" : "bg-muted"
-                        )}>
-                          <Icon className={cn(
-                            "w-6 h-6",
-                            preferences.workspaceArchetype === archetype.id ? "text-primary" : "text-muted-foreground"
-                          )} />
+                <div className="space-y-6">
+                  {memberData.teamSize && (
+                    <div className="bg-muted/50 rounded-lg p-4">
+                      <p className="text-sm text-muted-foreground">
+                        For a team of <span className="font-medium text-foreground">{memberData.teamSize}</span> people, 
+                        configure your ideal workspace mix below.
+                      </p>
+                    </div>
+                  )}
+                  
+                  <div className="space-y-4">
+                    <div className="p-4 rounded-lg border border-border bg-background">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          <Briefcase className="w-6 h-6 text-primary" />
                         </div>
                         <div className="flex-1">
-                          <div className="font-medium">{archetype.label}</div>
-                          <div className="text-sm text-muted-foreground">{archetype.desc}</div>
+                          <div className="font-medium">Private Office Desks</div>
+                          <div className="text-sm text-muted-foreground mb-3">
+                            Dedicated desks in a private office suite for your team
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-8 w-8"
+                              onClick={() => setPreferences({ 
+                                ...preferences, 
+                                privateOfficeDesks: Math.max(0, (preferences.privateOfficeDesks || 0) - 1) 
+                              })}
+                              disabled={(preferences.privateOfficeDesks || 0) === 0}
+                              data-testid="button-decrease-private-desks"
+                            >
+                              -
+                            </Button>
+                            <span className="w-12 text-center font-medium" data-testid="text-private-desks-count">
+                              {preferences.privateOfficeDesks || 0}
+                            </span>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-8 w-8"
+                              onClick={() => setPreferences({ 
+                                ...preferences, 
+                                privateOfficeDesks: (preferences.privateOfficeDesks || 0) + 1 
+                              })}
+                              data-testid="button-increase-private-desks"
+                            >
+                              +
+                            </Button>
+                            <span className="text-sm text-muted-foreground">desks</span>
+                          </div>
                         </div>
-                        {preferences.workspaceArchetype === archetype.id && (
-                          <Check className="w-5 h-5 text-primary shrink-0" />
-                        )}
-                      </button>
-                    );
-                  })}
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-lg border border-border bg-background">
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                          <Users className="w-6 h-6 text-primary" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="font-medium">Hybrid Memberships</div>
+                          <div className="text-sm text-muted-foreground mb-3">
+                            Flexible access for distributed or part-time team members
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-8 w-8"
+                              onClick={() => setPreferences({ 
+                                ...preferences, 
+                                hybridMemberships: Math.max(0, (preferences.hybridMemberships || 0) - 1) 
+                              })}
+                              disabled={(preferences.hybridMemberships || 0) === 0}
+                              data-testid="button-decrease-hybrid"
+                            >
+                              -
+                            </Button>
+                            <span className="w-12 text-center font-medium" data-testid="text-hybrid-count">
+                              {preferences.hybridMemberships || 0}
+                            </span>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="icon"
+                              className="h-8 w-8"
+                              onClick={() => setPreferences({ 
+                                ...preferences, 
+                                hybridMemberships: (preferences.hybridMemberships || 0) + 1 
+                              })}
+                              data-testid="button-increase-hybrid"
+                            >
+                              +
+                            </Button>
+                            <span className="text-sm text-muted-foreground">memberships</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {((preferences.privateOfficeDesks || 0) > 0 || (preferences.hybridMemberships || 0) > 0) && (
+                    <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium">Your workspace configuration</span>
+                        <span className="text-sm text-muted-foreground">
+                          {(preferences.privateOfficeDesks || 0) + (preferences.hybridMemberships || 0)} total seats
+                        </span>
+                      </div>
+                      <div className="text-sm text-muted-foreground mt-1">
+                        {preferences.privateOfficeDesks ? `${preferences.privateOfficeDesks} private desk${preferences.privateOfficeDesks > 1 ? 's' : ''}` : ''}
+                        {preferences.privateOfficeDesks && preferences.hybridMemberships ? ' + ' : ''}
+                        {preferences.hybridMemberships ? `${preferences.hybridMemberships} hybrid membership${preferences.hybridMemberships > 1 ? 's' : ''}` : ''}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 

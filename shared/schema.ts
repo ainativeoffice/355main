@@ -87,6 +87,8 @@ export const memberPreferences = pgTable("member_preferences", {
   id: serial("id").primaryKey(),
   memberId: integer("member_id").notNull().references(() => members.id),
   workspaceArchetype: text("workspace_archetype"),
+  privateOfficeDesks: integer("private_office_desks"),
+  hybridMemberships: integer("hybrid_memberships"),
   collaborationModes: text("collaboration_modes").array(),
   amenities: text("amenities").array(),
   techStack: text("tech_stack").array(),
