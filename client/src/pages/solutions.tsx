@@ -175,7 +175,7 @@ export default function Solutions() {
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">For hybrid workers and distributed teams</p>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Flexible access to shared workspaces, private phone booths, and all-inclusive amenities. Work from our beautiful common areas whenever you need a professional environment.
+                    Flexible access to shared workspaces, private offices, and all-inclusive amenities. Work from our beautiful common areas whenever you need a professional environment.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-sm">
@@ -184,7 +184,7 @@ export default function Solutions() {
                     </li>
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Private phone booths
+                      Private office access
                     </li>
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />

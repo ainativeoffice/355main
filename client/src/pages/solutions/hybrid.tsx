@@ -40,7 +40,7 @@ export default function HybridMemberships() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-4"
           >
-            Flexible access to premium shared workspaces, private phone booths, and all-inclusive amenities.
+            Flexible access to premium shared workspaces, private offices, and all-inclusive amenities.
           </motion.p>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ export default function HybridMemberships() {
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
-                  Phone booth access
+                  Private office access
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
@@ -137,7 +137,7 @@ export default function HybridMemberships() {
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
-                  Priority phone booth booking
+                  Priority private office booking
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
@@ -184,7 +184,7 @@ export default function HybridMemberships() {
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
-                  Unlimited phone booth access
+                  Unlimited private office access
                 </li>
                 <li className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
@@ -250,8 +250,8 @@ export default function HybridMemberships() {
               data-testid="card-amenity-phone"
             >
               <Phone className="w-10 h-10 text-primary mx-auto mb-4" />
-              <h3 className="font-serif text-lg mb-2">Phone Booths</h3>
-              <p className="text-sm text-muted-foreground">Private spaces for calls and video meetings</p>
+              <h3 className="font-serif text-lg mb-2">Private Offices</h3>
+              <p className="text-sm text-muted-foreground">Private spaces for calls and focused work</p>
             </motion.div>
           </div>
         </div>

@@ -1029,7 +1029,7 @@ export default function Home() {
               </div>
               <h3 className="font-serif text-xl mb-3">Hybrid Memberships</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Flexible access to shared workspaces, phone booths, and all-inclusive amenities.
+                Flexible access to shared workspaces, private offices, and all-inclusive amenities.
               </p>
               <Link 
                 href="/solutions/hybrid" 
