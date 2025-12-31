@@ -119,6 +119,32 @@ export const memberPreferences = pgTable("member_preferences", {
   supportPriorities: text("support_priorities").array(),
   decisionStage: text("decision_stage"),
   notes: text("notes"),
+  // Hospitality preferences
+  morningBeverage: text("morning_beverage"),
+  afternoonBeverage: text("afternoon_beverage"),
+  beverageNotes: text("beverage_notes"),
+  temperaturePreference: text("temperature_preference"),
+  lightingPreference: text("lighting_preference"),
+  preferredZone: text("preferred_zone"),
+  notifyHospitalityOnArrival: boolean("notify_hospitality_on_arrival").default(true),
+  syncWithCalendar: boolean("sync_with_calendar").default(false),
+  enableLocationArrival: boolean("enable_location_arrival").default(false),
+  birthday: text("birthday"),
+  dietaryRestrictions: text("dietary_restrictions").array(),
+  specialNotes: text("special_notes"),
+});
+
+export const memberArrivals = pgTable("member_arrivals", {
+  id: serial("id").primaryKey(),
+  memberId: integer("member_id").notNull().references(() => members.id),
+  estimatedArrival: timestamp("estimated_arrival"),
+  actualArrival: timestamp("actual_arrival"),
+  status: text("status").default("pending"),
+  guestCount: integer("guest_count").default(0),
+  guestNames: text("guest_names"),
+  beverageReady: boolean("beverage_ready").default(false),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").defaultNow(),
 });
 
 export const insertMemberSchema = createInsertSchema(members).omit({
@@ -131,9 +157,17 @@ export const insertMemberPreferencesSchema = createInsertSchema(memberPreference
   id: true,
 });
 
+export const insertMemberArrivalSchema = createInsertSchema(memberArrivals).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type InsertMember = z.infer<typeof insertMemberSchema>;
 export type Member = typeof members.$inferSelect;
 export type InsertMemberPreferences = z.infer<typeof insertMemberPreferencesSchema>;
 export type MemberPreferences = typeof memberPreferences.$inferSelect;
+export type InsertMemberArrival = z.infer<typeof insertMemberArrivalSchema>;
+export type MemberArrival = typeof memberArrivals.$inferSelect;
 
 export type MemberWithPreferences = Member & { preferences?: MemberPreferences };
+export type ArrivalWithMember = MemberArrival & { member: Member; preferences?: MemberPreferences };

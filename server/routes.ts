@@ -76,6 +76,24 @@ function requireAdmin(req: Request, res: Response, next: NextFunction) {
   next();
 }
 
+async function requireStaff(req: Request, res: Response, next: NextFunction) {
+  if (!req.session.memberId) {
+    res.status(401).json({ message: "Unauthorized" });
+    return;
+  }
+  
+  try {
+    const member = await storage.getMemberById(req.session.memberId);
+    if (!member || (member.role !== "admin" && member.role !== "staff")) {
+      res.status(403).json({ message: "Forbidden - Staff access required" });
+      return;
+    }
+    next();
+  } catch {
+    res.status(500).json({ message: "Authorization check failed" });
+  }
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
@@ -790,6 +808,126 @@ export async function registerRoutes(
     } catch (error) {
       console.error("Error updating preferences:", error);
       res.status(500).json({ success: false, message: "Failed to save preferences" });
+    }
+  });
+
+  // Member preferences (authenticated member)
+  app.put("/api/member/preferences", requireMember, async (req, res) => {
+    try {
+      const memberId = req.session.memberId!;
+      const preferences = req.body;
+      
+      const existingPrefs = await storage.getMemberPreferences(memberId);
+      
+      if (existingPrefs) {
+        const updated = await storage.updateMemberPreferences(memberId, preferences);
+        res.json({ success: true, preferences: updated });
+      } else {
+        const created = await storage.createMemberPreferences({ 
+          ...preferences, 
+          memberId 
+        });
+        res.json({ success: true, preferences: created });
+      }
+    } catch (error) {
+      console.error("Error updating member preferences:", error);
+      res.status(500).json({ success: false, message: "Failed to save preferences" });
+    }
+  });
+
+  // ==========================================
+  // Hospitality Dashboard Routes
+  // ==========================================
+
+  // Get pending arrivals for hospitality team (staff only)
+  app.get("/api/hospitality/arrivals", requireStaff, async (req, res) => {
+    try {
+      const arrivals = await storage.getPendingArrivals();
+      const todaysArrivals = await storage.getTodaysArrivals();
+      res.json([...arrivals, ...todaysArrivals.filter(a => a.status !== "pending")]);
+    } catch (error) {
+      console.error("Error fetching arrivals:", error);
+      res.status(500).json({ message: "Failed to fetch arrivals" });
+    }
+  });
+
+  // Member announces arrival
+  app.post("/api/member/arriving", requireMember, async (req, res) => {
+    try {
+      const memberId = req.session.memberId!;
+      const { estimatedArrival, guestCount, guestNames, notes } = req.body;
+      
+      // Check if member has notifyHospitalityOnArrival enabled
+      const prefs = await storage.getMemberPreferences(memberId);
+      if (prefs && prefs.notifyHospitalityOnArrival === false) {
+        res.json({ success: true, message: "Arrival notification is disabled in your preferences" });
+        return;
+      }
+      
+      // Validate and clamp estimated arrival time
+      const minArrivalTime = new Date(Date.now() + 60 * 1000); // At least 1 minute from now
+      const defaultArrivalTime = new Date(Date.now() + 15 * 60 * 1000); // 15 minutes default
+      let arrivalTime: Date;
+      
+      if (estimatedArrival) {
+        arrivalTime = new Date(estimatedArrival);
+        // If invalid or in the past, use default
+        if (isNaN(arrivalTime.getTime()) || arrivalTime < minArrivalTime) {
+          arrivalTime = defaultArrivalTime;
+        }
+      } else {
+        arrivalTime = defaultArrivalTime;
+      }
+      
+      const arrival = await storage.createArrival({
+        memberId,
+        estimatedArrival: arrivalTime,
+        guestCount: Math.max(0, guestCount || 0),
+        guestNames: guestNames || null,
+        notes: notes || null,
+        status: "pending"
+      });
+      
+      res.json({ success: true, arrival });
+    } catch (error) {
+      console.error("Error creating arrival:", error);
+      res.status(500).json({ success: false, message: "Failed to announce arrival" });
+    }
+  });
+
+  // Mark beverage ready (staff only)
+  app.post("/api/hospitality/arrivals/:id/ready", requireStaff, async (req, res) => {
+    try {
+      const arrivalId = parseInt(req.params.id);
+      const updated = await storage.markBeverageReady(arrivalId);
+      
+      if (!updated) {
+        res.status(404).json({ message: "Arrival not found" });
+        return;
+      }
+      
+      res.json({ success: true, arrival: updated });
+    } catch (error) {
+      console.error("Error marking beverage ready:", error);
+      res.status(500).json({ success: false, message: "Failed to update arrival" });
+    }
+  });
+
+  // Mark member arrived (staff only)
+  app.post("/api/hospitality/arrivals/:id/arrived", requireStaff, async (req, res) => {
+    try {
+      const arrivalId = parseInt(req.params.id);
+      const updated = await storage.markArrivalComplete(arrivalId);
+      
+      if (!updated) {
+        res.status(404).json({ message: "Arrival not found" });
+        return;
+      }
+      
+      res.json({ success: true, arrival: updated });
+    } catch (error) {
+      console.error("Error marking arrived:", error);
+      res.status(500).json({ success: false, message: "Failed to update arrival" });
     }
   });
 

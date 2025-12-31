@@ -85,12 +85,32 @@ Preferred communication style: Simple, everyday language.
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
 - **Session Storage**: connect-pg-simple for PostgreSQL-backed sessions
 
+## Hospitality & Smart Building Features
+
+### Member Preferences System
+- **Beverage Preferences**: Morning/afternoon drink selections with special instructions
+- **Workspace Comfort**: Temperature and lighting preferences, preferred zone
+- **Arrival Settings**: Hospitality notification toggle, calendar sync, location-based arrival
+- **Special Touches**: Birthday, dietary restrictions, special notes
+
+### Hospitality Dashboard (Staff Only)
+- **Real-time Arrivals**: View members arriving with ETA, beverage orders, and zone destinations
+- **Workflow**: Mark beverages as prepared, confirm member arrivals
+- **Authorization**: Staff/admin role required (requireStaff middleware)
+
+### Future Smart Building Integrations
+- **Casambi**: Lighting control system API
+- **Dante AV**: Audio-visual routing system
+- **Otis Elevator**: Elevator dispatch on member arrival
+- **Virtual Keypad**: Access control integration
+
 ## Integration Best Practices
 
 - **Stripe**: Use `invoice.paid` (not `checkout.session.completed`) as most reliable event for granting access
 - **WorkOS**: Access tokens expire in 5 minutes; refresh tokens rotate on each use; clear session on refresh failure
 - **HubSpot**: Provision custom properties in portal; fail gracefully on API errors to not block primary flows
 - **Architecture**: Services should fail gracefully—external service failures shouldn't break core flows
+- **Staff Authorization**: Hospitality routes use `requireStaff` middleware checking member role for admin/staff access
 
 ### Development Tools
 - **Replit Plugins**: 

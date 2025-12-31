@@ -1,5 +1,5 @@
 import { db } from "./db";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, and, gte, lte } from "drizzle-orm";
 import { 
   users,
   adminUsers,
@@ -7,6 +7,7 @@ import {
   news,
   members,
   memberPreferences,
+  memberArrivals,
   organizations,
   type User, 
   type InsertUser,
@@ -20,6 +21,9 @@ import {
   type MemberPreferences,
   type InsertMemberPreferences,
   type MemberWithPreferences,
+  type MemberArrival,
+  type InsertMemberArrival,
+  type ArrivalWithMember,
   type Organization,
   type InsertOrganization
 } from "@shared/schema";
@@ -60,6 +64,13 @@ export interface IStorage {
   createOrganization(org: InsertOrganization): Promise<Organization>;
   getOrganizationMembers(orgId: number): Promise<Member[]>;
   updateMemberOrganization(memberId: number, orgId: number, role?: string): Promise<Member | undefined>;
+  
+  getTodaysArrivals(): Promise<ArrivalWithMember[]>;
+  getPendingArrivals(): Promise<ArrivalWithMember[]>;
+  createArrival(arrival: InsertMemberArrival): Promise<MemberArrival>;
+  updateArrival(id: number, arrival: Partial<InsertMemberArrival>): Promise<MemberArrival | undefined>;
+  markArrivalComplete(id: number): Promise<MemberArrival | undefined>;
+  markBeverageReady(id: number): Promise<MemberArrival | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -244,6 +255,75 @@ export class DatabaseStorage implements IStorage {
     const [updated] = await db.update(members)
       .set({ organizationId: orgId, role })
       .where(eq(members.id, memberId))
+      .returning();
+    return updated;
+  }
+
+  async getTodaysArrivals(): Promise<ArrivalWithMember[]> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
+    const arrivals = await db.select().from(memberArrivals)
+      .where(and(
+        gte(memberArrivals.createdAt, today),
+        lte(memberArrivals.createdAt, tomorrow)
+      ))
+      .orderBy(desc(memberArrivals.estimatedArrival));
+
+    const result: ArrivalWithMember[] = [];
+    for (const arrival of arrivals) {
+      const [member] = await db.select().from(members).where(eq(members.id, arrival.memberId));
+      if (member) {
+        const [prefs] = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, member.id));
+        result.push({ ...arrival, member, preferences: prefs });
+      }
+    }
+    return result;
+  }
+
+  async getPendingArrivals(): Promise<ArrivalWithMember[]> {
+    const arrivals = await db.select().from(memberArrivals)
+      .where(eq(memberArrivals.status, "pending"))
+      .orderBy(memberArrivals.estimatedArrival);
+
+    const result: ArrivalWithMember[] = [];
+    for (const arrival of arrivals) {
+      const [member] = await db.select().from(members).where(eq(members.id, arrival.memberId));
+      if (member) {
+        const [prefs] = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, member.id));
+        result.push({ ...arrival, member, preferences: prefs });
+      }
+    }
+    return result;
+  }
+
+  async createArrival(arrival: InsertMemberArrival): Promise<MemberArrival> {
+    const [created] = await db.insert(memberArrivals).values(arrival).returning();
+    return created;
+  }
+
+  async updateArrival(id: number, arrival: Partial<InsertMemberArrival>): Promise<MemberArrival | undefined> {
+    const [updated] = await db.update(memberArrivals)
+      .set(arrival)
+      .where(eq(memberArrivals.id, id))
+      .returning();
+    return updated;
+  }
+
+  async markArrivalComplete(id: number): Promise<MemberArrival | undefined> {
+    const [updated] = await db.update(memberArrivals)
+      .set({ status: "arrived", actualArrival: new Date() })
+      .where(eq(memberArrivals.id, id))
+      .returning();
+    return updated;
+  }
+
+  async markBeverageReady(id: number): Promise<MemberArrival | undefined> {
+    const [updated] = await db.update(memberArrivals)
+      .set({ beverageReady: true })
+      .where(eq(memberArrivals.id, id))
       .returning();
     return updated;
   }

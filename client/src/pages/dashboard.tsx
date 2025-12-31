@@ -1,8 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { useAuth } from "../hooks/use-auth";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -20,12 +24,55 @@ import {
   Zap,
   Crown,
   Mail,
-  UserPlus
+  UserPlus,
+  Sparkles,
+  Coffee,
+  Bell
 } from "lucide-react";
 
 export default function Dashboard() {
   const [, setLocation] = useLocation();
   const { isAuthenticated, isLoading, member, preferences, organization, teamMembers, isAdmin, logout } = useAuth();
+  const { toast } = useToast();
+  const [arrivalDialogOpen, setArrivalDialogOpen] = useState(false);
+  const [arrivalEta, setArrivalEta] = useState("15");
+  const [guestCount, setGuestCount] = useState("0");
+  const [guestNames, setGuestNames] = useState("");
+  const [submittingArrival, setSubmittingArrival] = useState(false);
+
+  const handleArrivalSubmit = async () => {
+    setSubmittingArrival(true);
+    try {
+      const etaMinutes = Math.max(1, parseInt(arrivalEta) || 15);
+      const guests = parseInt(guestCount) || 0;
+      
+      const res = await fetch("/api/member/arriving", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          estimatedArrival: new Date(Date.now() + etaMinutes * 60 * 1000).toISOString(),
+          guestCount: guests,
+          guestNames: guests > 0 ? (guestNames || null) : null
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast({ 
+          title: data.arrival ? "Arrival announced" : "Note", 
+          description: data.message || "Hospitality team has been notified!" 
+        });
+        setArrivalDialogOpen(false);
+        setArrivalEta("15");
+        setGuestCount("0");
+        setGuestNames("");
+      }
+    } catch (e) {
+      console.error("Arrival error:", e);
+      toast({ title: "Error", description: "Failed to announce arrival", variant: "destructive" });
+    } finally {
+      setSubmittingArrival(false);
+    }
+  };
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
@@ -266,21 +313,92 @@ export default function Dashboard() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-3">
+                  <Button 
+                    variant="outline" 
+                    className="h-auto py-4 flex flex-col items-center gap-2" 
+                    data-testid="button-preferences"
+                    onClick={() => setLocation("/preferences")}
+                  >
+                    <Sparkles className="h-5 w-5" />
+                    <span className="text-xs">My Preferences</span>
+                  </Button>
+                  <Dialog open={arrivalDialogOpen} onOpenChange={setArrivalDialogOpen}>
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        className="h-auto py-4 flex flex-col items-center gap-2" 
+                        data-testid="button-arriving"
+                      >
+                        <Bell className="h-5 w-5" />
+                        <span className="text-xs">I'm Arriving</span>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Announce Your Arrival</DialogTitle>
+                        <DialogDescription>
+                          Let our hospitality team know you're on your way so your drink is ready.
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="space-y-4 py-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="eta">Arriving in (minutes)</Label>
+                          <Input
+                            id="eta"
+                            type="number"
+                            min="1"
+                            max="120"
+                            value={arrivalEta}
+                            onChange={(e) => setArrivalEta(e.target.value)}
+                            data-testid="input-arrival-eta"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label htmlFor="guests">Number of Guests</Label>
+                          <Input
+                            id="guests"
+                            type="number"
+                            min="0"
+                            max="20"
+                            value={guestCount}
+                            onChange={(e) => setGuestCount(e.target.value)}
+                            data-testid="input-guest-count"
+                          />
+                        </div>
+                        {parseInt(guestCount) > 0 && (
+                          <div className="space-y-2">
+                            <Label htmlFor="guest-names">Guest Names</Label>
+                            <Input
+                              id="guest-names"
+                              placeholder="e.g., John Smith, Jane Doe"
+                              value={guestNames}
+                              onChange={(e) => setGuestNames(e.target.value)}
+                              data-testid="input-guest-names"
+                            />
+                          </div>
+                        )}
+                      </div>
+                      <DialogFooter>
+                        <Button variant="outline" onClick={() => setArrivalDialogOpen(false)}>Cancel</Button>
+                        <Button onClick={handleArrivalSubmit} disabled={submittingArrival} data-testid="button-confirm-arrival">
+                          {submittingArrival ? <Loader2 className="h-4 w-4 mr-2 animate-spin" /> : <Bell className="h-4 w-4 mr-2" />}
+                          Notify Team
+                        </Button>
+                      </DialogFooter>
+                    </DialogContent>
+                  </Dialog>
                   <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" data-testid="button-floor-plan">
                     <MapPin className="h-5 w-5" />
                     <span className="text-xs">Floor Plan</span>
                   </Button>
-                  <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" data-testid="button-team">
-                    <Users className="h-5 w-5" />
-                    <span className="text-xs">Team</span>
-                  </Button>
-                  <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" data-testid="button-billing">
-                    <CreditCard className="h-5 w-5" />
-                    <span className="text-xs">Billing</span>
-                  </Button>
-                  <Button variant="outline" className="h-auto py-4 flex flex-col items-center gap-2" data-testid="button-settings">
-                    <Settings className="h-5 w-5" />
-                    <span className="text-xs">Settings</span>
+                  <Button 
+                    variant="outline" 
+                    className="h-auto py-4 flex flex-col items-center gap-2" 
+                    data-testid="button-hospitality"
+                    onClick={() => setLocation("/hospitality")}
+                  >
+                    <Coffee className="h-5 w-5" />
+                    <span className="text-xs">Hospitality</span>
                   </Button>
                 </div>
               </CardContent>

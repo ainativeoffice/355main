@@ -26,6 +26,18 @@ interface MemberPreferences {
   supportPriorities: string[] | null;
   decisionStage: string | null;
   notes: string | null;
+  morningBeverage: string | null;
+  afternoonBeverage: string | null;
+  beverageNotes: string | null;
+  temperaturePreference: string | null;
+  lightingPreference: string | null;
+  preferredZone: string | null;
+  notifyHospitalityOnArrival: boolean | null;
+  syncWithCalendar: boolean | null;
+  enableLocationArrival: boolean | null;
+  birthday: string | null;
+  dietaryRestrictions: string[] | null;
+  specialNotes: string | null;
 }
 
 interface Organization {
