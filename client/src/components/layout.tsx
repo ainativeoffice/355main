@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User, LogOut } from "lucide-react";
 import { JoinMembershipDialog } from "./join-membership-dialog";
+import { useAuth } from "@/hooks/use-auth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [membershipOpen, setMembershipOpen] = useState(false);
+  const { isAuthenticated, isLoading, member, login, logout } = useAuth();
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-primary/20">
@@ -31,13 +40,54 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/#blueprint" className="hover:text-primary transition-colors" data-testid="link-nav-blueprint">Blueprint</Link>
             <Link href="/solutions" className="hover:text-primary transition-colors" data-testid="link-nav-solutions">Solutions</Link>
             <Link href="/#contact" className="hover:text-primary transition-colors" data-testid="link-nav-contact">Contact</Link>
-            <button 
-              onClick={() => setMembershipOpen(true)}
-              className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
-              data-testid="button-nav-membership"
-            >
-              Join Now
-            </button>
+            
+            {isLoading ? (
+              <div className="w-20 h-8 bg-muted animate-pulse rounded" />
+            ) : isAuthenticated ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button 
+                    className="flex items-center gap-2 px-4 py-2 border border-border rounded hover:bg-muted transition-colors"
+                    data-testid="button-nav-user-menu"
+                  >
+                    <User className="h-4 w-4" />
+                    <span className="normal-case tracking-normal text-sm">
+                      {member?.firstName || 'Member'}
+                    </span>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/dashboard" className="w-full cursor-pointer" data-testid="link-nav-dashboard">
+                      <User className="h-4 w-4 mr-2" />
+                      Dashboard
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={logout} className="cursor-pointer" data-testid="button-nav-logout">
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <button 
+                  onClick={login}
+                  className="hover:text-primary transition-colors"
+                  data-testid="button-nav-login"
+                >
+                  Sign In
+                </button>
+                <button 
+                  onClick={() => setMembershipOpen(true)}
+                  className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
+                  data-testid="button-nav-membership"
+                >
+                  Join Now
+                </button>
+              </>
+            )}
           </nav>
         </div>
 
@@ -48,13 +98,43 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/#blueprint" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-blueprint">Blueprint</Link>
             <Link href="/solutions" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-solutions">Solutions</Link>
             <Link href="/#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-contact">Contact</Link>
-            <button 
-              onClick={() => { setMobileMenuOpen(false); setMembershipOpen(true); }}
-              className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
-              data-testid="button-mobile-membership"
-            >
-              Join Now
-            </button>
+            
+            {isAuthenticated ? (
+              <>
+                <Link 
+                  href="/dashboard" 
+                  className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                  data-testid="link-mobile-dashboard"
+                >
+                  Dashboard
+                </Link>
+                <button 
+                  onClick={() => { setMobileMenuOpen(false); logout(); }}
+                  className="border border-border px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-muted transition-colors mt-2"
+                  data-testid="button-mobile-logout"
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <button 
+                  onClick={() => { setMobileMenuOpen(false); login(); }}
+                  className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2 text-left"
+                  data-testid="button-mobile-login"
+                >
+                  Sign In
+                </button>
+                <button 
+                  onClick={() => { setMobileMenuOpen(false); setMembershipOpen(true); }}
+                  className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
+                  data-testid="button-mobile-membership"
+                >
+                  Join Now
+                </button>
+              </>
+            )}
           </nav>
         )}
       </header>

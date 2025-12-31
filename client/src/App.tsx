@@ -16,6 +16,7 @@ const PrivateOffices = lazy(() => import("@/pages/solutions/private-offices"));
 const HybridMemberships = lazy(() => import("@/pages/solutions/hybrid"));
 const AdminLogin = lazy(() => import("@/pages/admin/login"));
 const AdminDashboard = lazy(() => import("@/pages/admin/index"));
+const MemberDashboard = lazy(() => import("@/pages/dashboard"));
 
 function PageLoader() {
   return (
@@ -39,6 +40,7 @@ function Router() {
         <Route path="/solutions/hybrid" component={HybridMemberships} />
         <Route path="/admin/login" component={AdminLogin} />
         <Route path="/admin" component={AdminDashboard} />
+        <Route path="/dashboard" component={MemberDashboard} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

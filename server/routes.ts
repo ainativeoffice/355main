@@ -3,16 +3,25 @@ import { createServer, type Server } from "http";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 import bcrypt from "bcrypt";
+import { WorkOS } from "@workos-inc/node";
 import { storage } from "./storage";
 import { pool } from "./db";
 import { getUncachableHubSpotClient } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 import { insertTestimonialSchema, insertNewsSchema, insertMemberSchema, insertMemberPreferencesSchema } from "@shared/schema";
 
+// Initialize WorkOS
+const workos = new WorkOS(process.env.WORKOS_API_KEY);
+const clientId = process.env.WORKOS_CLIENT_ID;
+
 declare module "express-session" {
   interface SessionData {
     adminId: number;
     adminUsername: string;
+    // Member auth via WorkOS
+    memberId: number;
+    memberEmail: string;
+    workosUserId: string;
   }
 }
 
@@ -57,6 +66,153 @@ export async function registerRoutes(
       maxAge: 24 * 60 * 60 * 1000
     }
   }));
+
+  // ==========================================
+  // WorkOS Authentication Routes
+  // ==========================================
+
+  // Get authorization URL for login
+  app.get("/api/auth/login", (req, res) => {
+    if (!clientId || !process.env.WORKOS_API_KEY) {
+      console.error("WorkOS credentials not configured");
+      res.status(500).json({ error: "Authentication not configured. Please contact support." });
+      return;
+    }
+
+    const redirectUri = `${req.protocol}://${req.get("host")}/api/auth/callback`;
+    
+    const authorizationUrl = workos.userManagement.getAuthorizationUrl({
+      provider: "authkit",
+      redirectUri,
+      clientId,
+    });
+
+    res.redirect(authorizationUrl);
+  });
+
+  // Handle OAuth callback from WorkOS
+  app.get("/api/auth/callback", async (req, res) => {
+    try {
+      if (!clientId || !process.env.WORKOS_API_KEY) {
+        console.error("WorkOS credentials not configured");
+        res.redirect("/?error=auth_not_configured");
+        return;
+      }
+
+      const { code } = req.query;
+      
+      if (!code || typeof code !== "string") {
+        res.redirect("/?error=missing_code");
+        return;
+      }
+
+      const { user } = await workos.userManagement.authenticateWithCode({
+        clientId,
+        code,
+      });
+
+      // Validate that user has a verified email
+      if (!user.email) {
+        console.error("WorkOS user has no email");
+        res.redirect("/?error=no_email");
+        return;
+      }
+
+      if (!user.emailVerified) {
+        console.error("WorkOS user email not verified:", user.email);
+        res.redirect("/?error=email_not_verified");
+        return;
+      }
+
+      // Find or create member in our database
+      let member = await storage.getMemberByEmail(user.email);
+      
+      if (!member) {
+        // Create new member from WorkOS user data
+        member = await storage.createMember({
+          email: user.email,
+          firstName: user.firstName || null,
+          lastName: user.lastName || null,
+          company: null,
+          jobRole: null,
+          teamSize: null,
+          moveInTiming: null,
+        });
+      }
+
+      // Store in session
+      req.session.memberId = member.id;
+      req.session.memberEmail = member.email;
+      req.session.workosUserId = user.id;
+
+      // Redirect to member dashboard
+      res.redirect("/dashboard");
+    } catch (error) {
+      console.error("WorkOS callback error:", error);
+      res.redirect("/?error=auth_failed");
+    }
+  });
+
+  // Get current authenticated member
+  app.get("/api/auth/me", async (req, res) => {
+    if (!req.session.memberId) {
+      res.status(401).json({ authenticated: false });
+      return;
+    }
+
+    try {
+      const member = await storage.getMemberById(req.session.memberId);
+      if (!member) {
+        req.session.destroy(() => {});
+        res.status(401).json({ authenticated: false });
+        return;
+      }
+
+      const preferences = await storage.getMemberPreferences(member.id);
+      
+      res.json({
+        authenticated: true,
+        member: {
+          id: member.id,
+          email: member.email,
+          firstName: member.firstName,
+          lastName: member.lastName,
+          company: member.company,
+          jobRole: member.jobRole,
+        },
+        preferences,
+      });
+    } catch (error) {
+      console.error("Auth check error:", error);
+      res.status(500).json({ authenticated: false, error: "Server error" });
+    }
+  });
+
+  // Logout - fully destroy session
+  app.post("/api/auth/logout", (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Session destroy error on logout:", err);
+        res.status(500).json({ success: false, error: "Logout failed" });
+        return;
+      }
+      res.clearCookie("connect.sid");
+      res.json({ success: true });
+    });
+  });
+
+  // Middleware to require member authentication
+  function requireMember(req: Request, res: Response, next: NextFunction) {
+    if (!req.session.memberId) {
+      res.status(401).json({ message: "Authentication required" });
+      return;
+    }
+    next();
+  }
+
+  // ==========================================
+  // End WorkOS Authentication Routes
+  // ==========================================
 
   // Waitlist endpoint - adds contact to HubSpot
   app.post("/api/waitlist", async (req, res) => {
