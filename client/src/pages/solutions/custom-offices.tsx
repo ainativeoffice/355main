@@ -5,7 +5,7 @@ import { ArrowRight, ArrowLeft, Check, Building2, Ruler, Palette, TreePine } fro
 
 import heroImage from "@assets/357_exterior_1.jpg";
 import exteriorImage from "@assets/vs_exterior_glass.jpg";
-import interiorImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
+import interiorImage from "@assets/Hero_1767201488037.png";
 
 export default function CustomOffices() {
   return (

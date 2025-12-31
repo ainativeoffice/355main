@@ -3,11 +3,11 @@ import { Layout } from "@/components/layout";
 import { ArrowRight, TrendingUp, Users, Building2, Star, Lightbulb, Leaf, Wifi, Monitor, Zap } from "lucide-react";
 import { Link } from "wouter";
 
-import heroImage from "@assets/355-main-office-bigcover-7_1767123943623.jpg";
+import heroImage from "@assets/C818EAD8-FC36-4C5E-A2FB-2241953A2134_1767201676925.png";
 import buildingImage from "@assets/stock_images/commercial_real_esta_82168a19.jpg";
 import exteriorImage from "@assets/vs_exterior_glass.jpg";
 import building357Exterior from "@assets/357_exterior_1.jpg";
-import interiorImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
+import interiorImage from "@assets/Hero_1767201488037.png";
 
 export default function Landlords() {
   return (

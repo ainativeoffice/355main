@@ -5,7 +5,7 @@ import { ArrowRight, ArrowLeft, Check, Zap, Coffee, Phone, Calendar, Wifi, Clock
 
 import heroImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import coworkingImage from "@assets/stock_images/modern_corporate_ent_56277f1f.jpg";
-import amenitiesImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
+import amenitiesImage from "@assets/Hero_1767201488037.png";
 
 export default function HybridMemberships() {
   return (
