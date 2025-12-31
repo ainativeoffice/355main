@@ -520,7 +520,7 @@ export default function Home() {
       </section>
 
       {/* 3. Campus Architecture Section (Moved UP) */}
-      <section className="py-24 bg-muted/20">
+      <section id="campus" className="py-24 bg-muted/20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">The Campus</span>
