@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, timestamp, boolean, serial } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, timestamp, boolean, serial, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -69,3 +69,46 @@ export const insertNewsSchema = createInsertSchema(news).omit({
 
 export type InsertNews = z.infer<typeof insertNewsSchema>;
 export type News = typeof news.$inferSelect;
+
+export const members = pgTable("members", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  firstName: text("first_name"),
+  lastName: text("last_name"),
+  company: text("company"),
+  jobRole: text("job_role"),
+  teamSize: text("team_size"),
+  moveInTiming: text("move_in_timing"),
+  hubspotContactId: text("hubspot_contact_id"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const memberPreferences = pgTable("member_preferences", {
+  id: serial("id").primaryKey(),
+  memberId: integer("member_id").notNull().references(() => members.id),
+  workspaceArchetype: text("workspace_archetype"),
+  collaborationModes: text("collaboration_modes").array(),
+  amenities: text("amenities").array(),
+  techStack: text("tech_stack").array(),
+  integrations: text("integrations").array(),
+  supportPriorities: text("support_priorities").array(),
+  decisionStage: text("decision_stage"),
+  notes: text("notes"),
+});
+
+export const insertMemberSchema = createInsertSchema(members).omit({
+  id: true,
+  createdAt: true,
+  hubspotContactId: true,
+});
+
+export const insertMemberPreferencesSchema = createInsertSchema(memberPreferences).omit({
+  id: true,
+});
+
+export type InsertMember = z.infer<typeof insertMemberSchema>;
+export type Member = typeof members.$inferSelect;
+export type InsertMemberPreferences = z.infer<typeof insertMemberPreferencesSchema>;
+export type MemberPreferences = typeof memberPreferences.$inferSelect;
+
+export type MemberWithPreferences = Member & { preferences?: MemberPreferences };

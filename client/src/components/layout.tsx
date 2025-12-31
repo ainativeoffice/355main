@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { JoinMembershipDialog } from "./join-membership-dialog";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [membershipOpen, setMembershipOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-primary/20">
@@ -29,13 +31,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/#blueprint" className="hover:text-primary transition-colors" data-testid="link-nav-blueprint">Blueprint</Link>
             <Link href="/solutions" className="hover:text-primary transition-colors" data-testid="link-nav-solutions">Solutions</Link>
             <Link href="/#contact" className="hover:text-primary transition-colors" data-testid="link-nav-contact">Contact</Link>
-            <Link 
-              href="/#waitlist" 
+            <button 
+              onClick={() => setMembershipOpen(true)}
               className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
-              data-testid="link-nav-waitlist"
+              data-testid="button-nav-membership"
             >
-              Join Waitlist
-            </Link>
+              Become a Member
+            </button>
           </nav>
         </div>
 
@@ -46,14 +48,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/#blueprint" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-blueprint">Blueprint</Link>
             <Link href="/solutions" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-solutions">Solutions</Link>
             <Link href="/#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-contact">Contact</Link>
-            <Link 
-              href="/#waitlist" 
+            <button 
+              onClick={() => { setMobileMenuOpen(false); setMembershipOpen(true); }}
               className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
-              onClick={() => setMobileMenuOpen(false)}
-              data-testid="link-mobile-waitlist"
+              data-testid="button-mobile-membership"
             >
-              Join Waitlist
-            </Link>
+              Become a Member
+            </button>
           </nav>
         )}
       </header>
@@ -111,19 +112,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className="space-y-4">
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Opening</h3>
             <p className="text-lg">February 2026</p>
-            <a 
-              href="#waitlist" 
+            <button 
+              onClick={() => setMembershipOpen(true)}
               className="inline-block mt-4 bg-primary text-primary-foreground px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
-              data-testid="link-footer-waitlist"
+              data-testid="button-footer-membership"
             >
-              Join Waitlist
-            </a>
+              Become a Member
+            </button>
           </div>
         </div>
         <div className="container mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-xs text-white/30">
           <span>© 2025 Opus 355. All rights reserved.</span>
         </div>
       </footer>
+
+      <JoinMembershipDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
     </div>
   );
 }

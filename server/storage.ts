@@ -5,13 +5,20 @@ import {
   adminUsers,
   testimonials, 
   news,
+  members,
+  memberPreferences,
   type User, 
   type InsertUser,
   type AdminUser,
   type Testimonial,
   type InsertTestimonial,
   type News,
-  type InsertNews
+  type InsertNews,
+  type Member,
+  type InsertMember,
+  type MemberPreferences,
+  type InsertMemberPreferences,
+  type MemberWithPreferences
 } from "@shared/schema";
 
 export interface IStorage {
@@ -34,6 +41,17 @@ export interface IStorage {
   createNews(newsItem: InsertNews): Promise<News>;
   updateNews(id: number, newsItem: Partial<InsertNews>): Promise<News | undefined>;
   deleteNews(id: number): Promise<boolean>;
+  
+  getMembers(): Promise<MemberWithPreferences[]>;
+  getMemberById(id: number): Promise<MemberWithPreferences | undefined>;
+  getMemberByEmail(email: string): Promise<Member | undefined>;
+  createMember(member: InsertMember): Promise<Member>;
+  updateMember(id: number, member: Partial<InsertMember>): Promise<Member | undefined>;
+  deleteMember(id: number): Promise<boolean>;
+  
+  getMemberPreferences(memberId: number): Promise<MemberPreferences | undefined>;
+  createMemberPreferences(preferences: InsertMemberPreferences): Promise<MemberPreferences>;
+  updateMemberPreferences(memberId: number, preferences: Partial<InsertMemberPreferences>): Promise<MemberPreferences | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -135,6 +153,68 @@ export class DatabaseStorage implements IStorage {
   async deleteNews(id: number): Promise<boolean> {
     const result = await db.delete(news).where(eq(news.id, id)).returning();
     return result.length > 0;
+  }
+
+  async getMembers(): Promise<MemberWithPreferences[]> {
+    const allMembers = await db.select().from(members).orderBy(desc(members.createdAt));
+    const result: MemberWithPreferences[] = [];
+    
+    for (const member of allMembers) {
+      const [prefs] = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, member.id));
+      result.push({ ...member, preferences: prefs });
+    }
+    
+    return result;
+  }
+
+  async getMemberById(id: number): Promise<MemberWithPreferences | undefined> {
+    const [member] = await db.select().from(members).where(eq(members.id, id));
+    if (!member) return undefined;
+    
+    const [prefs] = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, id));
+    return { ...member, preferences: prefs };
+  }
+
+  async getMemberByEmail(email: string): Promise<Member | undefined> {
+    const [member] = await db.select().from(members).where(eq(members.email, email));
+    return member;
+  }
+
+  async createMember(member: InsertMember): Promise<Member> {
+    const [created] = await db.insert(members).values(member).returning();
+    return created;
+  }
+
+  async updateMember(id: number, member: Partial<InsertMember>): Promise<Member | undefined> {
+    const [updated] = await db.update(members)
+      .set(member)
+      .where(eq(members.id, id))
+      .returning();
+    return updated;
+  }
+
+  async deleteMember(id: number): Promise<boolean> {
+    await db.delete(memberPreferences).where(eq(memberPreferences.memberId, id));
+    const result = await db.delete(members).where(eq(members.id, id)).returning();
+    return result.length > 0;
+  }
+
+  async getMemberPreferences(memberId: number): Promise<MemberPreferences | undefined> {
+    const [prefs] = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, memberId));
+    return prefs;
+  }
+
+  async createMemberPreferences(preferences: InsertMemberPreferences): Promise<MemberPreferences> {
+    const [created] = await db.insert(memberPreferences).values(preferences).returning();
+    return created;
+  }
+
+  async updateMemberPreferences(memberId: number, preferences: Partial<InsertMemberPreferences>): Promise<MemberPreferences | undefined> {
+    const [updated] = await db.update(memberPreferences)
+      .set(preferences)
+      .where(eq(memberPreferences.memberId, memberId))
+      .returning();
+    return updated;
   }
 }
 

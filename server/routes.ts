@@ -7,7 +7,7 @@ import { storage } from "./storage";
 import { pool } from "./db";
 import { getUncachableHubSpotClient } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
-import { insertTestimonialSchema, insertNewsSchema } from "@shared/schema";
+import { insertTestimonialSchema, insertNewsSchema, insertMemberSchema, insertMemberPreferencesSchema } from "@shared/schema";
 
 declare module "express-session" {
   interface SessionData {
@@ -104,6 +104,151 @@ export async function registerRoutes(
         success: false, 
         message: "Failed to join waitlist. Please try again." 
       });
+    }
+  });
+
+  // Member sign-up endpoint - creates member with preferences and syncs to HubSpot
+  app.post("/api/members", async (req, res) => {
+    try {
+      const { member, preferences } = req.body;
+      
+      if (!member?.email || !validateEmail(member.email)) {
+        res.status(400).json({ 
+          success: false, 
+          message: "Valid email is required"
+        });
+        return;
+      }
+
+      const existingMember = await storage.getMemberByEmail(member.email);
+      if (existingMember) {
+        if (preferences) {
+          const existingPrefs = await storage.getMemberPreferences(existingMember.id);
+          if (existingPrefs) {
+            await storage.updateMemberPreferences(existingMember.id, preferences);
+          } else {
+            await storage.createMemberPreferences({ ...preferences, memberId: existingMember.id });
+          }
+        }
+        if (member.firstName || member.lastName || member.company || member.jobRole || member.teamSize || member.moveInTiming) {
+          await storage.updateMember(existingMember.id, member);
+        }
+        res.json({ 
+          success: true, 
+          message: "Welcome back! Your profile has been updated.",
+          memberId: existingMember.id
+        });
+        return;
+      }
+
+      const parsed = insertMemberSchema.safeParse(member);
+      if (!parsed.success) {
+        res.status(400).json({ 
+          success: false, 
+          message: "Invalid member data",
+          errors: parsed.error.errors 
+        });
+        return;
+      }
+
+      const createdMember = await storage.createMember(parsed.data);
+
+      if (preferences) {
+        await storage.createMemberPreferences({ 
+          ...preferences, 
+          memberId: createdMember.id 
+        });
+      }
+
+      try {
+        const hubspotClient = await getUncachableHubSpotClient();
+        
+        const contactProperties: Record<string, string> = {
+          email: createdMember.email,
+          lifecyclestage: "lead",
+          hs_lead_status: "NEW"
+        };
+        
+        if (createdMember.firstName) contactProperties.firstname = createdMember.firstName;
+        if (createdMember.lastName) contactProperties.lastname = createdMember.lastName;
+        if (createdMember.company) contactProperties.company = createdMember.company;
+        if (createdMember.jobRole) contactProperties.jobtitle = createdMember.jobRole;
+        if (createdMember.teamSize) contactProperties.numemployees = createdMember.teamSize;
+        
+        const hubspotResponse = await hubspotClient.crm.contacts.basicApi.create({
+          properties: contactProperties
+        });
+
+        await storage.updateMember(createdMember.id, { 
+          hubspotContactId: hubspotResponse.id 
+        } as any);
+      } catch (hubspotError: any) {
+        console.error("HubSpot sync warning:", hubspotError.message);
+      }
+
+      res.json({ 
+        success: true, 
+        message: "Welcome to Opus 355! You're now a member.",
+        memberId: createdMember.id
+      });
+    } catch (error: any) {
+      console.error("Member sign-up error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Failed to complete sign-up. Please try again." 
+      });
+    }
+  });
+
+  // Update member preferences (for multi-step form)
+  app.put("/api/members/:id/preferences", async (req, res) => {
+    try {
+      const memberId = parseInt(req.params.id);
+      const preferences = req.body;
+      
+      const existingPrefs = await storage.getMemberPreferences(memberId);
+      
+      if (existingPrefs) {
+        const updated = await storage.updateMemberPreferences(memberId, preferences);
+        res.json({ success: true, preferences: updated });
+      } else {
+        const created = await storage.createMemberPreferences({ 
+          ...preferences, 
+          memberId 
+        });
+        res.json({ success: true, preferences: created });
+      }
+    } catch (error) {
+      console.error("Error updating preferences:", error);
+      res.status(500).json({ success: false, message: "Failed to save preferences" });
+    }
+  });
+
+  // Admin members endpoints
+  app.get("/api/admin/members", requireAdmin, async (req, res) => {
+    try {
+      const members = await storage.getMembers();
+      res.json(members);
+    } catch (error) {
+      console.error("Error fetching members:", error);
+      res.status(500).json({ message: "Failed to fetch members" });
+    }
+  });
+
+  app.delete("/api/admin/members/:id", requireAdmin, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const deleted = await storage.deleteMember(id);
+      
+      if (!deleted) {
+        res.status(404).json({ message: "Member not found" });
+        return;
+      }
+      
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error deleting member:", error);
+      res.status(500).json({ message: "Failed to delete member" });
     }
   });
 

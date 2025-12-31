@@ -8,8 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { Pencil, Trash2, Plus, LogOut } from "lucide-react";
-import type { Testimonial, News } from "@shared/schema";
+import { Pencil, Trash2, Plus, LogOut, Users, Mail, Building, Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import type { Testimonial, News, MemberWithPreferences } from "@shared/schema";
 
 export default function AdminDashboard() {
   const [, setLocation] = useLocation();
@@ -74,11 +74,16 @@ export default function AdminDashboard() {
       </header>
 
       <main className="container mx-auto px-6 py-8">
-        <Tabs defaultValue="testimonials">
+        <Tabs defaultValue="members">
           <TabsList className="mb-8">
+            <TabsTrigger value="members" data-testid="tab-members">Members</TabsTrigger>
             <TabsTrigger value="testimonials" data-testid="tab-testimonials">Testimonials</TabsTrigger>
             <TabsTrigger value="news" data-testid="tab-news">News</TabsTrigger>
           </TabsList>
+
+          <TabsContent value="members">
+            <MembersManager />
+          </TabsContent>
 
           <TabsContent value="testimonials">
             <TestimonialsManager />
@@ -431,6 +436,191 @@ function NewsForm({ news, onSubmit, onCancel, isLoading }: {
         </Button>
         <Button variant="outline" onClick={onCancel}>Cancel</Button>
       </div>
+    </div>
+  );
+}
+
+function MembersManager() {
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const { data: members, isLoading } = useQuery<MemberWithPreferences[]>({
+    queryKey: ["admin-members"],
+    queryFn: async () => {
+      const response = await fetch("/api/admin/members", { credentials: "include" });
+      if (!response.ok) throw new Error("Failed to fetch members");
+      return response.json();
+    },
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: async (id: number) => {
+      const response = await fetch(`/api/admin/members/${id}`, { 
+        method: "DELETE", 
+        credentials: "include" 
+      });
+      if (!response.ok) throw new Error("Failed to delete");
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-members"] });
+      toast({ title: "Member deleted" });
+    },
+  });
+
+  const formatPreference = (key: string, value: string | string[] | null | undefined) => {
+    if (!value) return null;
+    if (Array.isArray(value) && value.length === 0) return null;
+    
+    const label = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+    const displayValue = Array.isArray(value) ? value.join(', ') : value;
+    return { label, value: displayValue };
+  };
+
+  if (isLoading) {
+    return <div className="text-center py-12 text-muted-foreground">Loading members...</div>;
+  }
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="font-serif text-2xl">Members</h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            {members?.length || 0} registered members
+          </p>
+        </div>
+      </div>
+
+      {!members?.length ? (
+        <div className="bg-card p-12 border border-border text-center">
+          <Users className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
+          <h3 className="font-medium text-lg mb-2">No members yet</h3>
+          <p className="text-muted-foreground text-sm">
+            Members will appear here when they sign up through the membership form.
+          </p>
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {members.map((member) => (
+            <div key={member.id} className="bg-card border border-border" data-testid={`card-admin-member-${member.id}`}>
+              <div 
+                className="p-6 flex items-center justify-between cursor-pointer hover:bg-muted/30 transition-colors"
+                onClick={() => setExpandedId(expandedId === member.id ? null : member.id)}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Users className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium">
+                        {member.firstName && member.lastName 
+                          ? `${member.firstName} ${member.lastName}` 
+                          : member.email}
+                      </span>
+                      {member.company && (
+                        <>
+                          <span className="text-muted-foreground">•</span>
+                          <span className="text-sm text-muted-foreground">{member.company}</span>
+                        </>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground mt-1">
+                      <span className="flex items-center gap-1">
+                        <Mail className="w-3 h-3" />
+                        {member.email}
+                      </span>
+                      {member.teamSize && (
+                        <span className="flex items-center gap-1">
+                          <Users className="w-3 h-3" />
+                          {member.teamSize} people
+                        </span>
+                      )}
+                      {member.createdAt && (
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3" />
+                          {new Date(member.createdAt).toLocaleDateString()}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Button 
+                    variant="outline" 
+                    size="icon"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      if (confirm("Are you sure you want to delete this member?")) {
+                        deleteMutation.mutate(member.id);
+                      }
+                    }}
+                    data-testid={`button-delete-member-${member.id}`}
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </Button>
+                  {expandedId === member.id ? (
+                    <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                  )}
+                </div>
+              </div>
+              
+              {expandedId === member.id && (
+                <div className="border-t border-border p-6 bg-muted/20">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-3">
+                        Contact Details
+                      </h4>
+                      <div className="space-y-2 text-sm">
+                        {member.firstName && <p><span className="text-muted-foreground">First Name:</span> {member.firstName}</p>}
+                        {member.lastName && <p><span className="text-muted-foreground">Last Name:</span> {member.lastName}</p>}
+                        <p><span className="text-muted-foreground">Email:</span> {member.email}</p>
+                        {member.company && <p><span className="text-muted-foreground">Company:</span> {member.company}</p>}
+                        {member.jobRole && <p><span className="text-muted-foreground">Role:</span> {member.jobRole}</p>}
+                        {member.teamSize && <p><span className="text-muted-foreground">Team Size:</span> {member.teamSize}</p>}
+                        {member.moveInTiming && <p><span className="text-muted-foreground">Move-in Timing:</span> {member.moveInTiming}</p>}
+                      </div>
+                    </div>
+                    
+                    {member.preferences && (
+                      <div>
+                        <h4 className="text-sm font-medium uppercase tracking-wider text-muted-foreground mb-3">
+                          Workspace Preferences
+                        </h4>
+                        <div className="space-y-2 text-sm">
+                          {Object.entries(member.preferences)
+                            .filter(([key]) => !['id', 'memberId'].includes(key))
+                            .map(([key, value]) => {
+                              const formatted = formatPreference(key, value as string | string[]);
+                              if (!formatted) return null;
+                              return (
+                                <p key={key}>
+                                  <span className="text-muted-foreground">{formatted.label}:</span> {formatted.value}
+                                </p>
+                              );
+                            })}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {member.hubspotContactId && (
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <span className="text-xs text-muted-foreground">
+                        HubSpot Contact ID: {member.hubspotContactId}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

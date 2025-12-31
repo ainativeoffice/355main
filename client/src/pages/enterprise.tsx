@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { useState } from "react";
-import { ArrowRight, Building, Users, Calendar, MapPin, Laptop, Shield } from "lucide-react";
-import { useMutation } from "@tanstack/react-query";
-import { useToast } from "@/hooks/use-toast";
-import { validateEmail } from "@shared/validation";
+import { ArrowRight, Calendar, MapPin, Laptop, Shield } from "lucide-react";
 import { Link } from "wouter";
+import { JoinMembershipDialog } from "@/components/join-membership-dialog";
 
 import heroImage from "@assets/stock_images/modern_corporate_ent_54a2da38.jpg";
 import teamImage from "@assets/stock_images/modern_corporate_ent_56277f1f.jpg";
@@ -13,59 +11,7 @@ import interiorImage from "@assets/355-main-office-gallery-01-big-7_176695929996
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 
 export default function Enterprise() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    company: "",
-    seats: "",
-    message: ""
-  });
-  const { toast } = useToast();
-
-  const consultationMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: data.email }),
-      });
-      
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || "Failed to submit");
-      }
-      
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Consultation Request Received",
-        description: "Our enterprise team will contact you within 24 hours.",
-      });
-      setFormData({ firstName: "", lastName: "", email: "", company: "", seats: "", message: "" });
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateEmail(formData.email)) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address",
-        variant: "destructive",
-      });
-      return;
-    }
-    consultationMutation.mutate(formData);
-  };
+  const [membershipOpen, setMembershipOpen] = useState(false);
 
   return (
     <Layout>
@@ -114,72 +60,17 @@ export default function Enterprise() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="bg-background p-8 shadow-2xl"
           >
-            <h2 className="font-serif text-2xl mb-6">Start Your Consultation</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  value={formData.firstName}
-                  onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                  className="w-full px-4 py-3 border border-border bg-background focus:outline-none focus:border-primary"
-                  data-testid="input-first-name"
-                />
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  value={formData.lastName}
-                  onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                  className="w-full px-4 py-3 border border-border bg-background focus:outline-none focus:border-primary"
-                  data-testid="input-last-name"
-                />
-              </div>
-              <input
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-                className="w-full px-4 py-3 border border-border bg-background focus:outline-none focus:border-primary"
-                data-testid="input-email"
-              />
-              <input
-                type="text"
-                placeholder="Company"
-                value={formData.company}
-                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                className="w-full px-4 py-3 border border-border bg-background focus:outline-none focus:border-primary"
-                data-testid="input-company"
-              />
-              <select
-                value={formData.seats}
-                onChange={(e) => setFormData({ ...formData, seats: e.target.value })}
-                className="w-full px-4 py-3 border border-border bg-background focus:outline-none focus:border-primary text-muted-foreground"
-                data-testid="select-seats"
-              >
-                <option value="">Seats Needed</option>
-                <option value="1-4">1-4</option>
-                <option value="5-19">5-19</option>
-                <option value="20-49">20-49</option>
-                <option value="50+">50+</option>
-              </select>
-              <textarea
-                placeholder="Tell us about your needs"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                rows={3}
-                className="w-full px-4 py-3 border border-border bg-background focus:outline-none focus:border-primary resize-none"
-                data-testid="textarea-message"
-              />
-              <button
-                type="submit"
-                disabled={consultationMutation.isPending}
-                className="w-full bg-primary text-primary-foreground py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors disabled:opacity-50"
-                data-testid="button-submit-consultation"
-              >
-                {consultationMutation.isPending ? "Submitting..." : "Request Consultation"}
-              </button>
-            </form>
+            <h2 className="font-serif text-2xl mb-6">Enterprise Membership</h2>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Join Opus 355 to access custom workspace solutions, priority support, and exclusive enterprise benefits for your organization.
+            </p>
+            <button
+              onClick={() => setMembershipOpen(true)}
+              className="w-full bg-primary text-primary-foreground py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
+              data-testid="button-become-member"
+            >
+              Become a Member
+            </button>
           </motion.div>
         </div>
       </section>
@@ -334,6 +225,8 @@ export default function Enterprise() {
           </Link>
         </div>
       </section>
+
+      <JoinMembershipDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
     </Layout>
   );
 }

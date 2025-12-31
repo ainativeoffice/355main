@@ -5,10 +5,8 @@ import { useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
-import { useMutation } from "@tanstack/react-query";
-import { useToast } from "@/hooks/use-toast";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
-import { validateEmail } from "@shared/validation";
+import { JoinMembershipDialog } from "@/components/join-membership-dialog";
 
 import heroImage from "@assets/355-main-office-gallery-01-big-7_1766959299960.jpg";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -304,8 +302,7 @@ export default function Home() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
   const [zoomLevel, setZoomLevel] = useState(1);
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
+  const [membershipOpen, setMembershipOpen] = useState(false);
   
   // Zone Tuner - Commented out for production
   // const [showTuner, setShowTuner] = useState(false);
@@ -379,50 +376,6 @@ export default function Home() {
 
   const handleZoomOut = () => {
     setZoomLevel(prev => Math.max(prev - 0.5, 0.5));
-  };
-
-  const waitlistMutation = useMutation({
-    mutationFn: async (email: string) => {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || "Failed to join waitlist");
-      }
-      
-      return response.json();
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Success!",
-        description: data.message,
-      });
-      setEmail("");
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Error",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
-
-  const handleWaitlistSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validateEmail(email)) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address",
-        variant: "destructive",
-      });
-      return;
-    }
-    waitlistMutation.mutate(email);
   };
 
   const nextZone = () => {
@@ -1095,28 +1048,16 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Join the wait list to secure a membership or private office today. Limited availability. Opus 355 is set to open in February 2026.
+             Become a free member to get updates, priority access, and personalized workspace recommendations. Opus 355 opens February 2026.
            </p>
-           <form onSubmit={handleWaitlistSubmit} className="flex flex-col items-center gap-8">
-             <div className="w-full max-w-md flex flex-col sm:flex-row gap-2">
-               <input 
-                 type="email" 
-                 value={email}
-                 onChange={(e) => setEmail(e.target.value)}
-                 placeholder="Enter your email address" 
-                 className="flex-1 bg-muted/50 border border-border px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-primary/20 transition-all rounded-none"
-                 required
-                 data-testid="input-waitlist-email"
-               />
-               <button 
-                 type="submit"
-                 disabled={waitlistMutation.isPending}
-                 className="bg-primary text-primary-foreground px-8 py-4 text-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap disabled:opacity-50"
-                 data-testid="button-waitlist-submit"
-               >
-                 {waitlistMutation.isPending ? "Joining..." : "Join Waitlist"}
-               </button>
-             </div>
+           <div className="flex flex-col items-center gap-6">
+             <button 
+               onClick={() => setMembershipOpen(true)}
+               className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors"
+               data-testid="button-become-member"
+             >
+               Become a Member
+             </button>
              
              <a 
                href={listingBrochure} 
@@ -1127,9 +1068,11 @@ export default function Home() {
                <Download className="w-4 h-4" />
                Download Brochure
              </a>
-           </form>
+           </div>
          </motion.div>
       </section>
+
+      <JoinMembershipDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
     </Layout>
   );
 }
