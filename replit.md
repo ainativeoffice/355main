@@ -64,7 +64,7 @@ Preferred communication style: Simple, everyday language.
   - Waitlist signups create contacts with "lead" lifecycle stage
 
 ### Analytics
-- **Google Analytics 4**: Tracking via gtag.js (ID: G-E8CTSJ382F)
+- **Google Analytics 4**: Tracking via gtag.js (ID: G-2VR7386HM6)
 
 ### Infrastructure
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
