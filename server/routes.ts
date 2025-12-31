@@ -60,6 +60,17 @@ declare module "express-session" {
 
 const SALT_ROUNDS = 10;
 
+function mapTeamSizeToHubSpot(teamSize: string): string {
+  const mapping: Record<string, string> = {
+    "1": "1-5",
+    "2-5": "1-5",
+    "6-15": "5-25",
+    "16-30": "25-50",
+    "30+": "50-100",
+  };
+  return mapping[teamSize] || teamSize;
+}
+
 async function hashPassword(password: string): Promise<string> {
   return bcrypt.hash(password, SALT_ROUNDS);
 }
@@ -731,7 +742,7 @@ export async function registerRoutes(
         if (createdMember.lastName) contactProperties.lastname = createdMember.lastName;
         if (createdMember.company) contactProperties.company = createdMember.company;
         if (createdMember.jobRole) contactProperties.jobtitle = createdMember.jobRole;
-        if (createdMember.teamSize) contactProperties.numemployees = createdMember.teamSize;
+        if (createdMember.teamSize) contactProperties.numemployees = mapTeamSizeToHubSpot(createdMember.teamSize);
         
         // Custom Opus 355 properties (requires creating in HubSpot dashboard first)
         if (createdMember.moveInTiming) contactProperties.opus_move_in_timing = createdMember.moveInTiming;
