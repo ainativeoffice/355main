@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout";
 import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Users, Plug, LayoutGrid, Settings } from "lucide-react";
 
-import heroImage from "@assets/Hero_1767216807768.png";
+import heroImage from "@assets/Hero_1767222668713.png";
 import tyde2Image from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import officeImage from "@assets/vs_exterior_glass.jpg";
 

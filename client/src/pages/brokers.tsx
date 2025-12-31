@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import heroImage from "@assets/stock_images/professional_busines_850cb7b8.jpg";
 import meetingImage from "@assets/stock_images/professional_busines_c9623543.jpg";
 import buildingExterior from "@assets/vs_exterior_glass.jpg";
-import interiorImage from "@assets/Hero_1767216807768.png";
+import interiorImage from "@assets/Hero_1767222668713.png";
 
 export default function Brokers() {
   return (

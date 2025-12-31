@@ -7,7 +7,7 @@ import heroImage from "@assets/C818EAD8-FC36-4C5E-A2FB-2241953A2134_176720167692
 import buildingImage from "@assets/stock_images/commercial_real_esta_82168a19.jpg";
 import exteriorImage from "@assets/vs_exterior_glass.jpg";
 import building357Exterior from "@assets/357_exterior_1.jpg";
-import interiorImage from "@assets/Hero_1767216807768.png";
+import interiorImage from "@assets/Hero_1767222668713.png";
 
 export default function Landlords() {
   return (
