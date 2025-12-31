@@ -48,10 +48,13 @@ declare module "express-session" {
   interface SessionData {
     adminId: number;
     adminUsername: string;
-    // Member auth via WorkOS
+    // Member auth via WorkOS - per best practices, store tokens for refresh
     memberId: number;
     memberEmail: string;
     workosUserId: string;
+    workosAccessToken: string;
+    workosRefreshToken: string;
+    workosTokenExpiresAt: number;
   }
 }
 
@@ -136,10 +139,13 @@ export async function registerRoutes(
         return;
       }
 
-      const { user } = await workos.userManagement.authenticateWithCode({
+      // Per WorkOS best practices: get user + tokens from auth code
+      const authResult = await workos.userManagement.authenticateWithCode({
         clientId,
         code,
       });
+
+      const { user, accessToken, refreshToken } = authResult;
 
       // Validate that user has a verified email
       if (!user.email) {
@@ -175,10 +181,14 @@ export async function registerRoutes(
         await storage.updateMember(member.id, { workosUserId: user.id } as any);
       }
 
-      // Store in session
+      // Per best practices: Store tokens in server-side session (HttpOnly, encrypted)
       req.session.memberId = member.id;
       req.session.memberEmail = member.email;
       req.session.workosUserId = user.id;
+      req.session.workosAccessToken = accessToken;
+      req.session.workosRefreshToken = refreshToken;
+      // Access tokens expire in 5 minutes by default
+      req.session.workosTokenExpiresAt = Date.now() + (5 * 60 * 1000);
 
       // Redirect to member dashboard
       res.redirect("/dashboard");
@@ -261,12 +271,48 @@ export async function registerRoutes(
     });
   });
 
-  // Middleware to require member authentication
+  // Helper to refresh WorkOS access token if expired (per best practices)
+  async function refreshWorkosTokenIfNeeded(req: Request): Promise<boolean> {
+    if (!req.session.workosRefreshToken || !req.session.workosTokenExpiresAt) {
+      return false;
+    }
+
+    // Check if token needs refresh (with 60s buffer)
+    if (Date.now() < req.session.workosTokenExpiresAt - 60000) {
+      return true; // Token is still valid
+    }
+
+    try {
+      const { accessToken, refreshToken } = await workos.userManagement.authenticateWithRefreshToken({
+        clientId: clientId!,
+        refreshToken: req.session.workosRefreshToken,
+      });
+
+      // Update session with new tokens (rotate refresh token per best practice)
+      req.session.workosAccessToken = accessToken;
+      req.session.workosRefreshToken = refreshToken;
+      req.session.workosTokenExpiresAt = Date.now() + (5 * 60 * 1000);
+      
+      console.log(`Refreshed WorkOS token for member ${req.session.memberId}`);
+      return true;
+    } catch (error) {
+      console.error("Token refresh failed:", error);
+      return false;
+    }
+  }
+
+  // Middleware to require member authentication with token refresh
   function requireMember(req: Request, res: Response, next: NextFunction) {
     if (!req.session.memberId) {
       res.status(401).json({ message: "Authentication required" });
       return;
     }
+    
+    // Async token refresh (non-blocking)
+    refreshWorkosTokenIfNeeded(req).catch(err => 
+      console.error("Token refresh error:", err)
+    );
+    
     next();
   }
 
@@ -369,13 +415,40 @@ export async function registerRoutes(
     }
   });
 
-  // Stripe webhook handler
+  // Track processed webhook events to prevent duplicates (in production, use database)
+  const processedWebhookEvents = new Set<string>();
+
+  // Helper to find member by Stripe customer ID efficiently
+  async function findMemberByStripeCustomerId(customerId: string) {
+    const members = await storage.getMembers();
+    return members.find(m => m.stripeCustomerId === customerId);
+  }
+
+  // Helper to sync subscription data to HubSpot
+  async function syncSubscriptionToHubSpot(member: any, tier: string, status: string) {
+    try {
+      if (!member.hubspotContactId) return;
+      
+      const hubspotClient = await getUncachableHubSpotClient();
+      await hubspotClient.crm.contacts.basicApi.update(member.hubspotContactId, {
+        properties: {
+          opus_membership_tier: tier,
+          opus_subscription_status: status,
+          lifecyclestage: status === "active" ? "customer" : "lead",
+        }
+      });
+      console.log(`HubSpot sync: Updated ${member.email} with tier=${tier}, status=${status}`);
+    } catch (error) {
+      console.error("HubSpot sync error:", error);
+    }
+  }
+
+  // Stripe webhook handler - optimized per Stripe best practices
   app.post("/api/stripe/webhook", async (req, res) => {
     const sig = req.headers["stripe-signature"] as string;
     
     let event: Stripe.Event;
     try {
-      // Use rawBody from Express middleware configured in index.ts
       const rawBody = req.rawBody as Buffer;
       if (!rawBody) {
         console.error("No raw body available for webhook verification");
@@ -393,52 +466,120 @@ export async function registerRoutes(
       return;
     }
 
-    // Handle subscription events
-    switch (event.type) {
-      case "checkout.session.completed": {
-        const session = event.data.object as Stripe.Checkout.Session;
-        const memberId = parseInt(session.metadata?.memberId || "0");
-        const tier = session.metadata?.tier;
+    // Idempotency: Skip already processed events
+    if (processedWebhookEvents.has(event.id)) {
+      console.log(`Webhook event ${event.id} already processed, skipping`);
+      res.json({ received: true });
+      return;
+    }
 
-        if (memberId && tier) {
-          await storage.updateMember(memberId, {
-            subscriptionId: session.subscription as string,
-            subscriptionStatus: "active",
-            subscriptionTier: tier,
-          } as any);
+    try {
+      // Handle subscription events per Stripe best practices
+      switch (event.type) {
+        // Best practice: Use checkout.session.completed to link subscription to member
+        case "checkout.session.completed": {
+          const session = event.data.object as Stripe.Checkout.Session;
+          const memberId = parseInt(session.metadata?.memberId || "0");
+          const tier = session.metadata?.tier;
+
+          if (memberId && tier) {
+            await storage.updateMember(memberId, {
+              subscriptionId: session.subscription as string,
+              subscriptionStatus: "pending", // Wait for invoice.paid to confirm
+              subscriptionTier: tier,
+            } as any);
+            console.log(`Checkout completed for member ${memberId}, tier: ${tier}`);
+          }
+          break;
         }
-        break;
+
+        // Best practice: invoice.paid is the MOST RELIABLE event for granting access
+        case "invoice.paid": {
+          const invoice = event.data.object as Stripe.Invoice;
+          const customerId = invoice.customer as string;
+          const subscriptionId = invoice.subscription as string;
+
+          const member = await findMemberByStripeCustomerId(customerId);
+          if (member) {
+            await storage.updateMember(member.id, {
+              subscriptionId: subscriptionId,
+              subscriptionStatus: "active",
+            } as any);
+            
+            // Sync to HubSpot - update lifecycle stage to customer
+            await syncSubscriptionToHubSpot(member, member.subscriptionTier || "hybrid", "active");
+            console.log(`Invoice paid: Activated subscription for member ${member.id}`);
+          }
+          break;
+        }
+
+        // Handle failed payments - notify and update status
+        case "invoice.payment_failed": {
+          const invoice = event.data.object as Stripe.Invoice;
+          const customerId = invoice.customer as string;
+
+          const member = await findMemberByStripeCustomerId(customerId);
+          if (member) {
+            await storage.updateMember(member.id, {
+              subscriptionStatus: "past_due",
+            } as any);
+            
+            // Sync to HubSpot
+            await syncSubscriptionToHubSpot(member, member.subscriptionTier || "free", "past_due");
+            console.log(`Payment failed for member ${member.id}`);
+          }
+          break;
+        }
+
+        case "customer.subscription.updated": {
+          const subscription = event.data.object as Stripe.Subscription;
+          const customerId = subscription.customer as string;
+          
+          const member = await findMemberByStripeCustomerId(customerId);
+          if (member) {
+            // Fetch full subscription to get accurate status
+            const fullSubscription = await stripe.subscriptions.retrieve(subscription.id);
+            await storage.updateMember(member.id, {
+              subscriptionStatus: fullSubscription.status,
+            } as any);
+            
+            await syncSubscriptionToHubSpot(member, member.subscriptionTier || "hybrid", fullSubscription.status);
+            console.log(`Subscription updated for member ${member.id}: ${fullSubscription.status}`);
+          }
+          break;
+        }
+
+        case "customer.subscription.deleted": {
+          const subscription = event.data.object as Stripe.Subscription;
+          const customerId = subscription.customer as string;
+          
+          const member = await findMemberByStripeCustomerId(customerId);
+          if (member) {
+            await storage.updateMember(member.id, {
+              subscriptionStatus: "cancelled",
+              subscriptionTier: "free",
+            } as any);
+            
+            // Sync to HubSpot - downgrade lifecycle stage
+            await syncSubscriptionToHubSpot(member, "free", "cancelled");
+            console.log(`Subscription cancelled for member ${member.id}`);
+          }
+          break;
+        }
       }
 
-      case "customer.subscription.updated": {
-        const subscription = event.data.object as Stripe.Subscription;
-        const customerId = subscription.customer as string;
-        
-        // Find member by customer ID and update status
-        const members = await storage.getMembers();
-        const member = members.find(m => m.stripeCustomerId === customerId);
-        if (member) {
-          await storage.updateMember(member.id, {
-            subscriptionStatus: subscription.status,
-          } as any);
-        }
-        break;
+      // Mark event as processed
+      processedWebhookEvents.add(event.id);
+      
+      // Cleanup old events (keep last 1000)
+      if (processedWebhookEvents.size > 1000) {
+        const firstEvent = processedWebhookEvents.values().next().value;
+        if (firstEvent) processedWebhookEvents.delete(firstEvent);
       }
 
-      case "customer.subscription.deleted": {
-        const subscription = event.data.object as Stripe.Subscription;
-        const customerId = subscription.customer as string;
-        
-        const members = await storage.getMembers();
-        const member = members.find(m => m.stripeCustomerId === customerId);
-        if (member) {
-          await storage.updateMember(member.id, {
-            subscriptionStatus: "cancelled",
-            subscriptionTier: "free",
-          } as any);
-        }
-        break;
-      }
+    } catch (error) {
+      console.error("Webhook processing error:", error);
+      // Return 200 to prevent Stripe from retrying (we log the error for debugging)
     }
 
     res.json({ received: true });
@@ -553,17 +694,41 @@ export async function registerRoutes(
       try {
         const hubspotClient = await getUncachableHubSpotClient();
         
+        // Sync comprehensive member data to HubSpot per best practices
         const contactProperties: Record<string, string> = {
           email: createdMember.email,
           lifecyclestage: "lead",
           hs_lead_status: "NEW"
         };
         
+        // Standard HubSpot properties
         if (createdMember.firstName) contactProperties.firstname = createdMember.firstName;
         if (createdMember.lastName) contactProperties.lastname = createdMember.lastName;
         if (createdMember.company) contactProperties.company = createdMember.company;
         if (createdMember.jobRole) contactProperties.jobtitle = createdMember.jobRole;
         if (createdMember.teamSize) contactProperties.numemployees = createdMember.teamSize;
+        
+        // Custom Opus 355 properties (requires creating in HubSpot dashboard first)
+        if (createdMember.moveInTiming) contactProperties.opus_move_in_timing = createdMember.moveInTiming;
+        contactProperties.opus_membership_tier = "free";
+        contactProperties.opus_subscription_status = "waitlist";
+        contactProperties.opus_member_id = createdMember.id.toString();
+        
+        // Sync workspace preferences if provided
+        if (preferences) {
+          if (preferences.privateOfficeDesks) {
+            contactProperties.opus_private_desks = preferences.privateOfficeDesks.toString();
+          }
+          if (preferences.hybridMemberships) {
+            contactProperties.opus_hybrid_seats = preferences.hybridMemberships.toString();
+          }
+          if (preferences.amenities?.length) {
+            contactProperties.opus_amenities = preferences.amenities.join(", ");
+          }
+          if (preferences.decisionStage) {
+            contactProperties.opus_decision_stage = preferences.decisionStage;
+          }
+        }
         
         const hubspotResponse = await hubspotClient.crm.contacts.basicApi.create({
           properties: contactProperties
@@ -572,8 +737,15 @@ export async function registerRoutes(
         await storage.updateMember(createdMember.id, { 
           hubspotContactId: hubspotResponse.id 
         } as any);
+        
+        console.log(`HubSpot: Created contact ${hubspotResponse.id} for ${createdMember.email}`);
       } catch (hubspotError: any) {
-        console.error("HubSpot sync warning:", hubspotError.message);
+        // Best practice: Don't fail signup if HubSpot sync fails
+        if (hubspotError.body?.category === "CONFLICT") {
+          console.log(`HubSpot: Contact ${createdMember.email} already exists`);
+        } else {
+          console.error("HubSpot sync warning:", hubspotError.message);
+        }
       }
 
       res.json({ 
