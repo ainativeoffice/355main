@@ -1346,7 +1346,9 @@ export async function registerRoutes(
   // ==========================================
   // Test Authentication Routes (Development Only)
   // ==========================================
-  if (process.env.NODE_ENV === "development") {
+  // Use config.isDevelopment which checks REPLIT_DEPLOYMENT environment variable
+  // This ensures test routes are disabled in production deployments
+  if (config.isDevelopment) {
     // Create or get test user and establish session - for automated testing only
     app.post("/api/test/auth/login", async (req, res) => {
       try {
@@ -1405,7 +1407,7 @@ export async function registerRoutes(
       });
     });
 
-    console.log("[startup] Test authentication routes enabled (development only)");
+    console.log("[startup] Test authentication routes enabled (REPLIT_DEPLOYMENT not set)");
   }
 
   return httpServer;
