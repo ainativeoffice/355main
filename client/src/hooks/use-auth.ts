@@ -68,7 +68,9 @@ export function useAuth() {
   const { data, isLoading, error } = useQuery<AuthResponse>({
     queryKey: ["auth"],
     queryFn: async () => {
-      const response = await fetch("/api/auth/me");
+      const response = await fetch("/api/auth/me", {
+        credentials: "include",
+      });
       if (!response.ok) {
         return { authenticated: false };
       }
@@ -82,6 +84,7 @@ export function useAuth() {
     mutationFn: async () => {
       const response = await fetch("/api/auth/logout", {
         method: "POST",
+        credentials: "include",
       });
       if (!response.ok) {
         throw new Error("Logout failed");
