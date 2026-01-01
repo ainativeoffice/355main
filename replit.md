@@ -142,8 +142,14 @@ Preferred communication style: Simple, everyday language.
 
 ### TypeScript Strict Mode
 - **Configuration**: `tsconfig.json` with strict mode enabled
-- **Additional Flags**: `noImplicitOverride`, `forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`, `noImplicitReturns`
+- **Additional Flags**: `noUncheckedIndexedAccess`, `noImplicitOverride`, `forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`, `noImplicitReturns`
 - **Run Check**: `npx tsc --noEmit`
+
+### Route Parameter Validation
+- **Helper**: `parseIdParam(id: string | undefined): number | null` in `server/routes.ts`
+- **Pattern**: All routes with `:id` params must validate using this helper before database access
+- **Returns**: Valid positive integer or `null` for invalid/missing IDs
+- **Usage**: Return 400 status with error message when `parseIdParam` returns `null`
 
 ### Code Formatting
 - **Prettier**: Configured via `.prettierrc`
