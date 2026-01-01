@@ -1343,5 +1343,70 @@ export async function registerRoutes(
     }
   });
 
+  // ==========================================
+  // Test Authentication Routes (Development Only)
+  // ==========================================
+  if (process.env.NODE_ENV === "development") {
+    // Create or get test user and establish session - for automated testing only
+    app.post("/api/test/auth/login", async (req, res) => {
+      try {
+        const testEmail = "test@opus355.dev";
+        
+        // Find or create test member
+        let member = await storage.getMemberByEmail(testEmail);
+        
+        if (!member) {
+          member = await storage.createMember({
+            email: testEmail,
+            firstName: "Test",
+            lastName: "User",
+            company: "Opus 355 Test",
+            jobRole: "QA Tester",
+            teamSize: "1",
+            moveInTiming: null,
+          });
+          console.log(`[test] Created test member: ${testEmail}`);
+        }
+
+        // Establish session (mimics what the WorkOS callback does)
+        req.session.memberId = member.id;
+        req.session.memberEmail = member.email;
+        req.session.workosUserId = "test_workos_user_id";
+        req.session.workosAccessToken = "test_access_token";
+        req.session.workosRefreshToken = "test_refresh_token";
+        req.session.workosTokenExpiresAt = Date.now() + (60 * 60 * 1000); // 1 hour
+
+        console.log(`[test] Test session created for member ${member.id}`);
+        
+        res.json({ 
+          success: true, 
+          member: {
+            id: member.id,
+            email: member.email,
+            firstName: member.firstName,
+            lastName: member.lastName,
+          }
+        });
+      } catch (error) {
+        console.error("[test] Test login error:", error);
+        res.status(500).json({ error: "Test login failed" });
+      }
+    });
+
+    // Clear test session
+    app.post("/api/test/auth/logout", (req, res) => {
+      req.session.destroy((err: Error | null) => {
+        if (err) {
+          res.status(500).json({ error: "Test logout failed" });
+          return;
+        }
+        res.clearCookie("connect.sid");
+        res.json({ success: true });
+      });
+    });
+
+    console.log("[startup] Test authentication routes enabled (development only)");
+  }
+
   return httpServer;
 }
