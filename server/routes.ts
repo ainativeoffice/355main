@@ -172,6 +172,54 @@ export async function registerRoutes(
   });
 
   // ==========================================
+  // Health Check Endpoint
+  // ==========================================
+  app.get("/api/health", async (req, res) => {
+    const health: {
+      status: "healthy" | "degraded" | "unhealthy";
+      timestamp: string;
+      uptime: number;
+      services: {
+        database: { status: string; latency?: number };
+        workos: { status: string };
+        stripe: { status: string };
+      };
+    } = {
+      status: "healthy",
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      services: {
+        database: { status: "unknown" },
+        workos: { status: workos ? "configured" : "not_configured" },
+        stripe: { status: stripe ? "configured" : "not_configured" },
+      },
+    };
+
+    // Check database connectivity
+    try {
+      const start = Date.now();
+      await pool.query("SELECT 1");
+      health.services.database = {
+        status: "connected",
+        latency: Date.now() - start,
+      };
+    } catch (error) {
+      health.services.database = { status: "disconnected" };
+      health.status = "unhealthy";
+    }
+
+    // Set overall status based on critical services
+    if (health.services.database.status !== "connected") {
+      health.status = "unhealthy";
+    } else if (!workos || !stripe) {
+      health.status = "degraded";
+    }
+
+    const statusCode = health.status === "unhealthy" ? 503 : 200;
+    res.status(statusCode).json(health);
+  });
+
+  // ==========================================
   // WorkOS Authentication Routes
   // ==========================================
 
