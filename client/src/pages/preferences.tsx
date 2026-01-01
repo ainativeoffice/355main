@@ -315,7 +315,8 @@ export default function Preferences() {
                       <span className="text-sm text-muted-foreground">Cool</span>
                       <Slider
                         value={[formData.temperaturePreference === "cool" ? 0 : formData.temperaturePreference === "warm" ? 100 : 50]}
-                        onValueChange={([v]) => {
+                        onValueChange={(values) => {
+                          const v = values[0] ?? 50;
                           const pref = v < 33 ? "cool" : v > 66 ? "warm" : "neutral";
                           setFormData(prev => ({ ...prev, temperaturePreference: pref }));
                         }}
@@ -341,7 +342,8 @@ export default function Preferences() {
                       <span className="text-sm text-muted-foreground">Bright</span>
                       <Slider
                         value={[formData.lightingPreference === "bright" ? 0 : formData.lightingPreference === "dim" ? 100 : 50]}
-                        onValueChange={([v]) => {
+                        onValueChange={(values) => {
+                          const v = values[0] ?? 50;
                           const pref = v < 33 ? "bright" : v > 66 ? "dim" : "neutral";
                           setFormData(prev => ({ ...prev, lightingPreference: pref }));
                         }}

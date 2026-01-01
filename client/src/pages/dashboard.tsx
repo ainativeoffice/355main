@@ -465,7 +465,7 @@ export default function Dashboard() {
                           <div className="flex items-center gap-3">
                             <Avatar className="h-9 w-9">
                               <AvatarFallback className="text-xs">
-                                {teamMember.firstName?.[0] || teamMember.email[0].toUpperCase()}
+                                {teamMember.firstName?.[0] || teamMember.email[0]?.toUpperCase() || '?'}
                                 {teamMember.lastName?.[0] || ''}
                               </AvatarFallback>
                             </Avatar>

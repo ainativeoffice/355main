@@ -86,7 +86,7 @@ export class DatabaseStorage implements IStorage {
 
   async createUser(insertUser: InsertUser): Promise<User> {
     const [user] = await db.insert(users).values(insertUser).returning();
-    return user;
+    return user!;
   }
 
   async getAdminByUsername(username: string): Promise<AdminUser | undefined> {
@@ -96,7 +96,7 @@ export class DatabaseStorage implements IStorage {
 
   async createAdminUser(username: string, passwordHash: string): Promise<AdminUser> {
     const [admin] = await db.insert(adminUsers).values({ username, passwordHash }).returning();
-    return admin;
+    return admin!;
   }
 
   async getTestimonials(solutionType?: string): Promise<Testimonial[]> {
@@ -116,7 +116,7 @@ export class DatabaseStorage implements IStorage {
 
   async createTestimonial(testimonial: InsertTestimonial): Promise<Testimonial> {
     const [created] = await db.insert(testimonials).values(testimonial).returning();
-    return created;
+    return created!;
   }
 
   async updateTestimonial(id: number, testimonial: Partial<InsertTestimonial>): Promise<Testimonial | undefined> {
@@ -159,7 +159,7 @@ export class DatabaseStorage implements IStorage {
 
   async createNews(newsItem: InsertNews): Promise<News> {
     const [created] = await db.insert(news).values(newsItem).returning();
-    return created;
+    return created!;
   }
 
   async updateNews(id: number, newsItem: Partial<InsertNews>): Promise<News | undefined> {
@@ -202,7 +202,7 @@ export class DatabaseStorage implements IStorage {
 
   async createMember(member: InsertMember): Promise<Member> {
     const [created] = await db.insert(members).values(member).returning();
-    return created;
+    return created!;
   }
 
   async updateMember(id: number, member: Partial<InsertMember>): Promise<Member | undefined> {
@@ -226,7 +226,7 @@ export class DatabaseStorage implements IStorage {
 
   async createMemberPreferences(preferences: InsertMemberPreferences): Promise<MemberPreferences> {
     const [created] = await db.insert(memberPreferences).values(preferences).returning();
-    return created;
+    return created!;
   }
 
   async updateMemberPreferences(memberId: number, preferences: Partial<InsertMemberPreferences>): Promise<MemberPreferences | undefined> {
@@ -244,7 +244,7 @@ export class DatabaseStorage implements IStorage {
 
   async createOrganization(org: InsertOrganization): Promise<Organization> {
     const [created] = await db.insert(organizations).values(org).returning();
-    return created;
+    return created!;
   }
 
   async getOrganizationMembers(orgId: number): Promise<Member[]> {
@@ -301,7 +301,7 @@ export class DatabaseStorage implements IStorage {
 
   async createArrival(arrival: InsertMemberArrival): Promise<MemberArrival> {
     const [created] = await db.insert(memberArrivals).values(arrival).returning();
-    return created;
+    return created!;
   }
 
   async updateArrival(id: number, arrival: Partial<InsertMemberArrival>): Promise<MemberArrival | undefined> {

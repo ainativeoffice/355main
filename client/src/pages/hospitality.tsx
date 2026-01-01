@@ -125,7 +125,7 @@ export default function Hospitality() {
     if (arrival.member.firstName && arrival.member.lastName) {
       return `${arrival.member.firstName[0]}${arrival.member.lastName[0]}`;
     }
-    return arrival.member.email[0].toUpperCase();
+    return arrival.member.email[0]?.toUpperCase() ?? '?';
   };
 
   const getBeverageForTime = (prefs?: ArrivalWithMember["preferences"]) => {

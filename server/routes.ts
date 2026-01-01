@@ -90,6 +90,13 @@ async function verifyPassword(password: string, hash: string): Promise<boolean> 
   return bcrypt.compare(password, hash);
 }
 
+function parseIdParam(id: string | undefined): number | null {
+  if (!id) return null;
+  const parsed = parseInt(id, 10);
+  if (isNaN(parsed) || parsed <= 0) return null;
+  return parsed;
+}
+
 function requireAdmin(req: Request, res: Response, next: NextFunction) {
   if (!req.session.adminId) {
     res.status(401).json({ message: "Unauthorized" });
@@ -910,7 +917,11 @@ export async function registerRoutes(
   // Update member preferences (for multi-step form)
   app.put("/api/members/:id/preferences", async (req, res) => {
     try {
-      const memberId = parseInt(req.params.id);
+      const memberId = parseIdParam(req.params.id);
+      if (!memberId) {
+        res.status(400).json({ success: false, message: "Invalid member ID" });
+        return;
+      }
       const preferences = req.body;
       
       const existingPrefs = await storage.getMemberPreferences(memberId);
@@ -1018,7 +1029,11 @@ export async function registerRoutes(
   // Mark beverage ready (staff only)
   app.post("/api/hospitality/arrivals/:id/ready", requireStaff, async (req, res) => {
     try {
-      const arrivalId = parseInt(req.params.id);
+      const arrivalId = parseIdParam(req.params.id);
+      if (!arrivalId) {
+        res.status(400).json({ success: false, message: "Invalid arrival ID" });
+        return;
+      }
       const updated = await storage.markBeverageReady(arrivalId);
       
       if (!updated) {
@@ -1036,7 +1051,11 @@ export async function registerRoutes(
   // Mark member arrived (staff only)
   app.post("/api/hospitality/arrivals/:id/arrived", requireStaff, async (req, res) => {
     try {
-      const arrivalId = parseInt(req.params.id);
+      const arrivalId = parseIdParam(req.params.id);
+      if (!arrivalId) {
+        res.status(400).json({ success: false, message: "Invalid arrival ID" });
+        return;
+      }
       const updated = await storage.markArrivalComplete(arrivalId);
       
       if (!updated) {
@@ -1064,7 +1083,11 @@ export async function registerRoutes(
 
   app.delete("/api/admin/members/:id", requireAdmin, async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
+      const id = parseIdParam(req.params.id);
+      if (!id) {
+        res.status(400).json({ message: "Invalid member ID" });
+        return;
+      }
       const deleted = await storage.deleteMember(id);
       
       if (!deleted) {
@@ -1190,7 +1213,11 @@ export async function registerRoutes(
 
   app.put("/api/admin/testimonials/:id", requireAdmin, async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
+      const id = parseIdParam(req.params.id);
+      if (!id) {
+        res.status(400).json({ message: "Invalid testimonial ID" });
+        return;
+      }
       const testimonial = await storage.updateTestimonial(id, req.body);
       
       if (!testimonial) {
@@ -1207,7 +1234,11 @@ export async function registerRoutes(
 
   app.delete("/api/admin/testimonials/:id", requireAdmin, async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
+      const id = parseIdParam(req.params.id);
+      if (!id) {
+        res.status(400).json({ message: "Invalid testimonial ID" });
+        return;
+      }
       const deleted = await storage.deleteTestimonial(id);
       
       if (!deleted) {
@@ -1241,7 +1272,11 @@ export async function registerRoutes(
 
   app.put("/api/admin/news/:id", requireAdmin, async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
+      const id = parseIdParam(req.params.id);
+      if (!id) {
+        res.status(400).json({ message: "Invalid news ID" });
+        return;
+      }
       const newsItem = await storage.updateNews(id, req.body);
       
       if (!newsItem) {
@@ -1258,7 +1293,11 @@ export async function registerRoutes(
 
   app.delete("/api/admin/news/:id", requireAdmin, async (req, res) => {
     try {
-      const id = parseInt(req.params.id);
+      const id = parseIdParam(req.params.id);
+      if (!id) {
+        res.status(400).json({ message: "Invalid news ID" });
+        return;
+      }
       const deleted = await storage.deleteNews(id);
       
       if (!deleted) {

@@ -137,3 +137,22 @@ Preferred communication style: Simple, everyday language.
 - **Pages Tested**: /, /solutions, /enterprise, /landlords
 - **Thresholds**: Performance ≥0.7, Accessibility ≥0.9, Best Practices ≥0.8, SEO ≥0.8
 - **Run Command**: `npx lhci autorun` (requires server running)
+
+## Code Quality
+
+### TypeScript Strict Mode
+- **Configuration**: `tsconfig.json` with strict mode enabled
+- **Additional Flags**: `noImplicitOverride`, `forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`, `noImplicitReturns`
+- **Run Check**: `npx tsc --noEmit`
+
+### Code Formatting
+- **Prettier**: Configured via `.prettierrc`
+- **ESLint Integration**: `eslint-config-prettier` disables conflicting rules
+- **Format Check**: `npx prettier --check "**/*.{ts,tsx,js,jsx,json,css,md}"`
+- **Format Fix**: `npx prettier --write "**/*.{ts,tsx,js,jsx,json,css,md}"`
+
+### Pre-commit Hooks
+- **Tool**: Lefthook (configured via `lefthook.yml`)
+- **Pre-commit**: Runs ESLint, TypeScript check, and Prettier on staged files
+- **Pre-push**: Runs Vitest tests
+- **Install Hooks**: `npx lefthook install`

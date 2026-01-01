@@ -163,7 +163,7 @@ describe('Initials Generation Logic', () => {
       if (member.firstName && member.lastName) {
         return `${member.firstName[0]}${member.lastName[0]}`;
       }
-      return member.email[0].toUpperCase();
+      return member.email[0]?.toUpperCase() ?? '?';
     };
 
     expect(getInitials(mockArrivalWithMember.member)).toBe("TU");
@@ -174,7 +174,7 @@ describe('Initials Generation Logic', () => {
       if (member.firstName && member.lastName) {
         return `${member.firstName[0]}${member.lastName[0]}`;
       }
-      return member.email[0].toUpperCase();
+      return member.email[0]?.toUpperCase() ?? '?';
     };
 
     const memberWithoutName = { ...mockArrivalWithMember.member, firstName: null, lastName: null };

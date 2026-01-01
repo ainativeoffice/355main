@@ -298,7 +298,7 @@ const zones = [
 import { VendorMarquee } from "@/components/vendor-marquee";
 
 export default function Home() {
-  const [activeZone, setActiveZone] = useState(zones[0]);
+  const [activeZone, setActiveZone] = useState(zones[0]!);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -379,15 +379,17 @@ export default function Home() {
   };
 
   const nextZone = () => {
+    if (!activeZone) return;
     const currentIndex = getZoneIndex(zones, activeZone.id);
     const nextIndex = getNextZoneIndex(currentIndex, zones.length);
-    openZone(zones[nextIndex]);
+    openZone(zones[nextIndex]!);
   };
 
   const prevZone = () => {
+    if (!activeZone) return;
     const currentIndex = getZoneIndex(zones, activeZone.id);
     const prevIndex = getPrevZoneIndex(currentIndex, zones.length);
-    openZone(zones[prevIndex]);
+    openZone(zones[prevIndex]!);
   };
 
   return (
