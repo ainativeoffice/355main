@@ -19,11 +19,18 @@ let clientId: string | undefined;
 let stripeWebhookSecret: string | undefined;
 
 function getEnvironmentCredentials() {
-  // Simplified: use same secrets for dev and production
-  // Secrets are managed in Replit's Secrets panel
+  // Use environment-specific WorkOS credentials:
+  // - Development: WORKOS_DEV_API_KEY / WORKOS_DEV_CLIENT_ID (staging environment)
+  // - Production: WORKOS_API_KEY / WORKOS_CLIENT_ID (production environment)
+  const isDev = config.isDevelopment;
+  
   return {
-    workosApiKey: process.env.WORKOS_API_KEY,
-    workosClientId: process.env.WORKOS_CLIENT_ID,
+    workosApiKey: isDev 
+      ? (process.env.WORKOS_DEV_API_KEY || process.env.WORKOS_API_KEY)
+      : process.env.WORKOS_API_KEY,
+    workosClientId: isDev 
+      ? (process.env.WORKOS_DEV_CLIENT_ID || process.env.WORKOS_CLIENT_ID)
+      : process.env.WORKOS_CLIENT_ID,
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,
     webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   };
