@@ -123,6 +123,31 @@ Preferred communication style: Simple, everyday language.
   - Dev banner (development only)
   - Meta images plugin for OpenGraph tag management
 
+### Environment Validation
+- **Location**: `server/env-validation.ts`
+- **Behavior**: Validates required environment variables at startup, fails fast with clear error messages
+- **Required**: `DATABASE_URL`
+- **Optional with defaults**: `SESSION_SECRET`, `PORT`
+- **Optional**: `WORKOS_API_KEY`, `WORKOS_CLIENT_ID`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
+
+### Error Boundaries
+- **Component**: `client/src/components/error-boundary.tsx`
+- **Behavior**: Catches React component errors, displays friendly error message with retry/reload options
+- **Development**: Shows technical details (error message, component stack) in expandable section
+- **Usage**: Wraps entire app in `App.tsx`
+
+### Database Seeding
+- **Script**: `scripts/seed.ts`
+- **Run Command**: `npx tsx scripts/seed.ts`
+- **Creates**: Sample testimonials, news articles, members, and member preferences
+- **Cleanup**: Uses seed marker email to track and clean up seeded data on re-run
+- **Note**: Safe to run multiple times (clears previous seeded data first)
+
+### Test Authentication (Development Only)
+- **Routes**: `POST /api/test/auth/login`, `POST /api/test/auth/logout`
+- **Guard**: Only available when `REPLIT_DEPLOYMENT !== "1"`
+- **Purpose**: Enables automated testing of authenticated features without OAuth
+
 ## Health & Monitoring
 
 ### Health Check Endpoint

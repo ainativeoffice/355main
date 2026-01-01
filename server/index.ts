@@ -3,6 +3,7 @@ import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
 import { testDatabaseConnection } from "./db";
+import { validateAndExit } from "./env-validation";
 
 const app = express();
 const httpServer = createServer(app);
@@ -63,6 +64,9 @@ app.use((req, res, next) => {
 async function startServer() {
   try {
     log("Starting server initialization...", "startup");
+    
+    validateAndExit();
+    
     log(`NODE_ENV: ${process.env.NODE_ENV || "development"}`, "startup");
     log(`DATABASE_URL: ${process.env.DATABASE_URL ? "configured" : "NOT SET"}`, "startup");
     log(`SESSION_SECRET: ${process.env.SESSION_SECRET ? "configured" : "using default"}`, "startup");
