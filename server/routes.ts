@@ -256,47 +256,75 @@ export async function registerRoutes(
     res.redirect(authorizationUrl);
   });
 
+  // Helper to redirect to auth error page with details
+  function redirectToAuthError(res: Response, code: string, details?: string) {
+    const params = new URLSearchParams({ code });
+    if (details && config.isDevelopment) {
+      params.set("details", encodeURIComponent(details));
+    }
+    res.redirect(`/auth-error?${params.toString()}`);
+  }
+
   // Handle OAuth callback from WorkOS
   app.get("/api/auth/callback", async (req, res) => {
+    const timestamp = new Date().toISOString();
+    console.log(`[${timestamp}] Auth callback started - query params:`, Object.keys(req.query));
+    
     try {
       if (!workos || !clientId) {
-        console.error("WorkOS credentials not configured");
-        res.redirect("/?error=auth_not_configured");
+        console.error(`[${timestamp}] WorkOS credentials not configured`);
+        redirectToAuthError(res, "auth_not_configured", "WorkOS client not initialized");
         return;
       }
 
-      const { code } = req.query;
+      const { code, error, error_description } = req.query;
+      
+      // Handle errors returned from WorkOS
+      if (error) {
+        console.error(`[${timestamp}] WorkOS returned error:`, error, error_description);
+        const errorCode = error === "invalid_client" ? "invalid_client" : "auth_failed";
+        redirectToAuthError(res, errorCode, `${error}: ${error_description}`);
+        return;
+      }
       
       if (!code || typeof code !== "string") {
-        res.redirect("/?error=missing_code");
+        console.error(`[${timestamp}] Missing authorization code`);
+        redirectToAuthError(res, "missing_code", "No authorization code in callback");
         return;
       }
 
+      console.log(`[${timestamp}] Exchanging code for tokens...`);
+      
       // Per WorkOS best practices: get user + tokens from auth code
       const authResult = await workos.userManagement.authenticateWithCode({
         clientId,
         code,
       });
 
+      console.log(`[${timestamp}] Token exchange successful, user:`, authResult.user?.email);
+
       const { user, accessToken, refreshToken } = authResult;
 
       // Validate that user has a verified email
       if (!user.email) {
-        console.error("WorkOS user has no email");
-        res.redirect("/?error=no_email");
+        console.error(`[${timestamp}] WorkOS user has no email`);
+        redirectToAuthError(res, "no_email", "User profile missing email address");
         return;
       }
 
       if (!user.emailVerified) {
-        console.error("WorkOS user email not verified:", user.email);
-        res.redirect("/?error=email_not_verified");
+        console.error(`[${timestamp}] WorkOS user email not verified:`, user.email);
+        redirectToAuthError(res, "email_not_verified", `Email ${user.email} is not verified`);
         return;
       }
+
+      console.log(`[${timestamp}] Looking up member in database...`);
 
       // Find or create member in our database
       let member = await storage.getMemberByEmail(user.email);
       
       if (!member) {
+        console.log(`[${timestamp}] Creating new member for:`, user.email);
         // Create new member from WorkOS user data
         member = await storage.createMember({
           email: user.email,
@@ -314,6 +342,8 @@ export async function registerRoutes(
         await storage.updateMember(member.id, { workosUserId: user.id } as any);
       }
 
+      console.log(`[${timestamp}] Setting up session for member:`, member.id);
+
       // Per best practices: Store tokens in server-side session (HttpOnly, encrypted)
       req.session.memberId = member.id;
       req.session.memberEmail = member.email;
@@ -323,11 +353,27 @@ export async function registerRoutes(
       // Access tokens expire in 5 minutes by default
       req.session.workosTokenExpiresAt = Date.now() + (5 * 60 * 1000);
 
+      console.log(`[${timestamp}] Auth complete, redirecting to dashboard`);
+
       // Redirect to member dashboard
       res.redirect("/dashboard");
-    } catch (error) {
-      console.error("WorkOS callback error:", error);
-      res.redirect("/?error=auth_failed");
+    } catch (error: any) {
+      const timestamp = new Date().toISOString();
+      console.error(`[${timestamp}] WorkOS callback error:`, error);
+      
+      // Extract useful error information
+      let errorCode = "auth_failed";
+      let errorDetails = error?.message || "Unknown error";
+      
+      if (error?.error === "invalid_client") {
+        errorCode = "invalid_client";
+        errorDetails = error?.errorDescription || "Client ID/secret mismatch";
+      } else if (error?.message?.includes("expired")) {
+        errorCode = "session_expired";
+      }
+      
+      console.error(`[${timestamp}] Error code: ${errorCode}, details: ${errorDetails}`);
+      redirectToAuthError(res, errorCode, errorDetails);
     }
   });
 

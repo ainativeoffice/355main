@@ -21,6 +21,7 @@ const AdminDashboard = lazy(() => import("@/pages/admin/index"));
 const MemberDashboard = lazy(() => import("@/pages/dashboard"));
 const MemberPreferences = lazy(() => import("@/pages/preferences"));
 const HospitalityDashboard = lazy(() => import("@/pages/hospitality"));
+const AuthError = lazy(() => import("@/pages/auth-error"));
 
 function PageLoader() {
   return (
@@ -47,6 +48,7 @@ function Router() {
         <Route path="/dashboard" component={MemberDashboard} />
         <Route path="/preferences" component={MemberPreferences} />
         <Route path="/hospitality" component={HospitalityDashboard} />
+        <Route path="/auth-error" component={AuthError} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
