@@ -142,7 +142,14 @@ export async function registerRoutes(
   if (creds.workosApiKey) {
     workos = new WorkOS(creds.workosApiKey);
     clientId = creds.workosClientId;
+    
+    // Log which credential set is being used
+    const usingDevCreds = config.isDevelopment && process.env.WORKOS_DEV_API_KEY;
+    const credSource = usingDevCreds ? "WORKOS_DEV_* (staging)" : "WORKOS_* (production)";
+    const clientIdPrefix = clientId?.substring(0, 12) || "unknown";
     console.log(`[startup] WorkOS initialized for ${envName}`);
+    console.log(`[startup] WorkOS credentials: ${credSource}`);
+    console.log(`[startup] WorkOS client ID prefix: ${clientIdPrefix}...`);
   } else {
     console.warn(`[startup] WorkOS not configured - missing API key for ${envName}`);
   }
