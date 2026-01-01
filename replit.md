@@ -122,3 +122,18 @@ Preferred communication style: Simple, everyday language.
   - Cartographer (development only)
   - Dev banner (development only)
   - Meta images plugin for OpenGraph tag management
+
+## Health & Monitoring
+
+### Health Check Endpoint
+- **Endpoint**: GET `/api/health`
+- **Returns**: JSON with status, timestamp, uptime, and services health
+- **Database**: Checks connectivity and measures latency (ms)
+- **External Services**: Reports WorkOS and Stripe configuration status
+- **HTTP Codes**: 200 (healthy), 503 (unhealthy)
+
+### Performance Testing
+- **Lighthouse CI**: Configured via `lighthouserc.js`
+- **Pages Tested**: /, /solutions, /enterprise, /landlords
+- **Thresholds**: Performance ≥0.7, Accessibility ≥0.9, Best Practices ≥0.8, SEO ≥0.8
+- **Run Command**: `npx lhci autorun` (requires server running)
