@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout";
 import { useState } from "react";
 import { ArrowRight, Calendar, MapPin, Laptop, Shield } from "lucide-react";
 import { Link } from "wouter";
-import { JoinMembershipDialog } from "@/components/join-membership-dialog";
+import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 
 import heroImage from "@assets/stock_images/modern_corporate_ent_54a2da38.jpg";
 import teamImage from "@assets/stock_images/modern_corporate_ent_56277f1f.jpg";
@@ -69,7 +69,7 @@ export default function Enterprise() {
               className="w-full bg-primary text-primary-foreground py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
               data-testid="button-become-member"
             >
-              Join Now
+              Join Waitlist
             </button>
           </motion.div>
         </div>
@@ -226,7 +226,7 @@ export default function Enterprise() {
         </div>
       </section>
 
-      <JoinMembershipDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
+      <JoinWaitlistDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
     </Layout>
   );
 }

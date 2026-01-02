@@ -23,15 +23,22 @@ function getEnvironmentCredentials() {
   // Uses AUTH_* naming convention instead of WORKOS_* for clean separation
   // - Development/Staging: AUTH_DEV_API_KEY / AUTH_DEV_CLIENT_ID
   // - Production: AUTH_API_KEY / AUTH_CLIENT_ID
+  // 
+  // Migration note: Falls back to WORKOS_* variables for backward compatibility
+  // during the transition period. Remove fallbacks once all deployments are updated.
   const isDev = config.isDevelopment;
   
+  // Priority: AUTH_DEV_* (dev) > AUTH_* > WORKOS_DEV_* (legacy dev) > WORKOS_* (legacy)
+  const apiKey = isDev 
+    ? (process.env.AUTH_DEV_API_KEY || process.env.AUTH_API_KEY || process.env.WORKOS_DEV_API_KEY || process.env.WORKOS_API_KEY)
+    : (process.env.AUTH_API_KEY || process.env.WORKOS_API_KEY);
+  const clientIdValue = isDev 
+    ? (process.env.AUTH_DEV_CLIENT_ID || process.env.AUTH_CLIENT_ID || process.env.WORKOS_DEV_CLIENT_ID || process.env.WORKOS_CLIENT_ID)
+    : (process.env.AUTH_CLIENT_ID || process.env.WORKOS_CLIENT_ID);
+  
   return {
-    workosApiKey: isDev 
-      ? (process.env.AUTH_DEV_API_KEY || process.env.AUTH_API_KEY)
-      : process.env.AUTH_API_KEY,
-    workosClientId: isDev 
-      ? (process.env.AUTH_DEV_CLIENT_ID || process.env.AUTH_CLIENT_ID)
-      : process.env.AUTH_CLIENT_ID,
+    workosApiKey: apiKey,
+    workosClientId: clientIdValue,
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,
     webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   };

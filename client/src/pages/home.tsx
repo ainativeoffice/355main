@@ -6,7 +6,7 @@ import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
-import { JoinMembershipDialog } from "@/components/join-membership-dialog";
+import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 
 import heroImage from "@assets/Hero_1767222668713.png";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -1058,7 +1058,7 @@ export default function Home() {
                className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors"
                data-testid="button-become-member"
              >
-               Join Now
+               Join Waitlist
              </button>
              
              <a 
@@ -1074,7 +1074,7 @@ export default function Home() {
          </motion.div>
       </section>
 
-      <JoinMembershipDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
+      <JoinWaitlistDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
     </Layout>
   );
 }
