@@ -22,14 +22,24 @@ const ENV_VARS: EnvVarConfig[] = [
     description: "Secret for signing session cookies (required in production)",
   },
   {
-    name: "WORKOS_API_KEY",
+    name: "AUTH_API_KEY",
     required: false,
-    description: "WorkOS API key for authentication",
+    description: "WorkOS API key for authentication (production)",
   },
   {
-    name: "WORKOS_CLIENT_ID",
+    name: "AUTH_CLIENT_ID",
     required: false,
-    description: "WorkOS client ID for authentication",
+    description: "WorkOS client ID for authentication (production)",
+  },
+  {
+    name: "AUTH_DEV_API_KEY",
+    required: false,
+    description: "WorkOS API key for authentication (staging/development)",
+  },
+  {
+    name: "AUTH_DEV_CLIENT_ID",
+    required: false,
+    description: "WorkOS client ID for authentication (staging/development)",
   },
   {
     name: "STRIPE_SECRET_KEY",

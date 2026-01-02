@@ -19,18 +19,19 @@ let clientId: string | undefined;
 let stripeWebhookSecret: string | undefined;
 
 function getEnvironmentCredentials() {
-  // Use environment-specific WorkOS credentials:
-  // - Development: WORKOS_DEV_API_KEY / WORKOS_DEV_CLIENT_ID (staging environment)
-  // - Production: WORKOS_API_KEY / WORKOS_CLIENT_ID (production environment)
+  // Fresh credential names to isolate from any previous configuration issues
+  // Uses AUTH_* naming convention instead of WORKOS_* for clean separation
+  // - Development/Staging: AUTH_DEV_API_KEY / AUTH_DEV_CLIENT_ID
+  // - Production: AUTH_API_KEY / AUTH_CLIENT_ID
   const isDev = config.isDevelopment;
   
   return {
     workosApiKey: isDev 
-      ? (process.env.WORKOS_DEV_API_KEY || process.env.WORKOS_API_KEY)
-      : process.env.WORKOS_API_KEY,
+      ? (process.env.AUTH_DEV_API_KEY || process.env.AUTH_API_KEY)
+      : process.env.AUTH_API_KEY,
     workosClientId: isDev 
-      ? (process.env.WORKOS_DEV_CLIENT_ID || process.env.WORKOS_CLIENT_ID)
-      : process.env.WORKOS_CLIENT_ID,
+      ? (process.env.AUTH_DEV_CLIENT_ID || process.env.AUTH_CLIENT_ID)
+      : process.env.AUTH_CLIENT_ID,
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,
     webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
   };
@@ -144,12 +145,12 @@ export async function registerRoutes(
     clientId = creds.workosClientId;
     
     // Log which credential set is being used
-    const usingDevCreds = config.isDevelopment && process.env.WORKOS_DEV_API_KEY;
-    const credSource = usingDevCreds ? "WORKOS_DEV_* (staging)" : "WORKOS_* (production)";
+    const usingDevCreds = config.isDevelopment && process.env.AUTH_DEV_API_KEY;
+    const credSource = usingDevCreds ? "AUTH_DEV_* (staging)" : "AUTH_* (production)";
     const clientIdPrefix = clientId?.substring(0, 12) || "unknown";
     console.log(`[startup] WorkOS initialized for ${envName}`);
-    console.log(`[startup] WorkOS credentials: ${credSource}`);
-    console.log(`[startup] WorkOS client ID prefix: ${clientIdPrefix}...`);
+    console.log(`[startup] Auth credentials: ${credSource}`);
+    console.log(`[startup] Auth client ID prefix: ${clientIdPrefix}...`);
   } else {
     console.warn(`[startup] WorkOS not configured - missing API key for ${envName}`);
   }
