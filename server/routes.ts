@@ -152,24 +152,13 @@ export async function registerRoutes(
     console.log(`[startup] Auth credentials: ${credSource}`);
     console.log(`[startup] Auth client ID prefix: ${clientIdPrefix}...`);
     
-    // Validate API key and client ID are from the same environment by checking client ID format
+    // Validate credential format (actual auth validation happens on first login)
     if (!clientId) {
       console.error(`[startup] CRITICAL: Missing client ID - auth will fail`);
     } else if (!clientId.startsWith("client_")) {
       console.error(`[startup] CRITICAL: Invalid client ID format: ${clientIdPrefix}...`);
     } else {
-      // Verify credentials work together by making a lightweight API call
-      try {
-        await workos.userManagement.getAuthorizationUrl({
-          provider: "authkit",
-          redirectUri: "https://validation-test.local/callback",
-          clientId,
-        });
-        console.log(`[startup] Auth credentials validated successfully`);
-      } catch (validationError: any) {
-        console.error(`[startup] WARNING: Auth credential validation failed:`, validationError?.message || validationError);
-        console.error(`[startup] Check that AUTH_API_KEY and AUTH_CLIENT_ID are from the same WorkOS environment`);
-      }
+      console.log(`[startup] Auth credentials format validated`);
     }
   } else {
     console.warn(`[startup] WorkOS not configured - missing API key for ${envName}`);

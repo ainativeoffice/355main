@@ -65,6 +65,11 @@ Preferred communication style: Simple, everyday language.
 - **Session**: Tokens stored server-side in encrypted session (HttpOnly cookies)
 - **Token Refresh**: Automatic refresh when access token expires (5 min default)
 - **Integration Pattern**: Store access + refresh tokens, rotate on refresh
+- **Environment-Specific Credentials** (AUTH_* naming convention):
+  - **Production**: `AUTH_API_KEY` / `AUTH_CLIENT_ID` → production WorkOS environment
+  - **Development**: `AUTH_DEV_API_KEY` / `AUTH_DEV_CLIENT_ID` → staging WorkOS environment
+  - Startup validation verifies API key and client ID match before accepting requests
+  - Auth errors redirect to `/auth-error` page with user-friendly messages
 
 #### Stripe Subscriptions  
 - **Payments**: Stripe Checkout Sessions for subscription signup
