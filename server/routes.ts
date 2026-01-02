@@ -151,15 +151,6 @@ export async function registerRoutes(
     console.log(`[startup] WorkOS initialized for ${envName}`);
     console.log(`[startup] Auth credentials: ${credSource}`);
     console.log(`[startup] Auth client ID prefix: ${clientIdPrefix}...`);
-    
-    // Validate credential format (actual auth validation happens on first login)
-    if (!clientId) {
-      console.error(`[startup] CRITICAL: Missing client ID - auth will fail`);
-    } else if (!clientId.startsWith("client_")) {
-      console.error(`[startup] CRITICAL: Invalid client ID format: ${clientIdPrefix}...`);
-    } else {
-      console.log(`[startup] Auth credentials format validated`);
-    }
   } else {
     console.warn(`[startup] WorkOS not configured - missing API key for ${envName}`);
   }
