@@ -312,7 +312,9 @@ export default function Solutions() {
         </div>
       </section>
 
+      {/* Testimonials section - enable post-launch when real testimonials are available
       <Testimonials featured={true} />
+      */}
 
       <NewsSection limit={3} />
 
