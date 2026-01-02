@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { Link } from "wouter";
-import { ArrowRight, Building2, Users, Zap } from "lucide-react";
+import { ArrowRight, Building2, Users, Zap, Layers, Video } from "lucide-react";
 import { Testimonials } from "@/components/testimonials";
 import { NewsSection } from "@/components/news-section";
 
 import customOfficeImage from "@assets/357_exterior_1.jpg";
 import privateOfficeImage from "@assets/Hero_1767222668713.png";
-import hybridImage from "@assets/IMG_1103_1767223949637.jpeg";
+import hybridImage from "@assets/86980777_1767393703514.jpg";
+import dynamicSpacesImage from "@assets/zones/zone8_opt5_symposium.svg";
+import conferenceRoomsImage from "@assets/zones/zone11_closed_mtg.svg";
 
 export default function Solutions() {
   return (
@@ -200,6 +202,112 @@ export default function Solutions() {
                 </div>
               </motion.div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Club Amenities</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Shared Spaces</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Premium shared spaces designed to support every mode of work—from deep focus to collaborative sessions.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card border border-border overflow-hidden"
+              data-testid="card-dynamic-spaces"
+            >
+              <div className="aspect-[16/9] overflow-hidden bg-[#f5f5f5] p-6 flex items-center justify-center">
+                <img 
+                  src={dynamicSpacesImage} 
+                  alt="Dynamic Spaces" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <Layers className="w-6 h-6 text-primary" />
+                  <h3 className="font-serif text-2xl">Dynamic Spaces</h3>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">Flexible workspace configurations</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Our flagship flexible zone transforms to support symposiums, focused work sessions, stand-up meetings, and presentations. Vitra furniture enables rapid reconfiguration for any work style.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Symposium layout for workshops
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Focus mode for deep work
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Stand-up configurations for agile teams
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Presentation setup with AV integration
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-card border border-border overflow-hidden"
+              data-testid="card-conference-rooms"
+            >
+              <div className="aspect-[16/9] overflow-hidden bg-[#f5f5f5] p-6 flex items-center justify-center">
+                <img 
+                  src={conferenceRoomsImage} 
+                  alt="Conference Rooms" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <Video className="w-6 h-6 text-primary" />
+                  <h3 className="font-serif text-2xl">Conference Rooms</h3>
+                </div>
+                <p className="text-sm text-muted-foreground mb-4">Professional meeting spaces</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  The Lantern—our signature conference room featuring floor-to-ceiling glass for maximum transparency. Equipped with premium AV technology for seamless hybrid meetings.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Floor-to-ceiling glass walls
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Dante AV integration
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Video conferencing ready
+                  </li>
+                  <li className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Seats up to 12 people
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

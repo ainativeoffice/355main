@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout";
 import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Zap, Coffee, Phone, Calendar, Wifi, Clock } from "lucide-react";
 
-import heroImage from "@assets/IMG_1101_1767223655433.jpeg";
+import heroImage from "@assets/86862188_1767393623944.jpg";
 import coworkingImage from "@assets/stock_images/modern_corporate_ent_56277f1f.jpg";
 import amenitiesImage from "@assets/Hero_1767222668713.png";
 
