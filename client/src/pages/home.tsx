@@ -32,9 +32,9 @@ import zone5a from "@assets/zones/zone5_opt_b.svg";
 import zone5b from "@assets/zones/zone5_opt_2.svg";
 import zone6 from "@assets/zones/zone6_suite207.svg";
 import zone7 from "@assets/zones/zone7_copy.svg";
-import zone8a from "@assets/zones/zone8_opt3_focus.svg";
-import zone8b from "@assets/zones/zone8_opt4_standup.svg";
-import zone8c from "@assets/zones/zone8_opt5_symposium.svg";
+import zone8a from "@assets/zones/zone8_opt5_symposium.svg";
+import zone8b from "@assets/zones/zone8_opt3_focus.svg";
+import zone8c from "@assets/zones/zone8_opt4_standup.svg";
 import zone8d from "@assets/zones/zone8_opt2_pres.svg";
 import zone9a from "@assets/zones/zone9_break1.svg";
 import zone9b from "@assets/zones/zone9_break2.svg";
@@ -298,7 +298,8 @@ const zones = [
 import { VendorMarquee } from "@/components/vendor-marquee";
 
 export default function Home() {
-  const [activeZone, setActiveZone] = useState(zones[0]!);
+  const dynamicSpaceZone = zones.find(z => z.id === 8) || zones[0]!;
+  const [activeZone, setActiveZone] = useState(dynamicSpaceZone);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -593,12 +594,12 @@ export default function Home() {
           <div className="relative max-w-5xl mx-auto bg-muted/5 border border-border/50 rounded-lg overflow-hidden shadow-2xl">
             {/* Interactive Floor Plan Map - Scrollable on mobile for better viewing */}
             <div className="relative">
-              <div className="overflow-x-auto md:overflow-x-visible -mx-6 md:mx-0 px-6 md:px-0 scrollbar-hide">
-                <p className="md:hidden text-xs text-muted-foreground text-center py-2 bg-muted/50 border-b border-border">
+              <div className="overflow-x-auto md:overflow-x-visible scrollbar-hide flex justify-center">
+                <p className="md:hidden text-xs text-muted-foreground text-center py-2 bg-muted/50 border-b border-border absolute top-0 left-0 right-0 z-10">
                   ← Swipe to explore the floor plan →
                 </p>
               <div 
-                className="relative aspect-[16/9] w-[150%] md:w-full bg-[#f8f8f8] border-b border-border min-w-[500px] md:min-w-0"
+                className="relative aspect-[16/9] w-[150%] md:w-full bg-[#f8f8f8] border-b border-border min-w-[500px] md:min-w-0 mt-8 md:mt-0"
               >
                  <img 
                    src={buildingPlate} 
@@ -700,7 +701,7 @@ export default function Home() {
                  </div>
 
                  {/* Right: Visuals */}
-                 <div className="relative h-[300px] md:h-auto min-h-[300px] bg-muted overflow-hidden order-1 md:order-2">
+                 <div className="relative h-[300px] md:h-auto min-h-[300px] bg-[#f5f5f5] overflow-hidden order-1 md:order-2">
                     <AnimatePresence mode="wait">
                       <motion.div 
                         key={`${activeZone.id}-${activeImageIndex}`}
@@ -719,24 +720,29 @@ export default function Home() {
                       </motion.div>
                     </AnimatePresence>
                     
-                    {/* Image Navigation Dots if Multiple Images */}
+                    {/* Image Navigation - Dots and swipe hint for mobile */}
                     {activeZone.images.length > 1 && (
-                      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-                        {activeZone.images.map((_, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => {
-                                setActiveImageIndex(idx);
-                                setZoomLevel(1);
-                            }}
-                            className={`w-2 h-2 rounded-full transition-all shadow-sm ${
-                              idx === activeImageIndex 
-                                ? "bg-white w-4" 
-                                : "bg-white/50 hover:bg-white/80"
-                            }`}
-                            data-testid={`button-image-nav-${idx}`}
-                          />
-                        ))}
+                      <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+                        <div className="flex gap-2 bg-black/30 backdrop-blur-sm px-3 py-2 rounded-full">
+                          {activeZone.images.map((_, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                  setActiveImageIndex(idx);
+                                  setZoomLevel(1);
+                              }}
+                              className={`rounded-full transition-all shadow-sm ${
+                                idx === activeImageIndex 
+                                  ? "bg-white w-3 h-3 md:w-2 md:h-2 md:w-4" 
+                                  : "bg-white/50 hover:bg-white/80 w-2 h-2"
+                              }`}
+                              data-testid={`button-image-nav-${idx}`}
+                            />
+                          ))}
+                        </div>
+                        <span className="md:hidden text-[10px] text-white/80 bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
+                          {activeImageIndex + 1} / {activeZone.images.length}
+                        </span>
                       </div>
                     )}
 
