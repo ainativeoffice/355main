@@ -69,7 +69,7 @@ export default function Enterprise() {
               className="w-full bg-primary text-primary-foreground py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
               data-testid="button-become-member"
             >
-              Join Waitlist
+              Join Now
             </button>
           </motion.div>
         </div>

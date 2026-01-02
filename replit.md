@@ -4,7 +4,7 @@
 
 Opus 355 is a marketing and lead generation website for a design-led commercial workplace property located at 355 Main Street, Armonk, New York. The application showcases the building's architectural zones, furniture and equipment specifications, and allows prospective tenants to join a waitlist through HubSpot integration.
 
-The project follows a "Vitra Office club" concept and "Dynamic Spaces concept" - positioning the office space as a flexible, modular workspace designed for the distributed work era. The site features rich visual presentations of different workspace zones with interactive floor plans and detailed equipment specifications.
+The project follows a "Commercial Town Hall" concept - positioning the office space as a flexible, modular workspace designed for the distributed work era. The site features rich visual presentations of different workspace zones with interactive floor plans and detailed equipment specifications.
 
 ## User Preferences
 

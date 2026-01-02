@@ -84,7 +84,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
                   data-testid="button-nav-membership"
                 >
-                  Join Waitlist
+                  Join Now
                 </button>
               </>
             )}
@@ -131,7 +131,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
                   data-testid="button-mobile-membership"
                 >
-                  Join Waitlist
+                  Join Now
                 </button>
               </>
             )}
@@ -197,7 +197,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               className="inline-block mt-4 bg-primary text-primary-foreground px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
               data-testid="button-footer-membership"
             >
-              Join Waitlist
+              Join Now
             </button>
           </div>
         </div>
