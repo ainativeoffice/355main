@@ -11,6 +11,8 @@ import { config } from "./config";
 import { getUncachableHubSpotClient } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 import { insertTestimonialSchema, insertNewsSchema, insertMemberSchema, insertMemberPreferencesSchema } from "@shared/schema";
+import { registerChatRoutes } from "./replit_integrations/chat";
+import { registerImageRoutes } from "./replit_integrations/image";
 
 // Environment-aware credentials - resolved lazily in registerRoutes
 let workos: WorkOS | null = null;
@@ -1477,6 +1479,11 @@ export async function registerRoutes(
 
     console.log("[startup] Test authentication routes enabled (REPLIT_DEPLOYMENT not set)");
   }
+
+  // Register AI chat routes
+  registerChatRoutes(app);
+  registerImageRoutes(app);
+  console.log("[startup] AI chat and image routes registered");
 
   return httpServer;
 }

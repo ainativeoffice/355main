@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { JoinWaitlistDialog } from "./join-waitlist-dialog";
+import { ChatBubble } from "./chat-bubble";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -130,6 +131,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </footer>
 
       <JoinWaitlistDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
+      <ChatBubble />
     </div>
   );
 }
