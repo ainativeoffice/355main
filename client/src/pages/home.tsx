@@ -1058,7 +1058,7 @@ export default function Home() {
                className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors"
                data-testid="button-become-member"
              >
-               Join Now
+               Join Waitlist
              </button>
              
              <a 

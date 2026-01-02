@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Check, ChevronRight, ChevronLeft, Loader2, Building2, Users, Monitor, Wifi, Coffee, Zap, Calendar, Briefcase, AlertCircle } from "lucide-react";
+import { Check, ChevronRight, ChevronLeft, Loader2, Users, Monitor, Wifi, Coffee, Zap, Building2, Plus, Trash2, AlertCircle, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -27,9 +27,14 @@ interface MemberData {
   moveInTiming?: string;
 }
 
+interface PrivateOffice {
+  id: string;
+  desks: number;
+}
+
 interface PreferencesData {
   workspaceArchetype?: string;
-  privateOfficeDesks?: number;
+  privateOffices?: PrivateOffice[];
   hybridMemberships?: number;
   collaborationModes?: string[];
   amenities?: string[];
@@ -38,12 +43,6 @@ interface PreferencesData {
   supportPriorities?: string[];
   decisionStage?: string;
 }
-
-const WORKSPACE_ARCHETYPES = [
-  { id: "custom", label: "Custom Office", desc: "Fully customized suite for your team", icon: Building2 },
-  { id: "private", label: "Private Office", desc: "Move-in ready private workspace", icon: Briefcase },
-  { id: "hybrid", label: "Hybrid Membership", desc: "Flexible access for distributed teams", icon: Users },
-];
 
 const TEAM_SIZES = [
   { id: "1", label: "Just me" },
@@ -89,13 +88,19 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
 
   const mutation = useMutation({
     mutationFn: async (data: { member: MemberData; preferences: PreferencesData }) => {
+      const transformedPreferences = {
+        ...data.preferences,
+        privateOfficeDesks: data.preferences.privateOffices?.reduce((sum, o) => sum + o.desks, 0) || 0,
+        privateOfficesConfig: data.preferences.privateOffices?.map(o => o.desks) || [],
+      };
+      
       const res = await fetch("/api/members", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ member: data.member, preferences: transformedPreferences }),
       });
       const result = await res.json();
-      if (!res.ok) throw new Error(result.message || "Failed to sign up");
+      if (!res.ok) throw new Error(result.message || "Failed to join waitlist");
       return result;
     },
     onSuccess: () => {
@@ -103,7 +108,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
     },
     onError: (error: Error) => {
       toast({
-        title: "Sign-up failed",
+        title: "Could not join waitlist",
         description: error.message || "Something went wrong. Please try again.",
         variant: "destructive",
       });
@@ -156,19 +161,55 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
     return ((preferences[key] as string[]) || []).includes(item);
   };
 
+  const addPrivateOffice = () => {
+    const currentOffices = preferences.privateOffices || [];
+    setPreferences({
+      ...preferences,
+      privateOffices: [...currentOffices, { id: crypto.randomUUID(), desks: 1 }],
+    });
+  };
+
+  const removePrivateOffice = (id: string) => {
+    const currentOffices = preferences.privateOffices || [];
+    setPreferences({
+      ...preferences,
+      privateOffices: currentOffices.filter(o => o.id !== id),
+    });
+  };
+
+  const updateOfficeDesks = (id: string, desks: number) => {
+    const currentOffices = preferences.privateOffices || [];
+    setPreferences({
+      ...preferences,
+      privateOffices: currentOffices.map(o => 
+        o.id === id ? { ...o, desks: Math.max(1, desks) } : o
+      ),
+    });
+  };
+
+  const totalPrivateDesks = (preferences.privateOffices || []).reduce((sum, o) => sum + o.desks, 0);
+  const totalSeats = totalPrivateDesks + (preferences.hybridMemberships || 0);
+
   return (
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
         {completed ? (
           <div className="py-12 text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Check className="w-8 h-8 text-primary" />
+            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Heart className="w-10 h-10 text-primary" />
             </div>
-            <h2 className="font-serif text-2xl mb-3">Welcome to Opus 355</h2>
-            <p className="text-muted-foreground mb-6">
-              You're now a member. We'll keep you updated on news, events, and availability.
+            <h2 className="font-serif text-2xl mb-3">We've Heard You</h2>
+            <p className="text-muted-foreground mb-2">
+              Thank you for your interest in Opus 355.
             </p>
-            <Button onClick={handleClose} data-testid="button-membership-done">
+            <p className="text-muted-foreground mb-6">
+              Our team is reviewing your workspace requirements and will be in touch shortly to discuss how we can create the perfect environment for your team.
+            </p>
+            <div className="bg-muted/50 rounded-lg p-4 mb-6 text-sm text-muted-foreground">
+              <p className="font-medium text-foreground mb-1">What happens next?</p>
+              <p>An Opus team member will reach out within 1-2 business days to schedule a personalized tour and discuss your specific needs.</p>
+            </div>
+            <Button onClick={handleClose} data-testid="button-waitlist-done">
               Done
             </Button>
           </div>
@@ -187,16 +228,16 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                 ))}
               </div>
               <DialogTitle className="font-serif text-2xl">
-                {step === 1 && "Join as a Member"}
+                {step === 1 && "Join the Waitlist"}
                 {step === 2 && "Tell Us About Your Team"}
-                {step === 3 && "Choose Your Workspace"}
+                {step === 3 && "Configure Your Workspace"}
                 {step === 4 && "Select Your Tech & Amenities"}
               </DialogTitle>
               <p className="text-muted-foreground text-sm">
-                {step === 1 && "Get news, updates, and priority access to Opus 355."}
+                {step === 1 && "Get priority access and updates about Opus 355."}
                 {step === 2 && "Help us understand your workspace needs."}
-                {step === 3 && "Configure your workspace mix"}
-                {step === 4 && "Pick the gear that matters to you."}
+                {step === 3 && "Design your ideal office configuration."}
+                {step === 4 && "Pick the technology and amenities that matter to you."}
               </p>
             </DialogHeader>
 
@@ -215,7 +256,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                         if (emailError) setEmailError(null);
                       }}
                       className={emailError ? "border-destructive" : ""}
-                      data-testid="input-member-email"
+                      data-testid="input-waitlist-email"
                     />
                     {emailError && (
                       <p className="text-destructive text-sm mt-1 flex items-center gap-1">
@@ -232,7 +273,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                         placeholder="First name"
                         value={memberData.firstName || ""}
                         onChange={(e) => setMemberData({ ...memberData, firstName: e.target.value })}
-                        data-testid="input-member-firstname"
+                        data-testid="input-waitlist-firstname"
                       />
                     </div>
                     <div>
@@ -242,7 +283,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                         placeholder="Last name"
                         value={memberData.lastName || ""}
                         onChange={(e) => setMemberData({ ...memberData, lastName: e.target.value })}
-                        data-testid="input-member-lastname"
+                        data-testid="input-waitlist-lastname"
                       />
                     </div>
                   </div>
@@ -253,7 +294,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                       placeholder="Your organization name"
                       value={memberData.company || ""}
                       onChange={(e) => setMemberData({ ...memberData, company: e.target.value })}
-                      data-testid="input-member-organization"
+                      data-testid="input-waitlist-organization"
                     />
                   </div>
                 </div>
@@ -310,7 +351,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                       placeholder="e.g. CEO, Office Manager, HR Director"
                       value={memberData.jobRole || ""}
                       onChange={(e) => setMemberData({ ...memberData, jobRole: e.target.value })}
-                      data-testid="input-member-jobrole"
+                      data-testid="input-waitlist-jobrole"
                     />
                   </div>
                 </div>
@@ -321,7 +362,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                   {memberData.teamSize && (
                     <div className="bg-muted/50 rounded-lg p-4">
                       <p className="text-sm text-muted-foreground">
-                        For a team of <span className="font-medium text-foreground">{memberData.teamSize}</span> people, 
+                        For a team of <span className="font-medium text-foreground">{TEAM_SIZES.find(s => s.id === memberData.teamSize)?.label || memberData.teamSize}</span>, 
                         configure your ideal workspace mix below.
                       </p>
                     </div>
@@ -329,49 +370,74 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                   
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg border border-border bg-background">
-                      <div className="flex items-start gap-4">
+                      <div className="flex items-start gap-4 mb-4">
                         <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                          <Briefcase className="w-6 h-6 text-primary" />
+                          <Building2 className="w-6 h-6 text-primary" />
                         </div>
                         <div className="flex-1">
-                          <div className="font-medium">Private Office Desks</div>
-                          <div className="text-sm text-muted-foreground mb-3">
-                            Dedicated desks in a private office suite for your team
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <Button
-                              type="button"
-                              variant="outline"
-                              size="icon"
-                              className="h-8 w-8"
-                              onClick={() => setPreferences({ 
-                                ...preferences, 
-                                privateOfficeDesks: Math.max(0, (preferences.privateOfficeDesks || 0) - 1) 
-                              })}
-                              disabled={(preferences.privateOfficeDesks || 0) === 0}
-                              data-testid="button-decrease-private-desks"
-                            >
-                              -
-                            </Button>
-                            <span className="w-12 text-center font-medium" data-testid="text-private-desks-count">
-                              {preferences.privateOfficeDesks || 0}
-                            </span>
-                            <Button
-                              type="button"
-                              variant="outline"
-                              size="icon"
-                              className="h-8 w-8"
-                              onClick={() => setPreferences({ 
-                                ...preferences, 
-                                privateOfficeDesks: (preferences.privateOfficeDesks || 0) + 1 
-                              })}
-                              data-testid="button-increase-private-desks"
-                            >
-                              +
-                            </Button>
-                            <span className="text-sm text-muted-foreground">desks</span>
+                          <div className="font-medium">Private Offices</div>
+                          <div className="text-sm text-muted-foreground">
+                            Add offices and specify how many desks you need in each
                           </div>
                         </div>
+                      </div>
+                      
+                      <div className="space-y-3">
+                        {(preferences.privateOffices || []).map((office, index) => (
+                          <div key={office.id} className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
+                            <span className="text-sm font-medium text-muted-foreground w-20">
+                              Office {index + 1}
+                            </span>
+                            <div className="flex items-center gap-2 flex-1">
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="icon"
+                                className="h-8 w-8"
+                                onClick={() => updateOfficeDesks(office.id, office.desks - 1)}
+                                disabled={office.desks <= 1}
+                                data-testid={`button-decrease-office-${index}-desks`}
+                              >
+                                -
+                              </Button>
+                              <span className="w-12 text-center font-medium" data-testid={`text-office-${index}-desks`}>
+                                {office.desks}
+                              </span>
+                              <Button
+                                type="button"
+                                variant="outline"
+                                size="icon"
+                                className="h-8 w-8"
+                                onClick={() => updateOfficeDesks(office.id, office.desks + 1)}
+                                data-testid={`button-increase-office-${index}-desks`}
+                              >
+                                +
+                              </Button>
+                              <span className="text-sm text-muted-foreground">desks</span>
+                            </div>
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                              onClick={() => removePrivateOffice(office.id)}
+                              data-testid={`button-remove-office-${index}`}
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        ))}
+                        
+                        <Button
+                          type="button"
+                          variant="outline"
+                          className="w-full"
+                          onClick={addPrivateOffice}
+                          data-testid="button-add-office"
+                        >
+                          <Plus className="w-4 h-4 mr-2" />
+                          Add Private Office
+                        </Button>
                       </div>
                     </div>
 
@@ -423,18 +489,26 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                     </div>
                   </div>
 
-                  {((preferences.privateOfficeDesks || 0) > 0 || (preferences.hybridMemberships || 0) > 0) && (
+                  {totalSeats > 0 && (
                     <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
                       <div className="flex items-center justify-between">
                         <span className="font-medium">Your workspace configuration</span>
                         <span className="text-sm text-muted-foreground">
-                          {(preferences.privateOfficeDesks || 0) + (preferences.hybridMemberships || 0)} total seats
+                          {totalSeats} total seat{totalSeats !== 1 ? 's' : ''}
                         </span>
                       </div>
                       <div className="text-sm text-muted-foreground mt-1">
-                        {preferences.privateOfficeDesks ? `${preferences.privateOfficeDesks} private desk${preferences.privateOfficeDesks > 1 ? 's' : ''}` : ''}
-                        {preferences.privateOfficeDesks && preferences.hybridMemberships ? ' + ' : ''}
-                        {preferences.hybridMemberships ? `${preferences.hybridMemberships} hybrid membership${preferences.hybridMemberships > 1 ? 's' : ''}` : ''}
+                        {(preferences.privateOffices || []).length > 0 && (
+                          <span>
+                            {(preferences.privateOffices || []).length} office{(preferences.privateOffices || []).length !== 1 ? 's' : ''} ({totalPrivateDesks} desk{totalPrivateDesks !== 1 ? 's' : ''})
+                          </span>
+                        )}
+                        {(preferences.privateOffices || []).length > 0 && (preferences.hybridMemberships || 0) > 0 && ' + '}
+                        {(preferences.hybridMemberships || 0) > 0 && (
+                          <span>
+                            {preferences.hybridMemberships} hybrid membership{(preferences.hybridMemberships || 0) !== 1 ? 's' : ''}
+                          </span>
+                        )}
                       </div>
                     </div>
                   )}
@@ -505,19 +579,19 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
               <Button
                 variant="ghost"
                 onClick={step === 1 ? handleClose : handleBack}
-                data-testid="button-membership-back"
+                data-testid="button-waitlist-back"
               >
                 {step === 1 ? "Cancel" : <><ChevronLeft className="w-4 h-4 mr-1" /> Back</>}
               </Button>
               <Button
                 onClick={handleNext}
                 disabled={step === 1 && !memberData.email || mutation.isPending}
-                data-testid="button-membership-next"
+                data-testid="button-waitlist-next"
               >
                 {mutation.isPending ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
                 ) : step === 4 ? (
-                  "Complete Sign Up"
+                  "Join Waitlist"
                 ) : (
                   <>Continue <ChevronRight className="w-4 h-4 ml-1" /></>
                 )}
