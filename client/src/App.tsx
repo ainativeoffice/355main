@@ -16,12 +16,14 @@ const Solutions = lazy(() => import("@/pages/solutions"));
 const CustomOffices = lazy(() => import("@/pages/solutions/custom-offices"));
 const PrivateOffices = lazy(() => import("@/pages/solutions/private-offices"));
 const HybridMemberships = lazy(() => import("@/pages/solutions/hybrid"));
-const AdminLogin = lazy(() => import("@/pages/admin/login"));
-const AdminDashboard = lazy(() => import("@/pages/admin/index"));
-const MemberDashboard = lazy(() => import("@/pages/dashboard"));
-const MemberPreferences = lazy(() => import("@/pages/preferences"));
-const HospitalityDashboard = lazy(() => import("@/pages/hospitality"));
-const AuthError = lazy(() => import("@/pages/auth-error"));
+
+// Auth pages deprecated - authentication moves to app.opus355.com
+// const AdminLogin = lazy(() => import("@/pages/admin/login"));
+// const AdminDashboard = lazy(() => import("@/pages/admin/index"));
+// const MemberDashboard = lazy(() => import("@/pages/dashboard"));
+// const MemberPreferences = lazy(() => import("@/pages/preferences"));
+// const HospitalityDashboard = lazy(() => import("@/pages/hospitality"));
+// const AuthError = lazy(() => import("@/pages/auth-error"));
 
 function PageLoader() {
   return (
@@ -43,12 +45,13 @@ function Router() {
         <Route path="/solutions/custom-offices" component={CustomOffices} />
         <Route path="/solutions/private-offices" component={PrivateOffices} />
         <Route path="/solutions/hybrid" component={HybridMemberships} />
-        <Route path="/admin/login" component={AdminLogin} />
-        <Route path="/admin" component={AdminDashboard} />
-        <Route path="/dashboard" component={MemberDashboard} />
-        <Route path="/preferences" component={MemberPreferences} />
-        <Route path="/hospitality" component={HospitalityDashboard} />
-        <Route path="/auth-error" component={AuthError} />
+        {/* Auth routes deprecated - authentication moves to app.opus355.com */}
+        {/* <Route path="/admin/login" component={AdminLogin} /> */}
+        {/* <Route path="/admin" component={AdminDashboard} /> */}
+        {/* <Route path="/dashboard" component={MemberDashboard} /> */}
+        {/* <Route path="/preferences" component={MemberPreferences} /> */}
+        {/* <Route path="/hospitality" component={HospitalityDashboard} /> */}
+        {/* <Route path="/auth-error" component={AuthError} /> */}
         <Route component={NotFound} />
       </Switch>
     </Suspense>
