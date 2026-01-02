@@ -1,12 +1,10 @@
-# Opus 355 - Lead Generation Marketing Website
+# Opus 355 - Commercial Workplace Platform
 
 ## Overview
 
-Opus 355 is a lead generation marketing website for a design-led commercial workplace property located at 355 Main Street, Armonk, New York. The application showcases the building's architectural zones, furniture and equipment specifications, and allows prospective tenants to join a waitlist through HubSpot integration.
+Opus 355 is a marketing and lead generation website for a design-led commercial workplace property located at 355 Main Street, Armonk, New York. The application showcases the building's architectural zones, furniture and equipment specifications, and allows prospective tenants to join a waitlist through HubSpot integration.
 
 The project follows a "Commercial Town Hall" concept - positioning the office space as a flexible, modular workspace designed for the distributed work era. The site features rich visual presentations of different workspace zones with interactive floor plans and detailed equipment specifications.
-
-**Architecture Note**: This is a marketing-only site. All authenticated member experiences (dashboard, preferences, hospitality) have been moved to a separate application at `app.opus355.com`. This site focuses on lead generation and waitlist capture.
 
 ## User Preferences
 
@@ -44,7 +42,6 @@ Preferred communication style: Simple, everyday language.
 │   ├── pages/           # Route components
 │   └── lib/             # Utilities and query client
 ├── server/              # Express backend
-│   └── replit_integrations/  # AI chat and image modules
 ├── shared/              # Shared types and schemas
 └── attached_assets/     # Static images and zone SVGs
 ```
@@ -59,47 +56,21 @@ Preferred communication style: Simple, everyday language.
 
 4. **API Pattern**: Simple REST endpoints under `/api/*` prefix, with the Express server serving the built client in production.
 
-5. **Marketing-First Architecture**: Authentication deprecated on this site; member login redirects to `app.opus355.com`.
-
-## AI Concierge Chatbot
-
-### Overview
-The site features an AI-powered concierge chatbot to assist visitors with questions about the workspace. Uses Replit AI Integrations (OpenAI-compatible) - no API key needed, billed to Replit credits.
-
-### Technical Implementation
-- **Provider**: Replit AI Integrations (OpenAI-compatible API)
-- **Model**: gpt-5.1 (or newer)
-- **Streaming**: Server-Sent Events for real-time responses
-- **Storage**: `conversations` and `messages` tables in PostgreSQL
-- **Routes**: `/api/conversations/*` endpoints
-
-### Chat Components
-- **Backend**: `server/replit_integrations/chat/` - routes, storage, streaming
-- **Frontend**: `client/src/components/chat-bubble.tsx` - floating chat UI
-- **Schema**: `shared/models/chat.ts` - Drizzle schema for conversations
-
-### Provider-Agnostic Design
-The chat system is designed to be provider-agnostic for future flexibility:
-- OpenAI integration via Replit AI (default)
-- Easy to swap to Anthropic, Gemini, or OpenRouter
-- Enterprise tenants could potentially choose their preferred AI provider
-
-### Batch Processing
-For bulk AI operations, use the batch utilities in `server/replit_integrations/batch/`:
-- `batchProcess()` - Parallel processing with rate limiting
-- `batchProcessWithSSE()` - Sequential processing with SSE progress
-- Built-in retry logic for rate limit handling
-
 ## External Dependencies
 
 ### Third-Party Services
 
-#### Stripe Payments (Retained)
-- **Purpose**: Future AI-assisted deal closing from chatbot
+#### WorkOS Authentication
+- **Authentication**: WorkOS AuthKit with OAuth 2.0 flow
+- **Session**: Tokens stored server-side in encrypted session (HttpOnly cookies)
+- **Token Refresh**: Automatic refresh when access token expires (5 min default)
+- **Integration Pattern**: Store access + refresh tokens, rotate on refresh
+
+#### Stripe Subscriptions  
 - **Payments**: Stripe Checkout Sessions for subscription signup
-- **Webhooks**: `invoice.paid` as primary access granter
+- **Webhooks**: `invoice.paid` as primary access granter (more reliable than checkout.session.completed)
+- **Idempotency**: Event ID tracking to prevent duplicate processing
 - **Customer Portal**: Self-service billing management
-- **Note**: Stripe kept for potential chatbot-initiated checkout flows
 
 #### HubSpot CRM
 - **Lead Capture**: Contact management via `@hubspot/api-client`
@@ -107,7 +78,8 @@ For bulk AI operations, use the batch utilities in `server/replit_integrations/b
   - **Production**: Replit Connectors (OAuth token refresh)
   - **Development**: Private App token via `HUBSPOT_DEV_ACCESS_TOKEN`
 - **Custom Properties**: `opus_membership_tier`, `opus_subscription_status`, `opus_member_id`, `opus_move_in_timing`, workspace preferences
-- **Team Size Mapping**: App values mapped to HubSpot `numemployees` format
+- **Team Size Mapping**: App values mapped to HubSpot `numemployees` format (e.g., "1" → "1-5", "30+" → "25-50")
+- **Lifecycle Automation**: Lead → Subscriber on tier upgrade, sync on subscription changes
 
 ### Analytics
 - **Google Analytics 4**: Tracking via gtag.js (ID: G-2VR7386HM6)
@@ -117,22 +89,32 @@ For bulk AI operations, use the batch utilities in `server/replit_integrations/b
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
 - **Session Storage**: connect-pg-simple for PostgreSQL-backed sessions
 
-## Deprecated Features (Moved to app.opus355.com)
+## Hospitality & Smart Building Features
 
-The following features have been deprecated on this marketing site and moved to the member application:
+### Member Preferences System
+- **Beverage Preferences**: Morning/afternoon drink selections with special instructions
+- **Workspace Comfort**: Temperature and lighting preferences, preferred zone
+- **Arrival Settings**: Hospitality notification toggle, calendar sync, location-based arrival
+- **Special Touches**: Birthday, dietary restrictions, special notes
 
-- **WorkOS Authentication**: Sign-in button commented out; OAuth flow preserved in code but not used
-- **Member Dashboard**: `/dashboard` route removed from frontend routing
-- **Member Preferences**: `/preferences` route removed
-- **Hospitality Dashboard**: `/hospitality` route removed
-- **Admin Panel**: `/admin` routes removed
+### Hospitality Dashboard (Staff Only)
+- **Real-time Arrivals**: View members arriving with ETA, beverage orders, and zone destinations
+- **Workflow**: Mark beverages as prepared, confirm member arrivals
+- **Authorization**: Staff/admin role required (requireStaff middleware)
+
+### Future Smart Building Integrations
+- **Casambi**: Lighting control system API
+- **Dante AV**: Audio-visual routing system
+- **Otis Elevator**: Elevator dispatch on member arrival
+- **Virtual Keypad**: Access control integration
 
 ## Integration Best Practices
 
 - **Stripe**: Use `invoice.paid` (not `checkout.session.completed`) as most reliable event for granting access
+- **WorkOS**: Access tokens expire in 5 minutes; refresh tokens rotate on each use; clear session on refresh failure
 - **HubSpot**: Provision custom properties in portal; fail gracefully on API errors to not block primary flows
 - **Architecture**: Services should fail gracefully—external service failures shouldn't break core flows
-- **AI Chat**: Conversations stored server-side; streaming enabled for responsive UX
+- **Staff Authorization**: Hospitality routes use `requireStaff` middleware checking member role for admin/staff access
 
 ### Development Tools
 - **Replit Plugins**: 
@@ -146,8 +128,7 @@ The following features have been deprecated on this marketing site and moved to 
 - **Behavior**: Validates required environment variables at startup, fails fast with clear error messages
 - **Required**: `DATABASE_URL`
 - **Optional with defaults**: `SESSION_SECRET`, `PORT`
-- **Optional**: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
-- **AI**: `AI_INTEGRATIONS_OPENAI_API_KEY`, `AI_INTEGRATIONS_OPENAI_BASE_URL` (auto-configured by Replit)
+- **Optional**: `WORKOS_API_KEY`, `WORKOS_CLIENT_ID`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
 
 ### Error Boundaries
 - **Component**: `client/src/components/error-boundary.tsx`
@@ -162,13 +143,18 @@ The following features have been deprecated on this marketing site and moved to 
 - **Cleanup**: Uses seed marker email to track and clean up seeded data on re-run
 - **Note**: Safe to run multiple times (clears previous seeded data first)
 
+### Test Authentication (Development Only)
+- **Routes**: `POST /api/test/auth/login`, `POST /api/test/auth/logout`
+- **Guard**: Only available when `REPLIT_DEPLOYMENT !== "1"`
+- **Purpose**: Enables automated testing of authenticated features without OAuth
+
 ## Health & Monitoring
 
 ### Health Check Endpoint
 - **Endpoint**: GET `/api/health`
 - **Returns**: JSON with status, timestamp, uptime, and services health
 - **Database**: Checks connectivity and measures latency (ms)
-- **External Services**: Reports Stripe configuration status
+- **External Services**: Reports WorkOS and Stripe configuration status
 - **HTTP Codes**: 200 (healthy), 503 (unhealthy)
 
 ### Performance Testing

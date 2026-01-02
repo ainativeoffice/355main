@@ -171,6 +171,3 @@ export type MemberArrival = typeof memberArrivals.$inferSelect;
 
 export type MemberWithPreferences = Member & { preferences?: MemberPreferences };
 export type ArrivalWithMember = MemberArrival & { member: Member; preferences?: MemberPreferences };
-
-// Re-export chat models
-export * from "./models/chat";
