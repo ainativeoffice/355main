@@ -7,6 +7,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
+import { LocationSection } from "@/components/location-section";
 
 import heroImage from "@assets/Hero_1767222668713.png";
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -1045,7 +1046,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Call to Action */}
+      {/* 9. Location */}
+      <LocationSection />
+
+      {/* 10. Call to Action */}
       <section id="waitlist" className="py-32 bg-background text-foreground text-center px-6 border-t border-border">
          <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}
