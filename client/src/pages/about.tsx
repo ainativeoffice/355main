@@ -408,7 +408,7 @@ export default function About() {
             ))}
           </div>
 
-          {/* Featured Products */}
+          {/* Featured Products - Commented out for now
           <div className="mt-24 max-w-5xl mx-auto">
             <h3 className="text-center font-serif text-2xl mb-12">Featured Products</h3>
             <div className="grid md:grid-cols-3 gap-6">
@@ -481,6 +481,7 @@ export default function About() {
               </motion.div>
             </div>
           </div>
+          */}
         </div>
       </section>
     </Layout>
