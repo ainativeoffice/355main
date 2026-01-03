@@ -125,7 +125,7 @@ export default function Brokers() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Why Opus 355</span>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">The Commercial Town Hall Advantage</h2>
+              <h2 className="font-serif text-3xl md:text-4xl mb-6">The Destination Workplace Advantage</h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 Opus 355 represents a new typology for the distributed age. Unlike conventional flex space, we've designed a true commercial destination that elevates your clients' workplace experience.
               </p>
