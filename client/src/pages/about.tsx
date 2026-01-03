@@ -6,7 +6,6 @@ import lanternImage from "@assets/vs_exterior_glass.jpg";
 import entranceImage from "@assets/vs_entrance.jpg";
 import building357Exterior from "@assets/357_exterior_1.jpg";
 import building357Interior from "@assets/357_exterior_2.jpg";
-import elevatorImage from "@assets/opus_elevator.jpg";
 
 import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
@@ -139,13 +138,13 @@ export default function About() {
               className="relative"
             >
               <img
-                src={elevatorImage}
-                alt="Opus 355 Elevator Tower"
+                src={lanternImage}
+                alt="Opus 355 Glass Exterior"
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute bottom-4 left-4 bg-background/95 backdrop-blur-sm px-4 py-2 border border-border">
-                <span className="text-sm font-medium">The Lantern</span>
-                <p className="text-xs text-muted-foreground">A beacon of transparency</p>
+                <span className="text-sm font-medium">Glass Curtain Wall</span>
+                <p className="text-xs text-muted-foreground">Transparency by design</p>
               </div>
             </motion.div>
           </div>
