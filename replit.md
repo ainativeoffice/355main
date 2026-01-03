@@ -4,7 +4,27 @@
 
 Opus 355 is a marketing and lead generation website for a design-led commercial workplace property located at 355 Main Street, Armonk, New York. The application showcases the building's architectural zones, furniture and equipment specifications, and allows prospective tenants to join a waitlist through HubSpot integration.
 
-The project follows a "Commercial Town Hall" concept - positioning the office space as a flexible, modular workspace designed for the distributed work era. The site features rich visual presentations of different workspace zones with interactive floor plans and detailed equipment specifications.
+### Positioning: The Office Club
+
+Opus 355 operates as a **Destination Workplace**—a place people want to go, not just have to go. The project follows the **Office Club** model, serving both single-user tenants and flex office segments with public, semi-private, and private zones designed for the distributed work era.
+
+The space features **Dynamic Spaces**—flexible zones that transform to support different work modes including focus work, collaboration, meetings, workshops, and presentations. Premium furniture enables rapid reconfiguration to match any work style or team need.
+
+### FF&E Partners
+
+The building is outfitted with best-in-class furniture, fixtures, and equipment from industry-leading partners:
+
+**Furniture**
+- **Vitra** - Premium furniture enabling dynamic space reconfiguration; trusted partner for modular office solutions
+
+**Lighting**
+- **BASO Lighting** - Round architectural fixtures above dynamic spaces
+- **Louis Poulsen** - Danish architectural lighting design
+- **Coronet** - Linear office fixtures for ambient illumination
+- **Marset** - Soho pendants and mono points for accent and task lighting
+
+**Controls & Smart Building**
+- **Casambi** - Wireless lighting controls and scene management enabling personalized lighting experiences throughout the space
 
 ## User Preferences
 
