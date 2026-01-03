@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Layers, Settings2, Download, ExternalLink, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Sliders, Copy, CheckCheck, Building2, Users, Zap, ArrowRight } from "lucide-react";
+import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Download, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Building2, Users, Zap, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
@@ -10,11 +10,6 @@ import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { LocationSection } from "@/components/location-section";
 
 import heroImage from "@assets/Hero_1767222668713.png";
-import lanternImage from "@assets/vs_exterior_glass.jpg";
-import entranceImage from "@assets/vs_entrance.jpg";
-import elevatorImage from "@assets/opus_elevator.jpg";
-import building357Exterior from "@assets/357_exterior_1.jpg";
-import building357Interior from "@assets/357_exterior_2.jpg";
 
 import constructionImage from "@assets/construction_update.jpg";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
@@ -302,7 +297,6 @@ export default function Home() {
   const dynamicSpaceZone = zones.find(z => z.id === 8) || zones[0]!;
   const [activeZone, setActiveZone] = useState(dynamicSpaceZone);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [activeBuilding, setActiveBuilding] = useState<"355" | "357">("355");
   const [zoomLevel, setZoomLevel] = useState(1);
   const [membershipOpen, setMembershipOpen] = useState(false);
   
@@ -475,113 +469,153 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      {/* 3. Construction Progress */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+           <div className="grid md:grid-cols-2 gap-12 items-center">
+             <motion.div
+               initial={{ opacity: 0, scale: 0.95 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+               className="order-2 md:order-1 relative aspect-video bg-muted overflow-hidden shadow-2xl"
+             >
+                <img 
+                  src={constructionImage} 
+                  alt="Construction Progress - Flooring Prep" 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
+                  Live Update
+                </div>
+             </motion.div>
 
-      {/* 3. Campus Architecture Section (Moved UP) */}
-      <section id="campus" className="py-24 bg-muted/20">
+             <motion.div
+               initial={{ opacity: 0, x: 20 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.8 }}
+               className="order-1 md:order-2"
+             >
+               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
+               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
+               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                 We are stripping back the layers to reveal the essential structure. 
+                 The walls are primed. The subfloor is prepped. We're getting ready for you.
+               </p>
+               <div className="flex items-center gap-4">
+                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
+                    Current Status: <span className="text-foreground">Flooring Installation</span>
+                 </div>
+               </div>
+             </motion.div>
+           </div>
+        </div>
+      </section>
+      {/* 4. Solutions Overview */}
+      <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold">The Campus</span>
-            <h2 className="font-serif text-4xl mt-4">Armonk Professional Center</h2>
-            <a 
-              href="https://armonkprofessionalcenter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 text-sm text-muted-foreground hover:text-primary transition-colors"
-              data-testid="link-armonk-professional-center"
-            >
-              armonkprofessionalcenter.com
-              <ExternalLink className="w-3 h-3" />
-            </a>
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Workspace Solutions</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Find Your Perfect Space</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From dedicated private offices to flexible memberships, we offer workspace solutions designed for how you work today.
+            </p>
           </div>
-          
-          <div className="flex justify-center mb-12">
-            <div className="bg-muted p-1 rounded-full flex gap-1">
-              <button 
-                onClick={() => setActiveBuilding("355")}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  activeBuilding === "355" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-                data-testid="button-building-355"
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-custom"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Building2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Custom Offices</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Ground-up design-build on the parcel. A bespoke workspace tailored entirely to your organization.
+              </p>
+              <Link 
+                href="/solutions/custom-offices" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-custom"
               >
-                355 Main Street
-              </button>
-              <button 
-                onClick={() => setActiveBuilding("357")}
-                className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                  activeBuilding === "357" ? "bg-background shadow-sm text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-                data-testid="button-building-357"
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-private"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Private Offices</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Move-in ready private spaces with Vitra Tyde 2 configurations for teams of 1-15 people.
+              </p>
+              <Link 
+                href="/solutions/private-offices" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-private"
               >
-                357 Main Street
-              </button>
-            </div>
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-hybrid"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Hybrid Memberships</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Flexible access to shared workspaces, private offices, and all-inclusive amenities.
+              </p>
+              <Link 
+                href="/solutions/hybrid" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-hybrid"
+              >
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto min-h-[500px]">
-            <motion.div 
-               key={activeBuilding}
-               initial={{ opacity: 0, x: -20 }}
-               animate={{ opacity: 1, x: 0 }}
-               transition={{ duration: 0.6 }}
-               className="space-y-6 text-lg leading-relaxed text-muted-foreground"
+
+          <div className="text-center mt-12">
+            <Link 
+              href="/solutions" 
+              className="inline-flex items-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
+              onClick={() => window.scrollTo(0, 0)}
+              data-testid="link-view-all-solutions"
             >
-              {activeBuilding === "355" ? (
-                <>
-                  <p>
-                    The original Armonk Professional Center, built in the 1960s, is a 2-story office building with a rich history. 
-                  </p>
-                  <p>
-                    An addition to the lobby by famed <span className="text-foreground font-medium">Architect Vatche Simonian</span> seamlessly merges old and new. 
-                    The new two-story glass enclosure and stone-clad elevator tower contrast with and yet complement the structure’s original brick facade.
-                  </p>
-                  <p>
-                    The elevator tower is clad with oversized stone panels that continue to the interior of the lobby and conceal the mechanical room doors,
-                    creating a monolithic anchor for the site.
-                  </p>
-                </>
-              ) : (
-                <>
-                  <p>
-                    357 Main Street represents the modern evolution of the campus. Designed in 2006 by <span className="text-foreground font-medium">Vatche Simonian</span>, 
-                    the same visionary architect behind the 355 lobby addition.
-                  </p>
-                  <p>
-                    The footprint of this 22,000-square-foot glass-and-steel structure was maximized by including a subterranean parking deck. 
-                    Large windows take advantage of natural light, while brick accents add continuity with the other office buildings in the complex.
-                  </p>
-                  <p>
-                    The project required substantial site work, including blasting of existing rock, which was salvaged and used as retaining walls—grounding the 
-                    modern structure in the site's geology.
-                  </p>
-                </>
-              )}
-            </motion.div>
-            
-            <motion.div 
-               key={`${activeBuilding}-images`}
-               initial={{ opacity: 0, scale: 0.95 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ duration: 0.6 }}
-               className="grid grid-cols-2 gap-4"
-            >
-              <img 
-                src={activeBuilding === "355" ? lanternImage : building357Exterior} 
-                alt="Exterior Facade" 
-                className="w-full h-64 object-cover"
-                loading="lazy"
-              />
-              <img 
-                src={activeBuilding === "355" ? entranceImage : building357Interior} 
-                alt="Interior/Detail" 
-                className="w-full h-64 object-cover translate-y-8"
-                loading="lazy"
-              />
-            </motion.div>
+              View All Solutions
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 4. The Zones Detail Section - Interactive Map & Overlay */}
+      {/* 5. The Blueprint - Interactive Map & Overlay */}
       <section id="blueprint" className="py-24 bg-background overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="mb-12 text-center">
@@ -844,10 +878,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Vendor Marquee - Moved Up for Impact */}
+      {/* 6. Vendor Marquee */}
       <VendorMarquee />
 
-      {/* 6. Philosophy / Features - Dark Mode for Contrast */}
+      {/* 7. Features */}
       <section id="philosophy" className="py-24 md:py-32 bg-zinc-950 text-zinc-100">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -899,157 +933,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. Construction Progress - Moved Down (Reality Check) */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-           <div className="grid md:grid-cols-2 gap-12 items-center">
-             <motion.div
-               initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="order-2 md:order-1 relative aspect-video bg-muted overflow-hidden shadow-2xl"
-             >
-                <img 
-                  src={constructionImage} 
-                  alt="Construction Progress - Flooring Prep" 
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
-                  Live Update
-                </div>
-             </motion.div>
 
-             <motion.div
-               initial={{ opacity: 0, x: 20 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="order-1 md:order-2"
-             >
-               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
-               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
-               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                 We are stripping back the layers to reveal the essential structure. 
-                 The walls are primed. The subfloor is prepped. We're getting ready for you.
-               </p>
-               <div className="flex items-center gap-4">
-                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
-                    Current Status: <span className="text-foreground">Flooring Installation</span>
-                 </div>
-               </div>
-             </motion.div>
-           </div>
-        </div>
-      </section>
-
-      {/* 8. Solutions Overview */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Workspace Solutions</span>
-            <h2 className="font-serif text-3xl md:text-5xl mb-4">Find Your Perfect Space</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From dedicated private offices to flexible memberships, we offer workspace solutions designed for how you work today.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
-              data-testid="card-solution-custom"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Building2 className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-serif text-xl mb-3">Custom Offices</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Ground-up design-build on the parcel. A bespoke workspace tailored entirely to your organization.
-              </p>
-              <Link 
-                href="/solutions/custom-offices" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
-                onClick={() => window.scrollTo(0, 0)}
-                data-testid="link-solution-custom"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
-              data-testid="card-solution-private"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-serif text-xl mb-3">Private Offices</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Move-in ready private spaces with Vitra Tyde 2 configurations for teams of 1-15 people.
-              </p>
-              <Link 
-                href="/solutions/private-offices" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
-                onClick={() => window.scrollTo(0, 0)}
-                data-testid="link-solution-private"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
-              data-testid="card-solution-hybrid"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-serif text-xl mb-3">Hybrid Memberships</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Flexible access to shared workspaces, private offices, and all-inclusive amenities.
-              </p>
-              <Link 
-                href="/solutions/hybrid" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
-                onClick={() => window.scrollTo(0, 0)}
-                data-testid="link-solution-hybrid"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              href="/solutions" 
-              className="inline-flex items-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
-              onClick={() => window.scrollTo(0, 0)}
-              data-testid="link-view-all-solutions"
-            >
-              View All Solutions
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. Location */}
+      {/* 8. Location */}
       <LocationSection />
 
-      {/* 10. Call to Action */}
+      {/* 9. Call to Action */}
       <section id="waitlist" className="py-32 bg-background text-foreground text-center px-6 border-t border-border">
          <motion.div 
            initial={{ opacity: 0, scale: 0.95 }}

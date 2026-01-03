@@ -9,6 +9,7 @@ import { ErrorBoundary } from "@/components/error-boundary";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 
+const About = lazy(() => import("@/pages/about"));
 const Brokers = lazy(() => import("@/pages/brokers"));
 const Enterprise = lazy(() => import("@/pages/enterprise"));
 const Landlords = lazy(() => import("@/pages/landlords"));
@@ -38,6 +39,7 @@ function Router() {
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
         <Route path="/brokers" component={Brokers} />
         <Route path="/enterprise" component={Enterprise} />
         <Route path="/landlords" component={Landlords} />
