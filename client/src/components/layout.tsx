@@ -83,17 +83,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </a>
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Solutions</h3>
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Explore</h3>
             <nav className="flex flex-col gap-3">
-              <Link href="/solutions/custom-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-custom-offices" onClick={() => window.scrollTo(0, 0)}>
-                Custom Offices
+              <Link href="/about" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-about" onClick={() => window.scrollTo(0, 0)}>
+                About
               </Link>
-              <Link href="/solutions/private-offices" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-private-offices" onClick={() => window.scrollTo(0, 0)}>
-                Private Offices
+              <Link href="/solutions" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-solutions" onClick={() => window.scrollTo(0, 0)}>
+                Solutions
               </Link>
-              <Link href="/solutions/hybrid" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-hybrid" onClick={() => window.scrollTo(0, 0)}>
-                Hybrid Memberships
-              </Link>
+              <a href="/#blueprint" className="text-lg hover:text-white/80 transition-colors" data-testid="link-footer-blueprint">
+                Blueprint
+              </a>
             </nav>
           </div>
           <div className="space-y-4">
