@@ -914,51 +914,67 @@ export async function registerRoutes(
       try {
         const hubspotClient = await getUncachableHubSpotClient();
         
-        // Sync comprehensive member data to HubSpot per best practices
-        const contactProperties: Record<string, string> = {
+        // Standard HubSpot properties (always work)
+        const standardProperties: Record<string, string> = {
           email: createdMember.email,
           lifecyclestage: "lead",
           hs_lead_status: "NEW"
         };
         
-        // Standard HubSpot properties
-        if (createdMember.firstName) contactProperties.firstname = createdMember.firstName;
-        if (createdMember.lastName) contactProperties.lastname = createdMember.lastName;
-        if (createdMember.company) contactProperties.company = createdMember.company;
-        if (createdMember.jobRole) contactProperties.jobtitle = createdMember.jobRole;
-        if (createdMember.teamSize) contactProperties.numemployees = mapTeamSizeToHubSpot(createdMember.teamSize);
+        if (createdMember.firstName) standardProperties.firstname = createdMember.firstName;
+        if (createdMember.lastName) standardProperties.lastname = createdMember.lastName;
+        if (createdMember.company) standardProperties.company = createdMember.company;
+        if (createdMember.jobRole) standardProperties.jobtitle = createdMember.jobRole;
+        if (createdMember.teamSize) standardProperties.numemployees = mapTeamSizeToHubSpot(createdMember.teamSize);
         
-        // Custom Opus 355 properties (requires creating in HubSpot dashboard first)
-        if (createdMember.moveInTiming) contactProperties.opus_move_in_timing = createdMember.moveInTiming;
-        contactProperties.opus_membership_tier = "free";
-        contactProperties.opus_subscription_status = "waitlist";
-        contactProperties.opus_member_id = createdMember.id.toString();
+        // Custom Opus 355 properties (require setup in HubSpot dashboard)
+        const customProperties: Record<string, string> = {};
+        if (createdMember.moveInTiming) customProperties.opus_move_in_timing = createdMember.moveInTiming;
+        customProperties.opus_membership_tier = "free";
+        customProperties.opus_subscription_status = "waitlist";
+        customProperties.opus_member_id = createdMember.id.toString();
         
-        // Sync workspace preferences if provided
         if (preferences) {
           if (preferences.privateOfficeDesks) {
-            contactProperties.opus_private_desks = preferences.privateOfficeDesks.toString();
+            customProperties.opus_private_desks = preferences.privateOfficeDesks.toString();
           }
           if (preferences.hybridMemberships) {
-            contactProperties.opus_hybrid_seats = preferences.hybridMemberships.toString();
+            customProperties.opus_hybrid_seats = preferences.hybridMemberships.toString();
           }
           if (preferences.amenities?.length) {
-            contactProperties.opus_amenities = preferences.amenities.join(", ");
+            customProperties.opus_amenities = preferences.amenities.join(", ");
           }
           if (preferences.decisionStage) {
-            contactProperties.opus_decision_stage = preferences.decisionStage;
+            customProperties.opus_decision_stage = preferences.decisionStage;
           }
         }
         
-        const hubspotResponse = await hubspotClient.crm.contacts.basicApi.create({
-          properties: contactProperties
-        });
+        let hubspotResponse;
+        
+        // Try with all properties first, fallback to standard-only if custom properties don't exist
+        try {
+          hubspotResponse = await hubspotClient.crm.contacts.basicApi.create({
+            properties: { ...standardProperties, ...customProperties }
+          });
+          console.log(`HubSpot: Created contact ${hubspotResponse.id} with custom properties`);
+        } catch (fullSyncError: any) {
+          // If validation error (likely missing custom properties), retry with standard only
+          if (fullSyncError.body?.category === "VALIDATION_ERROR") {
+            console.log("HubSpot: Custom properties not configured, using standard properties only");
+            hubspotResponse = await hubspotClient.crm.contacts.basicApi.create({
+              properties: standardProperties
+            });
+            console.log(`HubSpot: Created contact ${hubspotResponse.id} with standard properties`);
+          } else {
+            throw fullSyncError;
+          }
+        }
 
         await storage.updateMember(createdMember.id, { 
           hubspotContactId: hubspotResponse.id 
         } as any);
         
-        console.log(`HubSpot: Created contact ${hubspotResponse.id} for ${createdMember.email}`);
+        console.log(`HubSpot: Synced contact ${hubspotResponse.id} for ${createdMember.email}`);
       } catch (hubspotError: any) {
         // Best practice: Don't fail signup if HubSpot sync fails
         if (hubspotError.body?.category === "CONFLICT") {
@@ -968,7 +984,7 @@ export async function registerRoutes(
         }
       }
 
-      res.json({ 
+      res.status(201).json({ 
         success: true, 
         message: "Welcome to Opus 355! You're now a member.",
         memberId: createdMember.id
