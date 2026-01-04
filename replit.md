@@ -102,9 +102,9 @@ Preferred communication style: Simple, everyday language.
 - **Lifecycle Automation**: Lead → Subscriber on tier upgrade, sync on subscription changes
 
 ### Analytics
-- **Google Analytics 4**: Tracking via gtag.js (ID: G-2VR7386HM6)
-- **Google Tag Manager**: Container ID GT-TNSNWWM7
-- **Environment-aware**: Both GA4 and GTM only load in production (via `/api/config` endpoint)
+- **Google Analytics 4**: G-2VR7386HM6
+- **Google Tag Manager**: GT-TNSNWWM7
+- **Loading**: Both load in all environments (development and production)
 
 ### Infrastructure
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
