@@ -193,7 +193,12 @@ export async function registerRoutes(
   // Environment Config (for frontend)
   // ==========================================
   app.get("/api/config", (req, res) => {
-    const isProduction = process.env.REPLIT_DEPLOYMENT === "1";
+    // Check multiple indicators for production environment
+    const isProduction = 
+      process.env.REPLIT_DEPLOYMENT === "1" || 
+      process.env.NODE_ENV === "production" ||
+      !!process.env.REPLIT_DEPLOYMENT_ID;
+    
     res.json({
       isProduction,
       gaTrackingId: isProduction ? "G-2VR7386HM6" : null,
