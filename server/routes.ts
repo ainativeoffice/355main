@@ -201,7 +201,7 @@ export async function registerRoutes(
     res.json({
       isProduction,
       gaTrackingId: "G-2VR7386HM6",
-      gtmContainerId: "GT-TNSNWWM7",
+      gtmContainerIds: ["GT-TNSNWWM7", "GTM-PTRP86SV"],
     });
   });
 

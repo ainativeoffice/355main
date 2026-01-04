@@ -103,7 +103,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Analytics
 - **Google Analytics 4**: G-2VR7386HM6
-- **Google Tag Manager**: GT-TNSNWWM7
+- **Google Tag Manager**: GT-TNSNWWM7, GTM-PTRP86SV
 - **Loading**: Both load in all environments (development and production)
 
 ### Infrastructure
