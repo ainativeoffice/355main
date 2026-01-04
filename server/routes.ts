@@ -202,6 +202,7 @@ export async function registerRoutes(
     res.json({
       isProduction,
       gaTrackingId: isProduction ? "G-2VR7386HM6" : null,
+      gtmContainerId: isProduction ? "GT-TNSNWWM7" : null,
     });
   });
 

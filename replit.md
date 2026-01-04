@@ -103,7 +103,8 @@ Preferred communication style: Simple, everyday language.
 
 ### Analytics
 - **Google Analytics 4**: Tracking via gtag.js (ID: G-2VR7386HM6)
-- **Environment-aware**: GA only loads in production (via `/api/config` endpoint)
+- **Google Tag Manager**: Container ID GT-TNSNWWM7
+- **Environment-aware**: Both GA4 and GTM only load in production (via `/api/config` endpoint)
 
 ### Infrastructure
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
