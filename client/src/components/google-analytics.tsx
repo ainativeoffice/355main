@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const GA_MEASUREMENT_ID = "G-2VR7386HM6";
+const GA_MEASUREMENT_ID = "G-9ZRNMHDNBZ";
 
 export function GoogleAnalytics() {
   useEffect(() => {
