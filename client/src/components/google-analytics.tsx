@@ -4,23 +4,26 @@ const GA_MEASUREMENT_ID = "G-X4FDSGSRTB";
 
 export function GoogleAnalytics() {
   useEffect(() => {
-    // Initialize dataLayer and gtag function first
+    // Initialize dataLayer first
     window.dataLayer = window.dataLayer || [];
     function gtag(...args: any[]) {
       window.dataLayer.push(args);
     }
     (window as any).gtag = gtag;
 
-    // Queue the initial commands before script loads
-    gtag("js", new Date());
-    gtag("config", GA_MEASUREMENT_ID, {
-      send_page_view: true,
-    });
-
-    // Load GA4 script
+    // Load GA4 script first
     const script = document.createElement("script");
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
     script.async = true;
+    
+    // Call config AFTER script loads
+    script.onload = () => {
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID, {
+        send_page_view: true,
+      });
+    };
+    
     document.head.appendChild(script);
   }, []);
 
