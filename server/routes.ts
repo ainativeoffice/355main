@@ -200,7 +200,6 @@ export async function registerRoutes(
     
     res.json({
       isProduction,
-      gaMeasurementId: "G-X4FDSGSRTB",
     });
   });
 
