@@ -101,10 +101,6 @@ Preferred communication style: Simple, everyday language.
 - **Team Size Mapping**: App values mapped to HubSpot `numemployees` format (e.g., "1" → "1-5", "30+" → "25-50")
 - **Lifecycle Automation**: Lead → Subscriber on tier upgrade, sync on subscription changes
 
-### Analytics
-- **Google Analytics 4**: G-X4FDSGSRTB (single stream via gtag.js)
-- **Loading**: Loads in all environments (development and production)
-
 ### Infrastructure
 - **Database**: PostgreSQL (connection via `DATABASE_URL` environment variable)
 - **Session Storage**: connect-pg-simple for PostgreSQL-backed sessions
