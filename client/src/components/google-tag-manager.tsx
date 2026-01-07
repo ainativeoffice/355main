@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-const GA_MEASUREMENT_ID = "G-JH8GZN03PJ";
+const GTM_ID = "GT-TNSNWWM7";
 
-export function GoogleAnalytics() {
+export function GoogleTagManager() {
   useEffect(() => {
     window.dataLayer = window.dataLayer || [];
     function gtag(...args: any[]) {
@@ -11,12 +11,12 @@ export function GoogleAnalytics() {
     (window as any).gtag = gtag;
 
     const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`;
     script.async = true;
     
     script.onload = () => {
       gtag("js", new Date());
-      gtag("config", GA_MEASUREMENT_ID);
+      gtag("config", GTM_ID);
     };
     
     document.head.appendChild(script);

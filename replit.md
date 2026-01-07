@@ -102,7 +102,7 @@ Preferred communication style: Simple, everyday language.
 - **Lifecycle Automation**: Lead → Subscriber on tier upgrade, sync on subscription changes
 
 ### Analytics
-- **Google Analytics 4**: G-JH8GZN03PJ (single stream via gtag.js)
+- **Google Tag Manager**: GT-TNSNWWM7 (Google Tag via gtag.js)
 - **Loading**: Script loads async, config called after script loads
 
 ### Infrastructure
