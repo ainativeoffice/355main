@@ -8,10 +8,12 @@ import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { LocationSection } from "@/components/location-section";
+import { ImageComparisonSlider } from "@/components/image-comparison-slider";
 
 import heroImage from "@assets/Hero_1767222668713.png";
 
-import constructionImage from "@assets/construction_update.jpg";
+import constructionBefore from "@assets/construction_update.jpg";
+import constructionAfter from "@assets/IMG_1286_1_1768254888740.jpeg";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
@@ -478,17 +480,16 @@ export default function Home() {
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
                transition={{ duration: 0.8 }}
-               className="order-2 md:order-1 relative aspect-video bg-muted overflow-hidden shadow-2xl"
+               className="order-2 md:order-1 relative bg-muted overflow-hidden shadow-2xl"
              >
-                <img 
-                  src={constructionImage} 
-                  alt="Construction Progress - Flooring Prep" 
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                <ImageComparisonSlider
+                  beforeImage={constructionBefore}
+                  afterImage={constructionAfter}
+                  beforeLabel="Dec 26"
+                  afterLabel="Jan 12"
+                  beforeDate="Subfloor Prep"
+                  afterDate="Flooring Installed"
                 />
-                <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-md text-white px-3 py-1 text-xs uppercase tracking-widest">
-                  Live Update
-                </div>
              </motion.div>
 
              <motion.div
@@ -501,12 +502,12 @@ export default function Home() {
                <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
                <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                 We are stripping back the layers to reveal the essential structure. 
-                 The walls are primed. The subfloor is prepped. We're getting ready for you.
+                 Drag the slider to see our progress. The luxury vinyl flooring is now installed, 
+                 track lighting operational, and wood doors in place. We're getting ready for you.
                </p>
                <div className="flex items-center gap-4">
                  <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
-                    Current Status: <span className="text-foreground">Flooring Installation</span>
+                    Current Status: <span className="text-foreground">Flooring Complete</span>
                  </div>
                </div>
              </motion.div>
