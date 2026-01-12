@@ -69,18 +69,13 @@ export function ImageComparisonSlider({
         draggable={false}
       />
       
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ width: `${sliderPosition}%` }}
-      >
-        <img
-          src={beforeImage}
-          alt={beforeLabel}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ width: containerRef.current?.offsetWidth || "100%" }}
-          draggable={false}
-        />
-      </div>
+      <img
+        src={beforeImage}
+        alt={beforeLabel}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        draggable={false}
+      />
 
       <div
         className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize z-10"
