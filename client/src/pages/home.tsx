@@ -10,7 +10,7 @@ import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { LocationSection } from "@/components/location-section";
 import { ImageComparisonSlider } from "@/components/image-comparison-slider";
 
-import heroImage from "@assets/Hero_1767222668713.png";
+import heroImage from "@assets/Hero_1767222668713-BGcfxWPp_1768257795221.jpg";
 
 import constructionBefore from "@assets/construction_update.jpg";
 import constructionAfter from "@assets/IMG_1286_1_1768254888740.jpeg";
@@ -419,7 +419,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.1] tracking-tight"
           >
-            A Design-Led<br />Workplace
+            The Destination<br />Workplace
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
