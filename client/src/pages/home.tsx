@@ -13,7 +13,7 @@ import { ImageComparisonSlider } from "@/components/image-comparison-slider";
 import heroImage from "@assets/Hero_1767222668713-BGcfxWPp_1768257795221.jpg";
 
 import constructionBefore from "@assets/construction_update.jpg";
-import constructionAfter from "@assets/IMG_1286_1_1768254888740.jpeg";
+import constructionAfter from "@assets/IMG_1294_1768258793345.jpg";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
