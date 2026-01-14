@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opus355.com/sitemap.xml
