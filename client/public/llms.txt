@@ -1,0 +1,84 @@
+# Opus 355 - The Destination Workplace
+
+> A premium flexible workspace at 355 Main Street, Armonk, New York
+
+## What is Opus 355?
+
+Opus 355 is a Destination Workplace - an office people want to go to, not just have to go to. Located at 355 Main Street in Armonk, NY (Westchester County), it operates as an "Office Club" serving both single-user tenants and flex office segments.
+
+## Core Concept
+
+The building features Dynamic Spaces - flexible zones that transform to support different work modes:
+- Focus work
+- Collaboration
+- Meetings
+- Workshops
+- Presentations
+
+Premium furniture from partners like Vitra enables rapid reconfiguration to match any work style or team need.
+
+## Workspace Solutions
+
+### Custom Offices
+Fully customizable private office suites designed to tenant specifications. Ideal for companies wanting a branded, permanent presence.
+
+### Private Offices
+Ready-to-use private offices with premium furnishings. Move-in ready with flexible terms.
+
+### Hybrid Memberships
+Flexible access to workspace and amenities for distributed teams. Perfect for remote-first companies needing occasional in-person collaboration space.
+
+## Building Features
+
+### Dynamic Spaces
+Public, semi-private, and private zones designed for the distributed work era. Spaces transform throughout the day to support different activities.
+
+### FF&E Partners
+- **Vitra** - Premium modular furniture
+- **BASO Lighting** - Round architectural fixtures
+- **Louis Poulsen** - Danish architectural lighting
+- **Coronet** - Linear office fixtures
+- **Marset** - Accent and task lighting
+- **Casambi** - Wireless lighting controls
+
+### Smart Building
+Wireless lighting controls and scene management enable personalized lighting experiences throughout the space.
+
+## Location
+
+355 Main Street
+Armonk, NY 10504
+United States
+
+Armonk is located in Westchester County, approximately 40 miles north of New York City. The area is known for its corporate headquarters, excellent schools, and suburban quality of life.
+
+## Target Audience
+
+- Growing companies seeking premium office space
+- Remote-first teams needing collaboration hubs
+- Executives wanting a professional workspace
+- Enterprises exploring flexible real estate strategies
+- Commercial real estate brokers and landlords
+
+## Key Pages
+
+- **Home** (/) - Overview of The Destination Workplace concept
+- **Solutions** (/solutions) - Workspace options and pricing tiers
+- **Custom Offices** (/solutions/custom-offices) - Fully customizable suites
+- **Private Offices** (/solutions/private-offices) - Ready-to-use offices
+- **Hybrid Memberships** (/solutions/hybrid) - Flexible access plans
+- **About** (/about) - Building story and vision
+- **Enterprise** (/enterprise) - Solutions for larger organizations
+- **Landlords** (/landlords) - Partnership opportunities for property owners
+- **Brokers** (/brokers) - Information for commercial real estate professionals
+
+## Contact
+
+Website: https://opus355.com
+Join the waitlist at: https://opus355.com (homepage)
+
+## Brand Positioning
+
+"Form follows function, but feeling follows form."
+
+Opus 355 believes the future of work requires spaces that inspire, not just accommodate. The Destination Workplace is where productivity meets hospitality.
