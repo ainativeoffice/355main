@@ -2,26 +2,11 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
-import { testDatabaseConnection } from "./db";
-import { validateAndExit } from "./env-validation";
 
 const app = express();
 const httpServer = createServer(app);
 
-declare module "http" {
-  interface IncomingMessage {
-    rawBody: unknown;
-  }
-}
-
-app.use(
-  express.json({
-    verify: (req, _res, buf) => {
-      req.rawBody = buf;
-    },
-  }),
-);
-
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 export function log(message: string, source = "express") {
@@ -65,18 +50,8 @@ async function startServer() {
   try {
     log("Starting server initialization...", "startup");
     
-    validateAndExit();
-    
     log(`NODE_ENV: ${process.env.NODE_ENV || "development"}`, "startup");
-    log(`DATABASE_URL: ${process.env.DATABASE_URL ? "configured" : "NOT SET"}`, "startup");
-    log(`SESSION_SECRET: ${process.env.SESSION_SECRET ? "configured" : "using default"}`, "startup");
     log(`PORT: ${process.env.PORT || "5000 (default)"}`, "startup");
-
-    log("Testing database connection...", "startup");
-    const dbConnected = await testDatabaseConnection();
-    if (!dbConnected) {
-      log("WARNING: Database connection failed, but continuing server startup", "startup");
-    }
 
     await registerRoutes(httpServer, app);
     log("Routes registered successfully", "startup");
