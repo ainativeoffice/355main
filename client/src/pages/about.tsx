@@ -11,7 +11,19 @@ import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
 import ffeTyde2 from "@assets/stock_images/vitra_tyde_2_sit_sta_39a22b81.jpg";
 
-const ffePartners = [
+interface Partner {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+}
+
+interface PartnerCategory {
+  category: string;
+  partners: Partner[];
+}
+
+const ffePartners: PartnerCategory[] = [
   {
     category: "Furniture",
     partners: [
