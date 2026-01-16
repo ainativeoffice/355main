@@ -179,7 +179,7 @@ export async function registerRoutes(
       createTableIfMissing: true,
       pruneSessionInterval: 60 * 15
     }),
-    secret: process.env.SESSION_SECRET || "opus355-admin-secret-key",
+    secret: process.env.SESSION_SECRET || "355main-admin-secret-key",
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -930,7 +930,7 @@ export async function registerRoutes(
         if (createdMember.jobRole) standardProperties.jobtitle = createdMember.jobRole;
         if (createdMember.teamSize) standardProperties.numemployees = mapTeamSizeToHubSpot(createdMember.teamSize);
         
-        // Custom Opus 355 properties (require setup in HubSpot dashboard)
+        // Custom 355 Main properties (require setup in HubSpot dashboard)
         const customProperties: Record<string, string> = {};
         if (createdMember.moveInTiming) customProperties.opus_move_in_timing = createdMember.moveInTiming;
         customProperties.opus_membership_tier = "free";
@@ -989,7 +989,7 @@ export async function registerRoutes(
 
       res.status(201).json({ 
         success: true, 
-        message: "Welcome to Opus 355! You're now a member.",
+        message: "Welcome to 355 Main! You're now a member.",
         memberId: createdMember.id
       });
     } catch (error: any) {
@@ -1439,7 +1439,7 @@ export async function registerRoutes(
     // Create or get test user and establish session - for automated testing only
     app.post("/api/test/auth/login", async (req, res) => {
       try {
-        const testEmail = "test@opus355.dev";
+        const testEmail = "test@355main.dev";
         
         // Find or create test member
         let member = await storage.getMemberByEmail(testEmail);
@@ -1449,7 +1449,7 @@ export async function registerRoutes(
             email: testEmail,
             firstName: "Test",
             lastName: "User",
-            company: "Opus 355 Test",
+            company: "355 Main Test",
             jobRole: "QA Tester",
             teamSize: "1",
             moveInTiming: null,

@@ -1,4 +1,4 @@
-# Opus 355 Design System
+# 355 Main Design System
 
 A comprehensive design system based on Client-first methodology, designed for consistency between Figma and code.
 

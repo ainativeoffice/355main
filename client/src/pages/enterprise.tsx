@@ -50,7 +50,7 @@ export default function Enterprise() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg text-white/80"
             >
-              Whether you're building a regional hub, supporting distributed teams, or reimagining your workplace strategy, Opus 355 delivers flexibility without compromise.
+              Whether you're building a regional hub, supporting distributed teams, or reimagining your workplace strategy, 355 Main delivers flexibility without compromise.
             </motion.p>
           </div>
 
@@ -62,7 +62,7 @@ export default function Enterprise() {
           >
             <h2 className="font-serif text-2xl mb-6">Enterprise Membership</h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Join Opus 355 to access custom workspace solutions, priority support, and exclusive enterprise benefits for your organization.
+              Join 355 Main to access custom workspace solutions, priority support, and exclusive enterprise benefits for your organization.
             </p>
             <button
               onClick={() => setMembershipOpen(true)}
@@ -79,7 +79,7 @@ export default function Enterprise() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Benefits</span>
-            <h2 className="font-serif text-3xl md:text-5xl mb-4">Why Enterprise Teams Choose Opus 355</h2>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Why Enterprise Teams Choose 355 Main</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -213,7 +213,7 @@ export default function Enterprise() {
           <MapPin className="w-16 h-16 text-primary mx-auto mb-8" />
           <h2 className="font-serif text-3xl md:text-5xl mb-6">Opening February 2026</h2>
           <p className="text-white/70 max-w-xl mx-auto mb-8">
-            Be among the first enterprises to establish presence at Opus 355. Early partners receive priority access and preferred terms.
+            Be among the first enterprises to establish presence at 355 Main. Early partners receive priority access and preferred terms.
           </p>
           <Link 
             href="/"

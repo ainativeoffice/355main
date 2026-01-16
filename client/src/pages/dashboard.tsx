@@ -117,7 +117,7 @@ export default function Dashboard() {
                 Welcome, {memberName}
               </h1>
               <p className="text-muted-foreground mt-1">
-                Your Opus 355 membership dashboard
+                Your 355 Main membership dashboard
               </p>
             </div>
             <Button 

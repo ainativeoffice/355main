@@ -52,7 +52,7 @@ export default function Landlords() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            href="mailto:partnerships@opus355.com"
+            href="mailto:partnerships@355main.com"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
             data-testid="button-partner-landlord"
           >
@@ -240,7 +240,7 @@ export default function Landlords() {
                 North Castle Ventures is developing a new paradigm for commercial real estate in the Northern Westchester corridor. Our approach combines design excellence, operational expertise, and deep local knowledge.
               </p>
               <p className="text-white/70 leading-relaxed mb-8">
-                Opus 355 at 355 Main Street, Armonk represents our flagship project — a dynamic workplace destination that reimagines the office for the distributed work era. We're actively seeking partnerships with property owners who share our vision for elevating the workplace experience.
+                355 Main at 355 Main Street, Armonk represents our flagship project — a dynamic workplace destination that reimagines the office for the distributed work era. We're actively seeking partnerships with property owners who share our vision for elevating the workplace experience.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -280,7 +280,7 @@ export default function Landlords() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="mailto:partnerships@opus355.com" 
+                href="mailto:partnerships@355main.com" 
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
                 data-testid="button-contact-partnerships"
               >
@@ -289,9 +289,9 @@ export default function Landlords() {
               <Link 
                 href="/"
                 className="inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
-                data-testid="link-see-opus355"
+                data-testid="link-see-355main"
               >
-                See Opus 355
+                See 355 Main
               </Link>
             </div>
           </div>

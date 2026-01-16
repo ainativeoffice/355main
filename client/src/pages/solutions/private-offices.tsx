@@ -69,7 +69,7 @@ export default function PrivateOffices() {
               <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Foundation</span>
               <h2 className="font-serif text-3xl md:text-4xl mb-6">Vitra Tyde 2 System</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Every private office at Opus 355 is built around the Vitra Tyde 2 height-adjustable desk system. This modular platform allows single units to integrate seamlessly into different layouts.
+                Every private office at 355 Main is built around the Vitra Tyde 2 height-adjustable desk system. This modular platform allows single units to integrate seamlessly into different layouts.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 The Tyde 2's unified electrical and structural support means your workspace can evolve with your team — adding or reconfiguring desks without complex infrastructure changes.
@@ -124,7 +124,7 @@ export default function PrivateOffices() {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                A dedicated private space with a single Tyde 2 workstation. Ideal for focused individual work with all the amenities of Opus 355.
+                A dedicated private space with a single Tyde 2 workstation. Ideal for focused individual work with all the amenities of 355 Main.
               </p>
               <ul className="space-y-2 text-sm">
                 <li className="flex items-center gap-2">
@@ -257,10 +257,10 @@ export default function PrivateOffices() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-5xl mb-6">Ready to Move In?</h2>
           <p className="text-white/70 max-w-xl mx-auto mb-8">
-            Private offices at Opus 355 are move-in ready. Contact us to schedule a tour and find the right configuration for your team.
+            Private offices at 355 Main are move-in ready. Contact us to schedule a tour and find the right configuration for your team.
           </p>
           <a 
-            href="mailto:leasing@opus355.com" 
+            href="mailto:leasing@355main.com" 
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
             data-testid="button-schedule-tour"
           >

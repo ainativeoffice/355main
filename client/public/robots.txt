@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://opus355.com/sitemap.xml
+Sitemap: https://355main.com/sitemap.xml
 
 # AI Crawlers - see llms.txt for site context
-# https://opus355.com/llms.txt
+# https://355main.com/llms.txt

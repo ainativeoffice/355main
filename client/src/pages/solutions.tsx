@@ -38,7 +38,7 @@ export default function Solutions() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            From dedicated private offices to flexible hybrid memberships, Opus 355 offers workspace solutions designed for how you work today.
+            From dedicated private offices to flexible hybrid memberships, 355 Main offers workspace solutions designed for how you work today.
           </motion.p>
         </div>
       </section>
@@ -75,7 +75,7 @@ export default function Solutions() {
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">For organizations seeking dedicated space</p>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Design-build custom office space on the parcel, separate from Opus 355. A ground-up solution tailored to your organization's unique requirements.
+                    Design-build custom office space on the parcel, separate from 355 Main. A ground-up solution tailored to your organization's unique requirements.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-sm">
@@ -325,7 +325,7 @@ export default function Solutions() {
             Our team can help you find the perfect workspace solution for your organization's needs.
           </p>
           <a 
-            href="mailto:leasing@opus355.com" 
+            href="mailto:leasing@355main.com" 
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
             data-testid="button-contact-solutions"
           >

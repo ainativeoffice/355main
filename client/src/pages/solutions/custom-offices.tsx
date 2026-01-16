@@ -60,10 +60,10 @@ export default function CustomOffices() {
               <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Opportunity</span>
               <h2 className="font-serif text-3xl md:text-4xl mb-6">Build Your Vision</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                For organizations seeking a truly dedicated presence in Armonk, we offer the opportunity to design and build a custom office structure on available parcels adjacent to Opus 355.
+                For organizations seeking a truly dedicated presence in Armonk, we offer the opportunity to design and build a custom office structure on available parcels adjacent to 355 Main.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                This is not a renovation or fit-out — it's a ground-up development tailored to your exact specifications, constructed separately from the main Opus 355 building while benefiting from the same prime location and campus amenities.
+                This is not a renovation or fit-out — it's a ground-up development tailored to your exact specifications, constructed separately from the main 355 Main building while benefiting from the same prime location and campus amenities.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -76,7 +76,7 @@ export default function CustomOffices() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Access to Opus 355 amenities and services</span>
+                  <span>Access to 355 Main amenities and services</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
@@ -173,7 +173,7 @@ export default function CustomOffices() {
               <div className="text-4xl font-serif text-primary mb-4">04</div>
               <h3 className="font-serif text-xl mb-3">Occupy</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Move into your bespoke workspace and join the Opus 355 community.
+                Move into your bespoke workspace and join the 355 Main community.
               </p>
             </motion.div>
           </div>
@@ -193,7 +193,7 @@ export default function CustomOffices() {
                 If your organization is interested in exploring a custom office development, we encourage you to contact our team to discuss your requirements and timeline.
               </p>
               <a 
-                href="mailto:leasing@opus355.com" 
+                href="mailto:leasing@355main.com" 
                 className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
                 data-testid="button-inquire-custom"
               >

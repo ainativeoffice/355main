@@ -91,7 +91,7 @@ export default function AuthError() {
             
             {errorInfo.action === "contact" && (
               <Button asChild data-testid="button-contact-support">
-                <a href="mailto:support@opus355.com">
+                <a href="mailto:support@355main.com">
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Support
                 </a>

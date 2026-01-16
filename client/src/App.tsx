@@ -18,7 +18,7 @@ const CustomOffices = lazy(() => import("@/pages/solutions/custom-offices"));
 const PrivateOffices = lazy(() => import("@/pages/solutions/private-offices"));
 const HybridMemberships = lazy(() => import("@/pages/solutions/hybrid"));
 
-// Auth pages deprecated - authentication moves to app.opus355.com
+// Auth pages deprecated - authentication moves to app.355main.com
 // const AdminLogin = lazy(() => import("@/pages/admin/login"));
 // const AdminDashboard = lazy(() => import("@/pages/admin/index"));
 // const MemberDashboard = lazy(() => import("@/pages/dashboard"));
@@ -47,7 +47,7 @@ function Router() {
         <Route path="/solutions/custom-offices" component={CustomOffices} />
         <Route path="/solutions/private-offices" component={PrivateOffices} />
         <Route path="/solutions/hybrid" component={HybridMemberships} />
-        {/* Auth routes deprecated - authentication moves to app.opus355.com */}
+        {/* Auth routes deprecated - authentication moves to app.355main.com */}
         {/* <Route path="/admin/login" component={AdminLogin} /> */}
         {/* <Route path="/admin" component={AdminDashboard} /> */}
         {/* <Route path="/dashboard" component={MemberDashboard} /> */}

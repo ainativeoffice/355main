@@ -189,7 +189,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
     <Dialog open={open} onOpenChange={(nextOpen) => !nextOpen && handleClose()}>
       <DialogContent className="max-w-none w-screen h-screen p-0 border-0 rounded-none" data-testid="waitlist-dialog">
         <VisuallyHidden>
-          <DialogTitle>Join the Opus 355 Waitlist</DialogTitle>
+          <DialogTitle>Join the 355 Main Waitlist</DialogTitle>
           <DialogDescription>
             Share your workspace requirements and preferences to join our waitlist and receive priority updates.
           </DialogDescription>
@@ -246,7 +246,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
                   </div>
                   <h1 className="font-serif text-4xl mb-4">You're on the list!</h1>
                   <p className="text-xl text-muted-foreground mb-4 max-w-md">
-                    Thank you for sharing your vision with us. Your input is invaluable as we put the finishing touches on Opus 355.
+                    Thank you for sharing your vision with us. Your input is invaluable as we put the finishing touches on 355 Main.
                   </p>
                   <p className="text-muted-foreground mb-8 max-w-md">
                     We'll be in touch soon with updates, sneak peeks, and priority access when we open our doors.
@@ -271,7 +271,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
                         </div>
                         <h1 className="font-serif text-4xl mb-4">We Want to Hear From You</h1>
                         <p className="text-xl text-muted-foreground max-w-md mx-auto">
-                          Your input will help us make final adjustments to Opus 355. Tell us about your ideal workspace.
+                          Your input will help us make final adjustments to 355 Main. Tell us about your ideal workspace.
                         </p>
                       </div>
 
@@ -472,7 +472,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
                         </div>
                         <h1 className="font-serif text-4xl mb-4">Configure Your Workspace</h1>
                         <p className="text-xl text-muted-foreground max-w-md mx-auto">
-                          How would you like to structure your space at Opus 355?
+                          How would you like to structure your space at 355 Main?
                         </p>
                       </div>
 
@@ -666,7 +666,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
                       <div className="space-y-6 max-w-lg mx-auto">
                         <div>
                           <Label htmlFor="idealDay" className="text-base">
-                            Describe your ideal workday at Opus 355
+                            Describe your ideal workday at 355 Main
                           </Label>
                           <p className="text-sm text-muted-foreground mb-3">
                             Paint us a picture. What would make this the perfect workspace for you?

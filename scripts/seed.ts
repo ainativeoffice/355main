@@ -2,7 +2,7 @@ import { db } from "../server/db";
 import { testimonials, news, members, memberPreferences } from "../shared/schema";
 import { eq } from "drizzle-orm";
 
-const SEED_MARKER_EMAIL = "seed-marker@opus355.dev";
+const SEED_MARKER_EMAIL = "seed-marker@355main.dev";
 
 async function clearSeededData() {
   console.log("🧹 Clearing previously seeded data...");
@@ -51,7 +51,7 @@ async function seedTestimonials() {
       name: "Sarah Chen",
       title: "CEO",
       company: "Tech Ventures Inc.",
-      quote: "Opus 355 transformed how our distributed team collaborates. The hybrid membership gives us the flexibility we need while maintaining a professional home base.",
+      quote: "355 Main transformed how our distributed team collaborates. The hybrid membership gives us the flexibility we need while maintaining a professional home base.",
       solutionType: "hybrid",
       featured: true,
     },
@@ -67,7 +67,7 @@ async function seedTestimonials() {
       name: "Rachel Torres",
       title: "Partner",
       company: "Torres & Associates",
-      quote: "Moving our law practice to Opus 355 was the best decision we made. The enterprise amenities and meeting rooms are perfect for client consultations.",
+      quote: "Moving our law practice to 355 Main was the best decision we made. The enterprise amenities and meeting rooms are perfect for client consultations.",
       solutionType: "enterprise",
       featured: false,
     },
@@ -90,7 +90,7 @@ async function seedNews() {
   
   const newsData = [
     {
-      title: "Opus 355 Announces New Smart Building Features",
+      title: "355 Main Announces New Smart Building Features",
       excerpt: "Introducing Casambi lighting control and automated climate management for all members.",
       content: "We're excited to announce the integration of cutting-edge smart building technology...",
       category: "Announcements",

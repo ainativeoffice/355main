@@ -53,7 +53,7 @@ export default function AdminDashboard() {
       <header className="bg-card border-b border-border">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div>
-            <h1 className="font-serif text-2xl">Opus 355 Admin</h1>
+            <h1 className="font-serif text-2xl">355 Main Admin</h1>
             <p className="text-sm text-muted-foreground">Logged in as {admin.username}</p>
           </div>
           <div className="flex items-center gap-4">

@@ -17,7 +17,7 @@ const ffePartners = [
     partners: [
       {
         name: "Vitra",
-        description: "Swiss furniture manufacturer known for iconic designs and innovative workplace solutions. Their modular systems enable the Dynamic Spaces concept at Opus 355.",
+        description: "Swiss furniture manufacturer known for iconic designs and innovative workplace solutions. Their modular systems enable the Dynamic Spaces concept at 355 Main.",
         url: "https://www.vitra.com",
         image: ffeEames,
       },
@@ -71,7 +71,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block"
           >
-            About Opus 355
+            About 355 Main
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
-            Opus 355 reimagines the workplace for the distributed era—where exceptional 
+            355 Main reimagines the workplace for the distributed era—where exceptional 
             design, hospitality, and flexibility converge to create spaces people genuinely 
             want to inhabit.
           </motion.p>
@@ -116,7 +116,7 @@ export default function About() {
                   <em> choose</em> to be. We call this the <strong className="text-foreground">Destination Workplace</strong>.
                 </p>
                 <p>
-                  Opus 355 operates as an <strong className="text-foreground">Office Club</strong>: 
+                  355 Main operates as an <strong className="text-foreground">Office Club</strong>: 
                   a members-only environment serving both dedicated tenants and flex workers, 
                   with public, semi-private, and private zones designed for how people actually 
                   work today.
@@ -139,7 +139,7 @@ export default function About() {
             >
               <img
                 src={lanternImage}
-                alt="Opus 355 Glass Exterior"
+                alt="355 Main Glass Exterior"
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute bottom-4 left-4 bg-background/95 backdrop-blur-sm px-4 py-2 border border-border">
@@ -176,7 +176,7 @@ export default function About() {
               </div>
               <h3 className="font-serif text-xl mb-3">Direct Ownership</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Unlike co-working franchises or third-party operators, Opus 355 is directly 
+                Unlike co-working franchises or third-party operators, 355 Main is directly 
                 owned and operated by the landlord. This means faster decisions, consistent 
                 service, and a long-term commitment to quality.
               </p>
@@ -352,7 +352,7 @@ export default function About() {
               Best-in-Class FF&E
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Opus 355 is outfitted with furniture, fixtures, and equipment from 
+              355 Main is outfitted with furniture, fixtures, and equipment from 
               industry-leading partners who share our commitment to design excellence.
             </p>
           </div>

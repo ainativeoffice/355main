@@ -45,7 +45,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-md bg-card border border-border p-8">
         <div className="text-center mb-8">
           <h1 className="font-serif text-3xl mb-2">Admin Login</h1>
-          <p className="text-muted-foreground text-sm">Opus 355 Content Management</p>
+          <p className="text-muted-foreground text-sm">355 Main Content Management</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">

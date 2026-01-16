@@ -12,7 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-md transition-all duration-300">
         <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <Link href="/" className="font-serif text-xl sm:text-2xl tracking-tight hover:opacity-80 transition-opacity z-10" data-testid="link-logo">
-            Opus 355
+            355 Main
           </Link>
 
           <button 
@@ -30,7 +30,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <a href="/#blueprint" className="hover:text-primary transition-colors" data-testid="link-nav-blueprint">Blueprint</a>
             <a href="/#contact" className="hover:text-primary transition-colors" data-testid="link-nav-contact">Contact</a>
             
-            {/* Sign In button deprecated - auth moves to app.opus355.com */}
+            {/* Sign In button deprecated - auth moves to app.355main.com */}
             <button 
               onClick={() => setMembershipOpen(true)}
               className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
@@ -48,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <a href="/#blueprint" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-blueprint">Blueprint</a>
             <a href="/#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-contact">Contact</a>
             
-            {/* Sign In button deprecated - auth moves to app.opus355.com */}
+            {/* Sign In button deprecated - auth moves to app.355main.com */}
             <button 
               onClick={() => { setMobileMenuOpen(false); setMembershipOpen(true); }}
               className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
@@ -67,7 +67,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <footer className="bg-foreground text-background py-20 border-t border-white/10" id="contact">
         <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-5 gap-12">
           <div>
-            <h2 className="font-serif text-3xl mb-6">Opus 355</h2>
+            <h2 className="font-serif text-3xl mb-6">355 Main</h2>
             <p className="text-white/60 max-w-md leading-relaxed">
               The Destination Workplace.<br/>
               A new typology for the distributed age.
@@ -78,8 +78,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-lg">355 Main Street<br/>Armonk, New York</p>
             
             <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40 mt-8">Inquiries</h3>
-            <a href="mailto:leasing@opus355.com" className="text-lg hover:text-white/80 transition-colors block">
-              leasing@opus355.com
+            <a href="mailto:leasing@355main.com" className="text-lg hover:text-white/80 transition-colors block">
+              leasing@355main.com
             </a>
           </div>
           <div className="space-y-4">
@@ -123,7 +123,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
         <div className="container mx-auto px-6 mt-20 pt-8 border-t border-white/10 text-xs text-white/30">
-          <span>© 2025 Opus 355. All rights reserved.</span>
+          <span>© 2025 355 Main. All rights reserved.</span>
         </div>
       </footer>
 

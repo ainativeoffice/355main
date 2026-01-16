@@ -45,13 +45,13 @@ export default function Brokers() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8"
           >
-            The office is evolving. Now more than ever, owners and occupiers rely on you as their trusted CRE advisors. Opus 355 is your competitive advantage in Westchester.
+            The office is evolving. Now more than ever, owners and occupiers rely on you as their trusted CRE advisors. 355 Main is your competitive advantage in Westchester.
           </motion.p>
           <motion.a
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            href="mailto:leasing@opus355.com"
+            href="mailto:leasing@355main.com"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
             data-testid="button-partner-cta"
           >
@@ -67,7 +67,7 @@ export default function Brokers() {
             <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Solutions</span>
             <h2 className="font-serif text-3xl md:text-5xl mb-4">A Solution for Every Client</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The distributed workforce is here to stay, but it looks different for every organization. Opus 355 provides the flexibility your clients need.
+              The distributed workforce is here to stay, but it looks different for every organization. 355 Main provides the flexibility your clients need.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export default function Brokers() {
               <Users className="w-10 h-10 text-primary mb-6" />
               <h3 className="font-serif text-2xl mb-4">Remote Teams</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Give remote team members a professional place to work outside of the home. Opus 355 offers a consistent, premium experience in the heart of Armonk.
+                Give remote team members a professional place to work outside of the home. 355 Main offers a consistent, premium experience in the heart of Armonk.
               </p>
             </motion.div>
 
@@ -124,10 +124,10 @@ export default function Brokers() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Why Opus 355</span>
+              <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Why 355 Main</span>
               <h2 className="font-serif text-3xl md:text-4xl mb-6">The Destination Workplace Advantage</h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Opus 355 represents a new typology for the distributed age. Unlike conventional flex space, we've designed a true commercial destination that elevates your clients' workplace experience.
+                355 Main represents a new typology for the distributed age. Unlike conventional flex space, we've designed a true commercial destination that elevates your clients' workplace experience.
               </p>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
@@ -151,7 +151,7 @@ export default function Brokers() {
             <div className="relative">
               <img 
                 src={buildingExterior} 
-                alt="Opus 355 Exterior" 
+                alt="355 Main Exterior" 
                 className="w-full aspect-[4/3] object-cover"
                 loading="lazy"
                 data-testid="img-building-exterior"
@@ -204,7 +204,7 @@ export default function Brokers() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="mailto:leasing@opus355.com" 
+              href="mailto:leasing@355main.com" 
               className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
               data-testid="button-contact-broker"
             >

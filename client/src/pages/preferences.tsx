@@ -212,7 +212,7 @@ export default function Preferences() {
                   My Preferences
                 </h1>
                 <p className="text-muted-foreground mt-1">
-                  Personalize your Opus 355 experience
+                  Personalize your 355 Main experience
                 </p>
               </div>
             </div>

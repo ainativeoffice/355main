@@ -1,12 +1,12 @@
-# Opus 355 - Commercial Workplace Platform
+# 355 Main - Commercial Workplace Platform
 
 ## Overview
 
-Opus 355 is a marketing and lead generation website for **The Destination Workplace** - a commercial workspace property located at 355 Main Street, Armonk, New York. The application showcases the building's architectural zones, furniture and equipment specifications, and allows prospective tenants to join a waitlist through HubSpot integration.
+355 Main is a marketing and lead generation website for **The Destination Workplace** - a commercial workspace property located at 355 Main Street, Armonk, New York. The application showcases the building's architectural zones, furniture and equipment specifications, and allows prospective tenants to join a waitlist through HubSpot integration.
 
 ### Positioning: The Office Club
 
-Opus 355 operates as a **Destination Workplace**—a place people want to go, not just have to go. The project follows the **Office Club** model, serving both single-user tenants and flex office segments with public, semi-private, and private zones designed for the distributed work era.
+355 Main operates as a **Destination Workplace**—a place people want to go, not just have to go. The project follows the **Office Club** model, serving both single-user tenants and flex office segments with public, semi-private, and private zones designed for the distributed work era.
 
 The space features **Dynamic Spaces**—flexible zones that transform to support different work modes including focus work, collaboration, meetings, workshops, and presentations. Premium furniture enables rapid reconfiguration to match any work style or team need.
 

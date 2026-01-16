@@ -99,7 +99,7 @@ export default function HybridMemberships() {
                 </li>
               </ul>
               <a 
-                href="mailto:leasing@opus355.com?subject=Flex Membership Inquiry"
+                href="mailto:leasing@355main.com?subject=Flex Membership Inquiry"
                 className="block w-full text-center border border-border py-3 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
                 data-testid="button-flex-inquiry"
               >
@@ -149,7 +149,7 @@ export default function HybridMemberships() {
                 </li>
               </ul>
               <a 
-                href="mailto:leasing@opus355.com?subject=Standard Membership Inquiry"
+                href="mailto:leasing@355main.com?subject=Standard Membership Inquiry"
                 className="block w-full text-center bg-primary text-primary-foreground py-3 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
                 data-testid="button-standard-inquiry"
               >
@@ -196,7 +196,7 @@ export default function HybridMemberships() {
                 </li>
               </ul>
               <a 
-                href="mailto:leasing@opus355.com?subject=Unlimited Membership Inquiry"
+                href="mailto:leasing@355main.com?subject=Unlimited Membership Inquiry"
                 className="block w-full text-center border border-border py-3 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors"
                 data-testid="button-unlimited-inquiry"
               >
@@ -305,10 +305,10 @@ export default function HybridMemberships() {
         <div className="container mx-auto px-6 text-center">
           <h2 className="font-serif text-3xl md:text-5xl mb-6">Try Before You Commit</h2>
           <p className="text-white/70 max-w-xl mx-auto mb-8">
-            Schedule a tour to experience Opus 355 firsthand. See our spaces, meet the community, and find the membership that works for you.
+            Schedule a tour to experience 355 Main firsthand. See our spaces, meet the community, and find the membership that works for you.
           </p>
           <a 
-            href="mailto:leasing@opus355.com?subject=Hybrid Membership Tour"
+            href="mailto:leasing@355main.com?subject=Hybrid Membership Tour"
             className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
             data-testid="button-tour-hybrid"
           >

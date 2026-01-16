@@ -164,7 +164,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <Check className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="font-serif text-2xl mb-3">Welcome to Opus 355</h2>
+            <h2 className="font-serif text-2xl mb-3">Welcome to 355 Main</h2>
             <p className="text-muted-foreground mb-6">
               You're now a member. We'll keep you updated on news, events, and availability.
             </p>
@@ -193,7 +193,7 @@ export function JoinMembershipDialog({ open, onOpenChange }: JoinMembershipDialo
                 {step === 4 && "Select Your Tech & Amenities"}
               </DialogTitle>
               <p className="text-muted-foreground text-sm">
-                {step === 1 && "Get news, updates, and priority access to Opus 355."}
+                {step === 1 && "Get news, updates, and priority access to 355 Main."}
                 {step === 2 && "Help us understand your workspace needs."}
                 {step === 3 && "Configure your workspace mix"}
                 {step === 4 && "Pick the gear that matters to you."}

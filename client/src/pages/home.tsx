@@ -397,7 +397,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImage} 
-            alt="Opus 355 Lantern" 
+            alt="355 Main Lantern" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/50" />
@@ -461,7 +461,7 @@ export default function Home() {
             className="space-y-8 text-lg md:text-xl text-muted-foreground leading-relaxed font-light"
           >
             <p>
-              Opus 355 is designed for professionals who want more than four walls and a door. 
+              355 Main is designed for professionals who want more than four walls and a door. 
               Here, you get a beautifully curated, move-in ready space in a boutique campus setting.
             </p>
             <p>
@@ -949,7 +949,7 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Become a free member to get updates, priority access, and personalized workspace recommendations. Opus 355 opens February 2026.
+             Become a free member to get updates, priority access, and personalized workspace recommendations. 355 Main opens February 2026.
            </p>
            <div className="flex flex-col items-center gap-6">
              <button 
