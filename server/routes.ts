@@ -82,6 +82,25 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
 
+  // 301 Redirects for removed pages (prevents Google indexing errors)
+  const removedPages = [
+    '/dashboard',
+    '/preferences', 
+    '/join',
+    '/auth-error',
+    '/admin',
+    '/admin/login',
+    '/admin/members',
+    '/admin/testimonials',
+    '/admin/news',
+  ];
+  
+  removedPages.forEach(path => {
+    app.get(path, (req, res) => {
+      res.redirect(301, '/');
+    });
+  });
+
   // Health check endpoint
   app.get("/api/health", async (req, res) => {
     res.json({
@@ -158,7 +177,7 @@ export async function registerRoutes(
 
     const { member, preferences } = parseResult.data;
 
-    // Build HubSpot contact properties
+    // Build HubSpot contact properties (standard fields only)
     const standardProperties: Record<string, string> = {
       email: member.email,
       lifecyclestage: "lead",
@@ -171,12 +190,17 @@ export async function registerRoutes(
     if (member.jobRole) standardProperties.jobtitle = member.jobRole;
     if (member.teamSize) standardProperties.numemployees = mapTeamSizeToHubSpot(member.teamSize);
     
-    // Custom properties (if configured in HubSpot)
-    if (member.moveInTiming) standardProperties.opus_move_in_timing = member.moveInTiming;
-    if (preferences?.privateOfficeDesks) standardProperties.opus_private_desks = preferences.privateOfficeDesks.toString();
-    if (preferences?.hybridMemberships) standardProperties.opus_hybrid_seats = preferences.hybridMemberships.toString();
-    if (preferences?.amenities?.length) standardProperties.opus_amenities = preferences.amenities.join(", ");
-    if (preferences?.workspaceArchetype) standardProperties.opus_workspace_type = preferences.workspaceArchetype;
+    // Store preferences in notes field (custom properties may not exist)
+    const notesParts: string[] = [];
+    if (member.moveInTiming) notesParts.push(`Move-in timing: ${member.moveInTiming}`);
+    if (preferences?.workspaceArchetype) notesParts.push(`Workspace type: ${preferences.workspaceArchetype}`);
+    if (preferences?.privateOfficeDesks) notesParts.push(`Private desks needed: ${preferences.privateOfficeDesks}`);
+    if (preferences?.hybridMemberships) notesParts.push(`Hybrid memberships: ${preferences.hybridMemberships}`);
+    if (preferences?.amenities?.length) notesParts.push(`Amenities: ${preferences.amenities.join(", ")}`);
+    
+    if (notesParts.length > 0) {
+      standardProperties.message = notesParts.join(" | ");
+    }
 
     let hubspotSuccess = false;
     let hubspotError: string | null = null;

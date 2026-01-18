@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { ArrowRight, TrendingUp, Users, Building2, Star, Lightbulb, Leaf, Wifi, Monitor, Zap } from "lucide-react";
 import { Link } from "wouter";
 
@@ -12,6 +13,11 @@ import interiorImage from "@assets/Hero_1767222668713.png";
 export default function Landlords() {
   return (
     <Layout>
+      <SEO 
+        title="Landlords | 355 Main"
+        description="Transform your property into a destination workplace. Partner with 355 Main for premium office management solutions."
+        canonical="/landlords"
+      />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 

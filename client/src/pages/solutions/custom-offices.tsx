@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Building2, Ruler, Palette, TreePine } from "lucide-react";
 
@@ -10,6 +11,11 @@ import interiorImage from "@assets/Hero_1767222668713.png";
 export default function CustomOffices() {
   return (
     <Layout>
+      <SEO 
+        title="Custom Offices | 355 Main"
+        description="Ground-up design-build workspace tailored to your organization. Fully customizable private office suites at 355 Main in Armonk, NY."
+        canonical="/solutions/custom-offices"
+      />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 

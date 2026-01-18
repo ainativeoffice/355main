@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Download, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Building2, Users, Zap, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
@@ -392,6 +393,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <SEO canonical="/" />
       {/* 1. Hero Section - Refined & Timeless */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { ArrowRight, Check, Building2, Users, TrendingUp, Handshake } from "lucide-react";
 import { Link } from "wouter";
 
@@ -11,6 +12,11 @@ import interiorImage from "@assets/Hero_1767222668713.png";
 export default function Brokers() {
   return (
     <Layout>
+      <SEO 
+        title="Brokers | 355 Main"
+        description="Partner with 355 Main for premium office listings in Armonk, NY. Competitive commissions and dedicated broker support."
+        canonical="/brokers"
+      />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 

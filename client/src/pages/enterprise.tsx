@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { useState } from "react";
 import { ArrowRight, Calendar, MapPin, Laptop, Shield } from "lucide-react";
 import { Link } from "wouter";
@@ -15,6 +16,11 @@ export default function Enterprise() {
 
   return (
     <Layout>
+      <SEO 
+        title="Enterprise Solutions | 355 Main"
+        description="Tailored workspace solutions for large organizations. Flexible terms, dedicated support, and premium amenities at 355 Main."
+        canonical="/enterprise"
+      />
       <section className="relative min-h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 

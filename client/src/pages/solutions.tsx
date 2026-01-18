@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { Link } from "wouter";
 import { ArrowRight, Building2, Users, Zap, Layers, Video } from "lucide-react";
 import { Testimonials } from "@/components/testimonials";
@@ -14,6 +15,11 @@ import conferenceRoomsImage from "@assets/zones/zone11_closed_mtg.svg";
 export default function Solutions() {
   return (
     <Layout>
+      <SEO 
+        title="Workspace Solutions | 355 Main"
+        description="Custom offices, private offices, and hybrid memberships. Find your perfect workspace solution at 355 Main in Armonk, NY."
+        canonical="/solutions"
+      />
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-muted/30">
         <div className="container mx-auto px-6 py-24 text-center">
           <motion.span 

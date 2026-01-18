@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { ExternalLink, Building, Users, Sparkles } from "lucide-react";
 
 import lanternImage from "@assets/vs_exterior_glass.jpg";
@@ -75,6 +76,11 @@ const ffePartners: PartnerCategory[] = [
 export default function About() {
   return (
     <Layout>
+      <SEO 
+        title="About 355 Main | The Destination Workplace in Armonk"
+        description="Discover 355 Main's vision for the future of work. Premium design, world-class FF&E partners, and dynamic spaces in Armonk, NY."
+        canonical="/about"
+      />
       {/* Hero */}
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-6 max-w-4xl text-center">

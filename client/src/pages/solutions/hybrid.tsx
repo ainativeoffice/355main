@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Zap, Coffee, Phone, Calendar, Wifi, Clock } from "lucide-react";
 
@@ -10,6 +11,11 @@ import amenitiesImage from "@assets/Hero_1767222668713.png";
 export default function HybridMemberships() {
   return (
     <Layout>
+      <SEO 
+        title="Hybrid Memberships | 355 Main"
+        description="Flexible workspace access for distributed teams. Day passes, monthly memberships, and all-inclusive amenities at 355 Main."
+        canonical="/solutions/hybrid"
+      />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 

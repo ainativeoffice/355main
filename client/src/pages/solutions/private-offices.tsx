@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
+import { SEO } from "@/components/seo";
 import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Users, Plug, LayoutGrid, Settings } from "lucide-react";
 
@@ -10,6 +11,11 @@ import officeImage from "@assets/vs_exterior_glass.jpg";
 export default function PrivateOffices() {
   return (
     <Layout>
+      <SEO 
+        title="Private Offices | 355 Main"
+        description="Move-in ready private offices with Vitra Tyde 2 configurations for teams of 1-15. Premium furnishings at 355 Main in Armonk, NY."
+        canonical="/solutions/private-offices"
+      />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
