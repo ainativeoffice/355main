@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <!--ssr-title-->
     <title>355 Main | The Office Club in Armonk</title>
+    <!--/ssr-title-->
 
+    <!--ssr-meta-->
     <meta property="og:title" content="355 Main – The Destination Workplace" />
     <meta property="og:description" content="The office people actually want to go to. Premium workspaces, dynamic zones, and world-class design at 355 Main Street in Armonk, New York."/>
     <meta property="og:type" content="website" />
@@ -17,6 +20,7 @@
     <meta name="description" content="The office people actually want to go to. Premium workspaces, dynamic zones, and world-class design at 355 Main Street in Armonk, New York." />
     <meta name="keywords" content="coworking, office space, Armonk, Westchester, flexible workspace, private office, hybrid work, premium office" />
     <link rel="canonical" href="https://355main.com/" />
+    <!--/ssr-meta-->
     
     <script type="application/ld+json">
     {
@@ -108,7 +112,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--ssr-outlet--></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
