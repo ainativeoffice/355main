@@ -1,0 +1,47 @@
+Skip to content
+Chat history
+
+
+
+You said:
+tell me everything public you know about 355main.com 
+ChatGPT said:
+
+Thought for 6m 27s
+Here’s what I can pull from public sources about 355main.com (and what it appears to represent), with citations.
+What 355main.com is
+Brand/site name: “355 Main | The Office Club in Armonk.” 
+Positioning / tagline language shown in public snippets: it frames itself as “The Destination Workplace” and “a new typology for the distributed age.” 
+Location stated publicly: 355 Main Street, Armonk, New York. 
+Inbound contact email shown publicly: leasing@355main.com. 
+What it’s marketing (business concept)
+Public real-estate listings that link to 355main.com describe the offering as:
+An “Office Club” / members-only environment serving dedicated tenants and flex workers, with public, semi-private, and private zones, and “Dynamic Spaces” that reconfigure for focus work, collaboration, meetings, workshops, and presentations. 
+Public leasing / listing details that reference 355main.com
+Showcase (CoStar) listing
+Use type: Coworking space at 355 Main St, Armonk, NY 10504 
+Size range advertised: 150–6,150 SF 
+Rate shown: $12.00–$140.04 /SF/yr 
+Highlights: “Architecture, Nature, Access to town.” 
+Contact shown on the listing: Parham Alizadeh / North Castle Ventures LLC and phone (as published on the listing). 
+LoopNet listing (also links directly to 355main.com)
+Shows multiple private-office configurations and examples of monthly pricing (e.g., a “2–3pp Private Office” and a “4–6pp Private Office” with stated monthly rents on the page). 
+Mentions Matterport 3D exterior and tour media (“MATTERPORT 3D EXTERIOR” / “MATTERPORT 3D TOUR”). 
+Lists links including: North Castle Ventures, Armonk Professional Center, and 355main.com.
+Public property-record style details (about the underlying address)
+LoopNet’s property-record page (compiled from county/public-records providers) shows:
+APN/Parcel ID: 3800-108-000-00003-000-0001-074-0000
+Lot size: 3.16 AC
+Land use: Officebuilding
+Tax year shown: 2025
+(…plus other demographic/area tables) 
+Things I didn’t reliably extract (from public sources available to me here)
+WHOIS / registrar / nameservers / DNS records for 355main.com (I wasn’t able to pull an authoritative WHOIS/RDAP readout via the sources I could open in this session).
+Tech stack (Webflow/WordPress/etc.): the site itself appears to be heavily script-rendered in a way that prevented me from extracting its HTML/headers directly via the web viewer, so I’m not going to guess.
+Quick “map” of how 355main.com shows up publicly
+It’s referenced as the marketing site for a coworking / office-club offering at 355 Main St, Armonk, NY, and it’s cross-linked with the related campus/management sites in leasing marketplaces.
+If you want, paste (or screenshot) the homepage sections you care about (nav, footer, any “Explore” pages), and I’ll turn it into a clean site inventory (pages/sections, messaging hierarchy, CTAs, SEO titles/descriptions, and gaps) without guessing.
+
+
+
+ChatGPT is AI and can make mistakes. Check important info.
