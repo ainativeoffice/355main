@@ -3,7 +3,7 @@ import App from "./App";
 import "./index.css";
 
 const rootElement = document.getElementById("root")!;
-const hasSSRContent = rootElement.innerHTML.trim().length > 0;
+const hasSSRContent = rootElement.children.length > 0;
 
 if (hasSSRContent) {
   hydrateRoot(rootElement, <App />);
