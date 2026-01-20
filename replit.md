@@ -44,8 +44,9 @@ This is a **static-first marketing site** with minimal backend requirements.
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express (minimal server)
-- **Purpose**: Static file serving + HubSpot API proxy
+- **Purpose**: Static file serving + HubSpot API proxy + SSR rendering
 - **Build**: Vite for client bundling, esbuild for server
+- **SSR**: Server-side rendering enabled for production (improved SEO and AI crawler access)
 
 ### API Endpoints
 | Endpoint | Method | Purpose |
@@ -59,8 +60,11 @@ This is a **static-first marketing site** with minimal backend requirements.
 ├── client/src/          # React frontend
 │   ├── components/ui/   # shadcn/ui components
 │   ├── pages/           # Route components
+│   ├── entry-server.tsx # SSR entry point
+│   ├── entry-client.tsx # Client hydration entry
 │   └── lib/             # Utilities
 ├── server/              # Express backend (minimal)
+│   └── static.ts        # Production SSR rendering
 ├── shared/              # Shared validation schemas
 └── attached_assets/     # Static images and SVGs
 ```
@@ -87,8 +91,9 @@ This is a **static-first marketing site** with minimal backend requirements.
 - **Authentication**: 
   - **Production**: Replit Connectors (auto OAuth refresh)
   - **Development**: Private App token via `HUBSPOT_DEV_ACCESS_TOKEN`
-- **Custom Properties**: `opus_move_in_timing`, `opus_private_desks`, `opus_hybrid_seats`, `opus_amenities`, `opus_workspace_type`
+- **Properties**: Uses standard HubSpot fields (firstname, lastname, company, jobtitle, numemployees, message)
 - **Team Size Mapping**: App values mapped to HubSpot `numemployees` format
+- **Preferences**: Stored in `message` field to avoid custom property errors
 
 ### Analytics
 - **Google Tag Manager**: GT-TNSNWWM7
