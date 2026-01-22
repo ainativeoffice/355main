@@ -31,7 +31,7 @@ const ffePartners: PartnerCategory[] = [
       {
         name: "Vitra",
         description: "Swiss furniture manufacturer known for iconic designs and innovative workplace solutions. Their modular systems enable the Dynamic Spaces concept at 355 Main.",
-        url: "https://www.vitra.com",
+        url: "https://www.vitra.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         image: ffeEames,
       },
     ],
@@ -42,22 +42,22 @@ const ffePartners: PartnerCategory[] = [
       {
         name: "BASO Lighting",
         description: "Round architectural fixtures positioned above dynamic spaces, providing balanced ambient illumination.",
-        url: "https://www.basolighting.com",
+        url: "https://www.basolighting.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
       },
       {
         name: "Louis Poulsen",
         description: "Danish architectural lighting design, bringing Scandinavian craftsmanship to accent areas.",
-        url: "https://www.louispoulsen.com",
+        url: "https://www.louispoulsen.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
       },
       {
         name: "Coronet",
         description: "Linear office fixtures delivering consistent ambient light across work zones.",
-        url: "https://www.coronetled.com",
+        url: "https://www.coronetled.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
       },
       {
         name: "Marset",
         description: "Soho pendants and mono points for accent and task lighting throughout the space.",
-        url: "https://www.marset.com",
+        url: "https://www.marset.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
       },
     ],
   },
@@ -67,7 +67,7 @@ const ffePartners: PartnerCategory[] = [
       {
         name: "Casambi",
         description: "Wireless lighting controls and scene management enabling personalized lighting experiences. Members can adjust their environment through the Opus app.",
-        url: "https://www.casambi.com",
+        url: "https://www.casambi.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
       },
     ],
   },
@@ -248,7 +248,7 @@ export default function About() {
             </span>
             <h2 className="font-serif text-4xl mt-4">Armonk Professional Center</h2>
             <a
-              href="https://armonkprofessionalcenter.com"
+              href="https://armonkprofessionalcenter.com?utm_source=partner_website&utm_medium=referral&utm_campaign=355main"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 text-sm text-muted-foreground hover:text-primary transition-colors"

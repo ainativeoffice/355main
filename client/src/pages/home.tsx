@@ -80,7 +80,7 @@ const zones = [
         name: "Joyn 2",
         brand: "Vitra",
         image: ffeJoyn2,
-        url: "https://www.vitra.com/en-us/product/joyn-2",
+        url: "https://www.vitra.com/en-us/product/joyn-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/joyn2.pdf",
         desc: "Adaptable office table system for teamwork and collaboration."
       },
@@ -88,7 +88,7 @@ const zones = [
         name: ".04 Chair",
         brand: "Vitra",
         image: ffe04,
-        url: "https://www.vitra.com/en-us/product/04",
+        url: "https://www.vitra.com/en-us/product/04?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/04_chair.pdf",
         desc: "Unobtrusive design with ergonomic comfort for long periods of sitting."
       },
@@ -96,7 +96,7 @@ const zones = [
         name: "Dancing Wall",
         brand: "Vitra",
         image: ffeDancingWall,
-        url: "https://www.vitra.com/en-us/product/dancing-wall",
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
         desc: "Mobile partition that can be used to divide offices into zones."
       }
@@ -113,7 +113,7 @@ const zones = [
         name: "MedaMorph",
         brand: "Vitra",
         image: ffeMedaMorph,
-        url: "https://www.vitra.com/en-us/product/medamorph",
+        url: "https://www.vitra.com/en-us/product/medamorph?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/medamorph.pdf",
         desc: "Elegant conference table system for any size meeting."
       },
@@ -121,7 +121,7 @@ const zones = [
         name: "Eames Aluminum Group",
         brand: "Vitra",
         image: ffeEames,
-        url: "https://www.vitra.com/en-us/product/aluminium-group",
+        url: "https://www.vitra.com/en-us/product/aluminium-group?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/03_chair.pdf", // Using .03 as placeholder for general chair info if Eames PDF missing
         desc: "Timeless elegance for the executive boardroom."
       }
@@ -138,7 +138,7 @@ const zones = [
         name: "Tyde 2",
         brand: "Vitra",
         image: ffeTyde2,
-        url: "https://www.vitra.com/en-us/product/tyde-2",
+        url: "https://www.vitra.com/en-us/product/tyde-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/tyde2.pdf",
         desc: "Height-adjustable sit-stand table system."
       },
@@ -146,7 +146,7 @@ const zones = [
         name: "Mynt",
         brand: "Vitra",
         image: ffeMyntNew,
-        url: "https://www.vitra.com/en-us/product/mynt",
+        url: "https://www.vitra.com/en-us/product/mynt?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/mynt.pdf",
         desc: "An ergonomic office chair for dynamic sitting."
       },
@@ -154,7 +154,7 @@ const zones = [
         name: "Mikado Side Chair",
         brand: "Vitra",
         image: ffeMikado,
-        url: "https://www.vitra.com/en-us/product/mikado",
+        url: "https://www.vitra.com/en-us/product/mikado?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/mikado.pdf",
         desc: "Elegant side chair with a flexible backrest for comfort."
       }
@@ -171,7 +171,7 @@ const zones = [
         name: "Tyde 2",
         brand: "Vitra",
         image: ffeTyde2,
-        url: "https://www.vitra.com/en-us/product/tyde-2",
+        url: "https://www.vitra.com/en-us/product/tyde-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/tyde2.pdf",
         desc: "Height-adjustable sit-stand table system."
       },
@@ -179,7 +179,7 @@ const zones = [
         name: "Mynt",
         brand: "Vitra",
         image: ffeMyntNew,
-        url: "https://www.vitra.com/en-us/product/mynt",
+        url: "https://www.vitra.com/en-us/product/mynt?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/mynt.pdf",
         desc: "An ergonomic office chair for dynamic sitting."
       },
@@ -187,7 +187,7 @@ const zones = [
         name: "Mikado Side Chair",
         brand: "Vitra",
         image: ffeMikado,
-        url: "https://www.vitra.com/en-us/product/mikado",
+        url: "https://www.vitra.com/en-us/product/mikado?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/mikado.pdf",
         desc: "Elegant side chair with a flexible backrest for comfort."
       }
@@ -212,7 +212,7 @@ const zones = [
         name: "Dancing Wall",
         brand: "Vitra",
         image: ffeDancingWall,
-        url: "https://www.vitra.com/en-us/product/dancing-wall",
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
         desc: "Mobile partition that can be used to divide offices into zones."
       },
@@ -220,7 +220,7 @@ const zones = [
         name: "Stool-Tool",
         brand: "Vitra",
         image: ffeStoolTool,
-        url: "https://www.vitra.com/en-us/product/stool-tool",
+        url: "https://www.vitra.com/en-us/product/stool-tool?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/stool_tool.pdf",
         desc: "Stackable sculpture that serves as both chair and table."
       },
@@ -228,7 +228,7 @@ const zones = [
         name: "Super Fold Table",
         brand: "Vitra",
         image: ffeSuperFold,
-        url: "https://www.vitra.com/en-us/product/super-fold-table",
+        url: "https://www.vitra.com/en-us/product/super-fold-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/super_fold_table.pdf",
         desc: "Foldable table for flexible meeting arrangements."
       }
@@ -245,7 +245,7 @@ const zones = [
         name: "HAL",
         brand: "Vitra",
         image: ffeHal,
-        url: "https://www.vitra.com/en-us/product/hal",
+        url: "https://www.vitra.com/en-us/product/hal?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/hal_chair.pdf",
         desc: "Versatile shell chair by Jasper Morrison."
       }
@@ -262,7 +262,7 @@ const zones = [
         name: "Belleville Table",
         brand: "Vitra",
         image: ffeBelleville,
-        url: "https://www.vitra.com/en-us/product/belleville-table",
+        url: "https://www.vitra.com/en-us/product/belleville-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/belleville_table.pdf",
         desc: "Elegant bistro table with variable appearances."
       },
@@ -270,7 +270,7 @@ const zones = [
         name: ".03 Chair",
         brand: "Vitra",
         image: ffe03,
-        url: "https://www.vitra.com/en-us/product/03",
+        url: "https://www.vitra.com/en-us/product/03?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/03_chair.pdf",
         desc: "Sleek, slim shape with extraordinary comfort."
       },
@@ -278,7 +278,7 @@ const zones = [
         name: ".05 Chair",
         brand: "Vitra",
         image: ffe05,
-        url: "https://www.vitra.com/en-us/product/05",
+        url: "https://www.vitra.com/en-us/product/05?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/05_chair.pdf",
         desc: "Uncompromising form and flexible comfort in a cantilever chair."
       }
