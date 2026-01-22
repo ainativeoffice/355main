@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { GoogleTagManager } from "@/components/google-tag-manager";
+import { CrispChat } from "@/components/crisp-chat";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 
@@ -51,6 +52,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <GoogleTagManager />
+          <CrispChat />
           <Toaster />
           <Router />
         </TooltipProvider>
