@@ -7,6 +7,7 @@ import { db } from "./db";
 import { members, memberPreferences } from "@shared/schema";
 import { eq } from "drizzle-orm";
 import { sendSlackNotification, formatWaitlistNotification, formatMemberNotification } from "./slack";
+import { sendWaitlistConfirmation, sendMemberConfirmation } from "./email";
 
 // Simple in-memory rate limiter
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -182,9 +183,10 @@ export async function registerRoutes(
         }
       }
 
-      // Step 3: Send Slack notification (best effort)
+      // Step 3: Send notifications (best effort, non-blocking)
       if (!isExisting) {
         sendSlackNotification(formatWaitlistNotification(email)).catch(() => {});
+        sendWaitlistConfirmation(email).catch(() => {});
       }
 
       res.json({ 
@@ -336,8 +338,9 @@ export async function registerRoutes(
       console.error(`[HubSpot] Connection failed for ${member.email}:`, connectionError.message);
     }
 
-    // Step 3: Send Slack notification (best effort)
+    // Step 3: Send notifications (best effort, non-blocking)
     sendSlackNotification(formatMemberNotification(member, preferences)).catch(() => {});
+    sendMemberConfirmation(member).catch(() => {});
 
     res.status(201).json({ 
       success: true, 
