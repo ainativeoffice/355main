@@ -66,7 +66,7 @@ async function startServer() {
 
     if (process.env.NODE_ENV === "production") {
       log("Setting up static file serving for production", "startup");
-      serveStatic(app);
+      await serveStatic(app);
     } else {
       log("Setting up Vite dev server", "startup");
       const { setupVite } = await import("./vite");
