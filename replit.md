@@ -95,6 +95,23 @@ This is a **static-first marketing site** with minimal backend requirements.
 - **Team Size Mapping**: App values mapped to HubSpot `numemployees` format
 - **Preferences**: Stored in `message` field to avoid custom property errors
 
+### SendGrid (Email Confirmations)
+- **Purpose**: Send confirmation emails to leads after form submission
+- **Library**: `@sendgrid/mail`
+- **From Address**: `leasing@355main.com`
+- **Templates**: 
+  - Waitlist confirmation (simple signup)
+  - Member confirmation (full lead form with personalized greeting)
+- **Error Handling**: Non-blocking - form submissions succeed even if email fails
+
+### Slack Notifications
+- **Purpose**: Instant notifications when new leads submit forms
+- **Webhook**: Incoming webhook to designated Slack channel
+- **Notifications**:
+  - Waitlist signups (email only)
+  - Full lead submissions (name, company, role, team size, preferences)
+- **Error Handling**: Non-blocking - form submissions succeed even if Slack fails
+
 ### Analytics
 - **Google Tag Manager**: GT-TNSNWWM7
 - **Loading**: Script loads async, config called after load
@@ -111,6 +128,8 @@ This is a **static-first marketing site** with minimal backend requirements.
 ### Environment Variables
 - `PORT` - Server port (default: 5000)
 - `HUBSPOT_DEV_ACCESS_TOKEN` - HubSpot private app token (dev only)
+- `SENDGRID_API_KEY` - SendGrid API key for confirmation emails
+- `SLACK_WEBHOOK_URL` - Slack incoming webhook for lead notifications
 
 ### Error Handling
 - **Error Boundary**: `client/src/components/error-boundary.tsx` wraps app
