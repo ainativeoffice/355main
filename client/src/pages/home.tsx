@@ -331,7 +331,7 @@ const zones = [
         name: "Alcove Work Lowback",
         brand: "Vitra",
         image: ffeAlcove,
-        url: "https://www.vitra.com/en-us/product/alcove-work/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/alcove/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/alcove.pdf",
         desc: "Privacy seating by Ronan & Erwan Bouroullec."
       },
