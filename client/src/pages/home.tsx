@@ -50,6 +50,7 @@ import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
 import ffeAlcove from "@assets/vitra_alcove_lowback.jpg";
 import ffeStoolTool from "@assets/vitra_stool_tool.jpeg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
+import ffeDancingWallWhiteboard from "@assets/Screenshot_2026-01-24_at_12.51.24_PM_1769277092185.png";
 import ffeSoftWorkTable from "@assets/stock_images/vitra_soft_work_tabl_33f184fc.jpg";
 import ffeMedaMorph from "@assets/stock_images/vitra_medamorph_conf_c497432e.jpg";
 import ffeHal from "@assets/vitra_hal_chair.jpg";
@@ -107,9 +108,9 @@ const zones = [
       },
 
       {
-        name: "Dancing Wall",
+        name: "Dancing Wall: Magnetic Whiteboard",
         brand: "Vitra",
-        image: ffeDancingWall,
+        image: ffeDancingWallWhiteboard,
         url: "https://www.vitra.com/en-us/product/dancing-wall/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
         desc: "Magnetic whiteboard partition by Stephan Hürlemann."
@@ -162,9 +163,9 @@ const zones = [
       },
 
       {
-        name: "Dancing Wall",
+        name: "Dancing Wall: Magnetic Whiteboard",
         brand: "Vitra",
-        image: ffeDancingWall,
+        image: ffeDancingWallWhiteboard,
         url: "https://www.vitra.com/en-us/product/dancing-wall/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
         desc: "Magnetic whiteboard partition by Stephan Hürlemann."
