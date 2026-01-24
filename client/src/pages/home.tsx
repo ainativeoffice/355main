@@ -72,6 +72,7 @@ import ffeSamsungFridge from "@assets/latin-en-built-in-look-design-and-modern-d
 import ffeGEDishwasher from "@assets/730b7262198b87de4fabf133104fe8662b0ed0d3__74335_1769282266140.jpg";
 import ffeCoronetCDL3 from "@assets/CLD3_SQ_FIXED_TRIM_WHT-768x563_1769282420971.png";
 import ffeCaesarstone from "@assets/Screenshot_2026-01-24_at_2.23.53_PM_1769282649174.png";
+import ffeIkeaNickebo from "@assets/PH192017.jpg_1769282944080.avif";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -369,6 +370,13 @@ const zones = [
         image: ffeCaesarstone,
         url: "https://www.caesarstone.com/color-catalog/5131-calacatta-nuvo/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "Premium quartz countertop with elegant marble-inspired veining."
+      },
+      {
+        name: "Nickebo Kitchen",
+        brand: "IKEA",
+        image: ffeIkeaNickebo,
+        url: "https://www.ikea.com/us/en/rooms/kitchen/nickebo-anthracite-kitchen-guide-pub84fbdfb0/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Matte black finish and hardware throughout."
       }
     ]
   },
