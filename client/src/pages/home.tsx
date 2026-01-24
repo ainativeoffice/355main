@@ -66,7 +66,7 @@ import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c3
 import ffe05 from "@assets/60153800-2_1769277576966.jpg";
 import ffeFollowMe from "@assets/38291476_1769278114246.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
-import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
+import ffeMikado from "@assets/Screenshot_2026-01-24_at_1.10.50_PM_1769278292098.png";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -212,7 +212,8 @@ const zones = [
         name: "Mikado Side Chair",
         brand: "Vitra",
         image: ffeMikado,
-        url: "https://www.vitra.com/en-us/product/mikado/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/mikado-side-chair/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/mikado.pdf",
         desc: "Elegant side chair by Edward Barber & Jay Osgerby."
       },
       {
@@ -258,7 +259,8 @@ const zones = [
         name: "Mikado Side Chair",
         brand: "Vitra",
         image: ffeMikado,
-        url: "https://www.vitra.com/en-us/product/mikado/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/mikado-side-chair/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/mikado.pdf",
         desc: "Elegant side chair by Edward Barber & Jay Osgerby."
       },
       {
