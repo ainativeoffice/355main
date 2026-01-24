@@ -64,7 +64,7 @@ import ffe03 from "@assets/43138289_1769277874546.jpg";
 import ffe04 from "@assets/60153384_1769277544685.jpg";
 import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
 import ffe05 from "@assets/60153800-2_1769277576966.jpg";
-import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
+import ffeFollowMe from "@assets/38291476_1769278114246.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
 import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
 // New FF&E Assets
@@ -226,7 +226,7 @@ const zones = [
         name: "Follow Me 1",
         brand: "Vitra",
         image: ffeFollowMe,
-        url: "https://www.vitra.com/en-lp/product/follow-me-1/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-lp/product/details/follow-me-1/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/follow_me.pdf",
         desc: "Mobile pedestal designed by Antonio Citterio."
       },
