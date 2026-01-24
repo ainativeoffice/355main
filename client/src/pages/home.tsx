@@ -74,7 +74,7 @@ import ffeToolbox from "@assets/33075963_1769277790067.jpg";
 import ffeHappyBin from "@assets/78181543_1769277961646.jpg";
 import ffeRocketStool from "@assets/stock_images/artek_rocket_stool.jpg";
 import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
-import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
+import ffeRayonnageMural from "@assets/91108489_1769278521261.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
 import ffeTyde2Workstation from "@assets/vitra_tyde2_workstation.jpg";
@@ -217,13 +217,6 @@ const zones = [
         desc: "Elegant side chair by Edward Barber & Jay Osgerby."
       },
       {
-        name: "Kaari Wall Hook",
-        brand: "Artek",
-        image: ffeKaariHook,
-        url: "https://www.artek.fi/en/products/kaari-wall-hook?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        desc: "Minimalist wall hook by Ronan & Erwan Bouroullec."
-      },
-      {
         name: "Follow Me 1",
         brand: "Vitra",
         image: ffeFollowMe,
@@ -268,6 +261,7 @@ const zones = [
         brand: "Vitra",
         image: ffeRayonnageMural,
         url: "https://www.vitra.com/en-lp/product/rayonnage-mural/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/rayonnage_mural.pdf",
         desc: "Wall shelving system designed by Jean Prouvé."
       },
       {
