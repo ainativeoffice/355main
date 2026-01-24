@@ -410,6 +410,20 @@ const zones = [
         url: "https://www.vitra.com/en-ie/product/super-fold-table/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/super_fold_table.pdf",
         desc: "Foldable table by Jasper Morrison."
+      },
+      {
+        name: "Calacatta Nuvo Quartz",
+        brand: "Caesarstone",
+        image: ffeCaesarstone,
+        url: "https://www.caesarstone.com/color-catalog/5131-calacatta-nuvo/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Premium quartz countertop with elegant marble-inspired veining."
+      },
+      {
+        name: "Nickebo Kitchen",
+        brand: "IKEA",
+        image: ffeIkeaNickebo,
+        url: "https://www.ikea.com/us/en/rooms/kitchen/nickebo-anthracite-kitchen-guide-pub84fbdfb0/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Matte black finish and hardware throughout."
       }
     ]
   },
