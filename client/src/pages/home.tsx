@@ -105,13 +105,7 @@ const zones = [
         pdf: "/documents/04_chair.pdf",
         desc: "Designed by Maarten Van Severen with unobtrusive ergonomic comfort."
       },
-      {
-        name: "Hang it all",
-        brand: "Vitra",
-        image: ffeHangItAll,
-        url: "https://www.vitra.com/en-un/product/hang-it-all/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        desc: "Iconic coat rack by Charles & Ray Eames."
-      },
+
       {
         name: "Dancing Wall",
         brand: "Vitra",
@@ -166,13 +160,7 @@ const zones = [
         pdf: "/documents/04_chair.pdf",
         desc: "Designed by Maarten Van Severen with unobtrusive ergonomic comfort."
       },
-      {
-        name: "Hang it all",
-        brand: "Vitra",
-        image: ffeHangItAll,
-        url: "https://www.vitra.com/en-un/product/hang-it-all/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        desc: "Iconic coat rack by Charles & Ray Eames."
-      },
+
       {
         name: "Dancing Wall",
         brand: "Vitra",
