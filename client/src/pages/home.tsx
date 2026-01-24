@@ -863,8 +863,7 @@ export default function Home() {
                                      <span className="font-medium text-sm md:text-base truncate">{product.name}</span>
                                      <ExternalLink className="w-3 h-3 text-muted-foreground shrink-0 group-hover:text-primary transition-colors" />
                                    </div>
-                                   <p className="text-xs text-muted-foreground line-clamp-1 hidden md:block">{product.desc}</p>
-                                   <span className="text-xs text-muted-foreground md:hidden">{product.brand}</span>
+                                   <p className="text-xs text-muted-foreground line-clamp-1">{product.desc}</p>
                                 </div>
                                 <span className="text-xs text-muted-foreground whitespace-nowrap hidden md:block">{product.brand}</span>
                                 {product.pdf && (
