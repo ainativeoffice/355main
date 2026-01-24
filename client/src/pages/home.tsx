@@ -94,7 +94,7 @@ const zones = [
   {
     id: 1,
     title: "Production Suite",
-    desc: "A dedicated environment for high-output teams (4-6 people).",
+    desc: "A hybrid engine for high-stakes work. We configured this room to break the mold of the static boardroom. By pairing lightweight touchdown tables with the ergonomic flexibility of the .04 chair, we created a space that pivots instantly. Use it as a polished conference room for client presentations in the morning, or claim it as a dedicated 'war room' for your team to sprint on a project for the rest of the week.",
     x: 39, y: 10.5,
     images: [zone1],
     products: [
