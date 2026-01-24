@@ -52,7 +52,7 @@ import ffeStoolTool from "@assets/shopping_1769229149936.jpeg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
 import ffeSoftWorkTable from "@assets/stock_images/vitra_soft_work_tabl_33f184fc.jpg";
 import ffeMedaMorph from "@assets/stock_images/vitra_medamorph_conf_c497432e.jpg";
-import ffeHal from "@assets/stock_images/vitra_hal_chair_jasp_dfd599d1.jpg";
+import ffeHal from "@assets/77102903-2_1769229455771.jpg";
 import ffeMynt from "@assets/stock_images/vitra_mynt_office_ch_f0f49d65.jpg";
 import ffeFauteuilDirection from "@assets/stock_images/vitra_fauteuil_direc_ad92c663.jpg";
 import ffeTyde2 from "@assets/stock_images/vitra_tyde_2_sit_sta_39a22b81.jpg";
