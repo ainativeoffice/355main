@@ -73,6 +73,7 @@ import ffeGEDishwasher from "@assets/730b7262198b87de4fabf133104fe8662b0ed0d3__7
 import ffeCoronetCDL3 from "@assets/CLD3_SQ_FIXED_TRIM_WHT-768x563_1769282420971.png";
 import ffeCaesarstone from "@assets/Screenshot_2026-01-24_at_2.23.53_PM_1769282649174.png";
 import ffeIkeaNickebo from "@assets/PH192017.jpg_1769282944080.avif";
+import ffeSmokestone from "@assets/Screenshot_2026-01-24_at_2.32.14_PM_1769283192193.png";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -292,6 +293,13 @@ const zones = [
         image: ffeIkeaNickebo,
         url: "https://www.ikea.com/us/en/rooms/kitchen/nickebo-anthracite-kitchen-guide-pub84fbdfb0/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "Matte black finish and hardware throughout."
+      },
+      {
+        name: "Smokestone Quartz Countertop",
+        brand: "Caesarstone",
+        image: ffeSmokestone,
+        url: "https://www.caesarstone.com/color-catalog/511-smokestone/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Premium black quartz countertop with subtle veining."
       }
     ]
   },
