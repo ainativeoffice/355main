@@ -75,6 +75,7 @@ import ffeCaesarstone from "@assets/Screenshot_2026-01-24_at_2.23.53_PM_17692826
 import ffeIkeaNickebo from "@assets/PH192017.jpg_1769282944080.avif";
 import ffeSmokestone from "@assets/Screenshot_2026-01-24_at_2.32.14_PM_1769283192193.png";
 import ffeRicohPrinter from "@assets/ricohimages_Equipment_Printers-and-Copiers_EQP-IM-C3010-20_1769283443463.webp";
+import ffeYeegoCooler from "@assets/YG-BS24-23-2.jpg_1769288232790.webp";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -449,6 +450,13 @@ const zones = [
         image: ffeIkeaNickebo,
         url: "https://www.ikea.com/us/en/rooms/kitchen/nickebo-anthracite-kitchen-guide-pub84fbdfb0/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "Matte black finish and hardware throughout."
+      },
+      {
+        name: "24\" Beverage Cooler",
+        brand: "Yeego",
+        image: ffeYeegoCooler,
+        url: "https://yeegolife.com/products/yeg-bs24/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Built-in beverage refrigerator with adjustable shelving."
       }
     ]
   },
