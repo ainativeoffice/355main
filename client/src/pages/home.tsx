@@ -58,7 +58,7 @@ import ffeMynt from "@assets/stock_images/vitra_mynt_office_ch_f0f49d65.jpg";
 import ffeFauteuilDirection from "@assets/stock_images/vitra_fauteuil_direc_ad92c663.jpg";
 import ffeTyde2 from "@assets/82655552_1769278417914.jpg";
 import ffeJoyn2 from "@assets/77433396_1769277628600.jpg";
-import ffeSuperFold from "@assets/stock_images/vitra_super_fold_tab_65189058.jpg";
+import ffeSuperFold from "@assets/49934396_1769278778313.jpg";
 import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jpg";
 import ffe03 from "@assets/43138289_1769277874546.jpg";
 import ffe04 from "@assets/Screenshot_2026-01-24_at_12.58.02_PM_1769278390647.png";
