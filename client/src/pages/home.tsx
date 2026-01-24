@@ -47,12 +47,12 @@ import zone11b from "@assets/zones/zone11_closed_mtg.svg";
 import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
 import ffeStool60 from "@assets/stock_images/artek_stool_60_stack_580858e0.jpg";
 import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
-import ffeAlcove from "@assets/58911724_1769229235768.jpg";
-import ffeStoolTool from "@assets/shopping_1769229149936.jpeg";
+import ffeAlcove from "@assets/vitra_alcove_lowback.jpg";
+import ffeStoolTool from "@assets/vitra_stool_tool.jpeg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
 import ffeSoftWorkTable from "@assets/stock_images/vitra_soft_work_tabl_33f184fc.jpg";
 import ffeMedaMorph from "@assets/stock_images/vitra_medamorph_conf_c497432e.jpg";
-import ffeHal from "@assets/77102903-2_1769229455771.jpg";
+import ffeHal from "@assets/vitra_hal_chair.jpg";
 import ffeMynt from "@assets/stock_images/vitra_mynt_office_ch_f0f49d65.jpg";
 import ffeFauteuilDirection from "@assets/stock_images/vitra_fauteuil_direc_ad92c663.jpg";
 import ffeTyde2 from "@assets/stock_images/vitra_tyde_2_sit_sta_39a22b81.jpg";
@@ -76,9 +76,9 @@ import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
 import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
-import ffeTyde2Workstation from "@assets/58859252_1769229846772.jpg";
-import ffeDancingWallNew from "@assets/dancing_wall_cropped.jpg";
-import ffeMedaMorphNew from "@assets/67578886_1769229341734.jpg";
+import ffeTyde2Workstation from "@assets/vitra_tyde2_workstation.jpg";
+import ffeDancingWallNew from "@assets/vitra_dancing_wall.jpg";
+import ffeMedaMorphNew from "@assets/vitra_medamorph_folding.jpg";
 import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
 
 const zones = [
