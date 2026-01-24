@@ -27,7 +27,7 @@ The building is organized into purpose-designed zones:
 - **Shared Café** - Communal dining and informal collaboration space
 - **Team Offices** - Collaborative suites for 2-3 people
 - **Resource Room** - Utility and production hub
-- **Dynamic Space** - From symposium to focus group to town hall in minutes
+- **Dynamic Space** - Ultimate fluidity for seamless transitions from Stand-Ups to Town Halls in minutes
 - **Shared Lounge** - Relaxed seating for informal conversations
 - **Reception** - Welcome area and first impressions
 - **Semi-Private Conference** - Lounge-style meeting setting with acoustic privacy

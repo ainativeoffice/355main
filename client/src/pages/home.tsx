@@ -299,7 +299,7 @@ const zones = [
   {
     id: 8,
     title: "Dynamic Space",
-    desc: "From symposium to focus group to town hall in minutes.",
+    desc: "Because business moves fast, and your space should too. We designed this zone for ultimate fluidity—eliminating the friction between tasks. Seamlessly transition from intimate Stand-Ups and Focus Areas to full-scale Town Halls or Symposiums in minutes, empowering your team to work exactly how they need to, the moment they need to.",
     x: 57.5, y: 55,
     images: [zone8a, zone8b, zone8c, zone8d],
     products: [
