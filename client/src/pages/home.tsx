@@ -318,8 +318,8 @@ const zones = [
   },
   {
     id: 8,
-    title: "Shared Dynamic Spaces",
-    desc: "Open office for presentations and town halls.",
+    title: "Dynamic Space",
+    desc: "From symposium to focus group to town hall in minutes.",
     x: 57.5, y: 55,
     images: [zone8a, zone8b, zone8c, zone8d],
     products: [
