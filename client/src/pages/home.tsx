@@ -77,7 +77,7 @@ import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
 import ffeDancingWallNew from "@assets/dancing_wall_cropped.jpg";
-import ffeMedaMorphNew from "@assets/medamorph_cropped.jpg";
+import ffeMedaMorphNew from "@assets/67578886_1769229341734.jpg";
 import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
 
 const zones = [
