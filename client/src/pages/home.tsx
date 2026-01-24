@@ -403,6 +403,7 @@ const zones = [
         brand: "Vitra",
         image: ffeCorkFamily,
         url: "https://www.vitra.com/en-lp/product/cork-family/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/cork_family.pdf",
         desc: "Side table/stool designed by Jasper Morrison."
       },
       {
