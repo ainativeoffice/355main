@@ -77,7 +77,7 @@ import ffeRocketStool from "@assets/stock_images/artek_rocket_stool.jpg";
 import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
 import ffeRayonnageMural from "@assets/91108489_1769278521261.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
-import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
+import ffeCorkFamily from "@assets/45565076_1769279202599.jpg";
 import ffeTyde2Workstation from "@assets/vitra_tyde2_workstation.jpg";
 import ffeDancingWallNew from "@assets/vitra_dancing_wall.jpg";
 import ffeMedaMorphNew from "@assets/vitra_medamorph_folding.jpg";
