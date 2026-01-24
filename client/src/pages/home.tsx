@@ -339,7 +339,7 @@ const zones = [
         name: "HAL RE Tube",
         brand: "Vitra",
         image: ffeHal,
-        url: "https://www.vitra.com/en-us/product/hal-re-tube?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/hal-re-tube-stackable/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/hal_chair.pdf",
         desc: "Sustainable chair designed by Jasper Morrison."
       }
@@ -372,7 +372,7 @@ const zones = [
         name: "HAL RE Tube",
         brand: "Vitra",
         image: ffeHal,
-        url: "https://www.vitra.com/en-us/product/hal-re-tube?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/hal-re-tube-stackable/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/hal_chair.pdf",
         desc: "Sustainable chair designed by Jasper Morrison."
       },
