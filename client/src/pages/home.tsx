@@ -244,7 +244,7 @@ const zones = [
   {
     id: 6,
     title: "Team Offices",
-    desc: "Collaborative suites for 2-3 people.",
+    desc: "A command center for synchronized leadership. We designed this room for managers who need to co-pilot projects. By utilizing the Tyde 2 system, we created a self-contained suite: two sit-stand workstations for deep individual focus, and a third dedicated table for collaboration. Anchored by Mikado side chairs, this internal meeting zone allows you to pivot instantly from 'heads-down' production to 'heads-up' strategy sessions without ever leaving your office.",
     x: 31, y: 54.5,
     images: [zone6],
     products: [
