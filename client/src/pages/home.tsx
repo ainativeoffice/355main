@@ -899,8 +899,8 @@ export default function Home() {
                <div className="flex flex-col md:grid md:grid-cols-2">
                  {/* Left: Content & Products */}
                  <div className="p-6 md:p-12 flex flex-col h-full md:border-r border-border order-2 md:order-1">
-                    <div className="mb-8">
-                       <div className="flex items-center justify-between mb-4">
+                    <div className="mb-6">
+                       <div className="flex items-center justify-between mb-3">
                          <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
                            Zone {activeZone.id.toString().padStart(2, '0')}
                          </span>
@@ -913,8 +913,10 @@ export default function Home() {
                            </button>
                          </div>
                        </div>
-                       <h3 className="font-serif text-3xl md:text-4xl mb-4">{activeZone.title}</h3>
-                       <p className="text-muted-foreground text-lg leading-relaxed">{activeZone.desc}</p>
+                       <h3 className="font-serif text-2xl md:text-3xl mb-3">{activeZone.title}</h3>
+                       <div className="max-h-32 md:max-h-40 overflow-y-auto pr-2 scrollbar-thin">
+                         <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{activeZone.desc}</p>
+                       </div>
                     </div>
 
                     <div className="mt-auto">
@@ -972,7 +974,7 @@ export default function Home() {
                         animate={{ opacity: 1, scale: zoomLevel }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.4 }}
-                        className="absolute inset-0 w-full h-full origin-center flex items-center justify-center p-8"
+                        className="absolute inset-0 w-full h-full origin-center flex items-center justify-center p-4"
                       >
                         <img 
                             src={activeZone.images[activeImageIndex]}
