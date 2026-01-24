@@ -93,7 +93,7 @@ const zones = [
         name: "Joyn 2 Touchdown",
         brand: "Vitra",
         image: ffeJoyn2,
-        url: "https://www.vitra.com/en-us/product/joyn-2-touchdown/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/joyn-2-touchdown/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/joyn2.pdf",
         desc: "Workstation system designed by Ronan & Erwan Bouroullec."
       },
@@ -154,7 +154,7 @@ const zones = [
         name: "Joyn 2 Touchdown",
         brand: "Vitra",
         image: ffeJoyn2,
-        url: "https://www.vitra.com/en-us/product/joyn-2-touchdown/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/joyn-2-touchdown/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/joyn2.pdf",
         desc: "Workstation system designed by Ronan & Erwan Bouroullec."
       },
