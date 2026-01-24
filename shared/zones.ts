@@ -23,10 +23,10 @@ export const zoneCoordinates = [
   { id: 5, title: "Private Office", x: 26.5, y: 49 },
   { id: 6, title: "Team Offices", x: 31, y: 54.5 },
   { id: 7, title: "Resource Room", x: 42, y: 50.5 },
-  { id: 8, title: "Dynamic Space", x: 57.5, y: 55 },
-  { id: 9, title: "Break Areas", x: 67.5, y: 55 },
-  { id: 10, title: "Café", x: 74.5, y: 52 },
-  { id: 11, title: "Wellness Suite", x: 86.5, y: 50.5 },
+  { id: 8, title: "Shared Dynamic Spaces", x: 57.5, y: 55 },
+  { id: 9, title: "Break Room", x: 85.5, y: 58.5 },
+  { id: 10, title: "Shared Café", x: 48, y: 36.5 },
+  { id: 11, title: "Semi-Private Conference", x: 36.5, y: 34 },
 ] as const;
 
 export function findZoneById(zones: { id: number }[], id: number) {

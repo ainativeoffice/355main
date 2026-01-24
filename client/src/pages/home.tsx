@@ -66,31 +66,48 @@ import ffe05 from "@assets/stock_images/vitra_.05_chair_maar_01327ebe.jpg";
 import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
 import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
+// New FF&E Assets
+import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
+import ffeDropBox from "@assets/stock_images/vitra_drop_box.jpg";
+import ffeToolbox from "@assets/stock_images/vitra_toolbox.jpg";
+import ffeHappyBin from "@assets/stock_images/vitra_happy_bin.jpg";
+import ffeRocketStool from "@assets/stock_images/artek_rocket_stool.jpg";
+import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
+import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
+import ffeChap from "@assets/stock_images/vitra_chap.jpg";
+import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
 import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
 
 const zones = [
   {
     id: 1,
     title: "Production Suite",
-    desc: "A dedicated environment for high-output teams.",
+    desc: "A dedicated environment for high-output teams (4-6 people).",
     x: 39, y: 10.5,
     images: [zone1],
     products: [
       {
-        name: "Joyn 2",
+        name: "Joyn 2 Touchdown",
         brand: "Vitra",
         image: ffeJoyn2,
-        url: "https://www.vitra.com/en-us/product/joyn-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/joyn-2-touchdown?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/joyn2.pdf",
-        desc: "Adaptable office table system for teamwork and collaboration."
+        desc: "Workstation system designed by Ronan & Erwan Bouroullec."
       },
       {
-        name: ".04 Chair",
+        name: "Chair .04",
         brand: "Vitra",
         image: ffe04,
-        url: "https://www.vitra.com/en-us/product/04?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-lp/product/04?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/04_chair.pdf",
-        desc: "Unobtrusive design with ergonomic comfort for long periods of sitting."
+        desc: "Designed by Maarten Van Severen with unobtrusive ergonomic comfort."
+      },
+      {
+        name: "Hang it all",
+        brand: "Vitra",
+        image: ffeHangItAll,
+        url: "https://www.vitra.com/en-un/product/hang-it-all?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Iconic coat rack by Charles & Ray Eames."
       },
       {
         name: "Dancing Wall",
@@ -98,39 +115,96 @@ const zones = [
         image: ffeDancingWall,
         url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
-        desc: "Mobile partition that can be used to divide offices into zones."
+        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
+      },
+      {
+        name: "Drop Box",
+        brand: "Vitra",
+        image: ffeDropBox,
+        url: "https://www.vitra.com/en-lp/product/drop-box?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Storage solution designed by Konstantin Grcic."
+      },
+      {
+        name: "Toolbox",
+        brand: "Vitra",
+        image: ffeToolbox,
+        url: "https://www.vitra.com/en-us/product/toolbox?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Portable organizer designed by Arik Levy."
+      },
+      {
+        name: "Happy Bin Large",
+        brand: "Vitra",
+        image: ffeHappyBin,
+        url: "https://www.vitra.com/en-us/product/happy-bin?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Waste basket designed by Michel Charlot."
       }
     ]
   },
   {
     id: 4,
     title: "Conference Area",
-    desc: "High-stakes strategy room.",
+    desc: "High-output team environment (4-6 people).",
     x: 10.5, y: 41.5,
     images: [zone4],
     products: [
       {
-        name: "MedaMorph",
+        name: "Joyn 2 Touchdown",
         brand: "Vitra",
-        image: ffeMedaMorph,
-        url: "https://www.vitra.com/en-us/product/medamorph?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/medamorph.pdf",
-        desc: "Elegant conference table system for any size meeting."
+        image: ffeJoyn2,
+        url: "https://www.vitra.com/en-us/product/joyn-2-touchdown?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/joyn2.pdf",
+        desc: "Workstation system designed by Ronan & Erwan Bouroullec."
       },
       {
-        name: "Eames Aluminum Group",
+        name: "Chair .04",
         brand: "Vitra",
-        image: ffeEames,
-        url: "https://www.vitra.com/en-us/product/aluminium-group?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/03_chair.pdf", // Using .03 as placeholder for general chair info if Eames PDF missing
-        desc: "Timeless elegance for the executive boardroom."
+        image: ffe04,
+        url: "https://www.vitra.com/en-lp/product/04?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/04_chair.pdf",
+        desc: "Designed by Maarten Van Severen with unobtrusive ergonomic comfort."
+      },
+      {
+        name: "Hang it all",
+        brand: "Vitra",
+        image: ffeHangItAll,
+        url: "https://www.vitra.com/en-un/product/hang-it-all?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Iconic coat rack by Charles & Ray Eames."
+      },
+      {
+        name: "Dancing Wall",
+        brand: "Vitra",
+        image: ffeDancingWall,
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
+      },
+      {
+        name: "Drop Box",
+        brand: "Vitra",
+        image: ffeDropBox,
+        url: "https://www.vitra.com/en-lp/product/drop-box?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Storage solution designed by Konstantin Grcic."
+      },
+      {
+        name: "Toolbox",
+        brand: "Vitra",
+        image: ffeToolbox,
+        url: "https://www.vitra.com/en-us/product/toolbox?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Portable organizer designed by Arik Levy."
+      },
+      {
+        name: "Happy Bin Large",
+        brand: "Vitra",
+        image: ffeHappyBin,
+        url: "https://www.vitra.com/en-us/product/happy-bin?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Waste basket designed by Michel Charlot."
       }
     ]
   },
   {
     id: 5,
     title: "Private Office",
-    desc: "Flexible private workspace with multiple configurations.",
+    desc: "Tailored workspace for 1-2 people.",
     x: 26.5, y: 49,
     images: [zone5a, zone5b],
     products: [
@@ -140,30 +214,58 @@ const zones = [
         image: ffeTyde2,
         url: "https://www.vitra.com/en-us/product/tyde-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/tyde2.pdf",
-        desc: "Height-adjustable sit-stand table system."
-      },
-      {
-        name: "Mynt",
-        brand: "Vitra",
-        image: ffeMyntNew,
-        url: "https://www.vitra.com/en-us/product/mynt?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/mynt.pdf",
-        desc: "An ergonomic office chair for dynamic sitting."
+        desc: "Sit-stand table designed by Ronan & Erwan Bouroullec."
       },
       {
         name: "Mikado Side Chair",
         brand: "Vitra",
         image: ffeMikado,
         url: "https://www.vitra.com/en-us/product/mikado?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/mikado.pdf",
-        desc: "Elegant side chair with a flexible backrest for comfort."
+        desc: "Elegant side chair by Edward Barber & Jay Osgerby."
+      },
+      {
+        name: "Rocket Bar Stool",
+        brand: "Artek",
+        image: ffeRocketStool,
+        url: "https://www.artek.fi/en/products/rocket-bar-stool?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Modern bar stool designed by Eero Aarnio."
+      },
+      {
+        name: "Kaari Wall Hook",
+        brand: "Artek",
+        image: ffeKaariHook,
+        url: "https://www.artek.fi/en/products/kaari-wall-hook?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Minimalist wall hook by Ronan & Erwan Bouroullec."
+      },
+      {
+        name: "Follow Me 1",
+        brand: "Vitra",
+        image: ffeFollowMe,
+        url: "https://www.vitra.com/en-lp/product/follow-me-1?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/follow_me.pdf",
+        desc: "Mobile pedestal designed by Antonio Citterio."
+      },
+      {
+        name: "Happy Bin Small",
+        brand: "Vitra",
+        image: ffeHappyBin,
+        url: "https://www.vitra.com/en-us/product/happy-bin?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Waste basket designed by Michel Charlot."
+      },
+      {
+        name: "Dancing Wall",
+        brand: "Vitra",
+        image: ffeDancingWall,
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
       }
     ]
   },
   {
     id: 6,
     title: "Team Offices",
-    desc: "Collaborative suites for small groups.",
+    desc: "Collaborative suites for 2-3 people.",
     x: 31, y: 54.5,
     images: [zone6],
     products: [
@@ -173,23 +275,36 @@ const zones = [
         image: ffeTyde2,
         url: "https://www.vitra.com/en-us/product/tyde-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/tyde2.pdf",
-        desc: "Height-adjustable sit-stand table system."
-      },
-      {
-        name: "Mynt",
-        brand: "Vitra",
-        image: ffeMyntNew,
-        url: "https://www.vitra.com/en-us/product/mynt?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/mynt.pdf",
-        desc: "An ergonomic office chair for dynamic sitting."
+        desc: "Sit-stand table designed by Ronan & Erwan Bouroullec."
       },
       {
         name: "Mikado Side Chair",
         brand: "Vitra",
         image: ffeMikado,
         url: "https://www.vitra.com/en-us/product/mikado?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/mikado.pdf",
-        desc: "Elegant side chair with a flexible backrest for comfort."
+        desc: "Elegant side chair by Edward Barber & Jay Osgerby."
+      },
+      {
+        name: "Rayonnage Mural",
+        brand: "Vitra",
+        image: ffeRayonnageMural,
+        url: "https://www.vitra.com/en-lp/product/rayonnage-mural?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Wall shelving system designed by Jean Prouvé."
+      },
+      {
+        name: "Dancing Wall",
+        brand: "Vitra",
+        image: ffeDancingWall,
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
+      },
+      {
+        name: "Kaari Wall Hook",
+        brand: "Artek",
+        image: ffeKaariHook,
+        url: "https://www.artek.fi/en/products/kaari-wall-hook?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Minimalist wall hook by Ronan & Erwan Bouroullec."
       }
     ]
   },
@@ -203,18 +318,18 @@ const zones = [
   },
   {
     id: 8,
-    title: "Dynamic Space",
-    desc: "Aggressively flexible collaborative area.",
+    title: "Shared Dynamic Spaces",
+    desc: "Open office for presentations and town halls.",
     x: 57.5, y: 55,
     images: [zone8a, zone8b, zone8c, zone8d],
     products: [
-       {
+      {
         name: "Dancing Wall",
         brand: "Vitra",
         image: ffeDancingWall,
         url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
-        desc: "Mobile partition that can be used to divide offices into zones."
+        desc: "Mobile partition by Stephan Hürlemann."
       },
       {
         name: "Stool-Tool",
@@ -222,15 +337,46 @@ const zones = [
         image: ffeStoolTool,
         url: "https://www.vitra.com/en-us/product/stool-tool?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/stool_tool.pdf",
-        desc: "Stackable sculpture that serves as both chair and table."
+        desc: "Stackable sculpture by Konstantin Grcic."
       },
       {
-        name: "Super Fold Table",
+        name: "MedaMorph Folding Table",
         brand: "Vitra",
-        image: ffeSuperFold,
-        url: "https://www.vitra.com/en-us/product/super-fold-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/super_fold_table.pdf",
-        desc: "Foldable table for flexible meeting arrangements."
+        image: ffeMedaMorph,
+        url: "https://www.vitra.com/en-us/product/medamorph-folding-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/medamorph.pdf",
+        desc: "Folding conference table designed by Alberto Meda."
+      },
+      {
+        name: "Dancing Wall Trolley",
+        brand: "Vitra",
+        image: ffeDancingWall,
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Mobile storage for Dancing Wall panels."
+      },
+      {
+        name: "Alcove Work Lowback",
+        brand: "Vitra",
+        image: ffeAlcove,
+        url: "https://www.vitra.com/en-us/product/alcove-work?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/alcove.pdf",
+        desc: "Privacy seating by Ronan & Erwan Bouroullec."
+      },
+      {
+        name: "HAL RE Tube",
+        brand: "Vitra",
+        image: ffeHal,
+        url: "https://www.vitra.com/en-us/product/hal-re-tube?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/hal_chair.pdf",
+        desc: "Sustainable chair designed by Jasper Morrison."
+      },
+      {
+        name: "Chap",
+        brand: "Vitra",
+        image: ffeChap,
+        url: "https://www.vitra.com/en-lp/product/chap?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Stool and tray by Konstantin Grcic."
       }
     ]
   },
@@ -240,57 +386,72 @@ const zones = [
     desc: "Hospitality-grade refreshment zone.",
     x: 85.5, y: 58.5,
     images: [zone9a, zone9b],
-    products: [
-       {
-        name: "HAL",
-        brand: "Vitra",
-        image: ffeHal,
-        url: "https://www.vitra.com/en-us/product/hal?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/hal_chair.pdf",
-        desc: "Versatile shell chair by Jasper Morrison."
-      }
-    ]
+    products: []
   },
   {
     id: 10,
-    title: "Diner",
-    desc: "Social hearth with integrated power.",
+    title: "Shared Café",
+    desc: "Informal meeting zone and coffee gathering.",
     x: 48, y: 36.5,
     images: [zone10a, zone10b, zone10c],
     products: [
       {
-        name: "Belleville Table",
+        name: "Soft Work Sofa",
         brand: "Vitra",
-        image: ffeBelleville,
-        url: "https://www.vitra.com/en-us/product/belleville-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/belleville_table.pdf",
-        desc: "Elegant bistro table with variable appearances."
+        image: ffeSoftWorkSeating,
+        url: "https://www.vitra.com/en-us/product/soft-work?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/soft_work_seating.pdf",
+        desc: "Lounge seating by Edward Barber & Jay Osgerby."
       },
       {
-        name: ".03 Chair",
+        name: "HAL RE Tube",
         brand: "Vitra",
-        image: ffe03,
-        url: "https://www.vitra.com/en-us/product/03?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/03_chair.pdf",
-        desc: "Sleek, slim shape with extraordinary comfort."
+        image: ffeHal,
+        url: "https://www.vitra.com/en-us/product/hal-re-tube?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/hal_chair.pdf",
+        desc: "Sustainable chair designed by Jasper Morrison."
       },
       {
-        name: ".05 Chair",
+        name: "Super Fold Table",
         brand: "Vitra",
-        image: ffe05,
-        url: "https://www.vitra.com/en-us/product/05?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/05_chair.pdf",
-        desc: "Uncompromising form and flexible comfort in a cantilever chair."
+        image: ffeSuperFold,
+        url: "https://www.vitra.com/en-ie/product/super-fold-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/super_fold_table.pdf",
+        desc: "Foldable table by Jasper Morrison."
       }
     ]
   },
   {
     id: 11,
-    title: "The Lantern",
-    desc: "The beacon of transparency.",
+    title: "Semi-Private Conference",
+    desc: "Lounge-style meeting setting.",
     x: 36.5, y: 34,
     images: [zone11a, zone11b],
-    products: []
+    products: [
+      {
+        name: "Soft Work Sofa",
+        brand: "Vitra",
+        image: ffeSoftWorkSeating,
+        url: "https://www.vitra.com/en-us/product/soft-work?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/soft_work_seating.pdf",
+        desc: "Lounge seating by Edward Barber & Jay Osgerby."
+      },
+      {
+        name: "Soft Work Table",
+        brand: "Vitra",
+        image: ffeSoftWorkTable,
+        url: "https://www.vitra.com/en-us/product/soft-work?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/soft_work_table.pdf",
+        desc: "Companion table by Edward Barber & Jay Osgerby."
+      },
+      {
+        name: "Cork Family",
+        brand: "Vitra",
+        image: ffeCorkFamily,
+        url: "https://www.vitra.com/en-lp/product/cork-family?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Side table/stool designed by Jasper Morrison."
+      }
+    ]
   }
 ];
 
