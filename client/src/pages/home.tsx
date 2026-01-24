@@ -48,7 +48,7 @@ import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
 import ffeStool60 from "@assets/stock_images/artek_stool_60_stack_580858e0.jpg";
 import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
 import ffeAlcove from "@assets/stock_images/vitra_alcove_sofa_hi_354cd378.jpg";
-import ffeStoolTool from "@assets/stock_images/vitra_stool-tool_sta_40c83676.jpg";
+import ffeStoolTool from "@assets/shopping_1769229149936.jpeg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
 import ffeSoftWorkTable from "@assets/stock_images/vitra_soft_work_tabl_33f184fc.jpg";
 import ffeMedaMorph from "@assets/stock_images/vitra_medamorph_conf_c497432e.jpg";
