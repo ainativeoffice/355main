@@ -356,7 +356,7 @@ const zones = [
   {
     id: 10,
     title: "Shared Café",
-    desc: "Informal meeting zone and coffee gathering.",
+    desc: "Front-of-house polish, back-of-house comfort. We selected this setting to bridge the gap between a client lounge and a kitchen. The matte black cabinetry and white quartz countertops set a refined tone, while the tech-enabled banquettes provide the modern utility of a workstation. It's a deliberate design choice: a space casual enough for an espresso break, but sophisticated enough to host an impromptu meeting.",
     x: 48, y: 36.5,
     images: [zone10a, zone10b, zone10c],
     products: [
