@@ -81,7 +81,7 @@ import ffeDropBox from "@assets/72885220_1769277727148.jpg";
 import ffeToolbox from "@assets/33075963_1769277790067.jpg";
 import ffeHappyBin from "@assets/78181543_1769277961646.jpg";
 import ffeRocketStool from "@assets/stock_images/artek_rocket_stool.jpg";
-import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
+import ffeKaariHook from "@assets/Kaari-Wall-Hook-clear-protective-varnish_WEB-1975932_1769285460467.webp";
 import ffeRayonnageMural from "@assets/91108489_1769278521261.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/45565076_1769279202599.jpg";
@@ -276,7 +276,8 @@ const zones = [
         name: "Kaari Wall Hook",
         brand: "Artek",
         image: ffeKaariHook,
-        url: "https://www.artek.fi/en/products/kaari-wall-hook?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.artek.fi/en/products/kaari-wall-hook/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/kaari_collection.pdf",
         desc: "Minimalist wall hook by Ronan & Erwan Bouroullec."
       }
     ]
