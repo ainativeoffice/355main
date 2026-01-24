@@ -47,7 +47,7 @@ import zone11b from "@assets/zones/zone11_closed_mtg.svg";
 import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
 import ffeStool60 from "@assets/stock_images/artek_stool_60_stack_580858e0.jpg";
 import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
-import ffeAlcove from "@assets/stock_images/vitra_alcove_sofa_hi_354cd378.jpg";
+import ffeAlcove from "@assets/58911724_1769229235768.jpg";
 import ffeStoolTool from "@assets/shopping_1769229149936.jpeg";
 import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
 import ffeSoftWorkTable from "@assets/stock_images/vitra_soft_work_tabl_33f184fc.jpg";
