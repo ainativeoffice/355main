@@ -67,6 +67,7 @@ import ffe05 from "@assets/60153800-2_1769277576966.jpg";
 import ffeFollowMe from "@assets/38291476_1769278114246.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
 import ffeMikado from "@assets/Screenshot_2026-01-24_at_1.10.50_PM_1769278292098.png";
+import ffeSohoPendant from "@assets/soho_pendant_outdoor_white_112-1-1_1769278982123.jpg";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -409,6 +410,14 @@ const zones = [
         url: "https://www.vitra.com/en-us/product/dancing-wall/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
         desc: "Magnetic whiteboard partition by Stephan Hürlemann."
+      },
+      {
+        name: "Soho Pendant",
+        brand: "Marset",
+        image: ffeSohoPendant,
+        url: "https://www.marset.com/usa/outdoor-lighting/pendant-light-fixtures/soho-pendant/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/soho_pendant.pdf",
+        desc: "Industrial pendant light designed by Joan Gaspar, 2010."
       }
     ]
   }
