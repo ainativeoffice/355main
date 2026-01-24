@@ -285,7 +285,7 @@ const zones = [
   {
     id: 7,
     title: "Resource Room",
-    desc: "Utility and production hub.",
+    desc: "Utility, elevated to the same standard. We believe the back-of-house should feel as premium as the front-of-house. We carried the matte black IKEA cabinetry and durable Black Caesarstone through to this room to maintain visual continuity with the café. It's a durable, high-contrast environment designed to handle the wear of daily production while looking sharp enough to leave the door open.",
     x: 42, y: 50.5,
     images: [zone7],
     products: [
