@@ -77,6 +77,7 @@ import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
 import ffeDancingWallNew from "@assets/38292156_1769228771845.jpg";
+import ffeMedaMorphNew from "@assets/81983474-2_1769228838174.jpg";
 import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
 
 const zones = [
@@ -343,7 +344,7 @@ const zones = [
       {
         name: "MedaMorph Folding Table",
         brand: "Vitra",
-        image: ffeMedaMorph,
+        image: ffeMedaMorphNew,
         url: "https://www.vitra.com/en-us/product/medamorph-folding-table?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/medamorph.pdf",
         desc: "Folding conference table designed by Alberto Meda."
