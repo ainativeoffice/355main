@@ -68,6 +68,7 @@ import ffeFollowMe from "@assets/38291476_1769278114246.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
 import ffeMikado from "@assets/Screenshot_2026-01-24_at_1.10.50_PM_1769278292098.png";
 import ffeSohoPendant from "@assets/soho_pendant_outdoor_white_112-1-1_1769278982123.jpg";
+import ffeSamsungFridge from "@assets/latin-en-built-in-look-design-and-modern-design-rf18a5101sr-a_1769282148726.avif";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -337,7 +338,15 @@ const zones = [
     desc: "Hospitality-grade refreshment zone.",
     x: 85.5, y: 58.5,
     images: [zone9a, zone9b],
-    products: []
+    products: [
+      {
+        name: "Samsung French Door Smart Refrigerator",
+        brand: "Samsung",
+        image: ffeSamsungFridge,
+        url: "https://www.samsung.com/latin_en/refrigerators/french-door/rf5000a-17-5-cu-ft-silver-rf18a5101sr-aa/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "17.5 cu. ft. Smart Refrigerator in Stainless Steel."
+      }
+    ]
   },
   {
     id: 10,
