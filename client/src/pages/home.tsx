@@ -70,7 +70,7 @@ import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/stock_images/vitra_drop_box.jpg";
-import ffeToolbox from "@assets/stock_images/vitra_toolbox.jpg";
+import ffeToolbox from "@assets/72885220_1769277727148.jpg";
 import ffeHappyBin from "@assets/stock_images/vitra_happy_bin.jpg";
 import ffeRocketStool from "@assets/stock_images/artek_rocket_stool.jpg";
 import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
