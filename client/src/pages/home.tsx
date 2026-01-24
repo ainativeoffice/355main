@@ -63,7 +63,7 @@ import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jp
 import ffe03 from "@assets/stock_images/vitra_.03_chair_maar_ed81eaa6.jpg";
 import ffe04 from "@assets/60153384_1769277544685.jpg";
 import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
-import ffe05 from "@assets/stock_images/vitra_.05_chair_maar_01327ebe.jpg";
+import ffe05 from "@assets/60153800-2_1769277576966.jpg";
 import ffeFollowMe from "@assets/stock_images/vitra_follow_me_mobi_fade2168.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
 import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
