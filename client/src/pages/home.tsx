@@ -405,7 +405,7 @@ const zones = [
         name: "Soft Work Table",
         brand: "Vitra",
         image: ffeSoftWorkTable,
-        url: "https://www.vitra.com/en-us/product/soft-work/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        url: "https://www.vitra.com/en-us/product/details/soft-work-table/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/soft_work_table.pdf",
         desc: "Companion table by Edward Barber & Jay Osgerby."
       },
