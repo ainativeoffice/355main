@@ -76,6 +76,7 @@ import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
 import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
+import ffeTyde2Workstation from "@assets/58859252_1769229846772.jpg";
 import ffeDancingWallNew from "@assets/dancing_wall_cropped.jpg";
 import ffeMedaMorphNew from "@assets/67578886_1769229341734.jpg";
 import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
@@ -272,12 +273,12 @@ const zones = [
     images: [zone6],
     products: [
       {
-        name: "Tyde 2",
+        name: "Tyde 2 Workstation",
         brand: "Vitra",
-        image: ffeTyde2,
-        url: "https://www.vitra.com/en-us/product/tyde-2?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        image: ffeTyde2Workstation,
+        url: "https://www.vitra.com/en-us/product/details/tyde-2-workstations?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/tyde2.pdf",
-        desc: "Sit-stand table designed by Ronan & Erwan Bouroullec."
+        desc: "Sit-stand workstation designed by Ronan & Erwan Bouroullec."
       },
       {
         name: "Mikado Side Chair",
