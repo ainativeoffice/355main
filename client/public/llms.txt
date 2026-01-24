@@ -17,6 +17,21 @@ The building features Dynamic Spaces - flexible zones that transform to support 
 
 Premium furniture from partners like Vitra enables rapid reconfiguration to match any work style or team need.
 
+## Spatial Zones
+
+The building is organized into purpose-designed zones:
+
+- **Production Suite** - Dedicated environment for high-output teams (4-6 people)
+- **Conference Area** - Formal meeting space for presentations and client meetings
+- **Private Office** - Individual offices with premium furnishings for focused work
+- **Shared Café** - Communal dining and informal collaboration space
+- **Team Offices** - Collaborative suites for 2-3 people
+- **Resource Room** - Utility and production hub
+- **Dynamic Space** - From symposium to focus group to town hall in minutes
+- **Shared Lounge** - Relaxed seating for informal conversations
+- **Reception** - Welcome area and first impressions
+- **Semi-Private Conference** - Lounge-style meeting setting with acoustic privacy
+
 ## Workspace Solutions
 
 ### Custom Offices
