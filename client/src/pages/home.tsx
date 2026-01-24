@@ -76,6 +76,7 @@ import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
 import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
 import ffeChap from "@assets/stock_images/vitra_chap.jpg";
 import ffeCorkFamily from "@assets/stock_images/vitra_cork_family.jpg";
+import ffeDancingWallNew from "@assets/38292156_1769228771845.jpg";
 import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
 
 const zones = [
@@ -326,7 +327,7 @@ const zones = [
       {
         name: "Dancing Wall",
         brand: "Vitra",
-        image: ffeDancingWall,
+        image: ffeDancingWallNew,
         url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/dancing_wall.pdf",
         desc: "Mobile partition by Stephan Hürlemann."
@@ -348,14 +349,6 @@ const zones = [
         desc: "Folding conference table designed by Alberto Meda."
       },
       {
-        name: "Dancing Wall Trolley",
-        brand: "Vitra",
-        image: ffeDancingWall,
-        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/dancing_wall.pdf",
-        desc: "Mobile storage for Dancing Wall panels."
-      },
-      {
         name: "Alcove Work Lowback",
         brand: "Vitra",
         image: ffeAlcove,
@@ -370,13 +363,6 @@ const zones = [
         url: "https://www.vitra.com/en-us/product/hal-re-tube?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         pdf: "/documents/hal_chair.pdf",
         desc: "Sustainable chair designed by Jasper Morrison."
-      },
-      {
-        name: "Chap",
-        brand: "Vitra",
-        image: ffeChap,
-        url: "https://www.vitra.com/en-lp/product/chap?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        desc: "Stool and tray by Konstantin Grcic."
       }
     ]
   },
