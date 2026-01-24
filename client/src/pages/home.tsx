@@ -60,7 +60,7 @@ import ffeTyde2 from "@assets/stock_images/vitra_tyde_2_sit_sta_39a22b81.jpg";
 import ffeJoyn2 from "@assets/77433396_1769277628600.jpg";
 import ffeSuperFold from "@assets/stock_images/vitra_super_fold_tab_65189058.jpg";
 import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jpg";
-import ffe03 from "@assets/stock_images/vitra_.03_chair_maar_ed81eaa6.jpg";
+import ffe03 from "@assets/43138289_1769277874546.jpg";
 import ffe04 from "@assets/60153384_1769277544685.jpg";
 import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
 import ffe05 from "@assets/60153800-2_1769277576966.jpg";
