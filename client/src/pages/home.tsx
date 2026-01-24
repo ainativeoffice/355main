@@ -62,7 +62,7 @@ import ffeSuperFold from "@assets/49934396_1769278778313.jpg";
 import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jpg";
 import ffe03 from "@assets/43138289_1769277874546.jpg";
 import ffe04 from "@assets/Screenshot_2026-01-24_at_12.58.02_PM_1769278390647.png";
-import ffeSoftWorkSeating from "@assets/stock_images/vitra_soft_work_seat_c7c7c364.jpg";
+import ffeSoftWorkSeating from "@assets/82707787_1769278810327.jpg";
 import ffe05 from "@assets/60153800-2_1769277576966.jpg";
 import ffeFollowMe from "@assets/38291476_1769278114246.jpg";
 import ffeMyntNew from "@assets/stock_images/vitra_mynt_office_ch_a355dc34.jpg";
