@@ -285,7 +285,15 @@ const zones = [
     desc: "Utility and production hub.",
     x: 42, y: 50.5,
     images: [zone7],
-    products: []
+    products: [
+      {
+        name: "Nickebo Kitchen",
+        brand: "IKEA",
+        image: ffeIkeaNickebo,
+        url: "https://www.ikea.com/us/en/rooms/kitchen/nickebo-anthracite-kitchen-guide-pub84fbdfb0/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Matte black finish and hardware throughout."
+      }
+    ]
   },
   {
     id: 8,
