@@ -914,9 +914,7 @@ export default function Home() {
                          </div>
                        </div>
                        <h3 className="font-serif text-2xl md:text-3xl mb-3">{activeZone.title}</h3>
-                       <div className="max-h-32 md:max-h-40 overflow-y-auto pr-2 scrollbar-thin">
-                         <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{activeZone.desc}</p>
-                       </div>
+                       <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{activeZone.desc}</p>
                     </div>
 
                     <div className="mt-auto">
