@@ -204,7 +204,7 @@ const zones = [
   {
     id: 5,
     title: "Private Office",
-    desc: "Tailored workspace for 1-2 people.",
+    desc: "Engineered against static fatigue. We believe that to keep your mind moving, your body needs to move too. That is the logic behind our selection of the Mynt and Mikado chairs. Whether it's the Mynt's weight-activated infinite posture or the Mikado's subtle rocking mechanism, these seats intuitively encourage micro-movements to keep you energized. Paired with electrified tabletops and ready-to-mount monitor arms, this workstation is a complete performance system designed to sustain focus for the long haul.",
     x: 26.5, y: 49,
     images: [zone5a, zone5b],
     products: [
