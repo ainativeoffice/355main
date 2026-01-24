@@ -71,7 +71,7 @@ import ffeMikado from "@assets/stock_images/vitra_mikado_side_ch_98a71565.jpg";
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
 import ffeToolbox from "@assets/33075963_1769277790067.jpg";
-import ffeHappyBin from "@assets/stock_images/vitra_happy_bin.jpg";
+import ffeHappyBin from "@assets/78181543_1769277961646.jpg";
 import ffeRocketStool from "@assets/stock_images/artek_rocket_stool.jpg";
 import ffeKaariHook from "@assets/stock_images/artek_kaari_hook.jpg";
 import ffeRayonnageMural from "@assets/stock_images/vitra_rayonnage_mural.jpg";
