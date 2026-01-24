@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Download, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Building2, Users, Zap, ArrowRight } from "lucide-react";
+import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Download, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Building2, Users, Zap, ArrowRight, ExternalLink } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { useState, useRef, useCallback } from "react";
@@ -845,23 +845,40 @@ export default function Home() {
                     <div className="mt-auto">
                       <h4 className="text-sm uppercase tracking-widest font-semibold mb-4 text-primary">Key Components</h4>
                       {activeZone.products.length > 0 ? (
-                        <div className="space-y-3">
+                        <div className="space-y-2 md:space-y-3">
                           {activeZone.products.map((product, idx) => (
-                             <div key={idx} className="group flex items-start gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
-                                <div className="w-12 h-12 bg-white rounded border border-border overflow-hidden shrink-0">
+                             <a 
+                               key={idx} 
+                               href={product.url} 
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               className="group flex items-center gap-3 md:gap-4 p-2 md:p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                               data-testid={`link-product-${idx}`}
+                             >
+                                <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded border border-border overflow-hidden shrink-0">
                                    <img src={product.image} alt={product.name} className="w-full h-full object-contain p-1" loading="lazy" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                   <div className="flex items-baseline justify-between mb-1">
-                                     <span className="font-medium truncate pr-2">{product.name}</span>
-                                     <span className="text-xs text-muted-foreground whitespace-nowrap">{product.brand}</span>
+                                   <div className="flex items-center gap-2 mb-0.5 md:mb-1">
+                                     <span className="font-medium text-sm md:text-base truncate">{product.name}</span>
+                                     <ExternalLink className="w-3 h-3 text-muted-foreground shrink-0 group-hover:text-primary transition-colors" />
                                    </div>
-                                   <p className="text-xs text-muted-foreground line-clamp-1">{product.desc}</p>
+                                   <p className="text-xs text-muted-foreground line-clamp-1 hidden md:block">{product.desc}</p>
+                                   <span className="text-xs text-muted-foreground md:hidden">{product.brand}</span>
                                 </div>
-                                <a href={product.pdf} target="_blank" rel="noopener noreferrer" className="opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:text-primary" data-testid={`link-product-download-${idx}`}>
-                                  <Download className="w-4 h-4" />
-                                </a>
-                             </div>
+                                <span className="text-xs text-muted-foreground whitespace-nowrap hidden md:block">{product.brand}</span>
+                                {product.pdf && (
+                                  <button 
+                                    type="button"
+                                    aria-label={`Download ${product.name} spec sheet`}
+                                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(product.pdf, '_blank'); }}
+                                    className="hidden md:flex opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 focus:opacity-100 transition-opacity p-2 hover:text-primary focus:text-primary focus:outline-none rounded" 
+                                    data-testid={`link-product-download-${idx}`}
+                                  >
+                                    <Download className="w-4 h-4" />
+                                  </button>
+                                )}
+                             </a>
                           ))}
                         </div>
                       ) : (
