@@ -70,6 +70,7 @@ import ffeMikado from "@assets/Screenshot_2026-01-24_at_1.10.50_PM_1769278292098
 import ffeSohoPendant from "@assets/soho_pendant_outdoor_white_112-1-1_1769278982123.jpg";
 import ffeSamsungFridge from "@assets/latin-en-built-in-look-design-and-modern-design-rf18a5101sr-a_1769282148726.avif";
 import ffeGEDishwasher from "@assets/730b7262198b87de4fabf133104fe8662b0ed0d3__74335_1769282266140.jpg";
+import ffeCoronetCDL3 from "@assets/CLD3_SQ_FIXED_TRIM_WHT-768x563_1769282420971.png";
 // New FF&E Assets
 import ffeHangItAll from "@assets/stock_images/vitra_hang_it_all.jpg";
 import ffeDropBox from "@assets/72885220_1769277727148.jpg";
@@ -353,6 +354,13 @@ const zones = [
         image: ffeGEDishwasher,
         url: "https://www.geappliances.com/appliance/GE-Profile-ENERGY-STAR-18-ADA-Compliant-Stainless-Steel-Interior-Dishwasher-with-Sanitize-Cycle-PDT145SSLSS/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "ENERGY STAR 18\" ADA Compliant Dishwasher with Sanitize Cycle."
+      },
+      {
+        name: "CDL3 Square Downlight",
+        brand: "Coronet",
+        image: ffeCoronetCDL3,
+        url: "https://coronetled.com/cdl3-square-fixed/?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        desc: "Architectural square fixed downlight for ambient illumination."
       }
     ]
   },
