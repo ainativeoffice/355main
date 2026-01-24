@@ -227,13 +227,6 @@ const zones = [
         desc: "Elegant side chair by Edward Barber & Jay Osgerby."
       },
       {
-        name: "Rocket Bar Stool",
-        brand: "Artek",
-        image: ffeRocketStool,
-        url: "https://www.artek.fi/en/products/rocket-bar-stool?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        desc: "Modern bar stool designed by Eero Aarnio."
-      },
-      {
         name: "Kaari Wall Hook",
         brand: "Artek",
         image: ffeKaariHook,
@@ -254,14 +247,6 @@ const zones = [
         image: ffeHappyBin,
         url: "https://www.vitra.com/en-us/product/happy-bin?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "Waste basket designed by Michel Charlot."
-      },
-      {
-        name: "Dancing Wall",
-        brand: "Vitra",
-        image: ffeDancingWall,
-        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/dancing_wall.pdf",
-        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
       }
     ]
   },
@@ -293,14 +278,6 @@ const zones = [
         image: ffeRayonnageMural,
         url: "https://www.vitra.com/en-lp/product/rayonnage-mural?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "Wall shelving system designed by Jean Prouvé."
-      },
-      {
-        name: "Dancing Wall",
-        brand: "Vitra",
-        image: ffeDancingWall,
-        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
-        pdf: "/documents/dancing_wall.pdf",
-        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
       },
       {
         name: "Kaari Wall Hook",
@@ -438,6 +415,14 @@ const zones = [
         image: ffeCorkFamily,
         url: "https://www.vitra.com/en-lp/product/cork-family?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
         desc: "Side table/stool designed by Jasper Morrison."
+      },
+      {
+        name: "Dancing Wall",
+        brand: "Vitra",
+        image: ffeDancingWallNew,
+        url: "https://www.vitra.com/en-us/product/dancing-wall?utm_source=partner_website&utm_medium=referral&utm_campaign=355main",
+        pdf: "/documents/dancing_wall.pdf",
+        desc: "Magnetic whiteboard partition by Stephan Hürlemann."
       }
     ]
   }
