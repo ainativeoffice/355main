@@ -364,7 +364,7 @@ const zones = [
   {
     id: 9,
     title: "Break Room",
-    desc: "Hospitality-grade refreshment zone.",
+    desc: "The functional engine, behind the scenes. We separated this 'Back-of-House' break room to keep your client-facing areas pristine. While the café is for connection, this zone is for utility—a fully equipped, private kitchen where teams can prepare meals and unwind 'off-stage.' It ensures that lunch prep and lively downtime happen here, so the rest of the office remains polished and distraction-free.",
     x: 85.5, y: 58.5,
     images: [zone9a, zone9b],
     products: [
