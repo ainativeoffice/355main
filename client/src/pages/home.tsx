@@ -374,7 +374,7 @@ const zones = [
   {
     id: 11,
     title: "Semi-Private Conference",
-    desc: "Lounge-style meeting setting.",
+    desc: "Preserving the curve, redefining the function. We honored the suite's history by keeping Vatche Simonian's signature curved architecture intact. To modernize it, we selected curved, electrified Soft Work sofas that mirror the room's geometry. The open-beam ceiling creates a 'semi-private' acoustic environment—perfect for 'quiet company,' where you can focus individually or hold casual meetings that don't require the secrecy of a closed door.",
     x: 36.5, y: 34,
     images: [zone11a, zone11b],
     products: [
