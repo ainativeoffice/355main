@@ -148,8 +148,8 @@ const zones = [
   },
   {
     id: 4,
-    title: "Conference Area",
-    desc: "High-output team environment (4-6 people).",
+    title: "Customizable Suite",
+    desc: "A flexible canvas, waiting for your signature. We labeled this a conference room, but it is engineered as a customizable suite. Anchored by a touchdown table and connected to an adjoining space via French doors, this zone is ready to evolve into a private huddle room or an executive lounge based on your specifications. With independent HVAC control and soaring vaulted ceilings, the infrastructure is already in place for a bespoke workspace tailored to you.",
     x: 10.5, y: 41.5,
     images: [zone4],
     products: [
