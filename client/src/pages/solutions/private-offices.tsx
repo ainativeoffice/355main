@@ -5,8 +5,14 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Users, Plug, LayoutGrid, Settings } from "lucide-react";
 
 import heroImage from "@assets/Hero_1767222668713.png";
-import tyde2Image from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import officeImage from "@assets/vs_exterior_glass.jpg";
+
+import tyde2System from "@assets/82655552-2_1769527039463.jpg";
+import myntChair from "@assets/86857078_1769527235782.jpg";
+import myntSketch from "@assets/86864757_1769527235784.jpg";
+import mikadoChair from "@assets/82677988-2_1769531347394.jpg";
+import mikadoSketch from "@assets/82660803_1769527337840.jpg";
+import mikadoCushion from "@assets/82678104_1769527337840.jpg";
 
 export default function PrivateOffices() {
   return (
@@ -61,44 +67,155 @@ export default function PrivateOffices() {
 
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <img 
-                src={tyde2Image} 
-                alt="Vitra Tyde 2 Desk" 
-                className="w-full aspect-[4/3] object-cover"
-                loading="lazy"
-                data-testid="img-tyde2"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Foundation</span>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">Vitra Tyde 2 System</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Every private office at 355 Main is built around the Vitra Tyde 2 height-adjustable desk system. This modular platform allows single units to integrate seamlessly into different layouts.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                The Tyde 2's unified electrical and structural support means your workspace can evolve with your team — adding or reconfiguring desks without complex infrastructure changes.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Height-adjustable sit-stand functionality</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Integrated cable management</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Modular expansion capability</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Premium Vitra craftsmanship</span>
-                </li>
-              </ul>
-            </div>
+          <div className="text-center mb-16">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Foundation</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Three Key Products</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Every private office at 355 Main is built around three essential elements: the desk, the desk chair, and the passive chair. We've selected each for its design excellence, ergonomic innovation, and long-term support from Vitra.
+            </p>
+          </div>
+
+          <div className="space-y-24">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              <div>
+                <img 
+                  src={tyde2System} 
+                  alt="Vitra Tyde 2 System" 
+                  className="w-full aspect-[4/3] object-cover bg-[#f5f5f5]"
+                  loading="lazy"
+                  data-testid="img-tyde2"
+                />
+              </div>
+              <div>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2 block">The Desk</span>
+                <h3 className="font-serif text-2xl md:text-3xl mb-2">Tyde 2 System</h3>
+                <p className="text-sm text-muted-foreground mb-4">Vitra</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  We chose the Tyde 2 for its modularity—single units integrate seamlessly into different configurations, adapting as your team grows. The unified electrical and structural backbone means adding or reconfiguring desks without complex infrastructure changes.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Modular configurations for any team size</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Height-adjustable sit-stand functionality</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Vitra maintenance and long-term product support</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              <div className="order-2 lg:order-1">
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2 block">The Desk Chair</span>
+                <h3 className="font-serif text-2xl md:text-3xl mb-2">Mynt</h3>
+                <p className="text-sm text-muted-foreground mb-4">Erwan Bouroullec, 2025</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Mynt redefines the desk chair with intuitive, weight-activated movement. The synchronized mechanism responds naturally to your body—lean back and the seat tilts, shift forward and it follows. No levers, no adjustments. Just effortless, infinite posture support throughout the workday.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Weight-activated synchronized mechanism</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Infinite posture support without manual adjustment</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Engineered against static fatigue</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="order-1 lg:order-2 grid grid-cols-2 gap-4">
+                <img 
+                  src={myntChair} 
+                  alt="Mynt Chair" 
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                  data-testid="img-mynt-chair"
+                />
+                <img 
+                  src={myntSketch} 
+                  alt="Mynt movement sketch" 
+                  className="w-full aspect-square object-contain bg-[#f5f5f5]"
+                  loading="lazy"
+                  data-testid="img-mynt-sketch"
+                />
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="grid lg:grid-cols-2 gap-12 items-center"
+            >
+              <div className="grid grid-cols-3 gap-4">
+                <img 
+                  src={mikadoChair} 
+                  alt="Mikado Chair" 
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                  data-testid="img-mikado-chair"
+                />
+                <img 
+                  src={mikadoSketch} 
+                  alt="Mikado movement sketch by Barber & Osgerby" 
+                  className="w-full aspect-square object-contain bg-[#f5f5f5]"
+                  loading="lazy"
+                  data-testid="img-mikado-sketch"
+                />
+                <img 
+                  src={mikadoCushion} 
+                  alt="Mikado comfortable seat cushion" 
+                  className="w-full aspect-square object-cover"
+                  loading="lazy"
+                  data-testid="img-mikado-cushion"
+                />
+              </div>
+              <div>
+                <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2 block">The Passive Chair</span>
+                <h3 className="font-serif text-2xl md:text-3xl mb-2">Mikado</h3>
+                <p className="text-sm text-muted-foreground mb-4">Edward Barber & Jay Osgerby, 2024</p>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  For visitors and side seating, Mikado delivers unexpected comfort through subtle movement. The flexing backrest responds gently to your posture, preventing the static fatigue of traditional side chairs. Upholstered on all sides with a comfortable seat cushion—design that invites you to stay.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Subtle rocking mechanism for dynamic comfort</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Upholstery on all sides</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <span className="text-sm">Comfortable seat cushion</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
