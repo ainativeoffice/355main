@@ -13,7 +13,7 @@ export default function CustomOffices() {
     <Layout>
       <SEO 
         title="Custom Offices | 355 Main"
-        description="Ground-up design-build workspace tailored to your organization. Fully customizable private office suites at 355 Main in Armonk, NY."
+        description="Bespoke workspace solutions available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases on turnover in Armonk, NY."
         canonical="/solutions/custom-offices"
       />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
@@ -46,7 +46,7 @@ export default function CustomOffices() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-4"
           >
-            Ground-up design-build on the 355 Main Street parcel. A bespoke workspace tailored entirely to your organization.
+            A bespoke workspace tailored entirely to your organization—available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as they become available.
           </motion.p>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ export default function CustomOffices() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-sm uppercase tracking-widest text-white/60"
           >
-            Upon Availability
+            Three Pathways to Customization
           </motion.p>
         </div>
       </section>
@@ -64,29 +64,31 @@ export default function CustomOffices() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Opportunity</span>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">Build Your Vision</h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                For organizations seeking a truly dedicated presence in Armonk, we offer the opportunity to design and build a custom office structure on available parcels adjacent to 355 Main.
-              </p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-6">Three Pathways to Your Custom Workspace</h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                This is not a renovation or fit-out — it's a ground-up development tailored to your exact specifications, constructed separately from the main 355 Main building while benefiting from the same prime location and campus amenities.
+                For organizations seeking a truly dedicated presence in Armonk, we offer three distinct pathways to a custom workspace tailored to your exact specifications.
               </p>
-              <ul className="space-y-4">
+              <ul className="space-y-6">
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Complete architectural freedom</span>
+                  <div>
+                    <span className="font-medium">3rd Floor Addition at 355 Main</span>
+                    <p className="text-muted-foreground text-sm mt-1">A new floor built above the existing 355 Main building, offering premium elevation and views with direct access to shared amenities.</p>
+                  </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Dedicated building with private entrance</span>
+                  <div>
+                    <span className="font-medium">357 Main Street</span>
+                    <p className="text-muted-foreground text-sm mt-1">The neighboring building offers a dedicated address with private entrance, while maintaining proximity to the 355 Main campus and amenities.</p>
+                  </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Access to 355 Main amenities and services</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <span>Prime Armonk location with ample parking</span>
+                  <div>
+                    <span className="font-medium">New Lease on Turnover</span>
+                    <p className="text-muted-foreground text-sm mt-1">As existing tenants transition, prime suites within 355 Main become available for full customization to your brand and workflow.</p>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -191,12 +193,12 @@ export default function CustomOffices() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-sm uppercase tracking-[0.2em] text-white/50 mb-4 block">Availability</span>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">Limited Parcel Availability</h2>
+              <h2 className="font-serif text-3xl md:text-4xl mb-6">Express Your Interest</h2>
               <p className="text-white/70 leading-relaxed mb-6">
-                Custom office opportunities are subject to parcel availability on the 355 Main Street property. We work with qualified organizations on a case-by-case basis.
+                Custom office opportunities depend on timing and availability across our three pathways: the 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as existing tenants transition.
               </p>
               <p className="text-white/70 leading-relaxed mb-8">
-                If your organization is interested in exploring a custom office development, we encourage you to contact our team to discuss your requirements and timeline.
+                We work with qualified organizations on a case-by-case basis. Contact our team to discuss your requirements, preferred pathway, and timeline.
               </p>
               <a 
                 href="mailto:leasing@355main.com" 
