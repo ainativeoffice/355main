@@ -14,6 +14,10 @@ import mikadoChair from "@assets/82677988-2_1769531347394.jpg";
 import mikadoSketch from "@assets/82660803_1769527337840.jpg";
 import mikadoCushion from "@assets/82678104_1769527337840.jpg";
 
+import zone1 from "@assets/zones/zone2_201.svg";
+import zone5a from "@assets/zones/zone5_opt_b.svg";
+import zone6 from "@assets/zones/zone6_suite207.svg";
+
 export default function PrivateOffices() {
   return (
     <Layout>
@@ -236,33 +240,43 @@ export default function PrivateOffices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-background border border-border p-8"
+              className="bg-background border border-border overflow-hidden"
               data-testid="card-config-solo"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Users className="w-8 h-8 text-primary" />
-                <div>
-                  <h3 className="font-serif text-xl">Solo Office</h3>
-                  <p className="text-sm text-muted-foreground">1 person</p>
-                </div>
+              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
+                <img 
+                  src={zone5a} 
+                  alt="Solo Office Layout" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
               </div>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                A dedicated private space with a single Tyde 2 workstation. Ideal for focused individual work with all the amenities of 355 Main.
-              </p>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Single Tyde 2 desk
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Ergonomic seating
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Private entrance
-                </li>
-              </ul>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Users className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-serif text-xl">Solo Office</h3>
+                    <p className="text-sm text-muted-foreground">1 person</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Engineered against static fatigue. The Mynt's weight-activated infinite posture and the Mikado's subtle rocking mechanism encourage micro-movements to keep you energized. Paired with electrified tabletops—a complete performance system designed to sustain focus.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Mynt desk chair with dynamic movement
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Mikado side chair for visitors
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Electrified workstation
+                  </li>
+                </ul>
+              </div>
             </motion.div>
 
             <motion.div 
@@ -270,33 +284,43 @@ export default function PrivateOffices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-background border border-border p-8"
+              className="bg-background border border-border overflow-hidden"
               data-testid="card-config-team"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <LayoutGrid className="w-8 h-8 text-primary" />
-                <div>
-                  <h3 className="font-serif text-xl">Team Office</h3>
-                  <p className="text-sm text-muted-foreground">2-6 people</p>
-                </div>
+              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
+                <img 
+                  src={zone6} 
+                  alt="Team Office Layout" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
               </div>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                Multiple Tyde 2 units configured for collaborative work. Integrated electrical spine supports the entire team.
-              </p>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  2-6 connected Tyde 2 desks
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Shared collaboration zone
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Unified cable management
-                </li>
-              </ul>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <LayoutGrid className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-serif text-xl">Team Office</h3>
+                    <p className="text-sm text-muted-foreground">2-3 people</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  A command center for synchronized leadership. The Tyde 2 system creates a self-contained suite: sit-stand workstations for deep individual focus, plus a dedicated table for collaboration. Pivot instantly from 'heads-down' production to 'heads-up' strategy sessions.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Tyde 2 sit-stand workstations
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Internal collaboration zone
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Mikado side chairs
+                  </li>
+                </ul>
+              </div>
             </motion.div>
 
             <motion.div 
@@ -304,33 +328,43 @@ export default function PrivateOffices() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-background border border-border p-8"
+              className="bg-background border border-border overflow-hidden"
               data-testid="card-config-suite"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Settings className="w-8 h-8 text-primary" />
-                <div>
-                  <h3 className="font-serif text-xl">Suite</h3>
-                  <p className="text-sm text-muted-foreground">7-15 people</p>
-                </div>
+              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
+                <img 
+                  src={zone1} 
+                  alt="Production Suite Layout" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
               </div>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                A dedicated suite with multiple Tyde 2 configurations, private meeting space, and room to grow.
-              </p>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Flexible desk configurations
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Private meeting room
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  Expansion capability
-                </li>
-              </ul>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Settings className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-serif text-xl">Production Suite</h3>
+                    <p className="text-sm text-muted-foreground">4-8 people</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  A hybrid engine for high-stakes work. Lightweight touchdown tables paired with ergonomic .04 chairs create a space that pivots instantly—a polished conference room for client presentations in the morning, or a dedicated 'war room' for your team to sprint on a project.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Reconfigurable touchdown tables
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Client presentation ready
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Team sprint capability
+                  </li>
+                </ul>
+              </div>
             </motion.div>
           </div>
         </div>
