@@ -28,6 +28,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent, trackFormSubmit } from "@/lib/analytics";
 
 const validateEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -129,6 +130,8 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
     },
     onSuccess: () => {
       setCompleted(true);
+      trackFormSubmit('full_waitlist', true);
+      trackEvent('waitlist_complete', 'conversion', 'full_form');
     },
     onError: (error: Error) => {
       toast({
@@ -136,6 +139,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
         description: error.message || "Please try again.",
         variant: "destructive",
       });
+      trackFormSubmit('full_waitlist', false);
     },
   });
 
@@ -153,7 +157,9 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
     }
     if (step < TOTAL_STEPS) {
       setStep(step + 1);
+      trackEvent('waitlist_step', 'engagement', `step_${step + 1}`);
     } else {
+      trackEvent('waitlist_submit_attempt', 'conversion', 'full_form');
       mutation.mutate({ member: memberData, preferences });
     }
   };

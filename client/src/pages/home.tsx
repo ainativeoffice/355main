@@ -9,6 +9,7 @@ import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { LocationSection } from "@/components/location-section";
+import { trackEvent, trackWaitlistSubmit } from "@/lib/analytics";
 
 import heroImage from "@assets/Hero_1767222668713-BGcfxWPp_1768257795221.jpg";
 
@@ -528,6 +529,9 @@ export default function Home() {
     e.preventDefault();
     if (!heroEmail || heroEmailStatus === "loading") return;
     
+    // Track form submission attempt
+    trackEvent('waitlist_form_submit', 'engagement', 'hero_email_form');
+    
     setHeroEmailStatus("loading");
     try {
       const response = await fetch("/api/waitlist", {
@@ -541,13 +545,17 @@ export default function Home() {
         setHeroEmailStatus("success");
         setHeroEmailMessage("We'll be in touch soon.");
         setHeroEmail("");
+        // Track successful submission
+        trackWaitlistSubmit(true);
       } else {
         setHeroEmailStatus("error");
         setHeroEmailMessage(data.message || "Please try again.");
+        trackWaitlistSubmit(false);
       }
     } catch {
       setHeroEmailStatus("error");
       setHeroEmailMessage("Something went wrong. Please try again.");
+      trackWaitlistSubmit(false);
     }
   };
   
@@ -1257,7 +1265,10 @@ export default function Home() {
            </p>
            <div className="flex flex-col items-center gap-6">
              <button 
-               onClick={() => setMembershipOpen(true)}
+               onClick={() => {
+                 trackEvent('join_waitlist_click', 'engagement', 'cta_section');
+                 setMembershipOpen(true);
+               }}
                className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors"
                data-testid="button-become-member"
              >
