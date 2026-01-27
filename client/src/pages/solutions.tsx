@@ -6,7 +6,7 @@ import { ArrowRight, Building2, Users, Zap, Layers, Video } from "lucide-react";
 import { Testimonials } from "@/components/testimonials";
 import { NewsSection } from "@/components/news-section";
 
-import customOfficeImage from "@assets/357_exterior_1.jpg";
+import customOfficeImage from "@assets/355_main_exterior.jpg";
 import privateOfficeImage from "@assets/Hero_1767222668713.png";
 import hybridImage from "@assets/86980777_1767393703514.jpg";
 import dynamicSpacesImage from "@assets/zones/zone8_opt5_symposium.svg";
