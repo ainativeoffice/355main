@@ -57,6 +57,111 @@ export default function Solutions() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
+            <Link href="/solutions/private-offices">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="group block bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+                data-testid="card-private-offices"
+              >
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={privateOfficeImage} 
+                    alt="Private Offices" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Users className="w-6 h-6 text-primary" />
+                    <h3 className="font-serif text-2xl">Private Offices</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">For teams: 1-8 people</p>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    Move-in ready private spaces featuring Vitra Tyde 2 configurations that integrate into different layouts with unified electrical and structural support.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Tyde 2 modular configurations
+                    </li>
+                    <li className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Integrated electrical support
+                    </li>
+                    <li className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Move-in ready
+                    </li>
+                  </ul>
+                  <span className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+
+            <Link href="/solutions/hybrid">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="group block bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+                data-testid="card-hybrid-membership"
+              >
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img 
+                    src={hybridImage} 
+                    alt="Flex Membership" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Zap className="w-6 h-6 text-primary" />
+                    <h3 className="font-serif text-2xl">Flex Membership</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">For hybrid workers and distributed teams</p>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    Flexible access to shared workspaces, private offices, and all-inclusive amenities. Work from our beautiful common areas whenever you need a professional environment.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Access to shared workspaces
+                    </li>
+                    <li className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Private office access
+                    </li>
+                    <li className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      All-inclusive amenities
+                    </li>
+                  </ul>
+                  <span className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all">
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Bespoke Space</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Custom Offices</h2>
+          </div>
+
+          <div className="max-w-2xl mx-auto">
             <Link href="/solutions/custom-offices">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -95,111 +200,6 @@ export default function Solutions() {
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       New leases on turnover
-                    </li>
-                  </ul>
-                  <span className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all">
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </motion.div>
-            </Link>
-
-            <Link href="/solutions/private-offices">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="group block bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
-                data-testid="card-private-offices"
-              >
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={privateOfficeImage} 
-                    alt="Private Offices" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Users className="w-6 h-6 text-primary" />
-                    <h3 className="font-serif text-2xl">Private Offices</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">For teams: 1-15 people</p>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    Move-in ready private spaces featuring Vitra Tyde 2 configurations that integrate into different layouts with unified electrical and structural support.
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Tyde 2 modular configurations
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Integrated electrical support
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Move-in ready
-                    </li>
-                  </ul>
-                  <span className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all">
-                    Learn More <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </motion.div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Flexible Access</span>
-            <h2 className="font-serif text-3xl md:text-5xl mb-4">Membership Options</h2>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <Link href="/solutions/hybrid">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group block bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
-                data-testid="card-hybrid-membership"
-              >
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={hybridImage} 
-                    alt="Hybrid Membership" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Zap className="w-6 h-6 text-primary" />
-                    <h3 className="font-serif text-2xl">Hybrid Memberships</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">For hybrid workers and distributed teams</p>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
-                    Flexible access to shared workspaces, private offices, and all-inclusive amenities. Work from our beautiful common areas whenever you need a professional environment.
-                  </p>
-                  <ul className="space-y-2 mb-6">
-                    <li className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Access to shared workspaces
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Private office access
-                    </li>
-                    <li className="flex items-center gap-2 text-sm">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      All-inclusive amenities
                     </li>
                   </ul>
                   <span className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all">
