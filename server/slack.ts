@@ -33,17 +33,15 @@ export async function sendSlackNotification(message: SlackMessage): Promise<bool
 
 export function formatWaitlistNotification(email: string): SlackMessage {
   return {
-    text: `New waitlist signup: ${email}`,
+    text: `🚀 New Lead: ${email} just requested access.`,
     blocks: [
       {
         type: "header",
-        text: { type: "plain_text", text: "📧 New Waitlist Signup", emoji: true }
+        text: { type: "plain_text", text: "🚀 New Lead", emoji: true }
       },
       {
         type: "section",
-        fields: [
-          { type: "mrkdwn", text: `*Email:*\n${email}` }
-        ]
+        text: { type: "mrkdwn", text: `*${email}* just requested access.` }
       },
       {
         type: "context",

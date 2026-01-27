@@ -165,7 +165,8 @@ export async function registerRoutes(
           properties: {
             email: email,
             lifecyclestage: "lead",
-            hs_lead_status: "NEW"
+            hs_lead_status: "NEW",
+            message: "Source: 355 Main Waitlist"
           }
         };
 

@@ -85,33 +85,15 @@ const emailTemplate = (content: string) => `
 
 export function sendWaitlistConfirmation(email: string): Promise<boolean> {
   const html = emailTemplate(`
-    <h2 style="margin: 0 0 20px; font-size: 24px; font-weight: 600; color: #1a1a1a;">Welcome to the Waitlist</h2>
-    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: #444;">
-      Thank you for your interest in 355 Main. You're now on our waitlist and we'll be in touch soon with updates about availability and next steps.
-    </p>
-    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: #444;">
-      <strong>What happens next?</strong>
-    </p>
-    <ul style="margin: 0 0 20px; padding-left: 20px; font-size: 16px; line-height: 1.8; color: #444;">
-      <li>Our leasing team will review your submission</li>
-      <li>We'll reach out to schedule a tour of the space</li>
-      <li>You'll get priority access to new availability</li>
-    </ul>
+    <h2 style="margin: 0 0 20px; font-size: 24px; font-weight: 600; color: #1a1a1a;">Access Requested</h2>
     <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #444;">
-      In the meantime, feel free to explore our website to learn more about our workspace solutions.
+      We have received your request for 355 Main. A member of our team will review your application shortly.
     </p>
   `);
 
-  const text = `Welcome to the Waitlist
+  const text = `Access Requested
 
-Thank you for your interest in 355 Main. You're now on our waitlist and we'll be in touch soon with updates about availability and next steps.
-
-What happens next?
-- Our leasing team will review your submission
-- We'll reach out to schedule a tour of the space
-- You'll get priority access to new availability
-
-In the meantime, feel free to explore our website to learn more about our workspace solutions.
+We have received your request for 355 Main. A member of our team will review your application shortly.
 
 ---
 355 Main Street, Armonk, New York
@@ -119,7 +101,7 @@ Questions? Contact us at leasing@355main.com`;
 
   return sendEmail({
     to: email,
-    subject: "Welcome to 355 Main – You're on the Waitlist",
+    subject: "Access Requested: 355 Main",
     html,
     text,
   });
