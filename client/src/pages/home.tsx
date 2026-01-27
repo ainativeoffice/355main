@@ -819,19 +819,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group flex flex-col h-full"
               data-testid="card-solution-private"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-serif text-xl mb-3">Private Offices</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                 Move-in ready private spaces featuring Vitra Tyde 2 configurations for teams of 1-8 people.
               </p>
               <Link 
                 href="/solutions/private-offices" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all mt-auto"
                 onClick={() => window.scrollTo(0, 0)}
                 data-testid="link-solution-private"
               >
@@ -844,19 +844,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group flex flex-col h-full"
               data-testid="card-solution-flex"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <Zap className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-serif text-xl mb-3">Flex Membership</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                 Flexible access to shared workspaces, private offices, and all-inclusive amenities for hybrid workers and distributed teams.
               </p>
               <Link 
                 href="/solutions/hybrid" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all mt-auto"
                 onClick={() => window.scrollTo(0, 0)}
                 data-testid="link-solution-flex"
               >
@@ -869,19 +869,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group flex flex-col h-full"
               data-testid="card-solution-custom"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <Building2 className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-serif text-xl mb-3">Custom Suites</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                 Bespoke workspace tailored to your organization—available through 355 Main, 357 Main, or new leases.
               </p>
               <Link 
                 href="/solutions/custom-offices" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all mt-auto"
                 onClick={() => window.scrollTo(0, 0)}
                 data-testid="link-solution-custom"
               >
