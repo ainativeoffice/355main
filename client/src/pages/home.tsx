@@ -94,7 +94,7 @@ import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_
 const zones = [
   {
     id: 1,
-    title: "Production Suite",
+    title: "Flexible Office",
     desc: "A hybrid engine for high-stakes work. We configured this room to break the mold of the static boardroom. By pairing lightweight touchdown tables with the ergonomic flexibility of the .04 chair, we created a space that pivots instantly. Use it as a polished conference room for client presentations in the morning, or claim it as a dedicated 'war room' for your team to sprint on a project for the rest of the week.",
     x: 39, y: 10.5,
     images: [zone1],
@@ -149,8 +149,8 @@ const zones = [
   },
   {
     id: 4,
-    title: "Customizable Suite",
-    desc: "A flexible canvas, waiting for your signature. We labeled this a conference room, but it is engineered as a customizable suite. Anchored by a touchdown table and connected to an adjoining space via French doors, this zone is ready to evolve into a private huddle room or an executive lounge based on your specifications. With independent HVAC control and soaring vaulted ceilings, the infrastructure is already in place for a bespoke workspace tailored to you.",
+    title: "Customizable Office",
+    desc: "A flexible canvas, waiting for your signature. We labeled this a conference room, but it is engineered as a customizable office. Anchored by a touchdown table and connected to an adjoining space via French doors, this zone is ready to evolve into a private huddle room or an executive lounge based on your specifications. With independent HVAC control and soaring vaulted ceilings, the infrastructure is already in place for a bespoke workspace tailored to you.",
     x: 10.5, y: 41.5,
     images: [zone4],
     products: [

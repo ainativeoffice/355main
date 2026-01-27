@@ -329,12 +329,12 @@ export default function PrivateOffices() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-background border border-border overflow-hidden"
-              data-testid="card-config-suite"
+              data-testid="card-config-customizable"
             >
               <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
                 <img 
                   src={zone1} 
-                  alt="Production Suite Layout" 
+                  alt="Customizable Office Layout" 
                   className="w-full h-full object-contain"
                   loading="lazy"
                 />
@@ -343,12 +343,12 @@ export default function PrivateOffices() {
                 <div className="flex items-center gap-3 mb-4">
                   <Settings className="w-6 h-6 text-primary" />
                   <div>
-                    <h3 className="font-serif text-xl">Production Suite</h3>
+                    <h3 className="font-serif text-xl">Customizable Office</h3>
                     <p className="text-sm text-muted-foreground">4-8 people</p>
                   </div>
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  A hybrid engine for high-stakes work. Lightweight touchdown tables paired with ergonomic .04 chairs create a space that pivots instantly—a polished conference room for client presentations in the morning, or a dedicated 'war room' for your team to sprint on a project.
+                  A flexible canvas for high-stakes work. Lightweight touchdown tables paired with ergonomic .04 chairs create a space that pivots instantly—a polished conference room for client presentations in the morning, or a dedicated 'war room' for your team to sprint on a project.
                 </p>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
@@ -361,7 +361,7 @@ export default function PrivateOffices() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Team sprint capability
+                    Adaptable to your workflow
                   </li>
                 </ul>
               </div>
