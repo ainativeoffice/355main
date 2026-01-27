@@ -85,15 +85,72 @@ const emailTemplate = (content: string) => `
 
 export function sendWaitlistConfirmation(email: string): Promise<boolean> {
   const html = emailTemplate(`
-    <h2 style="margin: 0 0 20px; font-size: 24px; font-weight: 600; color: #1a1a1a;">Access Requested</h2>
-    <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #444;">
-      We have received your request for 355 Main. A member of our team will review your application shortly.
+    <h2 style="margin: 0 0 30px; font-size: 28px; font-weight: 600; color: #1a1a1a; line-height: 1.3;">You just bought back 10 hours a week.</h2>
+    
+    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.7; color: #444;">
+      Most professionals in North Castle view the commute to Manhattan as a "cost of doing business."
+    </p>
+    
+    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.7; color: #444;">
+      We view it as a leak in your P&L.
+    </p>
+    
+    <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.7; color: #444;">
+      By requesting access to 355 Main, you aren't just looking for a desk. You are looking for the efficiency of a Midtown HQ with the proximity of a home office.
+    </p>
+    
+    <div style="background-color: #f8f8f8; padding: 24px; margin: 0 0 24px; border-left: 3px solid #1a1a1a;">
+      <h3 style="margin: 0 0 16px; font-size: 18px; font-weight: 600; color: #1a1a1a;">The Math of 355 Main:</h3>
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="padding: 8px 0; font-size: 16px; color: #444; border-bottom: 1px solid #eee;"><strong>Commute:</strong></td>
+          <td style="padding: 8px 0; font-size: 16px; color: #444; border-bottom: 1px solid #eee; text-align: right;">5 minutes vs. 75 minutes</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; font-size: 16px; color: #444; border-bottom: 1px solid #eee;"><strong>Annual Time Saved:</strong></td>
+          <td style="padding: 8px 0; font-size: 16px; color: #444; border-bottom: 1px solid #eee; text-align: right;">~480 hours (20 full days)</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px 0; font-size: 16px; color: #444;"><strong>Overhead:</strong></td>
+          <td style="padding: 8px 0; font-size: 16px; color: #444; text-align: right;">A fraction of NYC, zero fit-out costs</td>
+        </tr>
+      </table>
+    </div>
+    
+    <h3 style="margin: 0 0 12px; font-size: 18px; font-weight: 600; color: #1a1a1a;">What happens next?</h3>
+    
+    <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.7; color: #444;">
+      We are curating our founding members now. Because we are prioritizing the right mix of industries (Finance, Law, Tech), we review every application personally.
+    </p>
+    
+    <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.7; color: #444;">
+      You will hear from us shortly with floor plans and pre-launch rates.
+    </p>
+    
+    <p style="margin: 0; font-size: 16px; line-height: 1.7; color: #444; font-style: italic;">
+      Welcome to the destination.
     </p>
   `);
 
-  const text = `Access Requested
+  const text = `You just bought back 10 hours a week.
 
-We have received your request for 355 Main. A member of our team will review your application shortly.
+Most professionals in North Castle view the commute to Manhattan as a "cost of doing business."
+
+We view it as a leak in your P&L.
+
+By requesting access to 355 Main, you aren't just looking for a desk. You are looking for the efficiency of a Midtown HQ with the proximity of a home office.
+
+THE MATH OF 355 MAIN:
+• Commute: 5 minutes vs. 75 minutes
+• Annual Time Saved: ~480 hours (that's 20 full days of your life)
+• Overhead: A fraction of a NYC commercial lease, with zero fit-out costs
+
+WHAT HAPPENS NEXT?
+We are curating our founding members now. Because we are prioritizing the right mix of industries (Finance, Law, Tech), we review every application personally.
+
+You will hear from us shortly with floor plans and pre-launch rates.
+
+Welcome to the destination.
 
 ---
 355 Main Street, Armonk, New York
@@ -101,7 +158,7 @@ Questions? Contact us at leasing@355main.com`;
 
   return sendEmail({
     to: email,
-    subject: "Access Requested: 355 Main",
+    subject: "Welcome to 355 Main: Your 2026 Strategy",
     html,
     text,
   });
