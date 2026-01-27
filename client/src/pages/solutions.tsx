@@ -7,10 +7,27 @@ import { Testimonials } from "@/components/testimonials";
 import { NewsSection } from "@/components/news-section";
 
 import customOfficeImage from "@assets/355_main_exterior.jpg";
-import privateOfficeImage from "@assets/Hero_1767222668713.png";
-import hybridImage from "@assets/86980777_1767393703514.jpg";
 import dynamicSpacesImage from "@assets/zones/zone8_opt5_symposium.svg";
 import conferenceRoomsImage from "@assets/zones/zone11_closed_mtg.svg";
+
+import zone5a from "@assets/zones/zone5_opt_b.svg";
+import zone6 from "@assets/zones/zone6_suite207.svg";
+import zone1 from "@assets/zones/zone2_201.svg";
+import zone8 from "@assets/zones/zone8_opt5_symposium.svg";
+import zone10 from "@assets/zones/zone10_cafe.svg";
+import zone11 from "@assets/zones/zone11_closed_mtg.svg";
+
+const privateOfficeConfigs = [
+  { image: zone5a, label: "Solo Office", capacity: "1 person" },
+  { image: zone6, label: "Team Office", capacity: "2-3 people" },
+  { image: zone1, label: "Customizable Office", capacity: "4-8 people" },
+];
+
+const flexSpaces = [
+  { image: zone8, label: "Dynamic Space", type: "Collaboration" },
+  { image: zone10, label: "Shared Café", type: "Social" },
+  { image: zone11, label: "Conference Room", type: "Meetings" },
+];
 
 export default function Solutions() {
   return (
@@ -66,13 +83,23 @@ export default function Solutions() {
                 className="group block bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
                 data-testid="card-private-offices"
               >
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={privateOfficeImage} 
-                    alt="Private Offices" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                <div className="grid grid-cols-3">
+                  {privateOfficeConfigs.map((config, index) => (
+                    <div key={index} className="relative bg-[#f5f5f5] overflow-hidden border-r last:border-r-0 border-border">
+                      <div className="aspect-[4/3] p-4">
+                        <img 
+                          src={config.image} 
+                          alt={config.label} 
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="bg-foreground/95 px-3 py-2">
+                        <p className="text-white text-sm font-medium leading-tight">{config.label}</p>
+                        <p className="text-white/60 text-xs">{config.capacity}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
@@ -113,13 +140,23 @@ export default function Solutions() {
                 className="group block bg-card border border-border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
                 data-testid="card-hybrid-membership"
               >
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={hybridImage} 
-                    alt="Flex Membership" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                <div className="grid grid-cols-3">
+                  {flexSpaces.map((space, index) => (
+                    <div key={index} className="relative bg-[#f5f5f5] overflow-hidden border-r last:border-r-0 border-border">
+                      <div className="aspect-[4/3] p-4">
+                        <img 
+                          src={space.image} 
+                          alt={space.label} 
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="bg-foreground/95 px-3 py-2">
+                        <p className="text-white text-sm font-medium leading-tight">{space.label}</p>
+                        <p className="text-white/60 text-xs">{space.type}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
