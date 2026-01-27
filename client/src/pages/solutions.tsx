@@ -81,20 +81,20 @@ export default function Solutions() {
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">For organizations seeking dedicated space</p>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Design-build custom office space on the parcel, separate from 355 Main. A ground-up solution tailored to your organization's unique requirements.
+                    Bespoke workspace tailored to your organization—available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as they become available.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Ground-up design-build
+                      3rd floor addition at 355 Main
                     </li>
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Separate from main building
+                      357 Main Street building
                     </li>
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Upon availability
+                      New leases on turnover
                     </li>
                   </ul>
                   <span className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all">
