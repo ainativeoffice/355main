@@ -20,7 +20,7 @@ import zone11 from "@assets/zones/zone11_closed_mtg.svg";
 const privateOfficeConfigs = [
   { image: zone5a, label: "Solo Office", capacity: "1 person" },
   { image: zone6, label: "Team Office", capacity: "2-3 people" },
-  { image: zone1, label: "Customizable Office", capacity: "4-8 people" },
+  { image: zone1, label: "Custom Office", capacity: "4-8 people" },
 ];
 
 const flexSpaces = [
@@ -195,7 +195,8 @@ export default function Solutions() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Bespoke Space</span>
-            <h2 className="font-serif text-3xl md:text-5xl mb-4">Custom Offices</h2>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Custom Suites</h2>
+            <p className="text-muted-foreground">at Armonk Professional Center</p>
           </div>
 
           <div className="max-w-2xl mx-auto">
@@ -211,7 +212,7 @@ export default function Solutions() {
                 <div className="aspect-[16/9] overflow-hidden">
                   <img 
                     src={customOfficeImage} 
-                    alt="Custom Offices" 
+                    alt="Custom Suites at Armonk Professional Center" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -219,11 +220,11 @@ export default function Solutions() {
                 <div className="p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 className="w-6 h-6 text-primary" />
-                    <h3 className="font-serif text-2xl">Custom Offices</h3>
+                    <h3 className="font-serif text-2xl">Custom Suites</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">For organizations seeking dedicated space</p>
                   <p className="text-muted-foreground leading-relaxed mb-6">
-                    Bespoke workspace tailored to your organization—available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as they become available.
+                    Bespoke workspace tailored to your organization at Armonk Professional Center—available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as they become available.
                   </p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2 text-sm">
