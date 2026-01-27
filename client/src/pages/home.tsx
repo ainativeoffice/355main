@@ -876,7 +876,6 @@ export default function Home() {
                 <Building2 className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-serif text-xl mb-3">Custom Suites</h3>
-              <p className="text-xs text-muted-foreground mb-2">at Armonk Professional Center</p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                 Bespoke workspace tailored to your organization—available through 355 Main, 357 Main, or new leases.
               </p>
