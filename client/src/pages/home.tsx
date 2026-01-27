@@ -610,7 +610,11 @@ export default function Home() {
 
   return (
     <Layout>
-      <SEO canonical="/" />
+      <SEO 
+        title="355 Main | The Destination Workplace"
+        description="The office people want to go to. Workspace solutions that adapt to how you work—private offices, flex memberships, and custom suites in Armonk, NY."
+        canonical="/" 
+      />
       {/* 1. Hero Section - Refined & Timeless */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -740,7 +744,7 @@ export default function Home() {
             <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Workspace Solutions</span>
             <h2 className="font-serif text-3xl md:text-5xl mb-4">Find Your Perfect Space</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              From dedicated private offices to flexible memberships, we offer workspace solutions designed for how you work today.
+              From dedicated private offices to flexible memberships, we offer workspace solutions that adapt to how you work.
             </p>
           </div>
 

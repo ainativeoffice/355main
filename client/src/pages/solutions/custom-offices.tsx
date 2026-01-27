@@ -13,7 +13,7 @@ export default function CustomOffices() {
     <Layout>
       <SEO 
         title="Custom Offices | 355 Main"
-        description="Bespoke workspace solutions available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases on turnover in Armonk, NY."
+        description="Custom suites at Armonk Professional Center—tailored to your organization and re-tailored as you evolve. Available through 355 Main, 357 Main, or new leases."
         canonical="/solutions/custom-offices"
       />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
@@ -46,7 +46,7 @@ export default function CustomOffices() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-4"
           >
-            A bespoke workspace tailored entirely to your organization—available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as they become available.
+            A workspace tailored to your organization—and re-tailored as you evolve. Available through a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as they become available.
           </motion.p>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ export default function CustomOffices() {
               <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Opportunity</span>
               <h2 className="font-serif text-3xl md:text-4xl mb-6">Three Pathways to Your Custom Workspace</h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                For organizations seeking a truly dedicated presence in Armonk, we offer three distinct pathways to a custom workspace tailored to your exact specifications.
+                For organizations seeking a truly dedicated presence in Armonk, we offer three distinct pathways to a custom workspace—one that can be tailored and re-tailored endlessly as your organization evolves.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-3">

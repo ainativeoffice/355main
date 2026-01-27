@@ -21,8 +21,8 @@ Premium furniture from partners like Vitra enables rapid reconfiguration to matc
 
 The building is organized into purpose-designed zones:
 
-- **Production Suite** - A hybrid engine for high-stakes work with lightweight touchdown tables and .04 chairs for instant pivots between client presentations and team sprints
-- **Customizable Suite** - A flexible canvas with independent HVAC control and vaulted ceilings, ready to evolve into a private huddle room or executive lounge
+- **Flexible Office** - A hybrid engine for high-stakes work with lightweight touchdown tables and .04 chairs for instant pivots between client presentations and team sprints
+- **Customizable Office** - A flexible canvas with independent HVAC control and vaulted ceilings, ready to evolve into a private huddle room or executive lounge
 - **Private Office** - Engineered against static fatigue with Mynt and Mikado chairs featuring weight-activated infinite posture and subtle rocking mechanisms
 - **Team Offices** - A command center for synchronized leadership with Tyde 2 sit-stand workstations and Mikado side chairs for seamless transitions between focus and strategy
 - **Resource Room** - Utility elevated to the same standard with matte black IKEA cabinetry and Black Caesarstone maintaining visual continuity with the café
@@ -35,14 +35,16 @@ The building is organized into purpose-designed zones:
 
 ## Workspace Solutions
 
-### Custom Offices
-Bespoke workspace solutions available through three pathways: a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as existing tenants transition. Ideal for organizations seeking a fully customized, branded presence in Armonk.
+355 Main offers workspace solutions that adapt to how you work.
+
+### Custom Suites at Armonk Professional Center
+Bespoke workspace solutions that can be tailored and re-tailored endlessly as your organization evolves. Available through three pathways: a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as existing tenants transition. Ideal for organizations seeking a fully customized, branded presence in Armonk.
 
 ### Private Offices
-Ready-to-use private offices with premium furnishings. Move-in ready with flexible terms.
+Ready-to-use private offices with premium furnishings that adapt to your needs. Available configurations: Solo Office (1 person), Team Office (2-3 people), and Custom Office (4-8 people). Move-in ready with flexible terms.
 
-### Hybrid Memberships
-Flexible access to workspace and amenities for distributed teams. Perfect for remote-first companies needing occasional in-person collaboration space.
+### Flex Memberships
+Flexible access to workspace and amenities for distributed teams. Includes access to shared workspaces, private office access as available, and all-inclusive amenities. Perfect for remote-first companies needing occasional in-person collaboration space.
 
 ## Building Features
 
@@ -79,10 +81,10 @@ Armonk is located in Westchester County, approximately 40 miles north of New Yor
 ## Key Pages
 
 - **Home** (/) - Overview of The Destination Workplace concept
-- **Solutions** (/solutions) - Workspace options and pricing tiers
-- **Custom Offices** (/solutions/custom-offices) - Fully customizable suites
-- **Private Offices** (/solutions/private-offices) - Ready-to-use offices
-- **Hybrid Memberships** (/solutions/hybrid) - Flexible access plans
+- **Solutions** (/solutions) - Workspace solutions that adapt to how you work
+- **Custom Suites** (/solutions/custom-offices) - Fully customizable suites at Armonk Professional Center
+- **Private Offices** (/solutions/private-offices) - Ready-to-use offices that adapt to your needs
+- **Flex Memberships** (/solutions/hybrid) - Flexible access plans
 - **About** (/about) - Building story and vision
 - **Enterprise** (/enterprise) - Solutions for larger organizations
 - **Landlords** (/landlords) - Partnership opportunities for property owners

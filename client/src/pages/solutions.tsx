@@ -34,7 +34,7 @@ export default function Solutions() {
     <Layout>
       <SEO 
         title="Workspace Solutions | 355 Main"
-        description="Custom offices, private offices, and hybrid memberships. Find your perfect workspace solution at 355 Main in Armonk, NY."
+        description="Workspace solutions that adapt to how you work. Private offices, flex memberships, and custom suites at 355 Main in Armonk, NY."
         canonical="/solutions"
       />
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-muted/30">
@@ -61,7 +61,7 @@ export default function Solutions() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
           >
-            From dedicated private offices to flexible hybrid memberships, 355 Main offers workspace solutions designed for how you work today.
+            From dedicated private offices to flexible memberships, 355 Main offers workspace solutions that adapt to how you work.
           </motion.p>
         </div>
       </section>
@@ -70,7 +70,7 @@ export default function Solutions() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Dedicated Workspace</span>
-            <h2 className="font-serif text-3xl md:text-5xl mb-4">A Workplace That's All Yours</h2>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">A Workplace That Adapts to You</h2>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
