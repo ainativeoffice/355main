@@ -174,7 +174,7 @@ export default function Solutions() {
                     </li>
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      Private office access
+                      Private office access, as available
                     </li>
                     <li className="flex items-center gap-2 text-sm">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
