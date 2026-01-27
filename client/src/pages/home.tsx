@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Download, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Building2, Users, Zap, ArrowRight, ExternalLink } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, FormEvent } from "react";
 import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
@@ -519,6 +519,38 @@ export default function Home() {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [membershipOpen, setMembershipOpen] = useState(false);
   
+  // Inline email capture state
+  const [heroEmail, setHeroEmail] = useState("");
+  const [heroEmailStatus, setHeroEmailStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [heroEmailMessage, setHeroEmailMessage] = useState("");
+
+  const handleHeroEmailSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!heroEmail || heroEmailStatus === "loading") return;
+    
+    setHeroEmailStatus("loading");
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: heroEmail }),
+      });
+      const data = await response.json();
+      
+      if (data.success) {
+        setHeroEmailStatus("success");
+        setHeroEmailMessage("We'll be in touch soon.");
+        setHeroEmail("");
+      } else {
+        setHeroEmailStatus("error");
+        setHeroEmailMessage(data.message || "Please try again.");
+      }
+    } catch {
+      setHeroEmailStatus("error");
+      setHeroEmailMessage("Something went wrong. Please try again.");
+    }
+  };
+  
   // Zone Tuner - Commented out for production
   // const [showTuner, setShowTuner] = useState(false);
   // const [zoneCoords, setZoneCoords] = useState<Record<number, {x: number, y: number}>>(
@@ -651,6 +683,43 @@ export default function Home() {
           >
             "Form follows function, but feeling follows form."
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+            className="mt-10"
+          >
+            {heroEmailStatus === "success" ? (
+              <div className="text-white/90 text-lg">
+                <span className="font-medium">Thank you.</span> {heroEmailMessage}
+              </div>
+            ) : (
+              <form onSubmit={handleHeroEmailSubmit} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto">
+                <input
+                  type="email"
+                  value={heroEmail}
+                  onChange={(e) => setHeroEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  disabled={heroEmailStatus === "loading"}
+                  className="w-full sm:flex-1 px-5 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/50 focus:outline-none focus:border-white/60 transition-colors"
+                  data-testid="input-hero-email"
+                />
+                <button
+                  type="submit"
+                  disabled={heroEmailStatus === "loading"}
+                  className="w-full sm:w-auto px-8 py-3 bg-white text-foreground font-medium hover:bg-white/90 transition-colors disabled:opacity-50"
+                  data-testid="button-hero-submit"
+                >
+                  {heroEmailStatus === "loading" ? "..." : "Stay Updated"}
+                </button>
+              </form>
+            )}
+            {heroEmailStatus === "error" && (
+              <p className="mt-3 text-red-300 text-sm">{heroEmailMessage}</p>
+            )}
+          </motion.div>
         </div>
 
         <motion.div 
