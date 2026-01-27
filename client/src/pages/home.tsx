@@ -56,7 +56,7 @@ import ffeMedaMorph from "@assets/stock_images/vitra_medamorph_conf_c497432e.jpg
 import ffeHal from "@assets/vitra_hal_chair.jpg";
 import ffeMynt from "@assets/stock_images/vitra_mynt_office_ch_f0f49d65.jpg";
 import ffeFauteuilDirection from "@assets/stock_images/vitra_fauteuil_direc_ad92c663.jpg";
-import ffeTyde2 from "@assets/82655552-2_1769523012865.jpg";
+import ffeTyde2 from "@assets/82655552_1769278417914.jpg";
 import ffeJoyn2 from "@assets/77433396_1769277628600.jpg";
 import ffeSuperFold from "@assets/49934396_1769278778313.jpg";
 import ffeBelleville from "@assets/stock_images/vitra_belleville_tab_58774a45.jpg";
