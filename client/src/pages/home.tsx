@@ -820,31 +820,6 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
-              data-testid="card-solution-custom"
-            >
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                <Building2 className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-serif text-xl mb-3">Custom Offices</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Ground-up design-build on the parcel. A bespoke workspace tailored entirely to your organization.
-              </p>
-              <Link 
-                href="/solutions/custom-offices" 
-                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
-                onClick={() => window.scrollTo(0, 0)}
-                data-testid="link-solution-custom"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
               data-testid="card-solution-private"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
@@ -852,7 +827,7 @@ export default function Home() {
               </div>
               <h3 className="font-serif text-xl mb-3">Private Offices</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Move-in ready private spaces with Vitra Tyde 2 configurations for teams of 1-15 people.
+                Move-in ready private spaces featuring Vitra Tyde 2 configurations for teams of 1-8 people.
               </p>
               <Link 
                 href="/solutions/private-offices" 
@@ -868,22 +843,48 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
-              data-testid="card-solution-hybrid"
+              data-testid="card-solution-flex"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <Zap className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-serif text-xl mb-3">Hybrid Memberships</h3>
+              <h3 className="font-serif text-xl mb-3">Flex Membership</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Flexible access to shared workspaces, private offices, and all-inclusive amenities.
+                Flexible access to shared workspaces, private offices, and all-inclusive amenities for hybrid workers and distributed teams.
               </p>
               <Link 
                 href="/solutions/hybrid" 
                 className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
                 onClick={() => window.scrollTo(0, 0)}
-                data-testid="link-solution-hybrid"
+                data-testid="link-solution-flex"
+              >
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card p-8 border border-border hover:border-primary/50 transition-colors group"
+              data-testid="card-solution-custom"
+            >
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                <Building2 className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-serif text-xl mb-3">Custom Suites</h3>
+              <p className="text-xs text-muted-foreground mb-2">at Armonk Professional Center</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Bespoke workspace tailored to your organization—available through 355 Main, 357 Main, or new leases.
+              </p>
+              <Link 
+                href="/solutions/custom-offices" 
+                className="inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium group-hover:gap-3 transition-all"
+                onClick={() => window.scrollTo(0, 0)}
+                data-testid="link-solution-custom"
               >
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
