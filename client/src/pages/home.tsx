@@ -687,9 +687,9 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light font-serif italic"
+            className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            "Form follows function, but feeling follows form."
+            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Limited founding memberships available.
           </motion.p>
 
           <motion.div
@@ -703,26 +703,29 @@ export default function Home() {
                 <span className="font-medium">Thank you.</span> {heroEmailMessage}
               </div>
             ) : (
-              <form onSubmit={handleHeroEmailSubmit} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-md mx-auto">
-                <input
-                  type="email"
-                  value={heroEmail}
-                  onChange={(e) => setHeroEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  disabled={heroEmailStatus === "loading"}
-                  className="w-full sm:flex-1 px-5 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/50 focus:outline-none focus:border-white/60 transition-colors"
-                  data-testid="input-hero-email"
-                />
-                <button
-                  type="submit"
-                  disabled={heroEmailStatus === "loading"}
-                  className="w-full sm:w-auto px-8 py-3 bg-white text-foreground font-medium hover:bg-white/90 transition-colors disabled:opacity-50"
-                  data-testid="button-hero-submit"
-                >
-                  {heroEmailStatus === "loading" ? "..." : "Stay Updated"}
-                </button>
-              </form>
+              <>
+                <form onSubmit={handleHeroEmailSubmit} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-lg mx-auto">
+                  <input
+                    type="email"
+                    value={heroEmail}
+                    onChange={(e) => setHeroEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    required
+                    disabled={heroEmailStatus === "loading"}
+                    className="w-full sm:flex-1 px-6 py-4 bg-white/5 backdrop-blur-md border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all text-base"
+                    data-testid="input-hero-email"
+                  />
+                  <button
+                    type="submit"
+                    disabled={heroEmailStatus === "loading"}
+                    className="w-full sm:w-auto px-10 py-4 bg-white text-foreground font-semibold tracking-wide hover:bg-white/95 transition-all disabled:opacity-50 text-base"
+                    data-testid="button-hero-submit"
+                  >
+                    {heroEmailStatus === "loading" ? "..." : "Request Access"}
+                  </button>
+                </form>
+                <p className="mt-4 text-white/50 text-sm tracking-wide">Curated for privacy and productivity.</p>
+              </>
             )}
             {heroEmailStatus === "error" && (
               <p className="mt-3 text-red-300 text-sm">{heroEmailMessage}</p>
