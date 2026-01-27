@@ -9,7 +9,6 @@ import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { LocationSection } from "@/components/location-section";
-import { ImageComparisonSlider } from "@/components/image-comparison-slider";
 
 import heroImage from "@assets/Hero_1767222668713-BGcfxWPp_1768257795221.jpg";
 
@@ -705,13 +704,11 @@ export default function Home() {
                transition={{ duration: 0.8 }}
                className="order-2 md:order-1 relative bg-muted overflow-hidden shadow-2xl"
              >
-                <ImageComparisonSlider
-                  beforeImage={constructionBefore}
-                  afterImage={constructionAfter}
-                  beforeLabel="Dec 26"
-                  afterLabel="Jan 12"
-                  beforeDate="Subfloor Prep"
-                  afterDate="Flooring Installed"
+                <img 
+                  src={constructionAfter} 
+                  alt="355 Main construction progress - January 2025" 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
                 />
              </motion.div>
 
@@ -725,8 +722,7 @@ export default function Home() {
                <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
                <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
                <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                 Drag the slider to see our progress. The luxury vinyl flooring is now installed, 
-                 track lighting operational, and wood doors in place. We're getting ready for you.
+                 Luxury vinyl flooring is now installed, track lighting operational, and wood doors in place. We're getting ready for you.
                </p>
                <div className="flex items-center gap-4">
                  <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">

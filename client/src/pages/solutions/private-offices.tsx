@@ -72,6 +72,152 @@ export default function PrivateOffices() {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
+            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Configurations</span>
+            <h2 className="font-serif text-3xl md:text-5xl mb-4">Office Layouts</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From solo professionals to growing teams, our private offices adapt to your needs.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-muted/30 border border-border overflow-hidden"
+              data-testid="card-config-solo"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
+                <img 
+                  src={zone5a} 
+                  alt="Solo Office Layout" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Users className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-serif text-xl">Solo Office</h3>
+                    <p className="text-sm text-muted-foreground">1 person</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  Engineered against static fatigue. The Mynt's weight-activated infinite posture and the Mikado's subtle rocking mechanism encourage micro-movements to keep you energized. Paired with electrified tabletops—a complete performance system designed to sustain focus.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Mynt desk chair with dynamic movement
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Mikado side chair for visitors
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Electrified workstation
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-muted/30 border border-border overflow-hidden"
+              data-testid="card-config-team"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
+                <img 
+                  src={zone6} 
+                  alt="Team Office Layout" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <LayoutGrid className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-serif text-xl">Team Office</h3>
+                    <p className="text-sm text-muted-foreground">2-3 people</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  A command center for synchronized leadership. The Tyde 2 system creates a self-contained suite: sit-stand workstations for deep individual focus, plus a dedicated table for collaboration. Pivot instantly from 'heads-down' production to 'heads-up' strategy sessions.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Tyde 2 sit-stand workstations
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Internal collaboration zone
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Mikado side chairs
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-muted/30 border border-border overflow-hidden"
+              data-testid="card-config-customizable"
+            >
+              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
+                <img 
+                  src={zone1} 
+                  alt="Customizable Office Layout" 
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <Settings className="w-6 h-6 text-primary" />
+                  <div>
+                    <h3 className="font-serif text-xl">Customizable Office</h3>
+                    <p className="text-sm text-muted-foreground">4-8 people</p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  A flexible canvas for high-stakes work. Lightweight touchdown tables paired with ergonomic .04 chairs create a space that pivots instantly—a polished conference room for client presentations in the morning, or a dedicated 'war room' for your team to sprint on a project.
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Reconfigurable touchdown tables
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Client presentation ready
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                    Adaptable to your workflow
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-muted/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
             <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">The Foundation</span>
             <h2 className="font-serif text-3xl md:text-5xl mb-4">Three Key Products</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -216,152 +362,6 @@ export default function PrivateOffices() {
                   <li className="flex items-start gap-3">
                     <Check className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                     <span className="text-sm">Comfortable seat cushion</span>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 block">Configurations</span>
-            <h2 className="font-serif text-3xl md:text-5xl mb-4">Office Layouts</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From solo professionals to growing teams, our private offices adapt to your needs.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-background border border-border overflow-hidden"
-              data-testid="card-config-solo"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
-                <img 
-                  src={zone5a} 
-                  alt="Solo Office Layout" 
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Users className="w-6 h-6 text-primary" />
-                  <div>
-                    <h3 className="font-serif text-xl">Solo Office</h3>
-                    <p className="text-sm text-muted-foreground">1 person</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  Engineered against static fatigue. The Mynt's weight-activated infinite posture and the Mikado's subtle rocking mechanism encourage micro-movements to keep you energized. Paired with electrified tabletops—a complete performance system designed to sustain focus.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Mynt desk chair with dynamic movement
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Mikado side chair for visitors
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Electrified workstation
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-background border border-border overflow-hidden"
-              data-testid="card-config-team"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
-                <img 
-                  src={zone6} 
-                  alt="Team Office Layout" 
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <LayoutGrid className="w-6 h-6 text-primary" />
-                  <div>
-                    <h3 className="font-serif text-xl">Team Office</h3>
-                    <p className="text-sm text-muted-foreground">2-3 people</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  A command center for synchronized leadership. The Tyde 2 system creates a self-contained suite: sit-stand workstations for deep individual focus, plus a dedicated table for collaboration. Pivot instantly from 'heads-down' production to 'heads-up' strategy sessions.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Tyde 2 sit-stand workstations
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Internal collaboration zone
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Mikado side chairs
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-background border border-border overflow-hidden"
-              data-testid="card-config-customizable"
-            >
-              <div className="aspect-[4/3] overflow-hidden bg-[#f5f5f5] p-4 flex items-center justify-center">
-                <img 
-                  src={zone1} 
-                  alt="Customizable Office Layout" 
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <Settings className="w-6 h-6 text-primary" />
-                  <div>
-                    <h3 className="font-serif text-xl">Customizable Office</h3>
-                    <p className="text-sm text-muted-foreground">4-8 people</p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  A flexible canvas for high-stakes work. Lightweight touchdown tables paired with ergonomic .04 chairs create a space that pivots instantly—a polished conference room for client presentations in the morning, or a dedicated 'war room' for your team to sprint on a project.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Reconfigurable touchdown tables
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Client presentation ready
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Adaptable to your workflow
                   </li>
                 </ul>
               </div>
