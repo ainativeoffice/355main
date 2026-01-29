@@ -122,7 +122,7 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
       const res = await fetch("/api/members", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, member: { ...data.member, brandSource: "355main" } }),
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || "Failed to join waitlist");

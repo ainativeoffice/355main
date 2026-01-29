@@ -31,7 +31,7 @@ export async function sendSlackNotification(message: SlackMessage): Promise<bool
   }
 }
 
-export function formatWaitlistNotification(email: string): SlackMessage {
+export function formatWaitlistNotification(email: string, brandSource: string = "355main"): SlackMessage {
   return {
     text: `🚀 New Lead: ${email} just requested access.`,
     blocks: [
@@ -46,7 +46,7 @@ export function formatWaitlistNotification(email: string): SlackMessage {
       {
         type: "context",
         elements: [
-          { type: "mrkdwn", text: `Submitted at ${new Date().toLocaleString("en-US", { timeZone: "America/New_York" })} ET` }
+          { type: "mrkdwn", text: `Source: ${brandSource} | Submitted at ${new Date().toLocaleString("en-US", { timeZone: "America/New_York" })} ET` }
         ]
       }
     ]
@@ -61,6 +61,7 @@ interface MemberData {
   jobRole?: string;
   teamSize?: string;
   moveInTiming?: string;
+  brandSource?: string;
 }
 
 interface PreferencesData {
@@ -125,10 +126,11 @@ export function formatMemberNotification(member: MemberData, preferences?: Prefe
     }
   }
 
+  const source = member.brandSource || "355main";
   blocks.push({
     type: "context",
     elements: [
-      { type: "mrkdwn", text: `Submitted at ${new Date().toLocaleString("en-US", { timeZone: "America/New_York" })} ET` }
+      { type: "mrkdwn", text: `Source: ${source} | Submitted at ${new Date().toLocaleString("en-US", { timeZone: "America/New_York" })} ET` }
     ]
   });
 

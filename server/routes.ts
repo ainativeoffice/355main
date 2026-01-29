@@ -57,6 +57,7 @@ const memberSchema = z.object({
   jobRole: z.string().max(100).optional(),
   teamSize: z.string().max(20).optional(),
   moveInTiming: z.string().max(50).optional(),
+  brandSource: z.string().max(50).optional(),
 });
 
 const preferencesSchema = z.object({
@@ -161,12 +162,13 @@ export async function registerRoutes(
       let hubspotContactId: string | null = null;
       try {
         const hubspotClient = await getUncachableHubSpotClient();
+        const brandSource = req.body.brandSource || "355main";
         const contactObj = {
           properties: {
             email: email,
             lifecyclestage: "lead",
             hs_lead_status: "NEW",
-            message: "Source: 355 Main Waitlist"
+            message: `Source: ${brandSource} Waitlist`
           }
         };
 
@@ -186,7 +188,8 @@ export async function registerRoutes(
 
       // Step 3: Send notifications (best effort, non-blocking)
       if (!isExisting) {
-        sendSlackNotification(formatWaitlistNotification(email)).catch(() => {});
+        const brandSource = req.body.brandSource || "355main";
+        sendSlackNotification(formatWaitlistNotification(email, brandSource)).catch(() => {});
         sendWaitlistConfirmation(email).catch(() => {});
       }
 
@@ -296,16 +299,15 @@ export async function registerRoutes(
     if (member.jobRole) standardProperties.jobtitle = member.jobRole;
     if (member.teamSize) standardProperties.numemployees = mapTeamSizeToHubSpot(member.teamSize);
     
-    const notesParts: string[] = [];
+    const brandSource = member.brandSource || "355main";
+    const notesParts: string[] = [`Source: ${brandSource}`];
     if (member.moveInTiming) notesParts.push(`Move-in timing: ${member.moveInTiming}`);
     if (preferences?.workspaceArchetype) notesParts.push(`Workspace type: ${preferences.workspaceArchetype}`);
     if (preferences?.privateOfficeDesks) notesParts.push(`Private desks needed: ${preferences.privateOfficeDesks}`);
     if (preferences?.hybridMemberships) notesParts.push(`Hybrid memberships: ${preferences.hybridMemberships}`);
     if (preferences?.amenities?.length) notesParts.push(`Amenities: ${preferences.amenities.join(", ")}`);
     
-    if (notesParts.length > 0) {
-      standardProperties.message = notesParts.join(" | ");
-    }
+    standardProperties.message = notesParts.join(" | ");
 
     let hubspotContactId: string | null = null;
     try {
@@ -340,7 +342,8 @@ export async function registerRoutes(
     }
 
     // Step 3: Send notifications (best effort, non-blocking)
-    sendSlackNotification(formatMemberNotification(member, preferences)).catch(() => {});
+    const memberWithSource = { ...member, brandSource: member.brandSource || "355main" };
+    sendSlackNotification(formatMemberNotification(memberWithSource, preferences)).catch(() => {});
     sendMemberConfirmation(member).catch(() => {});
 
     res.status(201).json({ 

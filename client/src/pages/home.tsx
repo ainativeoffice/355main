@@ -537,7 +537,7 @@ export default function Home() {
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: heroEmail }),
+        body: JSON.stringify({ email: heroEmail, brandSource: "355main" }),
       });
       const data = await response.json();
       
