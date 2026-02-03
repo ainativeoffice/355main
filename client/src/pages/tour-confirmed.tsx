@@ -63,14 +63,18 @@ export default function TourConfirmed() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          company,
-          jobTitle,
-          teamSize,
-          preferences,
-          brandSource: "355main_tour",
+          member: {
+            firstName,
+            lastName,
+            email,
+            company,
+            jobRole: jobTitle,
+            teamSize,
+            brandSource: "355main_tour",
+          },
+          preferences: {
+            amenities: preferences,
+          },
           recaptchaToken
         }),
       });
