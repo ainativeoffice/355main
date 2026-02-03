@@ -82,6 +82,8 @@ This is a **static-first marketing site** with minimal backend requirements.
 | `/enterprise` | Large organization solutions |
 | `/landlords` | Partnership opportunities for property owners |
 | `/brokers` | Commercial real estate professional info |
+| `/book-a-tour` | Google Ads landing page with HubSpot calendar embed |
+| `/tour-confirmed` | Tour booking confirmation with conversion tracking |
 
 ## External Services
 
@@ -94,6 +96,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 - **Properties**: Uses standard HubSpot fields (firstname, lastname, company, jobtitle, numemployees, message)
 - **Team Size Mapping**: App values mapped to HubSpot `numemployees` format
 - **Preferences**: Stored in `message` field to avoid custom property errors
+- **Tour Booking**: HubSpot Meetings embed at `meetings-na2.hubspot.com/parham/book-a-tour`
 
 ### SendGrid (Email Confirmations)
 - **Purpose**: Send confirmation emails to leads after form submission
