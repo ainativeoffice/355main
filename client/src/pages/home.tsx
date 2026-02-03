@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Wifi, Monitor, Armchair, Coffee, Download, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Building2, Users, Zap, ArrowRight, ExternalLink } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
-import { useState, useRef, useCallback, FormEvent } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
@@ -10,8 +10,7 @@ import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones"
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { BookTourDialog } from "@/components/book-tour-dialog";
 import { LocationSection } from "@/components/location-section";
-import { trackEvent, trackWaitlistSubmit } from "@/lib/analytics";
-import { getRecaptchaToken } from "@/lib/recaptcha";
+import { trackEvent } from "@/lib/analytics";
 
 import heroImage from "@assets/Hero_1767222668713-BGcfxWPp_1768257795221.jpg";
 
