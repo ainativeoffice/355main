@@ -7,8 +7,6 @@ import { Link } from "wouter";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
-import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
-import { BookTourDialog } from "@/components/book-tour-dialog";
 import { LocationSection } from "@/components/location-section";
 import { trackEvent } from "@/lib/analytics";
 
@@ -519,8 +517,6 @@ export default function Home() {
   const [activeZone, setActiveZone] = useState(dynamicSpaceZone);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
-  const [tourOpen, setTourOpen] = useState(false);
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   // Zone Tuner - Commented out for production
   // const [showTuner, setShowTuner] = useState(false);
@@ -661,13 +657,13 @@ export default function Home() {
             transition={{ delay: 0.8 }}
             className="mt-10 flex flex-col items-center"
           >
-            <button
-              onClick={() => setTourOpen(true)}
-              className="px-12 py-4 bg-white text-foreground font-semibold tracking-wide hover:bg-white/95 transition-all text-base uppercase"
+            <Link
+              href="/book-a-tour"
+              className="px-12 py-4 bg-white text-foreground font-semibold tracking-wide hover:bg-white/95 transition-all text-base uppercase inline-block"
               data-testid="button-hero-tour"
             >
               Book a Tour
-            </button>
+            </Link>
             <p className="mt-4 text-white/50 text-sm tracking-wide">The 2nd-floor plate is fully delivered.</p>
           </motion.div>
         </div>
@@ -1206,16 +1202,14 @@ export default function Home() {
              Level 2 is fully delivered and now leasing. Schedule a private walkthrough to experience 355 Main.
            </p>
            <div className="flex flex-col items-center gap-6">
-             <button 
-               onClick={() => {
-                 trackEvent('book_tour_click', 'engagement', 'cta_section');
-                 setTourOpen(true);
-               }}
-               className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors"
+             <Link 
+               href="/book-a-tour"
+               onClick={() => trackEvent('book_tour_click', 'engagement', 'cta_section')}
+               className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors inline-block"
                data-testid="button-book-tour-cta"
              >
                Book a Tour
-             </button>
+             </Link>
              
              <a 
                href={listingBrochure} 
@@ -1230,12 +1224,6 @@ export default function Home() {
          </motion.div>
       </section>
 
-      <BookTourDialog 
-        open={tourOpen} 
-        onOpenChange={setTourOpen} 
-        onSwitchToWaitlist={() => setWaitlistOpen(true)}
-      />
-      <JoinWaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
-    </Layout>
+      </Layout>
   );
 }
