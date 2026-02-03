@@ -1,0 +1,55 @@
+I need to create a dedicated landing page at /book-a-tour specifically for Google Ads traffic. The goal is high conversion with zero distractions.
+
+Page Structure:
+
+Header: Minimalist. Only the "355 Main" logo (centered). No navigation menu.
+
+Hero Section:
+
+Headline: "The Destination Workplace. Now Leasing."
+
+Sub-headline: "355 Main is fully delivered. Private full-floor opportunities available. Schedule your viewing."
+
+Urgency Note: "Founding memberships and Level 2 contracts are currently under review."
+
+The Scheduler (Center Stage):
+
+Embed the HubSpot Meeting script (provided below) directly into the page body here. It should be the focal point.
+
+The "Why Tour" Section (Below the Calendar):
+
+Three column layout with icons/headers:
+
+Grade A Spec: "Casambi Wireless Lighting & Enterprise Fiber."
+
+Vitra & Artek: "Furnished with the best in Swiss & Finnish design."
+
+The Campus: "36,000 SF boutique ecosystem in the heart of Armonk."
+
+Footer: Simple copyright and address (355 Main St, Armonk, NY). Link to "Privacy Policy" and "Main Website."
+
+HubSpot Script for the body:
+
+HTML
+<div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/parham/book-a-tour?embed=true"></div>
+<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+Design Style: Use the existing CSS variables for fonts and colors. White background, black text, high contrast. This must load fast and look perfect on mobile.
+
+⚡ Critical "Grade A" Advice for Google Ads
+Since you are running Google Ads to this new /book-a-tour page, you need to track when a booking actually happens.
+
+The Blind Spot: The HubSpot embed is an iframe. Google Ads often cannot see when a user finishes a booking inside that iframe.
+
+The Fix:
+
+Go to your HubSpot Meeting Settings.
+
+Find the "Redirect" option (What happens after they book?).
+
+Create a simple page in Replit called /tour-confirmed.
+
+Set HubSpot to redirect to 355main.com/tour-confirmed.
+
+Tell your Google Ads manager: "Set the conversion goal to trigger when a user lands on the /tour-confirmed URL."
+
+This is the only way to get accurate ROI data on your ad spend.
