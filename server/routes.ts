@@ -8,6 +8,7 @@ import { members, memberPreferences } from "@shared/schema";
 import { eq } from "drizzle-orm";
 import { sendSlackNotification, formatWaitlistNotification, formatMemberNotification } from "./slack";
 import { sendWaitlistConfirmation, sendMemberConfirmation } from "./email";
+import { verifyRecaptcha } from "./recaptcha";
 
 // Simple in-memory rate limiter
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -122,7 +123,18 @@ export async function registerRoutes(
   // Simple waitlist endpoint - saves to database first, then syncs to HubSpot
   app.post("/api/waitlist", rateLimit, async (req, res) => {
     try {
-      const { email } = req.body;
+      const { email, recaptchaToken } = req.body;
+
+      // Verify reCAPTCHA first
+      const recaptchaResult = await verifyRecaptcha(recaptchaToken, "waitlist");
+      if (!recaptchaResult.valid) {
+        console.log(`[reCAPTCHA] Blocked waitlist submission: ${recaptchaResult.error}`);
+        res.status(400).json({ 
+          success: false, 
+          message: "Please try again. If the problem persists, contact us directly at leasing@355main.com"
+        });
+        return;
+      }
       
       const validation = validateWaitlistEntry({ email });
       if (!validation.valid) {
@@ -208,6 +220,18 @@ export async function registerRoutes(
 
   // Full waitlist with preferences - saves to database first, then syncs to HubSpot
   app.post("/api/members", rateLimit, async (req, res) => {
+    // Verify reCAPTCHA first
+    const recaptchaToken = req.body.recaptchaToken;
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken, "members");
+    if (!recaptchaResult.valid) {
+      console.log(`[reCAPTCHA] Blocked member submission: ${recaptchaResult.error}`);
+      res.status(400).json({ 
+        success: false, 
+        message: "Please try again. If the problem persists, contact us directly at leasing@355main.com"
+      });
+      return;
+    }
+
     // Validate request body
     const parseResult = memberRequestSchema.safeParse(req.body);
     if (!parseResult.success) {

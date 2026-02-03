@@ -29,6 +29,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent, trackFormSubmit } from "@/lib/analytics";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 const validateEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -119,10 +120,11 @@ export function JoinWaitlistDialog({ open, onOpenChange }: JoinWaitlistDialogPro
 
   const mutation = useMutation({
     mutationFn: async (data: { member: MemberData; preferences: PreferencesData }) => {
+      const recaptchaToken = await getRecaptchaToken("members");
       const res = await fetch("/api/members", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, member: { ...data.member, brandSource: "355main" } }),
+        body: JSON.stringify({ ...data, member: { ...data.member, brandSource: "355main" }, recaptchaToken }),
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || "Failed to join waitlist");

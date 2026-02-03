@@ -10,6 +10,7 @@ import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones"
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
 import { LocationSection } from "@/components/location-section";
 import { trackEvent, trackWaitlistSubmit } from "@/lib/analytics";
+import { getRecaptchaToken } from "@/lib/recaptcha";
 
 import heroImage from "@assets/Hero_1767222668713-BGcfxWPp_1768257795221.jpg";
 
@@ -534,10 +535,11 @@ export default function Home() {
     
     setHeroEmailStatus("loading");
     try {
+      const recaptchaToken = await getRecaptchaToken("waitlist");
       const response = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: heroEmail, brandSource: "355main" }),
+        body: JSON.stringify({ email: heroEmail, brandSource: "355main", recaptchaToken }),
       });
       const data = await response.json();
       

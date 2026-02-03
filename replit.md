@@ -112,8 +112,19 @@ This is a **static-first marketing site** with minimal backend requirements.
   - Full lead submissions (name, company, role, team size, preferences)
 - **Error Handling**: Non-blocking - form submissions succeed even if Slack fails
 
+### reCAPTCHA v3 (Spam Protection)
+- **Purpose**: Protect forms from spam submissions
+- **Version**: reCAPTCHA v3 (invisible, score-based)
+- **Site Key**: `6Lcell4sAAAAAFA3SCozHZMm34rouyzu2IMstGEc`
+- **Score Threshold**: 0.5 (submissions below are blocked)
+- **Protected Endpoints**: `/api/waitlist`, `/api/members`
+- **Frontend**: `client/src/lib/recaptcha.ts` handles token generation
+- **Backend**: `server/recaptcha.ts` verifies tokens
+
 ### Analytics
-- **Google Tag Manager**: GT-TNSNWWM7
+- **Google Tag Manager**: GTM-NW3M6VN8
+- **Google Analytics**: G-2VR7386HM6
+- **Google Ads**: AW-17910816102
 - **Loading**: Script loads async, config called after load
 
 ## Development
@@ -130,6 +141,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 - `HUBSPOT_DEV_ACCESS_TOKEN` - HubSpot private app token (dev only)
 - `SENDGRID_API_KEY` - SendGrid API key for confirmation emails
 - `SLACK_WEBHOOK_URL` - Slack incoming webhook for lead notifications
+- `RECAPTCHA_SECRET_KEY` - reCAPTCHA v3 secret key for spam protection
 
 ### Error Handling
 - **Error Boundary**: `client/src/components/error-boundary.tsx` wraps app
