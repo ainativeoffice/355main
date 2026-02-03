@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 import { JoinWaitlistDialog } from "./join-waitlist-dialog";
+import { BookTourDialog } from "./book-tour-dialog";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [membershipOpen, setMembershipOpen] = useState(false);
+  const [tourOpen, setTourOpen] = useState(false);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-background font-sans text-foreground selection:bg-primary/20">
@@ -30,13 +32,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <a href="/#blueprint" className="hover:text-primary transition-colors" data-testid="link-nav-blueprint">Blueprint</a>
             <a href="/#contact" className="hover:text-primary transition-colors" data-testid="link-nav-contact">Contact</a>
             
-            {/* Sign In button deprecated - auth moves to app.355main.com */}
             <button 
-              onClick={() => setMembershipOpen(true)}
+              onClick={() => setTourOpen(true)}
               className="bg-primary text-primary-foreground px-5 py-2 hover:bg-primary/90 transition-colors"
-              data-testid="button-nav-membership"
+              data-testid="button-nav-tour"
             >
-              Join Waitlist
+              Book a Tour
             </button>
           </nav>
         </div>
@@ -48,13 +49,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <a href="/#blueprint" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-blueprint">Blueprint</a>
             <a href="/#contact" className="text-sm uppercase tracking-widest font-medium hover:text-primary transition-colors py-2" onClick={() => setMobileMenuOpen(false)} data-testid="link-mobile-contact">Contact</a>
             
-            {/* Sign In button deprecated - auth moves to app.355main.com */}
             <button 
-              onClick={() => { setMobileMenuOpen(false); setMembershipOpen(true); }}
+              onClick={() => { setMobileMenuOpen(false); setTourOpen(true); }}
               className="bg-primary text-primary-foreground px-5 py-3 text-sm uppercase tracking-widest font-medium text-center hover:bg-primary/90 transition-colors mt-2"
-              data-testid="button-mobile-membership"
+              data-testid="button-mobile-tour"
             >
-              Join Waitlist
+              Book a Tour
             </button>
           </nav>
         )}
@@ -111,14 +111,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </nav>
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Opening</h3>
-            <p className="text-lg">February 2026</p>
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Now Leasing</h3>
+            <p className="text-lg">Level 2 Delivered</p>
             <button 
-              onClick={() => setMembershipOpen(true)}
+              onClick={() => setTourOpen(true)}
               className="inline-block mt-4 bg-primary text-primary-foreground px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
-              data-testid="button-footer-membership"
+              data-testid="button-footer-tour"
             >
-              Join Waitlist
+              Book a Tour
             </button>
           </div>
         </div>
@@ -127,7 +127,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </footer>
 
-      <JoinWaitlistDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
+      <BookTourDialog 
+        open={tourOpen} 
+        onOpenChange={setTourOpen} 
+        onSwitchToWaitlist={() => setWaitlistOpen(true)}
+      />
+      <JoinWaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/h
 import { AnimatePresence } from "framer-motion";
 import { getNextZoneIndex, getPrevZoneIndex, getZoneIndex } from "@shared/zones";
 import { JoinWaitlistDialog } from "@/components/join-waitlist-dialog";
+import { BookTourDialog } from "@/components/book-tour-dialog";
 import { LocationSection } from "@/components/location-section";
 import { trackEvent, trackWaitlistSubmit } from "@/lib/analytics";
 import { getRecaptchaToken } from "@/lib/recaptcha";
@@ -519,48 +520,9 @@ export default function Home() {
   const [activeZone, setActiveZone] = useState(dynamicSpaceZone);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
-  const [membershipOpen, setMembershipOpen] = useState(false);
-  
-  // Inline email capture state
-  const [heroEmail, setHeroEmail] = useState("");
-  const [heroEmailStatus, setHeroEmailStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [heroEmailMessage, setHeroEmailMessage] = useState("");
+  const [tourOpen, setTourOpen] = useState(false);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
 
-  const handleHeroEmailSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    if (!heroEmail || heroEmailStatus === "loading") return;
-    
-    // Track form submission attempt
-    trackEvent('waitlist_form_submit', 'engagement', 'hero_email_form');
-    
-    setHeroEmailStatus("loading");
-    try {
-      const recaptchaToken = await getRecaptchaToken("waitlist");
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: heroEmail, brandSource: "355main", recaptchaToken }),
-      });
-      const data = await response.json();
-      
-      if (data.success) {
-        setHeroEmailStatus("success");
-        setHeroEmailMessage("We'll be in touch soon.");
-        setHeroEmail("");
-        // Track successful submission
-        trackWaitlistSubmit(true);
-      } else {
-        setHeroEmailStatus("error");
-        setHeroEmailMessage(data.message || "Please try again.");
-        trackWaitlistSubmit(false);
-      }
-    } catch {
-      setHeroEmailStatus("error");
-      setHeroEmailMessage("Something went wrong. Please try again.");
-      trackWaitlistSubmit(false);
-    }
-  };
-  
   // Zone Tuner - Commented out for production
   // const [showTuner, setShowTuner] = useState(false);
   // const [zoneCoords, setZoneCoords] = useState<Record<number, {x: number, y: number}>>(
@@ -691,47 +653,23 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Limited founding memberships available.
+            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Now leasing Level 2.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="mt-10"
+            className="mt-10 flex flex-col items-center"
           >
-            {heroEmailStatus === "success" ? (
-              <div className="text-white/90 text-lg">
-                <span className="font-medium">Thank you.</span> {heroEmailMessage}
-              </div>
-            ) : (
-              <>
-                <form onSubmit={handleHeroEmailSubmit} className="flex flex-col sm:flex-row gap-3 justify-center items-center max-w-lg mx-auto">
-                  <input
-                    type="email"
-                    value={heroEmail}
-                    onChange={(e) => setHeroEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    disabled={heroEmailStatus === "loading"}
-                    className="w-full sm:flex-1 px-6 py-4 bg-white/5 backdrop-blur-md border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/10 transition-all text-base"
-                    data-testid="input-hero-email"
-                  />
-                  <button
-                    type="submit"
-                    disabled={heroEmailStatus === "loading"}
-                    className="w-full sm:w-auto px-10 py-4 bg-white text-foreground font-semibold tracking-wide hover:bg-white/95 transition-all disabled:opacity-50 text-base"
-                    data-testid="button-hero-submit"
-                  >
-                    {heroEmailStatus === "loading" ? "..." : "Request Access"}
-                  </button>
-                </form>
-                <p className="mt-4 text-white/50 text-sm tracking-wide">Curated for privacy and productivity.</p>
-              </>
-            )}
-            {heroEmailStatus === "error" && (
-              <p className="mt-3 text-red-300 text-sm">{heroEmailMessage}</p>
-            )}
+            <button
+              onClick={() => setTourOpen(true)}
+              className="px-12 py-4 bg-white text-foreground font-semibold tracking-wide hover:bg-white/95 transition-all text-base uppercase"
+              data-testid="button-hero-tour"
+            >
+              Book a Tour
+            </button>
+            <p className="mt-4 text-white/50 text-sm tracking-wide">The 2nd-floor plate is fully delivered.</p>
           </motion.div>
         </div>
 
@@ -1266,18 +1204,18 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Become a free member to get updates, priority access, and personalized workspace recommendations. 355 Main opens February 2026.
+             Level 2 is fully delivered and now leasing. Schedule a private walkthrough to experience 355 Main.
            </p>
            <div className="flex flex-col items-center gap-6">
              <button 
                onClick={() => {
-                 trackEvent('join_waitlist_click', 'engagement', 'cta_section');
-                 setMembershipOpen(true);
+                 trackEvent('book_tour_click', 'engagement', 'cta_section');
+                 setTourOpen(true);
                }}
                className="bg-primary text-primary-foreground px-10 py-5 text-lg font-medium hover:bg-primary/90 transition-colors"
-               data-testid="button-become-member"
+               data-testid="button-book-tour-cta"
              >
-               Join Waitlist
+               Book a Tour
              </button>
              
              <a 
@@ -1293,7 +1231,12 @@ export default function Home() {
          </motion.div>
       </section>
 
-      <JoinWaitlistDialog open={membershipOpen} onOpenChange={setMembershipOpen} />
+      <BookTourDialog 
+        open={tourOpen} 
+        onOpenChange={setTourOpen} 
+        onSwitchToWaitlist={() => setWaitlistOpen(true)}
+      />
+      <JoinWaitlistDialog open={waitlistOpen} onOpenChange={setWaitlistOpen} />
     </Layout>
   );
 }

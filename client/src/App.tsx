@@ -20,6 +20,8 @@ const Solutions = lazy(() => import("@/pages/solutions"));
 const CustomOffices = lazy(() => import("@/pages/solutions/custom-offices"));
 const PrivateOffices = lazy(() => import("@/pages/solutions/private-offices"));
 const HybridMemberships = lazy(() => import("@/pages/solutions/hybrid"));
+const BookTour = lazy(() => import("@/pages/book-tour"));
+const TourConfirmed = lazy(() => import("@/pages/tour-confirmed"));
 
 function PageLoader() {
   return (
@@ -45,6 +47,8 @@ function Router() {
         <Route path="/solutions/custom-offices" component={CustomOffices} />
         <Route path="/solutions/private-offices" component={PrivateOffices} />
         <Route path="/solutions/hybrid" component={HybridMemberships} />
+        <Route path="/book-a-tour" component={BookTour} />
+        <Route path="/tour-confirmed" component={TourConfirmed} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

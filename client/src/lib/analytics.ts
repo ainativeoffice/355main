@@ -74,3 +74,13 @@ export const trackWaitlistSubmit = (success: boolean) => {
 export const trackFormSubmit = (formName: string, success: boolean) => {
   trackEvent('form_submit', 'conversion', `${formName}_${success ? 'success' : 'error'}`);
 };
+
+export const trackConversion = (conversionType: string) => {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  
+  window.gtag('event', 'conversion', {
+    send_to: 'AW-17910816102',
+    event_category: 'conversion',
+    event_label: conversionType,
+  });
+};
