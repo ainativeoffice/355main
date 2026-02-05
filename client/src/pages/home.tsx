@@ -648,7 +648,7 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Now leasing Level 2.
+            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Soft launch in progress. Grand opening March 2026.
           </motion.p>
 
           <motion.div
@@ -664,7 +664,7 @@ export default function Home() {
             >
               Book a Tour
             </Link>
-            <p className="mt-4 text-white/50 text-sm tracking-wide">The 2nd-floor plate is fully delivered.</p>
+            <p className="mt-4 text-white/50 text-sm tracking-wide">Final furniture arriving soon. Schedule an early preview.</p>
           </motion.div>
         </div>
 
@@ -1199,7 +1199,7 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Level 2 is fully delivered and now leasing. Schedule a private walkthrough to experience 355 Main.
+             Level 2 is in soft launch. Grand opening March 2026. Schedule an early preview.
            </p>
            <div className="flex flex-col items-center gap-6">
              <Link 

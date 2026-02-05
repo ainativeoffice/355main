@@ -17,7 +17,7 @@ export default function BookTour() {
     <div className="min-h-screen bg-white text-foreground">
       <SEO 
         title="Book a Tour | 355 Main"
-        description="Schedule a private walkthrough of 355 Main, the destination workplace in Armonk, NY. Level 2 is now leasing."
+        description="Schedule an early preview of 355 Main, the destination workplace in Armonk, NY. Grand opening March 2026."
         canonical="/book-a-tour"
       />
       
@@ -33,10 +33,10 @@ export default function BookTour() {
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1 className="font-serif text-4xl md:text-6xl mb-6 tracking-tight">
-              The Destination Workplace.<br />Now Leasing.
+              The Destination Workplace.<br />Now Previewing.
             </h1>
             <p className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-              355 Main is fully delivered. Private full-floor opportunities available. Schedule your viewing.
+              355 Main is in soft launch—tour the space as it comes to life. Grand opening March 2026.
             </p>
             <p className="text-sm text-primary font-medium uppercase tracking-widest">
               Founding memberships and Level 2 contracts are currently under review.
