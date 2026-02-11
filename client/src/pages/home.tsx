@@ -17,6 +17,18 @@ import constructionAfter from "@assets/IMG_1298_1768259068545.jpeg";
 import townSquareImage from "@assets/generated_images/interior_of_the_town_square_open_office_with_vitra_furniture..png";
 import greenNookImage from "@assets/generated_images/the_green_nook_lounge_area_with_velvet_seating..png";
 
+import spaceLobbyEntrance from "@assets/space/lobby-entrance.jpeg";
+import spaceLobbyReception from "@assets/space/lobby-reception.jpeg";
+import spaceLobbySeating from "@assets/space/lobby-seating.jpeg";
+import spaceMeetingRoom from "@assets/space/meeting-room.jpeg";
+import spacePrivateOffice1 from "@assets/space/private-office-1.jpeg";
+import spacePrivateOffice2 from "@assets/space/private-office-2.jpeg";
+import spaceExecutiveSuite from "@assets/space/executive-suite.jpeg";
+import spaceKitchenIsland from "@assets/space/kitchen-island.jpeg";
+import spacePantry from "@assets/space/pantry.jpeg";
+import spaceCorridor from "@assets/space/corridor.jpeg";
+import spaceOpenFloor from "@assets/space/open-floor.jpeg";
+
 // Campus & Floorplate Assets
 import building3d from "@assets/building3d.svg";
 import buildingPlate from "@assets/building.svg";
@@ -512,6 +524,127 @@ const zones = [
 
 import { VendorMarquee } from "@/components/vendor-marquee";
 
+const spacePhotos = [
+  { src: spaceLobbyEntrance, alt: "Level 2 elevator lobby with molecular chandelier", label: "Elevator Lobby" },
+  { src: spaceLobbyReception, alt: "Reception area with curved glass partition and emerald velvet seating", label: "Reception" },
+  { src: spaceLobbySeating, alt: "Emerald velvet banquette seating in the lobby", label: "Lounge Seating" },
+  { src: spaceExecutiveSuite, alt: "Executive suite with curved glass wall and pendant lighting", label: "Executive Suite" },
+  { src: spaceKitchenIsland, alt: "Pantry with dark tile backsplash and kitchen island", label: "Kitchen" },
+  { src: spacePantry, alt: "Pantry with built-in cabinetry and tile accent wall", label: "Pantry" },
+  { src: spaceMeetingRoom, alt: "Meeting room with pendant light and round table", label: "Meeting Room" },
+  { src: spacePrivateOffice1, alt: "Private office with natural light and accent wall", label: "Private Office" },
+  { src: spacePrivateOffice2, alt: "Corner office with expansive windows and natural light", label: "Corner Office" },
+  { src: spaceOpenFloor, alt: "Open floor plate ready for custom configuration", label: "Open Floor" },
+  { src: spaceCorridor, alt: "Corridor with dark wood trim and tile accents", label: "Corridor" },
+];
+
+function SpaceGallerySection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10);
+  }, []);
+
+  const initRef = useRef(false);
+  if (!initRef.current && typeof window !== 'undefined') {
+    initRef.current = true;
+    requestAnimationFrame(() => checkScroll());
+  }
+
+  const scroll = (direction: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.7;
+    el.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  return (
+    <section className="py-24 bg-background" data-testid="space-gallery-section">
+      <div className="container mx-auto px-6 mb-12">
+        <div className="flex items-end justify-between">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Inside 355 Main</span>
+            <h2 className="font-serif text-4xl mt-6 mb-4">Ready for FF&E</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">
+              Level 2 build-out is complete. Premium Vitra furniture is en route from Switzerland.
+            </p>
+          </motion.div>
+          <div className="hidden md:flex items-center gap-2">
+            <button
+              onClick={() => scroll("left")}
+              disabled={!canScrollLeft}
+              className="p-3 border border-border rounded-full hover:bg-muted transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Scroll left"
+              data-testid="gallery-scroll-left"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              disabled={!canScrollRight}
+              className="p-3 border border-border rounded-full hover:bg-muted transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              aria-label="Scroll right"
+              data-testid="gallery-scroll-right"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        ref={scrollRef}
+        onScroll={checkScroll}
+        className="flex gap-4 overflow-x-auto scrollbar-hide px-6 md:px-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))] pb-4 snap-x snap-mandatory"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        data-testid="gallery-scroll-container"
+      >
+        {spacePhotos.map((photo, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+            className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-[400px] lg:w-[450px] snap-start"
+            data-testid={`gallery-photo-${index}`}
+          >
+            <div className="relative overflow-hidden bg-muted aspect-[4/3] group">
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-12">
+                <span className="text-white text-sm font-medium tracking-wide">{photo.label}</span>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 mt-8">
+        <div className="flex items-center gap-4">
+          <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
+            Status: <span className="text-foreground">Awaiting FF&E from Switzerland</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const dynamicSpaceZone = zones.find(z => z.id === 8) || zones[0]!;
   const [activeZone, setActiveZone] = useState(dynamicSpaceZone);
@@ -648,7 +781,7 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Soft launch in progress. Grand opening March 2026.
+            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Now in soft launch — FF&E arriving from Switzerland.
           </motion.p>
 
           <motion.div
@@ -664,7 +797,7 @@ export default function Home() {
             >
               Book a Tour
             </Link>
-            <p className="mt-4 text-white/50 text-sm tracking-wide">Final furniture arriving soon. Schedule an early preview.</p>
+            <p className="mt-4 text-white/50 text-sm tracking-wide">Premium Vitra furniture en route. Grand opening late March 2026.</p>
           </motion.div>
         </div>
 
@@ -708,46 +841,8 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      {/* 3. Construction Progress */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-           <div className="grid md:grid-cols-2 gap-12 items-center">
-             <motion.div
-               initial={{ opacity: 0, scale: 0.95 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="order-2 md:order-1 relative bg-muted overflow-hidden shadow-2xl"
-             >
-                <img 
-                  src={constructionAfter} 
-                  alt="355 Main construction progress - January 2025" 
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-             </motion.div>
-
-             <motion.div
-               initial={{ opacity: 0, x: 20 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.8 }}
-               className="order-1 md:order-2"
-             >
-               <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">In Progress</span>
-               <h2 className="font-serif text-4xl mt-6 mb-6">Building in Public</h2>
-               <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                 Luxury vinyl flooring is now installed, track lighting operational, and wood doors in place. We're getting ready for you.
-               </p>
-               <div className="flex items-center gap-4">
-                 <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
-                    Current Status: <span className="text-foreground">Flooring Complete</span>
-                 </div>
-               </div>
-             </motion.div>
-           </div>
-        </div>
-      </section>
+      {/* 3. Inside 355 Main - Photo Gallery */}
+      <SpaceGallerySection />
       {/* 4. Solutions Overview */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6">
@@ -1199,7 +1294,7 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Level 2 is in soft launch. Grand opening March 2026. Schedule an early preview.
+             Level 2 is in soft launch — FF&E arriving from Switzerland. Grand opening late March 2026.
            </p>
            <div className="flex flex-col items-center gap-6">
              <Link 

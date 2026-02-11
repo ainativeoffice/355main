@@ -17,7 +17,7 @@ export default function BookTour() {
     <div className="min-h-screen bg-white text-foreground">
       <SEO 
         title="Book a Tour | 355 Main"
-        description="Schedule an early preview of 355 Main, the destination workplace in Armonk, NY. Grand opening March 2026."
+        description="Tour 355 Main during soft launch. Premium Vitra FF&E arriving from Switzerland. Grand opening late March 2026."
         canonical="/book-a-tour"
       />
       
@@ -36,7 +36,7 @@ export default function BookTour() {
               The Destination Workplace.<br />Now Previewing.
             </h1>
             <p className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-              355 Main is in soft launch—tour the space as it comes to life. Grand opening March 2026.
+              355 Main is in soft launch — premium Vitra FF&E arriving from Switzerland. Grand opening late March 2026.
             </p>
             <p className="text-sm text-primary font-medium uppercase tracking-widest">
               Founding memberships and Level 2 contracts are currently under review.

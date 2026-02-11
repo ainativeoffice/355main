@@ -108,8 +108,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </nav>
           </div>
           <div className="space-y-4">
-            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Now Previewing</h3>
-            <p className="text-lg">Grand Opening March 2026</p>
+            <h3 className="text-sm uppercase tracking-widest font-semibold text-white/40">Soft Launch</h3>
+            <p className="text-lg">FF&E Arriving from Switzerland</p>
             <Link 
               href="/book-a-tour"
               className="inline-block mt-4 bg-primary text-primary-foreground px-6 py-3 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors"
