@@ -641,6 +641,36 @@ function SpaceGallerySection() {
           </div>
         </div>
       </div>
+
+      <div className="container mx-auto px-6 mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8"
+        >
+          <h3 className="font-serif text-3xl mb-3">Walk the Space</h3>
+          <p className="text-muted-foreground text-lg">Explore Level 2 in 3D — before the furniture arrives.</p>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full aspect-video bg-muted overflow-hidden border border-border"
+          data-testid="matterport-embed"
+        >
+          <iframe
+            src="https://my.matterport.com/show/?m=7pttzw8hwz6tizifpx9tsuxea"
+            className="w-full h-full border-0"
+            allowFullScreen
+            allow="xr-spatial-tracking"
+            title="355 Main - 3D Virtual Tour"
+            loading="lazy"
+          />
+        </motion.div>
+      </div>
     </section>
   );
 }
