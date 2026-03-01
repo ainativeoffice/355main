@@ -50,3 +50,4 @@ integrations = ["hubspot:1.0.0"]
 [userenv]
 
 [userenv.shared]
+VITE_RECAPTCHA_SITE_KEY = "6Lcell4sAAAAAFA3SCozHZMm34rouyzu2IMstGEc"
