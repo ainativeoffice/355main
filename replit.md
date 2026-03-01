@@ -156,6 +156,15 @@ This is a **static-first marketing site** with minimal backend requirements.
 - **LLMs.txt**: `client/public/llms.txt` for AI crawler context
 - **Domain**: https://355main.com
 
+## Security Dependency Overrides
+
+The `package.json` includes npm `overrides` to pin transitive dependencies to secure versions:
+- **minimatch**: 10.2.3 (addresses vulnerabilities in v3.x and v9.x)
+- **axios**: 1.13.5 (addresses vulnerabilities in v1.13.2)
+- **basic-ftp**: 5.2.0 (addresses vulnerabilities in v5.1.0)
+
+Note: rollup remains at 4.x as required by Vite 7. The security scan suggestion to downgrade to 2.80.0 is incompatible with the build toolchain and appears to be a false positive.
+
 ## Contact
 
 - **Leasing**: leasing@355main.com
