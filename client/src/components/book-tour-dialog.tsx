@@ -65,7 +65,7 @@ export function BookTourDialog({ open, onOpenChange, onSwitchToWaitlist }: BookT
           <div className="px-6 pt-8 pb-6 text-center border-b border-border">
             <h2 className="font-serif text-3xl md:text-4xl mb-3">Experience 355 Main.</h2>
             <p className="text-muted-foreground text-lg max-w-md mx-auto">
-              Now in soft launch — FF&E arriving from Switzerland. Select a time for a preview.
+              Now Pre-Leasing · Opening Spring 2026. Select a time for a tour.
             </p>
           </div>
 

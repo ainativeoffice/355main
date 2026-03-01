@@ -574,9 +574,9 @@ function SpaceGallerySection() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">Inside 355 Main</span>
-            <h2 className="font-serif text-4xl mt-6 mb-4">Ready for FF&E</h2>
+            <h2 className="font-serif text-4xl mt-6 mb-4">Now Pre-Leasing</h2>
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl">
-              Level 2 build-out is complete. Premium Vitra furniture is en route from Switzerland.
+              Level 2 build-out is complete. Opening Spring 2026.
             </p>
           </motion.div>
           <div className="hidden md:flex items-center gap-2">
@@ -637,7 +637,7 @@ function SpaceGallerySection() {
       <div className="container mx-auto px-6 mt-8">
         <div className="flex items-center gap-4">
           <div className="bg-muted px-4 py-2 rounded-full text-sm font-medium border border-border">
-            Status: <span className="text-foreground">Awaiting FF&E from Switzerland</span>
+            Status: <span className="text-foreground">Now Pre-Leasing</span>
           </div>
         </div>
       </div>
@@ -811,7 +811,7 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Now in soft launch — FF&E arriving from Switzerland.
+            Your Manhattan office, five minutes from home.<br className="hidden sm:inline" /> Now Pre-Leasing · Opening Spring 2026.
           </motion.p>
 
           <motion.div
@@ -1324,7 +1324,7 @@ export default function Home() {
          >
            <h2 className="font-serif text-4xl md:text-6xl mb-8">Ready to move in?</h2>
            <p className="text-xl text-muted-foreground mb-12">
-             Level 2 is in soft launch — FF&E arriving from Switzerland. Grand opening late March 2026.
+             Now Pre-Leasing · Opening Spring 2026. Schedule a tour to see the space.
            </p>
            <div className="flex flex-col items-center gap-6">
              <Link 

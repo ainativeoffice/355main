@@ -17,7 +17,7 @@ export default function BookTour() {
     <div className="min-h-screen bg-white text-foreground">
       <SEO 
         title="Book a Tour | 355 Main"
-        description="Tour 355 Main during soft launch. Premium Vitra FF&E arriving from Switzerland. Grand opening late March 2026."
+        description="Tour 355 Main — now pre-leasing. Opening Spring 2026. Schedule your visit today."
         canonical="/book-a-tour"
       />
       
@@ -36,7 +36,7 @@ export default function BookTour() {
               The Destination Workplace.<br />Now Previewing.
             </h1>
             <p className="text-xl text-muted-foreground mb-4 max-w-2xl mx-auto">
-              355 Main is in soft launch — premium Vitra FF&E arriving from Switzerland. Grand opening late March 2026.
+              Now Pre-Leasing · Opening Spring 2026. Schedule a tour to see the space.
             </p>
             <p className="text-sm text-primary font-medium uppercase tracking-widest">
               Founding memberships and Level 2 contracts are currently under review.
