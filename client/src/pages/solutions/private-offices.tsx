@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { Link } from "wouter";
-import { ArrowRight, ArrowLeft, Check, Users, Plug, LayoutGrid, Settings } from "lucide-react";
+import { ArrowRight, Check, Users, Plug, LayoutGrid, Settings } from "lucide-react";
 
 import heroImage from "@assets/Hero_1767222668713.png";
 import officeImage from "@assets/vs_exterior_glass.jpg";
@@ -22,7 +22,7 @@ export default function PrivateOffices() {
   return (
     <Layout>
       <SEO 
-        title="Private Offices | 355 Main"
+        title="Private Offices – Move-In Ready | 355 Main"
         description="Move-in ready private offices with Vitra Tyde 2 configurations for teams of 1-15. Premium furnishings at 355 Main in Armonk, NY."
         canonical="/solutions/private-offices"
       />
@@ -38,10 +38,6 @@ export default function PrivateOffices() {
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-          <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors" data-testid="link-back-solutions">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm uppercase tracking-widest">All Solutions</span>
-          </Link>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

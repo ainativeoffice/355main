@@ -58,7 +58,11 @@ This is a **static-first marketing site** with minimal backend requirements.
 ### Project Structure
 ```
 ├── client/src/          # React frontend
-│   ├── components/ui/   # shadcn/ui components
+│   ├── components/      # App components
+│   │   ├── ui/          # shadcn/ui components (includes breadcrumb.tsx)
+│   │   ├── breadcrumbs.tsx # Route-aware breadcrumb navigation
+│   │   ├── layout.tsx   # Shared layout with header, footer, breadcrumbs
+│   │   └── seo.tsx      # Dynamic SEO meta tags
 │   ├── pages/           # Route components
 │   ├── entry-server.tsx # SSR entry point
 │   ├── entry-client.tsx # Client hydration entry
@@ -68,6 +72,17 @@ This is a **static-first marketing site** with minimal backend requirements.
 ├── shared/              # Shared validation schemas
 └── attached_assets/     # Static images and SVGs
 ```
+
+### Breadcrumbs
+- Route-aware breadcrumbs rendered in the Layout component, visible on all content pages except the homepage
+- Uses `wouter` `useLocation` to build trail from URL path segments
+- Solution sub-pages show full trail: Home > Solutions > {Page}
+- Landing pages (book-a-tour, tour-confirmed) and 404 page intentionally do not use Layout and have no breadcrumbs
+
+### SEO Titles
+- All pages follow a consistent format: `{Page Name} – {Category Context} | 355 Main`
+- Homepage uses brand-first format: `355 Main | The Destination Workplace in Armonk, NY`
+- Titles kept under 60 characters for Google indexing
 
 ## Pages
 

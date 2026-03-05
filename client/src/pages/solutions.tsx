@@ -33,7 +33,7 @@ export default function Solutions() {
   return (
     <Layout>
       <SEO 
-        title="Workspace Solutions | 355 Main"
+        title="Workspace Solutions – Offices & Memberships | 355 Main"
         description="Workspace solutions that adapt to how you work. Private offices, flex memberships, and custom suites at 355 Main in Armonk, NY."
         canonical="/solutions"
       />

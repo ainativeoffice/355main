@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { Link } from "wouter";
-import { ArrowRight, ArrowLeft, Check, Building2, Ruler, Palette, TreePine } from "lucide-react";
+import { ArrowRight, Check, Building2, Ruler, Palette, TreePine } from "lucide-react";
 
 import heroImage from "@assets/357_exterior_1.jpg";
 import exteriorImage from "@assets/vs_exterior_glass.jpg";
@@ -12,7 +12,7 @@ export default function CustomOffices() {
   return (
     <Layout>
       <SEO 
-        title="Custom Offices | 355 Main"
+        title="Custom Office Suites – Tailored Workspaces | 355 Main"
         description="Custom suites at Armonk Professional Center—tailored to your organization and re-tailored as you evolve. Available through 355 Main, 357 Main, or new leases."
         canonical="/solutions/custom-offices"
       />
@@ -28,10 +28,6 @@ export default function CustomOffices() {
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-          <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors" data-testid="link-back-solutions">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm uppercase tracking-widest">All Solutions</span>
-          </Link>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

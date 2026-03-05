@@ -77,7 +77,7 @@ export default function About() {
   return (
     <Layout>
       <SEO 
-        title="About 355 Main | The Destination Workplace in Armonk"
+        title="About Us – Our Vision & Story | 355 Main"
         description="Discover 355 Main's vision for the future of work. Premium design, world-class FF&E partners, and dynamic spaces in Armonk, NY."
         canonical="/about"
       />

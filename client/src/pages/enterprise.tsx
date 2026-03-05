@@ -17,7 +17,7 @@ export default function Enterprise() {
   return (
     <Layout>
       <SEO 
-        title="Enterprise Solutions | 355 Main"
+        title="Enterprise Solutions – Large Team Workspaces | 355 Main"
         description="Tailored workspace solutions for large organizations. Flexible terms, dedicated support, and premium amenities at 355 Main."
         canonical="/enterprise"
       />

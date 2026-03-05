@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
+import { Breadcrumbs } from "./breadcrumbs";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -58,6 +59,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </header>
 
       <main className="flex-grow pt-16 sm:pt-20">
+        <Breadcrumbs />
         {children}
       </main>
 

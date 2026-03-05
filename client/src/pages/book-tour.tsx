@@ -16,7 +16,7 @@ export default function BookTour() {
   return (
     <div className="min-h-screen bg-white text-foreground">
       <SEO 
-        title="Book a Tour | 355 Main"
+        title="Book a Tour – Visit 355 Main in Armonk, NY"
         description="Tour 355 Main — now pre-leasing. Opening Spring 2026. Schedule your visit today."
         canonical="/book-a-tour"
       />

@@ -13,7 +13,7 @@ export default function Brokers() {
   return (
     <Layout>
       <SEO 
-        title="Brokers | 355 Main"
+        title="Broker Partners – Commercial Leasing | 355 Main"
         description="Partner with 355 Main for premium office listings in Armonk, NY. Competitive commissions and dedicated broker support."
         canonical="/brokers"
       />

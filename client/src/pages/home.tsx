@@ -772,7 +772,7 @@ export default function Home() {
   return (
     <Layout>
       <SEO 
-        title="355 Main | The Destination Workplace"
+        title="355 Main | The Destination Workplace in Armonk, NY"
         description="The office people want to go to. Workspace solutions that adapt to how you work—private offices, flex memberships, and custom suites in Armonk, NY."
         canonical="/" 
       />

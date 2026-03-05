@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { Link } from "wouter";
-import { ArrowRight, ArrowLeft, Check, Zap, Coffee, Phone, Calendar, Wifi, Clock } from "lucide-react";
+import { ArrowRight, Check, Zap, Coffee, Phone, Calendar, Wifi, Clock } from "lucide-react";
 
 import heroImage from "@assets/86862188_1767393623944.jpg";
 import coworkingImage from "@assets/stock_images/modern_corporate_ent_56277f1f.jpg";
@@ -12,7 +12,7 @@ export default function HybridMemberships() {
   return (
     <Layout>
       <SEO 
-        title="Hybrid Memberships | 355 Main"
+        title="Hybrid Memberships – Flexible Workspace Access | 355 Main"
         description="Flexible workspace access for distributed teams. Day passes, monthly memberships, and all-inclusive amenities at 355 Main."
         canonical="/solutions/hybrid"
       />
@@ -28,10 +28,6 @@ export default function HybridMemberships() {
         </div>
         
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
-          <Link href="/solutions" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors" data-testid="link-back-solutions">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm uppercase tracking-widest">All Solutions</span>
-          </Link>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

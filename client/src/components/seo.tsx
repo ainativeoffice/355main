@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const BASE_URL = "https://355main.com";
-const DEFAULT_TITLE = "355 Main | The Office Club in Armonk";
+const DEFAULT_TITLE = "355 Main | The Destination Workplace in Armonk, NY";
 const DEFAULT_DESCRIPTION = "The office people actually want to go to. Premium workspaces, dynamic zones, and world-class design at 355 Main Street in Armonk, New York.";
 const DEFAULT_OG_IMAGE = "/opengraph.jpg";
 

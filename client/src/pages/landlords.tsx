@@ -14,7 +14,7 @@ export default function Landlords() {
   return (
     <Layout>
       <SEO 
-        title="Landlords | 355 Main"
+        title="Landlord Partnerships – Property Solutions | 355 Main"
         description="Transform your property into a destination workplace. Partner with 355 Main for premium office management solutions."
         canonical="/landlords"
       />
