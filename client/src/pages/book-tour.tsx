@@ -55,6 +55,29 @@ export default function BookTour() {
         </section>
 
         <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <div className="text-center mb-8">
+              <p className="text-sm text-primary font-medium uppercase tracking-widest mb-4">Preview Before You Visit</p>
+              <h2 className="font-serif text-2xl md:text-3xl mb-3">Walk the Space</h2>
+              <p className="text-muted-foreground text-lg">Explore Level 2 in 3D — before your visit.</p>
+            </div>
+            <div
+              className="relative w-full aspect-video bg-muted overflow-hidden border border-border"
+              data-testid="matterport-embed-tour"
+            >
+              <iframe
+                src="https://my.matterport.com/show/?m=7pttzw8hwz6tizifpx9tsuxea"
+                className="w-full h-full border-0"
+                allowFullScreen
+                allow="xr-spatial-tracking"
+                title="355 Main - 3D Virtual Tour"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-6">
             <h2 className="font-serif text-2xl md:text-3xl text-center mb-12">Why Tour 355 Main</h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
