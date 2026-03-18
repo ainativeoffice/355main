@@ -43,39 +43,39 @@ interface RenderResult {
 
 const routeMeta: Record<string, { title: string; description: string }> = {
   "/": {
-    title: "355 Main | The Destination Workplace in Armonk",
+    title: "355 Main | The Destination Workplace in Armonk, NY",
     description: "Premium workspace solutions at 355 Main Street, Armonk NY. Custom offices, private offices, and hybrid memberships for the distributed work era.",
   },
   "/about": {
-    title: "About | 355 Main",
+    title: "About Us \u2013 Our Vision & Story | 355 Main",
     description: "Discover 355 Main - The Office Club reimagining workspace for the distributed age. Premium location at 355 Main Street, Armonk, New York.",
   },
   "/solutions": {
-    title: "Workspace Solutions | 355 Main",
+    title: "Workspace Solutions \u2013 Offices & Memberships | 355 Main",
     description: "Explore workspace solutions at 355 Main: custom offices, private offices, and hybrid memberships designed for modern teams.",
   },
   "/solutions/custom-offices": {
-    title: "Custom Offices | 355 Main",
+    title: "Custom Office Suites \u2013 Tailored Workspaces | 355 Main",
     description: "Ground-up design-build workspace tailored to your organization. Fully customizable private office suites at 355 Main in Armonk, NY.",
   },
   "/solutions/private-offices": {
-    title: "Private Offices | 355 Main",
+    title: "Private Offices \u2013 Move-In Ready | 355 Main",
     description: "Move-in ready private offices with Vitra Tyde 2 configurations for teams of 1-15. Premium furnishings at 355 Main in Armonk, NY.",
   },
   "/solutions/hybrid": {
-    title: "Hybrid Memberships | 355 Main",
+    title: "Hybrid Memberships \u2013 Flexible Workspace Access | 355 Main",
     description: "Flexible workspace access for distributed teams. Day passes, monthly memberships, and all-inclusive amenities at 355 Main.",
   },
   "/enterprise": {
-    title: "Enterprise Solutions | 355 Main",
+    title: "Enterprise Solutions \u2013 Large Team Workspaces | 355 Main",
     description: "Custom workspace solutions for large organizations. Flexible terms, dedicated support, and premium amenities at 355 Main.",
   },
   "/brokers": {
-    title: "Broker Information | 355 Main",
+    title: "Broker Partners \u2013 Commercial Leasing | 355 Main",
     description: "Partner with 355 Main to offer your clients premium workspace solutions. Competitive commissions and dedicated broker support.",
   },
   "/landlords": {
-    title: "Landlord Partnerships | 355 Main",
+    title: "Landlord Partnerships \u2013 Property Solutions | 355 Main",
     description: "Transform your commercial property into a destination workplace. Partnership opportunities with 355 Main.",
   },
 };
