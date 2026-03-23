@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
-import { ArrowRight, Check, Building2, Users, TrendingUp, Handshake } from "lucide-react";
+import { ArrowRight, Check, Building2, Users, TrendingUp, Handshake, Download } from "lucide-react";
+import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
 import { Link } from "wouter";
 
 import heroImage from "@assets/stock_images/professional_busines_850cb7b8.jpg";
@@ -223,6 +224,15 @@ export default function Brokers() {
             >
               Explore the Space
             </Link>
+            <a 
+              href={listingBrochure}
+              download="355_Main_Listing_Brochure.pdf"
+              className="inline-flex items-center justify-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-medium"
+              data-testid="link-download-brochure-brokers"
+            >
+              <Download className="w-4 h-4" />
+              Download Brochure
+            </a>
           </div>
         </div>
       </section>

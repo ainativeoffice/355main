@@ -100,7 +100,7 @@ import ffeCorkFamily from "@assets/45565076_1769279202599.jpg";
 import ffeTyde2Workstation from "@assets/vitra_tyde2_workstation.jpg";
 import ffeDancingWallNew from "@assets/vitra_dancing_wall.jpg";
 import ffeMedaMorphNew from "@assets/vitra_medamorph_folding.jpg";
-import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Brokers_1766972457245.pdf";
+import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
 
 const zones = [
   {
@@ -1338,7 +1338,7 @@ export default function Home() {
              
              <a 
                href={listingBrochure} 
-               download="Opus_355_Listing_Brochure.pdf"
+               download="355_Main_Listing_Brochure.pdf"
                className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-semibold border-b border-transparent hover:border-foreground pb-1"
                data-testid="link-download-brochure"
              >

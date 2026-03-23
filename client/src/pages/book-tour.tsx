@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { SEO } from "@/components/seo";
-import { Wifi, Armchair, Building2 } from "lucide-react";
+import { Wifi, Armchair, Building2, Download } from "lucide-react";
+import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
 import { trackEvent } from "@/lib/analytics";
 
 export default function BookTour() {
@@ -73,6 +74,17 @@ export default function BookTour() {
                 title="355 Main - 3D Virtual Tour"
                 loading="lazy"
               />
+            </div>
+            <div className="text-center mt-8">
+              <a
+                href={listingBrochure}
+                download="355_Main_Listing_Brochure.pdf"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-medium"
+                data-testid="link-download-brochure-tour"
+              >
+                <Download className="w-4 h-4" />
+                Share with Your Team
+              </a>
             </div>
           </div>
         </section>

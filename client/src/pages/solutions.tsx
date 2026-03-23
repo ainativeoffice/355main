@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { Link } from "wouter";
-import { ArrowRight, Building2, Users, Zap, Layers, Video } from "lucide-react";
+import { ArrowRight, Building2, Users, Zap, Layers, Video, Download } from "lucide-react";
+import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
 import { Testimonials } from "@/components/testimonials";
 import { NewsSection } from "@/components/news-section";
 
@@ -368,14 +369,25 @@ export default function Solutions() {
           <p className="text-white/70 max-w-xl mx-auto mb-8">
             Our team can help you find the perfect workspace solution for your organization's needs.
           </p>
-          <a 
-            href="mailto:leasing@355main.com" 
-            className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
-            data-testid="button-contact-solutions"
-          >
-            Contact Our Team
-            <ArrowRight className="w-4 h-4" />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <a 
+              href="mailto:leasing@355main.com" 
+              className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors"
+              data-testid="button-contact-solutions"
+            >
+              Contact Our Team
+              <ArrowRight className="w-4 h-4" />
+            </a>
+            <a 
+              href={listingBrochure}
+              download="355_Main_Listing_Brochure.pdf"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm uppercase tracking-widest font-medium"
+              data-testid="link-download-brochure-solutions"
+            >
+              <Download className="w-4 h-4" />
+              Download Brochure
+            </a>
+          </div>
         </div>
       </section>
     </Layout>

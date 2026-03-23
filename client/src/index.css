@@ -48,9 +48,12 @@
   --color-muted: hsl(0 0% 96%);
   --color-muted-foreground: hsl(0 0% 45%);
 
-  /* Accent */
-  --color-accent: hsl(0 0% 96%);
-  --color-accent-foreground: hsl(0 0% 10%);
+  /* Accent: Navy Tint (for UI hover/focus backgrounds) */
+  --color-accent: hsl(220 30% 95%);
+  --color-accent-foreground: hsl(220 40% 20%);
+
+  /* Navy: Deep Navy (for text highlights and interactive elements) */
+  --color-navy: hsl(220 40% 20%);
 
   /* Destructive */
   --color-destructive: hsl(0 84% 60%);
@@ -59,7 +62,7 @@
   /* Border & Input */
   --color-border: hsl(0 0% 92%);
   --color-input: hsl(0 0% 92%);
-  --color-ring: hsl(0 0% 20%);
+  --color-ring: hsl(220 40% 20%);
 
   /* Sidebar */
   --color-sidebar: hsl(0 0% 98%);
@@ -181,7 +184,7 @@
   
   /* Eyebrow/label text */
   .text-label {
-    @apply text-sm uppercase tracking-[0.2em] text-muted-foreground;
+    @apply text-sm uppercase tracking-[0.2em] text-navy;
   }
   
   .text-label-wide {
@@ -216,7 +219,7 @@
   }
   
   .btn-ghost {
-    @apply inline-flex items-center gap-2 text-primary text-sm uppercase tracking-widest font-medium hover:gap-3 transition-all;
+    @apply inline-flex items-center gap-2 text-navy text-sm uppercase tracking-widest font-medium hover:gap-3 transition-all;
   }
 
   /* ----- CARDS ----- */
