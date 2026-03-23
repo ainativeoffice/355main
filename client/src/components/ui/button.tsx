@@ -24,7 +24,7 @@ const buttonVariants = cva(
           // @replit border, no hover, no shadow, secondary border.
           "border bg-secondary text-secondary-foreground border border-secondary-border ",
         // @replit no hover, transparent border
-        ghost: "border border-transparent",
+        ghost: "border border-transparent hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

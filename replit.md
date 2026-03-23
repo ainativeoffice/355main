@@ -84,6 +84,17 @@ This is a **static-first marketing site** with minimal backend requirements.
 - Homepage uses brand-first format: `355 Main | The Destination Workplace in Armonk, NY`
 - Titles kept under 60 characters for Google indexing
 
+### Design System: Navy Accent
+- Deep navy color token: `--color-navy: hsl(220 40% 20%)` — used for text highlights (eyebrow labels, ghost buttons, breadcrumb hover)
+- Accent updated to light navy tint: `--color-accent: hsl(220 30% 95%)` — used for UI hover/focus backgrounds (shadcn/ui compatible)
+- Ring/focus color: `--color-ring: hsl(220 40% 20%)` — matches navy
+- Primary (charcoal) remains unchanged as the main brand color
+
+### Listing Brochure
+- PDF: `attached_assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf`
+- Download filename: `355_Main_Listing_Brochure.pdf`
+- Available on: Homepage (CTA section), Solutions page, Brokers page, Book a Tour page
+
 ## Pages
 
 | Route | Description |
