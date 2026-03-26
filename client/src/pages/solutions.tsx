@@ -3,7 +3,7 @@ import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { Link } from "wouter";
 import { ArrowRight, Building2, Users, Zap, Layers, Video, Download } from "lucide-react";
-import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
+import listingBrochure from "@assets/355_Main_-_Brochure_1774538930934.pdf";
 import { Testimonials } from "@/components/testimonials";
 import { NewsSection } from "@/components/news-section";
 

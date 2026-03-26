@@ -100,7 +100,7 @@ import ffeCorkFamily from "@assets/45565076_1769279202599.jpg";
 import ffeTyde2Workstation from "@assets/vitra_tyde2_workstation.jpg";
 import ffeDancingWallNew from "@assets/vitra_dancing_wall.jpg";
 import ffeMedaMorphNew from "@assets/vitra_medamorph_folding.jpg";
-import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
+import listingBrochure from "@assets/355_Main_-_Brochure_1774538930934.pdf";
 
 const zones = [
   {

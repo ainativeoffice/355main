@@ -98,7 +98,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 - Sitemap includes all public pages including `/book-a-tour`
 
 ### Listing Brochure
-- PDF: `attached_assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf`
+- PDF: `attached_assets/355_Main_-_Brochure_1774538930934.pdf`
 - Download filename: `355_Main_Listing_Brochure.pdf`
 - Available on: Homepage (CTA section), Solutions page, Brokers page, Book a Tour page
 

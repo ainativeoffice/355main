@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 import { ArrowRight, Check, Building2, Users, TrendingUp, Handshake, Download } from "lucide-react";
-import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
+import listingBrochure from "@assets/355_Main_-_Brochure_1774538930934.pdf";
 import { Link } from "wouter";
 
 import heroImage from "@assets/stock_images/professional_busines_850cb7b8.jpg";

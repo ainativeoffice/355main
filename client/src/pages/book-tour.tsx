@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { SEO } from "@/components/seo";
 import { Wifi, Armchair, Building2, Download } from "lucide-react";
-import listingBrochure from "@assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf";
+import listingBrochure from "@assets/355_Main_-_Brochure_1774538930934.pdf";
 import { trackEvent } from "@/lib/analytics";
 
 export default function BookTour() {
