@@ -217,9 +217,9 @@ export default function Enterprise() {
       <section className="py-24 bg-foreground text-background">
         <div className="container mx-auto px-6 text-center">
           <MapPin className="w-16 h-16 text-primary mx-auto mb-8" />
-          <h2 className="font-serif text-3xl md:text-5xl mb-6">Opening February 2026</h2>
+          <h2 className="font-serif text-3xl md:text-5xl mb-6">Now Accepting Enterprise Partners</h2>
           <p className="text-white/70 max-w-xl mx-auto mb-8">
-            Be among the first enterprises to establish presence at 355 Main. Early partners receive priority access and preferred terms.
+            Establish your organization's presence at 355 Main. Enterprise partners receive priority access, preferred terms, and dedicated support.
           </p>
           <Link 
             href="/"

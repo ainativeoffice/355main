@@ -90,6 +90,13 @@ This is a **static-first marketing site** with minimal backend requirements.
 - Ring/focus color: `--color-ring: hsl(220 40% 20%)` — matches navy
 - Primary (charcoal) remains unchanged as the main brand color
 
+### SSR & SEO
+- `entry-server.tsx` wraps render with `MotionConfig reducedMotion="always"` so framer-motion content renders visible (at `animate` state) instead of hidden (at `initial={{ opacity: 0 }}`) — critical for Google indexing
+- Trailing-slash URLs redirect 301 to canonical non-trailing-slash version (middleware in `routes.ts`)
+- `static.ts` strips query strings/fragments before SSR meta lookup
+- `robots.txt` at `client/public/robots.txt`, `sitemap.xml` at `client/public/sitemap.xml`
+- Sitemap includes all public pages including `/book-a-tour`
+
 ### Listing Brochure
 - PDF: `attached_assets/355_Main_Street_-_Listing_Brochure_Full_1774273451504.pdf`
 - Download filename: `355_Main_Listing_Brochure.pdf`

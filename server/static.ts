@@ -42,7 +42,7 @@ export async function serveStatic(app: Express) {
   app.use(express.static(distPath));
 
   app.use("*", (req, res) => {
-    const url = req.originalUrl;
+    const url = req.originalUrl.split('?')[0].split('#')[0];
     
     if (render) {
       try {

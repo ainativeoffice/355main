@@ -3,6 +3,7 @@ import { Router } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Switch, Route } from "wouter";
+import { MotionConfig } from "framer-motion";
 
 import Home from "@/pages/home";
 import About from "@/pages/about";
@@ -93,13 +94,15 @@ export function render(url: string): RenderResult {
   const staticHook = (): [string, (path: string) => void] => [url, () => {}];
 
   const html = renderToString(
-    <Router hook={staticHook}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <StaticRouter url={url} />
-        </TooltipProvider>
-      </QueryClientProvider>
-    </Router>
+    <MotionConfig reducedMotion="always">
+      <Router hook={staticHook}>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <StaticRouter url={url} />
+          </TooltipProvider>
+        </QueryClientProvider>
+      </Router>
+    </MotionConfig>
   );
 
   const meta = routeMeta[url] ?? routeMeta["/"]!;

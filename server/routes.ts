@@ -89,7 +89,15 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
 
-  // 301 Redirects for removed pages (prevents Google indexing errors)
+  app.use((req, res, next) => {
+    if (req.path !== '/' && req.path.endsWith('/')) {
+      const cleanPath = req.path.slice(0, -1);
+      const query = req.url.slice(req.path.length);
+      return res.redirect(301, cleanPath + query);
+    }
+    next();
+  });
+
   const removedPages = [
     '/dashboard',
     '/preferences', 
