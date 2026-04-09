@@ -1,6 +1,6 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
-import { getUncachableHubSpotClient } from "./hubspot";
+import { createContact, updateContact } from "./hubspot";
 import { validateEmail, validateWaitlistEntry } from "@shared/validation";
 import { z } from "zod";
 import { db } from "./db";
@@ -178,24 +178,16 @@ export async function registerRoutes(
         return;
       }
 
-      // Step 2: Sync to HubSpot (best effort - don't fail if this fails)
       let hubspotContactId: string | null = null;
       try {
-        const hubspotClient = await getUncachableHubSpotClient();
         const brandSource = req.body.brandSource || "355main";
-        const contactObj = {
-          properties: {
-            email: email,
-            lifecyclestage: "lead",
-            hs_lead_status: "NEW",
-            message: `Source: ${brandSource} Waitlist`
-          }
-        };
-
-        const response = await hubspotClient.crm.contacts.basicApi.create(contactObj);
-        hubspotContactId = response.id;
-        
-        // Update member with HubSpot contact ID
+        const contact = await createContact({
+          email: email,
+          lifecyclestage: "lead",
+          hs_lead_status: "NEW",
+          message: `Source: ${brandSource} Waitlist`
+        });
+        hubspotContactId = contact.id;
         await db.update(members).set({ hubspotContactId }).where(eq(members.id, memberId));
         console.log(`[HubSpot] Contact synced: ${email} -> ${hubspotContactId}`);
       } catch (hubspotError: any) {
@@ -343,20 +335,14 @@ export async function registerRoutes(
 
     let hubspotContactId: string | null = null;
     try {
-      const hubspotClient = await getUncachableHubSpotClient();
-      
       try {
-        const response = await hubspotClient.crm.contacts.basicApi.create({
-          properties: standardProperties
-        });
-        hubspotContactId = response.id;
+        const contact = await createContact(standardProperties);
+        hubspotContactId = contact.id;
       } catch (createError: any) {
         if (createError.body?.category === "CONFLICT") {
           const existingContactId = createError.body?.message?.match(/Existing ID: (\d+)/)?.[1];
           if (existingContactId) {
-            await hubspotClient.crm.contacts.basicApi.update(existingContactId, {
-              properties: standardProperties
-            });
+            await updateContact(existingContactId, standardProperties);
             hubspotContactId = existingContactId;
           }
           console.log(`[HubSpot] Contact updated: ${member.email}`);
