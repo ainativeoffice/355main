@@ -4,22 +4,22 @@ import { config } from './config';
 let connectionSettings: any;
 
 async function getOAuthAccessToken() {
-  if (connectionSettings && connectionSettings.settings.expires_at && new Date(connectionSettings.settings.expires_at).getTime() > Date.now()) {
+  if (connectionSettings?.settings?.expires_at && new Date(connectionSettings.settings.expires_at).getTime() > Date.now()) {
     return connectionSettings.settings.access_token;
   }
   
-  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME
+  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
   const xReplitToken = process.env.REPL_IDENTITY 
     ? 'repl ' + process.env.REPL_IDENTITY 
     : process.env.WEB_REPL_RENEWAL 
     ? 'depl ' + process.env.WEB_REPL_RENEWAL 
     : null;
 
-  if (!xReplitToken) {
-    throw new Error('X_REPLIT_TOKEN not found for repl/depl');
+  if (!hostname || !xReplitToken) {
+    throw new Error('HubSpot connector environment not available');
   }
 
-  connectionSettings = await fetch(
+  const response = await fetch(
     'https://' + hostname + '/api/v2/connection?include_secrets=true&connector_names=hubspot',
     {
       headers: {
@@ -27,12 +27,24 @@ async function getOAuthAccessToken() {
         'X_REPLIT_TOKEN': xReplitToken
       }
     }
-  ).then(res => res.json()).then(data => data.items?.[0]);
+  );
 
-  const accessToken = connectionSettings?.settings?.access_token || connectionSettings.settings?.oauth?.credentials?.access_token;
+  if (!response.ok) {
+    throw new Error(`HubSpot connector API returned ${response.status}`);
+  }
 
-  if (!connectionSettings || !accessToken) {
-    throw new Error('HubSpot not connected');
+  const data = await response.json();
+  connectionSettings = data.items?.[0];
+
+  if (!connectionSettings?.settings) {
+    throw new Error('HubSpot not connected — please set up the HubSpot integration');
+  }
+
+  const accessToken = connectionSettings.settings.access_token 
+    || connectionSettings.settings.oauth?.credentials?.access_token;
+
+  if (!accessToken) {
+    throw new Error('HubSpot access token not found in connection settings');
   }
   return accessToken;
 }
