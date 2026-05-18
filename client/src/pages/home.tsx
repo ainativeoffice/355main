@@ -662,7 +662,7 @@ function SpaceGallerySection() {
           data-testid="matterport-embed"
         >
           <iframe
-            src="https://my.matterport.com/show/?m=7pttzw8hwz6tizifpx9tsuxea"
+            src="https://my.matterport.com/show/?m=NwcGiRWQ3th&mls=1"
             className="w-full h-full border-0"
             allowFullScreen
             allow="xr-spatial-tracking"
