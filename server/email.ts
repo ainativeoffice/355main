@@ -54,7 +54,7 @@ const emailTemplate = (content: string) => `
           <tr>
             <td style="padding: 40px 40px 20px; text-align: center; border-bottom: 1px solid #eee;">
               <h1 style="margin: 0; font-size: 28px; font-weight: 600; color: #1a1a1a; letter-spacing: -0.5px;">355 Main</h1>
-              <p style="margin: 8px 0 0; font-size: 14px; color: #666;">The Destination Workplace</p>
+              <p style="margin: 8px 0 0; font-size: 14px; color: #666;">Sovereign Intelligence, anchored in Armonk</p>
             </td>
           </tr>
           <!-- Content -->
@@ -175,40 +175,40 @@ export function sendMemberConfirmation(member: MemberInfo): Promise<boolean> {
   const name = member.firstName || "there";
   
   const html = emailTemplate(`
-    <h2 style="margin: 0 0 20px; font-size: 24px; font-weight: 600; color: #1a1a1a;">Thanks for Reaching Out, ${name}</h2>
+    <h2 style="margin: 0 0 20px; font-size: 24px; font-weight: 600; color: #1a1a1a;">Inquiry received, ${name}.</h2>
     <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: #444;">
-      We've received your inquiry and our leasing team is excited to connect with you about workspace solutions at 355 Main.
+      Thank you for your interest in the Sovereign Shells at 355 Main. Your brief has been logged and is under review by our team.
     </p>
     <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: #444;">
       <strong>What happens next?</strong>
     </p>
     <ul style="margin: 0 0 20px; padding-left: 20px; font-size: 16px; line-height: 1.8; color: #444;">
-      <li>A member of our team will reach out within 1-2 business days</li>
-      <li>We'll discuss your workspace needs and preferences</li>
-      <li>We'll arrange a personalized tour of 355 Main</li>
+      <li>We review each inquiry personally to confirm fit</li>
+      <li>A principal will respond within 1–2 business days</li>
+      <li>Qualified inquiries receive shell specifications and a private walkthrough</li>
     </ul>
     <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: #444;">
-      355 Main isn't just a workplace – it's a <strong>Destination Workplace</strong>. A place people want to go, not just have to go. We look forward to showing you what makes our space different.
+      355 Main is a set of three executive shells on the North Castle Ventures campus in Armonk — Class A commercial real estate fused with on-premises AI, outfitted with Vitra. We hold each shell for a single institution.
     </p>
     <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #444;">
-      See you soon,<br>
-      <strong>The 355 Main Team</strong>
+      Regards,<br>
+      <strong>355 Main · North Castle Ventures</strong>
     </p>
   `);
 
-  const text = `Thanks for Reaching Out, ${name}
+  const text = `Inquiry received, ${name}.
 
-We've received your inquiry and our leasing team is excited to connect with you about workspace solutions at 355 Main.
+Thank you for your interest in the Sovereign Shells at 355 Main. Your brief has been logged and is under review by our team.
 
 What happens next?
-- A member of our team will reach out within 1-2 business days
-- We'll discuss your workspace needs and preferences
-- We'll arrange a personalized tour of 355 Main
+- We review each inquiry personally to confirm fit
+- A principal will respond within 1-2 business days
+- Qualified inquiries receive shell specifications and a private walkthrough
 
-355 Main isn't just a workplace – it's a Destination Workplace. A place people want to go, not just have to go. We look forward to showing you what makes our space different.
+355 Main is a set of three executive shells on the North Castle Ventures campus in Armonk - Class A commercial real estate fused with on-premises AI, outfitted with Vitra. We hold each shell for a single institution.
 
-See you soon,
-The 355 Main Team
+Regards,
+355 Main - North Castle Ventures
 
 ---
 355 Main Street, Armonk, New York
@@ -216,7 +216,7 @@ Questions? Contact us at leasing@355main.com`;
 
   return sendEmail({
     to: member.email,
-    subject: `Thanks for Your Interest in 355 Main${member.firstName ? `, ${member.firstName}` : ""}`,
+    subject: `Your 355 Main inquiry has been received${member.firstName ? `, ${member.firstName}` : ""}`,
     html,
     text,
   });

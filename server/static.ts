@@ -42,7 +42,7 @@ export async function serveStatic(app: Express) {
   app.use(express.static(distPath));
 
   app.use("*", (req, res) => {
-    const url = req.originalUrl.split('?')[0].split('#')[0];
+    const url = req.originalUrl.split('?')[0]!.split('#')[0]!;
     
     if (render) {
       try {
@@ -66,7 +66,7 @@ export async function serveStatic(app: Express) {
     <meta name="twitter:image" content="/opengraph.jpg" />
     
     <meta name="description" content="${head.description}" />
-    <meta name="keywords" content="coworking, office space, Armonk, Westchester, flexible workspace, private office, hybrid work, premium office" />
+    <meta name="keywords" content="Sovereign Shells, Armonk, Westchester, Class A office, on-premises AI, deterministic AI, executive workspace, North Castle Ventures, Vitra" />
     <link rel="canonical" href="${head.canonical}" />`
           );
         

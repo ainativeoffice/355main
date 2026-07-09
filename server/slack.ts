@@ -69,6 +69,7 @@ interface PreferencesData {
   privateOfficeDesks?: number;
   hybridMemberships?: number;
   amenities?: string[];
+  notes?: string;
 }
 
 export function formatMemberNotification(member: MemberData, preferences?: PreferencesData): SlackMessage {
@@ -103,10 +104,10 @@ export function formatMemberNotification(member: MemberData, preferences?: Prefe
     }
   ];
 
-  if (preferences && (preferences.workspaceArchetype || preferences.privateOfficeDesks !== undefined || preferences.hybridMemberships !== undefined || preferences.amenities?.length)) {
+  if (preferences && (preferences.workspaceArchetype || preferences.privateOfficeDesks !== undefined || preferences.hybridMemberships !== undefined || preferences.amenities?.length || preferences.notes)) {
     const prefFields = [];
     if (preferences.workspaceArchetype) {
-      prefFields.push({ type: "mrkdwn", text: `*Workspace Type:*\n${preferences.workspaceArchetype}` });
+      prefFields.push({ type: "mrkdwn", text: `*Shell Interest:*\n${preferences.workspaceArchetype}` });
     }
     if (preferences.privateOfficeDesks !== undefined) {
       prefFields.push({ type: "mrkdwn", text: `*Private Desks:*\n${preferences.privateOfficeDesks}` });
@@ -122,6 +123,13 @@ export function formatMemberNotification(member: MemberData, preferences?: Prefe
       blocks.push({
         type: "section",
         fields: prefFields
+      });
+    }
+
+    if (preferences.notes) {
+      blocks.push({
+        type: "section",
+        text: { type: "mrkdwn", text: `*Brief:*\n${preferences.notes}` }
       });
     }
   }

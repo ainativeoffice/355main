@@ -13,15 +13,9 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 
 const About = lazy(() => import("@/pages/about"));
-const Brokers = lazy(() => import("@/pages/brokers"));
-const Enterprise = lazy(() => import("@/pages/enterprise"));
-const Landlords = lazy(() => import("@/pages/landlords"));
-const Solutions = lazy(() => import("@/pages/solutions"));
-const CustomOffices = lazy(() => import("@/pages/solutions/custom-offices"));
-const PrivateOffices = lazy(() => import("@/pages/solutions/private-offices"));
-const HybridMemberships = lazy(() => import("@/pages/solutions/hybrid"));
-const BookTour = lazy(() => import("@/pages/book-tour"));
-const TourConfirmed = lazy(() => import("@/pages/tour-confirmed"));
+const Shells = lazy(() => import("@/pages/shells"));
+const Thesis = lazy(() => import("@/pages/thesis"));
+const Inquiry = lazy(() => import("@/pages/inquiry"));
 
 function PageLoader() {
   return (
@@ -34,21 +28,15 @@ function PageLoader() {
 function Router() {
   // Track page views when routes change
   useAnalytics();
-  
+
   return (
     <Suspense fallback={<PageLoader />}>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/shells" component={Shells} />
+        <Route path="/thesis" component={Thesis} />
         <Route path="/about" component={About} />
-        <Route path="/brokers" component={Brokers} />
-        <Route path="/enterprise" component={Enterprise} />
-        <Route path="/landlords" component={Landlords} />
-        <Route path="/solutions" component={Solutions} />
-        <Route path="/solutions/custom-offices" component={CustomOffices} />
-        <Route path="/solutions/private-offices" component={PrivateOffices} />
-        <Route path="/solutions/hybrid" component={HybridMemberships} />
-        <Route path="/book-a-tour" component={BookTour} />
-        <Route path="/tour-confirmed" component={TourConfirmed} />
+        <Route path="/inquiry" component={Inquiry} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

@@ -1,102 +1,65 @@
-# 355 Main - The Destination Workplace
+# 355 Main — Sovereign Intelligence, Anchored in Armonk
 
-> A premium flexible workspace at 355 Main Street, Armonk, New York
+> Three executive Sovereign Shells on the North Castle Ventures campus at 355 & 357 Main Street, Armonk, New York.
 
 ## What is 355 Main?
 
-355 Main is a Destination Workplace - an office people want to go to, not just have to go to. Located at 355 Main Street in Armonk, NY (Westchester County), it operates as an "Office Club" serving both single-user tenants and flex office segments.
+355 Main offers three executive **Sovereign Shells** — Class A commercial real estate fused with on-premises, deterministic AI and outfitted with Vitra furniture. Each shell is held for a single institution. The buildings sit on the North Castle Ventures campus in Armonk, NY (Westchester County), roughly 40 miles north of New York City.
 
-## Core Concept
+## The Thesis
 
-The building features Dynamic Spaces - flexible zones that transform to support different work modes:
-- Focus work
-- Collaboration
-- Meetings
-- Workshops
-- Presentations
+Regulated legal and financial institutions cannot send their most sensitive data to public model APIs. The answer is on-premises, deterministic AI co-located with the people who use it — compute, counsel, and capital in one room. 355 Main is built for that reality: sovereignty of space and sovereignty of compute, together.
 
-Premium furniture from partners like Vitra enables rapid reconfiguration to match any work style or team need.
+Guiding principles:
+- **Determinism over probability** — reliable, auditable systems for regulated work.
+- **Premises over cloud** — data and models stay on-site.
+- **Institution over crowd** — one institution per shell, not shared coworking.
 
-## Spatial Zones
+Alpha School is referenced as a proof point of what purpose-built, on-premises intelligence can achieve.
 
-The building is organized into purpose-designed zones:
+## The Shells
 
-- **Flexible Office** - A hybrid engine for high-stakes work with lightweight touchdown tables and .04 chairs for instant pivots between client presentations and team sprints
-- **Customizable Office** - A flexible canvas with independent HVAC control and vaulted ceilings, ready to evolve into a private huddle room or executive lounge
-- **Private Office** - Engineered against static fatigue with Mynt and Mikado chairs featuring weight-activated infinite posture and subtle rocking mechanisms
-- **Team Offices** - A command center for synchronized leadership with Tyde 2 sit-stand workstations and Mikado side chairs for seamless transitions between focus and strategy
-- **Resource Room** - Utility elevated to the same standard with matte black IKEA cabinetry and Black Caesarstone maintaining visual continuity with the café
-- **Dynamic Space** - Ultimate fluidity for seamless transitions from Stand-Ups to Town Halls in minutes
-- **Break Room** - The functional engine behind the scenes, a fully equipped private kitchen for teams to unwind off-stage
-- **Shared Café** - Front-of-house polish meets back-of-house comfort, bridging client lounge and kitchen with tech-enabled banquettes
-- **Semi-Private Conference** - Preserving Vatche Simonian's curved architecture with electrified Soft Work sofas for quiet company and casual meetings
-- **Shared Lounge** - Relaxed seating for informal conversations
-- **Reception** - Welcome area and first impressions
+Three shells, one standard of sovereignty. Each pairs Class A space with on-premises compute and Vitra FF&E, held for a single institution.
 
-## Workspace Solutions
+- **Shell A** — ±2,400 SF executive shell.
+- **Shell B** — ±3,800 SF executive shell.
+- **Shell C** — ±5,200 SF flagship shell, the physical model of the thesis.
 
-355 Main offers workspace solutions that adapt to how you work.
+## The Campus
 
-### Custom Suites at Armonk Professional Center
-Bespoke workspace solutions that can be tailored and re-tailored endlessly as your organization evolves. Available through three pathways: a 3rd floor addition at 355 Main, the neighboring 357 Main building, or new leases as existing tenants transition. Ideal for organizations seeking a fully customized, branded presence in Armonk.
-
-### Private Offices
-Ready-to-use private offices with premium furnishings that adapt to your needs. Available configurations: Solo Office (1 person), Team Office (2-3 people), and Custom Office (4-8 people). Move-in ready with flexible terms.
-
-### Flex Memberships
-Flexible access to workspace and amenities for distributed teams. Includes access to shared workspaces, private office access as available, and all-inclusive amenities. Perfect for remote-first companies needing occasional in-person collaboration space.
-
-## Building Features
-
-### Dynamic Spaces
-Public, semi-private, and private zones designed for the distributed work era. Spaces transform throughout the day to support different activities.
+355 & 357 Main Street, Armonk, NY — Class A buildings on the North Castle Ventures campus, outfitted with Vitra furniture for sovereign work. Coordinates: 41.1265° N, 73.7140° W. Manhattan proximity without the commute.
 
 ### FF&E Partners
-- **Vitra** - Premium modular furniture
-- **BASO Lighting** - Round architectural fixtures
-- **Louis Poulsen** - Danish architectural lighting
-- **Coronet** - Linear office fixtures
-- **Marset** - Accent and task lighting
-- **Casambi** - Wireless lighting controls
+- **Vitra** — premium furniture enabling dynamic reconfiguration.
+- **BASO Lighting**, **Louis Poulsen**, **Coronet**, **Marset** — architectural and task lighting.
+- **Casambi** — wireless lighting controls and scene management.
 
-### Smart Building
-Wireless lighting controls and scene management enable personalized lighting experiences throughout the space.
+## Inquiry
+
+Inquiries are a Request for Comment (RFC), reviewed personally by North Castle Ventures. Response within 1–2 business days.
+
+## Ecosystem
+
+- **North Castle Ventures** — https://northcastleventures.com
+- **The RFC** — https://ainativeoffice.org
+- **Nate** — https://nativeagentic.com
+- **Trucast** — https://trucast.ai
 
 ## Location
 
-355 Main Street
+355 & 357 Main Street
 Armonk, NY 10504
 United States
 
-Armonk is located in Westchester County, approximately 40 miles north of New York City. The area is known for its corporate headquarters, excellent schools, and suburban quality of life.
-
-## Target Audience
-
-- Growing companies seeking premium office space
-- Remote-first teams needing collaboration hubs
-- Executives wanting a professional workspace
-- Enterprises exploring flexible real estate strategies
-- Commercial real estate brokers and landlords
-
 ## Key Pages
 
-- **Home** (/) - Overview of The Destination Workplace concept
-- **Solutions** (/solutions) - Workspace solutions that adapt to how you work
-- **Custom Suites** (/solutions/custom-offices) - Fully customizable suites at Armonk Professional Center
-- **Private Offices** (/solutions/private-offices) - Ready-to-use offices that adapt to your needs
-- **Flex Memberships** (/solutions/hybrid) - Flexible access plans
-- **About** (/about) - Building story and vision
-- **Enterprise** (/enterprise) - Solutions for larger organizations
-- **Landlords** (/landlords) - Partnership opportunities for property owners
-- **Brokers** (/brokers) - Information for commercial real estate professionals
+- **Home** (/) — Sovereign Intelligence, anchored in Armonk.
+- **The Shells** (/shells) — Three executive Sovereign Shells.
+- **The Thesis** (/thesis) — Why on-premises, deterministic AI for regulated institutions.
+- **The Campus** (/about) — 355 & 357 Main on the North Castle Ventures campus.
+- **Inquiry** (/inquiry) — Request for Comment.
 
 ## Contact
 
 Website: https://355main.com
-Join the waitlist at: https://355main.com (homepage)
-
-## Brand Positioning
-
-"Form follows function, but feeling follows form."
-
-355 Main believes the future of work requires spaces that inspire, not just accommodate. The Destination Workplace is where productivity meets hospitality.
+Leasing: leasing@355main.com

@@ -2,13 +2,22 @@
 
 ## Overview
 
-355 Main is a static marketing and lead generation website for **The Destination Workplace** - a commercial workspace property located at 355 Main Street, Armonk, New York. The site showcases workspace solutions and captures leads directly to HubSpot CRM.
+355 Main is a static marketing and lead generation website for **Sovereign Intelligence, anchored in Armonk** — three executive commercial workspaces at 355 & 357 Main Street, Armonk, New York. The site presents the offering and captures inquiries directly to HubSpot CRM.
 
-### Positioning: The Office Club
+### Positioning: Sovereign Shells
 
-355 Main operates as a **Destination Workplace**—a place people want to go, not just have to go. The project follows the **Office Club** model, serving both single-user tenants and flex office segments with public, semi-private, and private zones designed for the distributed work era.
+355 Main offers three executive **Sovereign Shells** — Class A commercial real estate fused with on-premises, deterministic AI and outfitted with Vitra furniture. Each shell is held for a single institution. The project adopts North Castle Ventures' identity: **"Sovereign Intelligence, anchored in Armonk."**
 
-The space features **Dynamic Spaces**—flexible zones that transform to support different work modes including focus work, collaboration, meetings, workshops, and presentations. Premium furniture enables rapid reconfiguration to match any work style or team need.
+The thesis: regulated legal and financial institutions cannot send sensitive data to public model APIs. The answer is on-premises, deterministic AI co-located with the people who use it — compute, counsel, and capital in one room. Guiding principles are determinism over probability, premises over cloud, and institution over crowd. **Alpha School** is referenced as a proof point.
+
+**Shells:** Shell A (±2,400 SF), Shell B (±3,800 SF), and Shell C (±5,200 SF) — the flagship and "physical model of the thesis."
+
+### Ecosystem
+
+- **North Castle Ventures** — northcastleventures.com (operator)
+- **The RFC** — ainativeoffice.org
+- **Nate** — nativeagentic.com
+- **Trucast** — trucast.ai
 
 ### FF&E Partners
 
@@ -53,7 +62,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 |----------|--------|---------|
 | `/api/health` | GET | Health check with uptime |
 | `/api/waitlist` | POST | Simple email capture to HubSpot |
-| `/api/members` | POST | Full lead form with preferences to HubSpot |
+| `/api/members` | POST | Inquiry (RFC) form — lead + brief/notes to HubSpot, SendGrid, Slack |
 
 ### Project Structure
 ```
@@ -76,12 +85,12 @@ This is a **static-first marketing site** with minimal backend requirements.
 ### Breadcrumbs
 - Route-aware breadcrumbs rendered in the Layout component, visible on all content pages except the homepage
 - Uses `wouter` `useLocation` to build trail from URL path segments
-- Solution sub-pages show full trail: Home > Solutions > {Page}
-- Landing pages (book-a-tour, tour-confirmed) and 404 page intentionally do not use Layout and have no breadcrumbs
+- Top-level pages show: Home > {Page} (e.g. Home > The Shells)
+- The 404 page intentionally does not use Layout and has no breadcrumbs
 
 ### SEO Titles
-- All pages follow a consistent format: `{Page Name} – {Category Context} | 355 Main`
-- Homepage uses brand-first format: `355 Main | The Destination Workplace in Armonk, NY`
+- Content pages follow a consistent format: `{Page Name} – {Category Context} | 355 Main`
+- Homepage uses brand-first format: `355 Main | Sovereign Intelligence, Anchored in Armonk`
 - Titles kept under 60 characters for Google indexing
 
 ### Design System: Navy Accent
@@ -95,28 +104,22 @@ This is a **static-first marketing site** with minimal backend requirements.
 - Trailing-slash URLs redirect 301 to canonical non-trailing-slash version (middleware in `routes.ts`)
 - `static.ts` strips query strings/fragments before SSR meta lookup
 - `robots.txt` at `client/public/robots.txt`, `sitemap.xml` at `client/public/sitemap.xml`
-- Sitemap includes all public pages including `/book-a-tour`
+- Sitemap includes all public pages: `/`, `/shells`, `/thesis`, `/about`, `/inquiry`
 
 ### Listing Brochure
 - PDF: `attached_assets/355_Main_-_Brochure_1774538930934.pdf`
 - Download filename: `355_Main_Listing_Brochure.pdf`
-- Available on: Homepage (CTA section), Solutions page, Brokers page, Book a Tour page
+- Retained in `attached_assets/` but not currently linked from the Sovereign IA pages
 
 ## Pages
 
 | Route | Description |
 |-------|-------------|
-| `/` | Home - The Destination Workplace overview |
-| `/about` | Building story and vision |
-| `/solutions` | Workspace solutions overview |
-| `/solutions/custom-offices` | Fully customizable private suites |
-| `/solutions/private-offices` | Ready-to-use furnished offices |
-| `/solutions/hybrid` | Flexible access memberships |
-| `/enterprise` | Large organization solutions |
-| `/landlords` | Partnership opportunities for property owners |
-| `/brokers` | Commercial real estate professional info |
-| `/book-a-tour` | Google Ads landing page with HubSpot calendar embed |
-| `/tour-confirmed` | Tour booking confirmation with conversion tracking |
+| `/` | Home — Sovereign Intelligence, anchored in Armonk |
+| `/shells` | The Shells — three executive Sovereign Shells (A/B/C) |
+| `/thesis` | The Thesis — the argument for on-premises, deterministic AI |
+| `/about` | The Campus — 355 & 357 Main on the North Castle Ventures campus |
+| `/inquiry` | Inquiry — Request for Comment (RFC) lead form |
 
 ## External Services
 

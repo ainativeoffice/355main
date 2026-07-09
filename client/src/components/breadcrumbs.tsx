@@ -9,16 +9,10 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const routeLabels: Record<string, string> = {
+  "/shells": "Shells",
+  "/thesis": "Thesis",
   "/about": "About",
-  "/solutions": "Solutions",
-  "/solutions/custom-offices": "Custom Offices",
-  "/solutions/private-offices": "Private Offices",
-  "/solutions/hybrid": "Hybrid Memberships",
-  "/enterprise": "Enterprise",
-  "/landlords": "Landlords",
-  "/brokers": "Brokers",
-  "/book-a-tour": "Book a Tour",
-  "/tour-confirmed": "Tour Confirmed",
+  "/inquiry": "Inquiry",
 };
 
 export function Breadcrumbs() {

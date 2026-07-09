@@ -10,8 +10,8 @@ interface SEOProps {
 }
 
 const BASE_URL = "https://355main.com";
-const DEFAULT_TITLE = "355 Main | The Destination Workplace in Armonk, NY";
-const DEFAULT_DESCRIPTION = "The office people actually want to go to. Premium workspaces, dynamic zones, and world-class design at 355 Main Street in Armonk, New York.";
+const DEFAULT_TITLE = "355 Main | Sovereign Intelligence, Anchored in Armonk";
+const DEFAULT_DESCRIPTION = "Three executive Sovereign Shells on the North Castle Ventures campus in Armonk, NY — Class A commercial real estate fused with on-premises AI, outfitted with Vitra.";
 const DEFAULT_OG_IMAGE = "/opengraph.jpg";
 
 export function SEO({

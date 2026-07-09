@@ -6,28 +6,20 @@ import { Switch, Route } from "wouter";
 import { MotionConfig } from "framer-motion";
 
 import Home from "@/pages/home";
+import Shells from "@/pages/shells";
+import Thesis from "@/pages/thesis";
 import About from "@/pages/about";
-import Brokers from "@/pages/brokers";
-import Enterprise from "@/pages/enterprise";
-import Landlords from "@/pages/landlords";
-import Solutions from "@/pages/solutions";
-import CustomOffices from "@/pages/solutions/custom-offices";
-import PrivateOffices from "@/pages/solutions/private-offices";
-import HybridMemberships from "@/pages/solutions/hybrid";
+import Inquiry from "@/pages/inquiry";
 import NotFound from "@/pages/not-found";
 
 function StaticRouter({ url }: { url: string }) {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/shells" component={Shells} />
+      <Route path="/thesis" component={Thesis} />
       <Route path="/about" component={About} />
-      <Route path="/brokers" component={Brokers} />
-      <Route path="/enterprise" component={Enterprise} />
-      <Route path="/landlords" component={Landlords} />
-      <Route path="/solutions" component={Solutions} />
-      <Route path="/solutions/custom-offices" component={CustomOffices} />
-      <Route path="/solutions/private-offices" component={PrivateOffices} />
-      <Route path="/solutions/hybrid" component={HybridMemberships} />
+      <Route path="/inquiry" component={Inquiry} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -42,42 +34,33 @@ interface RenderResult {
   };
 }
 
+const DEFAULT_DESCRIPTION =
+  "Three executive Sovereign Shells on the North Castle Ventures campus in Armonk, NY — Class A commercial real estate fused with on-premises AI, outfitted with Vitra.";
+
 const routeMeta: Record<string, { title: string; description: string }> = {
   "/": {
-    title: "355 Main | The Destination Workplace in Armonk, NY",
-    description: "Premium workspace solutions at 355 Main Street, Armonk NY. Custom offices, private offices, and hybrid memberships for the distributed work era.",
+    title: "355 Main | Sovereign Intelligence, Anchored in Armonk",
+    description: DEFAULT_DESCRIPTION,
+  },
+  "/shells": {
+    title: "The Shells \u2013 Three Sovereign Shells | 355 Main",
+    description:
+      "Three executive Sovereign Shells at 355 Main, Armonk — Class A space fused with on-premises AI and outfitted with Vitra. Held one institution per shell.",
+  },
+  "/thesis": {
+    title: "The Thesis \u2013 Sovereign Intelligence | 355 Main",
+    description:
+      "Why regulated legal and financial institutions need on-premises, deterministic AI co-located with the people who use it. The 355 Main thesis.",
   },
   "/about": {
-    title: "About Us \u2013 Our Vision & Story | 355 Main",
-    description: "Discover 355 Main - The Office Club reimagining workspace for the distributed age. Premium location at 355 Main Street, Armonk, New York.",
+    title: "The Campus \u2013 Armonk, New York | 355 Main",
+    description:
+      "355 & 357 Main Street on the North Castle Ventures campus in Armonk, New York — Class A buildings outfitted with Vitra for sovereign work.",
   },
-  "/solutions": {
-    title: "Workspace Solutions \u2013 Offices & Memberships | 355 Main",
-    description: "Explore workspace solutions at 355 Main: custom offices, private offices, and hybrid memberships designed for modern teams.",
-  },
-  "/solutions/custom-offices": {
-    title: "Custom Office Suites \u2013 Tailored Workspaces | 355 Main",
-    description: "Ground-up design-build workspace tailored to your organization. Fully customizable private office suites at 355 Main in Armonk, NY.",
-  },
-  "/solutions/private-offices": {
-    title: "Private Offices \u2013 Move-In Ready | 355 Main",
-    description: "Move-in ready private offices with Vitra Tyde 2 configurations for teams of 1-15. Premium furnishings at 355 Main in Armonk, NY.",
-  },
-  "/solutions/hybrid": {
-    title: "Hybrid Memberships \u2013 Flexible Workspace Access | 355 Main",
-    description: "Flexible workspace access for distributed teams. Day passes, monthly memberships, and all-inclusive amenities at 355 Main.",
-  },
-  "/enterprise": {
-    title: "Enterprise Solutions \u2013 Large Team Workspaces | 355 Main",
-    description: "Custom workspace solutions for large organizations. Flexible terms, dedicated support, and premium amenities at 355 Main.",
-  },
-  "/brokers": {
-    title: "Broker Partners \u2013 Commercial Leasing | 355 Main",
-    description: "Partner with 355 Main to offer your clients premium workspace solutions. Competitive commissions and dedicated broker support.",
-  },
-  "/landlords": {
-    title: "Landlord Partnerships \u2013 Property Solutions | 355 Main",
-    description: "Transform your commercial property into a destination workplace. Partnership opportunities with 355 Main.",
+  "/inquiry": {
+    title: "Inquiry \u2013 Request for Comment | 355 Main",
+    description:
+      "Begin a private inquiry for a Sovereign Shell at 355 Main, Armonk. Inquiries are reviewed personally by North Castle Ventures.",
   },
 };
 

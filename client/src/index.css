@@ -11,7 +11,8 @@
 @theme inline {
   /* Typography */
   --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   /* Border Radius Scale */
   --radius-sm: 0.125rem;
@@ -24,55 +25,61 @@
      Timeless, Corporate, Refined
      ---------------------------------------- */
   
-  /* Base Colors */
-  --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(0 0% 10%);
+  /* Base Colors — warm cream / near-black ink (North Castle system) */
+  --color-background: hsl(40 24% 96%);
+  --color-foreground: hsl(24 10% 12%);
 
   /* Card Colors */
-  --color-card: hsl(0 0% 98%);
-  --color-card-foreground: hsl(0 0% 10%);
+  --color-card: hsl(40 20% 93%);
+  --color-card-foreground: hsl(24 10% 12%);
 
   /* Popover Colors */
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(0 0% 10%);
+  --color-popover: hsl(40 24% 97%);
+  --color-popover-foreground: hsl(24 10% 12%);
 
-  /* Primary: Deep Charcoal */
-  --color-primary: hsl(0 0% 20%);
-  --color-primary-foreground: hsl(0 0% 100%);
+  /* Primary: Near-black ink */
+  --color-primary: hsl(24 10% 12%);
+  --color-primary-foreground: hsl(40 24% 96%);
 
   /* Secondary: Warm Neutral */
-  --color-secondary: hsl(35 20% 90%);
-  --color-secondary-foreground: hsl(0 0% 20%);
+  --color-secondary: hsl(40 15% 88%);
+  --color-secondary-foreground: hsl(24 10% 12%);
 
-  /* Muted: Subtle Gray */
-  --color-muted: hsl(0 0% 96%);
-  --color-muted-foreground: hsl(0 0% 45%);
+  /* Muted: Warm Gray */
+  --color-muted: hsl(40 16% 90%);
+  --color-muted-foreground: hsl(28 6% 38%);
 
-  /* Accent: Navy Tint (for UI hover/focus backgrounds) */
-  --color-accent: hsl(220 30% 95%);
-  --color-accent-foreground: hsl(220 40% 20%);
+  /* Accent: Warm hover/focus background */
+  --color-accent: hsl(40 18% 88%);
+  --color-accent-foreground: hsl(24 10% 12%);
 
-  /* Navy: Deep Navy (for text highlights and interactive elements) */
-  --color-navy: hsl(220 40% 20%);
+  /* Ink: near-black for dark sections */
+  --color-ink: hsl(24 12% 9%);
+
+  /* Ember: rust accent for markers/dots/annotations */
+  --color-ember: hsl(14 78% 46%);
+
+  /* Navy token retained (used by legacy utilities); mapped to ink */
+  --color-navy: hsl(24 10% 12%);
 
   /* Destructive */
-  --color-destructive: hsl(0 84% 60%);
-  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-destructive: hsl(0 72% 48%);
+  --color-destructive-foreground: hsl(40 24% 96%);
 
   /* Border & Input */
-  --color-border: hsl(0 0% 92%);
-  --color-input: hsl(0 0% 92%);
-  --color-ring: hsl(220 40% 20%);
+  --color-border: hsl(30 12% 84%);
+  --color-input: hsl(30 12% 84%);
+  --color-ring: hsl(24 10% 12%);
 
   /* Sidebar */
-  --color-sidebar: hsl(0 0% 98%);
-  --color-sidebar-foreground: hsl(0 0% 10%);
-  --color-sidebar-primary: hsl(0 0% 20%);
-  --color-sidebar-primary-foreground: hsl(0 0% 100%);
-  --color-sidebar-accent: hsl(0 0% 96%);
-  --color-sidebar-accent-foreground: hsl(0 0% 10%);
-  --color-sidebar-border: hsl(0 0% 92%);
-  --color-sidebar-ring: hsl(0 0% 20%);
+  --color-sidebar: hsl(40 20% 94%);
+  --color-sidebar-foreground: hsl(24 10% 12%);
+  --color-sidebar-primary: hsl(24 10% 12%);
+  --color-sidebar-primary-foreground: hsl(40 24% 96%);
+  --color-sidebar-accent: hsl(40 16% 90%);
+  --color-sidebar-accent-foreground: hsl(24 10% 12%);
+  --color-sidebar-border: hsl(30 12% 84%);
+  --color-sidebar-ring: hsl(24 10% 12%);
 
   /* ----------------------------------------
      SPACING SCALE
@@ -123,6 +130,7 @@
   /* Heading defaults */
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+    letter-spacing: -0.01em;
   }
 
   /* Smooth scrolling for anchor links */
@@ -182,13 +190,39 @@
     @apply font-serif text-xl md:text-2xl;
   }
   
-  /* Eyebrow/label text */
+  /* Technical mono label (eyebrow) — REF / COORDINATES / CAM_01 style */
   .text-label {
-    @apply text-sm uppercase tracking-[0.2em] text-navy;
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground;
   }
   
   .text-label-wide {
-    @apply text-sm uppercase tracking-[0.3em];
+    @apply font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground;
+  }
+
+  /* Technical annotation / caption */
+  .text-annotation {
+    @apply font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  /* Ember marker dot */
+  .marker-dot {
+    @apply inline-block w-1.5 h-1.5 bg-ember flex-shrink-0;
+  }
+
+  /* Status pill (header) */
+  .status-pill {
+    @apply inline-flex items-center gap-2 border border-current/25 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.2em];
+  }
+
+  /* Spec sheet key/value row */
+  .spec-row {
+    @apply flex items-baseline justify-between gap-4 border-b border-border py-2.5 font-mono text-xs uppercase tracking-[0.12em];
+  }
+  .spec-row dt {
+    @apply text-muted-foreground;
+  }
+  .spec-row dd {
+    @apply text-foreground text-right;
   }
   
   /* Body text variants */
@@ -207,19 +241,19 @@
   /* ----- BUTTONS ----- */
   
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-primary/90 transition-colors;
+    @apply inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] hover:bg-primary/90 transition-colors;
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 border border-border px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-muted transition-colors;
+    @apply inline-flex items-center justify-center gap-2 border border-foreground/25 px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] hover:bg-accent transition-colors;
   }
   
   .btn-white {
-    @apply inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-medium hover:bg-white/90 transition-colors;
+    @apply inline-flex items-center justify-center gap-2 bg-background text-foreground px-8 py-4 font-mono text-xs uppercase tracking-[0.2em] hover:bg-background/90 transition-colors;
   }
   
   .btn-ghost {
-    @apply inline-flex items-center gap-2 text-navy text-sm uppercase tracking-widest font-medium hover:gap-3 transition-all;
+    @apply inline-flex items-center gap-2 text-foreground font-mono text-xs uppercase tracking-[0.2em] hover:gap-3 transition-all;
   }
 
   /* ----- CARDS ----- */
@@ -275,7 +309,7 @@
   }
   
   .bullet-dot {
-    @apply w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0;
+    @apply w-1.5 h-1.5 bg-ember flex-shrink-0;
   }
 
   /* ----- DECORATIVE ----- */

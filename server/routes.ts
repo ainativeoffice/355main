@@ -66,6 +66,7 @@ const preferencesSchema = z.object({
   privateOfficeDesks: z.number().int().min(0).max(1000).optional(),
   hybridMemberships: z.number().int().min(0).max(1000).optional(),
   amenities: z.array(z.string().max(50)).max(20).optional(),
+  notes: z.string().max(2000).optional(),
 }).optional();
 
 const memberRequestSchema = z.object({
@@ -288,6 +289,7 @@ export async function registerRoutes(
             privateOfficeDesks: preferences.privateOfficeDesks,
             hybridMemberships: preferences.hybridMemberships,
             amenities: preferences.amenities,
+            notes: preferences.notes,
           }).where(eq(memberPreferences.memberId, memberId));
         } else {
           await db.insert(memberPreferences).values({
@@ -296,6 +298,7 @@ export async function registerRoutes(
             privateOfficeDesks: preferences.privateOfficeDesks,
             hybridMemberships: preferences.hybridMemberships,
             amenities: preferences.amenities,
+            notes: preferences.notes,
           });
         }
       }
@@ -326,10 +329,11 @@ export async function registerRoutes(
     const brandSource = member.brandSource || "355main";
     const notesParts: string[] = [`Source: ${brandSource}`];
     if (member.moveInTiming) notesParts.push(`Move-in timing: ${member.moveInTiming}`);
-    if (preferences?.workspaceArchetype) notesParts.push(`Workspace type: ${preferences.workspaceArchetype}`);
+    if (preferences?.workspaceArchetype) notesParts.push(`Shell interest: ${preferences.workspaceArchetype}`);
     if (preferences?.privateOfficeDesks) notesParts.push(`Private desks needed: ${preferences.privateOfficeDesks}`);
     if (preferences?.hybridMemberships) notesParts.push(`Hybrid memberships: ${preferences.hybridMemberships}`);
     if (preferences?.amenities?.length) notesParts.push(`Amenities: ${preferences.amenities.join(", ")}`);
+    if (preferences?.notes) notesParts.push(`Brief: ${preferences.notes}`);
     
     standardProperties.message = notesParts.join(" | ");
 
