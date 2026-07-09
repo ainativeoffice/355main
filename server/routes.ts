@@ -117,6 +117,25 @@ export async function registerRoutes(
     });
   });
 
+  // Legacy coworking IA → Sovereign Shells IA (preserve SEO/link equity)
+  const legacyRedirects: Record<string, string> = {
+    '/solutions': '/shells',
+    '/solutions/custom-offices': '/shells',
+    '/solutions/private-offices': '/shells',
+    '/solutions/hybrid': '/shells',
+    '/enterprise': '/inquiry',
+    '/landlords': '/inquiry',
+    '/brokers': '/inquiry',
+    '/book-a-tour': '/inquiry',
+    '/tour-confirmed': '/inquiry',
+  };
+
+  Object.entries(legacyRedirects).forEach(([from, to]) => {
+    app.get(from, (req, res) => {
+      res.redirect(301, to);
+    });
+  });
+
   // Health check endpoint
   app.get("/api/health", async (req, res) => {
     res.json({

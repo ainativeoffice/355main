@@ -41,8 +41,11 @@ export async function serveStatic(app: Express) {
 
   app.use(express.static(distPath));
 
+  const validRoutes = new Set(["/", "/shells", "/thesis", "/about", "/inquiry"]);
+
   app.use("*", (req, res) => {
     const url = req.originalUrl.split('?')[0]!.split('#')[0]!;
+    const statusCode = validRoutes.has(url) ? 200 : 404;
     
     if (render) {
       try {
@@ -70,13 +73,13 @@ export async function serveStatic(app: Express) {
     <link rel="canonical" href="${head.canonical}" />`
           );
         
-        res.status(200).set({ "Content-Type": "text/html" }).end(page);
+        res.status(statusCode).set({ "Content-Type": "text/html" }).end(page);
       } catch (err) {
         console.error("[SSR] Render error:", err);
-        res.sendFile(path.resolve(distPath, "index.html"));
+        res.status(statusCode).sendFile(path.resolve(distPath, "index.html"));
       }
     } else {
-      res.sendFile(path.resolve(distPath, "index.html"));
+      res.status(statusCode).sendFile(path.resolve(distPath, "index.html"));
     }
   });
 }
