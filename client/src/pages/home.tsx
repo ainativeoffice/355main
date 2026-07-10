@@ -7,8 +7,8 @@ import { SEO } from "@/components/seo";
 import exterior355 from "@assets/355_main_exterior.jpg";
 import exterior357 from "@assets/357_exterior_1.jpg";
 import vitraTyde2 from "@assets/82655552_1769278417914.jpg";
-import vitraJoyn from "@assets/77433396_1769277628600.jpg";
-import vitraDancingWall from "@assets/vitra_dancing_wall.jpg";
+import vitraMikado from "@assets/Screenshot_2026-01-24_at_1.10.50_PM_1769278292098.png";
+import vitraMynt from "@assets/vitra_mynt_chair.jpg";
 import vitraAlcove from "@assets/vitra_alcove_lowback.jpg";
 
 const reveal = {
@@ -26,8 +26,8 @@ const shells = [
 
 const ffe = [
   { src: vitraTyde2, cap: "CAM_02 · TYDE 2" },
-  { src: vitraJoyn, cap: "CAM_03 · JOYN 2 TOUCHDOWN" },
-  { src: vitraDancingWall, cap: "CAM_04 · DANCING WALL" },
+  { src: vitraMikado, cap: "CAM_03 · MIKADO CHAIR" },
+  { src: vitraMynt, cap: "CAM_04 · MYNT CHAIR" },
   { src: vitraAlcove, cap: "CAM_05 · ALCOVE" },
 ];
 
