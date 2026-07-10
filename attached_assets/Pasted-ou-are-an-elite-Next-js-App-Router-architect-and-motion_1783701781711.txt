@@ -1,0 +1,93 @@
+ou are an elite Next.js (App Router) architect and motion designer. Your objective is to rebuild the landing page for 355main.com. This is the physical flagship node of the North Castle Ventures ecosystem.
+
+Design Mandate (Brutalist / Cyber-Physical):
+
+Background: Deep Obsidian (#0A0A10).
+
+Text: Pure White (#FFFFFF) and Muted Grey (#888888).
+
+Accents: Phosphor Green (#00FF41) for interactive elements, data coordinates, and hover states.
+
+Typography: Strictly monospace (font-mono) to align with the ainativeoffice.org RFC standard.
+
+Layout: Stark grid systems, 1px solid borders (border-[#333]), zero drop shadows, zero rounded corners.
+
+Execute the following page architecture and exact copy (app/page.tsx):
+
+1. Navigation / Header
+
+Links: THE SHELLS, THE THESIS, THE CAMPUS, NATE, THE RFC
+
+Right-aligned CTA (Phosphor Green text): > INQUIRE
+
+2. Hero Section
+
+Top Bar: 355 · 357 MAIN / ARMONK NY
+
+H1: SOVEREIGN INTELLIGENCE. ANCHORED IN ARMONK.
+
+Sub-copy: "Three Sovereign Shells on the North Castle Ventures campus — Class A commercial real estate fused with deterministic, on-premises AI and outfitted by Vitra. One institution per shell."
+
+CTAs: > VIEW THE SHELLS | > READ THE THESIS
+
+Data Block (Bottom Left): CAM_00 · 355 MAIN ST · 41.1265° N, 73.7140° W
+
+3. The Thesis (The Cloud Egress Trap)
+
+Header: THE THESIS
+
+Copy: "Regulated institutions cannot send their operational alpha to a public API. So the intelligence comes to them. 355 Main co-locates deterministic AI with the executives who use it — compute, counsel, and capital in one room. Sovereignty of space and sovereignty of compute, cryptographically sealed."
+
+Link: > READ THE FULL THESIS
+
+4. The Shells Grid (Available Inventory)
+
+Create a rigid 3-column grid.
+
+Column 1: SHELL_A | 814 USF / 1,065 RSF | The Executive Node. Available.
+
+Column 2: SHELL_B | 888 USF / 1,162 RSF | The Operations Node. Available.
+
+Column 3: SHELL_C | 820 USF / 1,060 RSF | Held by Trucast.AI — The Integration Headquarters.
+
+Link: > EXPLORE THE SHELLS
+
+5. Market Validation (Alpha School)
+
+Header: THE STANDARD, PROVEN
+
+Copy: "This is not a rendering. Walk a floor built to the standard. The second floor of 355 Main was recently pre-leased to Alpha School to deploy their AI-powered '2 Hour Learning' model. It is the definitive validation of deploying high-density edge compute in a suburban asset. Walk the 3D capture, recorded prior to fit-out."
+
+Data Block: CAM_01 · LEVEL 2 — LEASED TO ALPHA SCHOOL [FALL 2026]
+
+CTA: > LAUNCH 3D WALKTHROUGH
+
+6. Vitra Integration (The Covert Data Center)
+
+Header: OUTFITTED BY VITRA
+
+Copy: "A premium suite. Covertly a data center. Every shell is delivered complete with a curated Vitra program: architectural systems, executive seating, and reconfigurable meeting environments designed for human-machine collaboration. Nothing to specify, nothing to source."
+
+Grid of Assets: List the text elements with small image placeholders: CAM_02 · TYDE 2, CAM_03 · JOYN 2 TOUCHDOWN, CAM_04 · DANCING WALL, CAM_05 · ALCOVE.
+
+7. The Campus & Final CTA
+
+Header: THE CAMPUS
+
+Copy: "A fortified cyber-physical campus. 355 & 357 Main Street provide the efficiency and absolute security of a Midtown headquarters, anchored in the bucolic landscape of Armonk, New York."
+
+Inquiry Block (Bordered Box):
+
+THREE SHELLS. HELD ONE INSTITUTION AT A TIME.
+
+"Inquiries are reviewed personally by the principals. Tell us who you are and what you need."
+
+Button: > INITIALIZE INQUIRY
+
+8. Global Footer
+
+Left: North Castle Ventures | Location: 355 & 357 Main Street, Armonk, New York | 41.1265° N, 73.7140° W | Inquiries: leasing@355main.com
+
+Right (Ecosystem Links): THE RFC, NATE, TRUCAST, NATIVE AGENTIC
+
+Copyright: © 2026 355 MAIN · A NORTH CASTLE VENTURES CAMPUS
