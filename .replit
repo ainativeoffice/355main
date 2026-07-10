@@ -51,3 +51,7 @@ integrations = ["hubspot:1.0.0"]
 
 [userenv.shared]
 VITE_RECAPTCHA_SITE_KEY = "6Lcell4sAAAAAFA3SCozHZMm34rouyzu2IMstGEc"
+
+[postMerge]
+path = "scripts/post-merge.sh"
+timeoutMs = 120000
