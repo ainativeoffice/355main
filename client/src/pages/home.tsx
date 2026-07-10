@@ -9,10 +9,10 @@ import exterior357 from "@assets/357_exterior_1.jpg";
 import interiorSuite from "@assets/space/executive-suite.jpeg";
 import interiorMeeting from "@assets/space/meeting-room.jpeg";
 import interiorLobby from "@assets/space/lobby-reception.jpeg";
-import vitraEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
-import vitraJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
-import vitraDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
-import vitraAlcove from "@assets/stock_images/vitra_alcove_sofa_hi_354cd378.jpg";
+import vitraTyde2 from "@assets/82655552_1769278417914.jpg";
+import vitraJoyn from "@assets/77433396_1769277628600.jpg";
+import vitraDancingWall from "@assets/vitra_dancing_wall.jpg";
+import vitraAlcove from "@assets/vitra_alcove_lowback.jpg";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -28,8 +28,8 @@ const shells = [
 ];
 
 const ffe = [
-  { src: vitraEames, cap: "CAM_01 · EAMES ALUMINUM" },
-  { src: vitraJoyn, cap: "CAM_02 · JOYN CONFERENCE" },
+  { src: vitraTyde2, cap: "CAM_01 · TYDE 2" },
+  { src: vitraJoyn, cap: "CAM_02 · JOYN 2 TOUCHDOWN" },
   { src: vitraDancingWall, cap: "CAM_03 · DANCING WALL" },
   { src: vitraAlcove, cap: "CAM_04 · ALCOVE" },
 ];

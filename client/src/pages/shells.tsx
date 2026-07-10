@@ -8,9 +8,9 @@ import exterior355 from "@assets/355_main_exterior.jpg";
 import spaceExecutiveSuite from "@assets/space/executive-suite.jpeg";
 import spaceOpenFloor from "@assets/space/open-floor.jpeg";
 import spaceMeetingRoom from "@assets/space/meeting-room.jpeg";
-import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
-import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
-import ffeTyde2 from "@assets/stock_images/vitra_tyde_2_sit_sta_39a22b81.jpg";
+import ffeSoftWork from "@assets/82707787_1769278810327.jpg";
+import ffeJoyn from "@assets/77433396_1769277628600.jpg";
+import ffeTyde2 from "@assets/82655552_1769278417914.jpg";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -48,7 +48,7 @@ const shells: Shell[] = [
     ],
     images: [
       { src: spaceExecutiveSuite, caption: "CAM_01 · SHELL A" },
-      { src: ffeEames, caption: "FF&E · VITRA EAMES ALUMINUM" },
+      { src: ffeSoftWork, caption: "FF&E · VITRA SOFT WORK" },
     ],
     specs: [
       { label: "REF", value: "SHELL_A" },
@@ -71,7 +71,7 @@ const shells: Shell[] = [
     ],
     images: [
       { src: spaceOpenFloor, caption: "CAM_02 · SHELL B" },
-      { src: ffeJoyn, caption: "FF&E · VITRA JOYN" },
+      { src: ffeJoyn, caption: "FF&E · VITRA JOYN 2 TOUCHDOWN" },
     ],
     specs: [
       { label: "REF", value: "SHELL_B" },
