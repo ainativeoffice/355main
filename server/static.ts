@@ -7,7 +7,7 @@ interface RenderResult {
   head: {
     title: string;
     description: string;
-    canonical: string;
+    canonical: string | null;
     jsonLd: string;
   };
 }
@@ -69,7 +69,7 @@ export async function serveStatic(app: Express) {
             `<meta property="og:title" content="${head.title}" />
     <meta property="og:description" content="${head.description}"/>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="${head.canonical}" />
+    <meta property="og:url" content="${head.canonical ?? "https://355main.com/"}" />
     <meta property="og:site_name" content="355 Main" />
     <meta property="og:image" content="https://355main.com/opengraph.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -80,9 +80,7 @@ export async function serveStatic(app: Express) {
     <meta property="og:image:alt" content="355 Main campus exterior in Armonk, New York" />
     <meta name="twitter:image:alt" content="355 Main campus exterior in Armonk, New York" />
     
-    <meta name="description" content="${head.description}" />
-    <meta name="keywords" content="Sovereign Shells, Armonk, Westchester, Class A office, on-premises AI, deterministic AI, executive workspace, North Castle Ventures, Vitra" />
-    <link rel="canonical" href="${head.canonical}" />${gscVerification}`
+    <meta name="description" content="${head.description}" />${head.canonical === null ? `\n    <meta name="robots" content="noindex,follow" />` : `\n    <meta name="keywords" content="Sovereign Shells, Armonk, Westchester, Class A office, on-premises AI, deterministic AI, executive workspace, North Castle Ventures, Vitra" />\n    <link rel="canonical" href="${head.canonical}" />`}${gscVerification}`
           )
           .replace(
             /<!--ssr-jsonld-->[\s\S]*?<!--\/ssr-jsonld-->/,

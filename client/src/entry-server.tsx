@@ -30,7 +30,7 @@ interface RenderResult {
   head: {
     title: string;
     description: string;
-    canonical: string;
+    canonical: string | null;
     jsonLd: string;
   };
 }
@@ -320,14 +320,17 @@ export function render(url: string): RenderResult {
     </MotionConfig>
   );
 
-  const meta = routeMeta[url] ?? routeMeta["/"]!;
+  const meta = routeMeta[url];
+  const is404 = !meta;
 
   return {
     html,
     head: {
-      title: meta.title,
-      description: meta.description,
-      canonical: `https://355main.com${url === "/" ? "" : url}`,
+      title: is404 ? "Page Not Found | 355 Main" : meta.title,
+      description: is404
+        ? "The page you are looking for does not exist."
+        : meta.description,
+      canonical: is404 ? null : `https://355main.com${url === "/" ? "/" : url}`,
       jsonLd: buildJsonLd(url),
     },
   };
