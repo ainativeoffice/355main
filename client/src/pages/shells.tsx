@@ -42,10 +42,10 @@ const shells: Shell[] = [
     ref: "REF_01",
     index: "01 — 03",
     name: "Shell A",
-    headline: "The principal's chamber.",
+    headline: "The Executive Node.",
     body: [
-      "An executive suite on the ground floor, engineered for a principal-led practice that runs lean and close. Class A commercial space fused with an on-premises, deterministic AI stack — no data leaves the room.",
-      "Outfitted in Vitra throughout. Held by a single institution, sized for a principal and immediate counsel who keep capital, counsel, and compute within arm's reach.",
+      "Engineered for a principal-led practice that runs lean and highly secure. Class A commercial space fused with a localized NVIDIA hardware vault.",
+      "Sized for a principal and immediate counsel who require their capital, strategy, and compute to remain within arm's reach. No data leaves the room.",
     ],
     images: [
       { src: spaceExecutiveSuite, caption: "CAM_01 · SHELL A" },
@@ -55,8 +55,9 @@ const shells: Shell[] = [
       { label: "REF", value: "SHELL_A" },
       { label: "Area", value: "814 USF / 1,065 RSF" },
       { label: "Floor", value: "Floor 1 — Suite A" },
-      { label: "Compute", value: "On-prem AI" },
-      { label: "FF&E", value: "Vitra" },
+      { label: "Acoustics", value: "STC-55 shielding" },
+      { label: "Network", value: "Dedicated air-gapped fiber" },
+      { label: "FF&E", value: "Vitra Executive" },
       { label: "Occupancy", value: "Single institution" },
       { label: "Status", value: "Available" },
     ],
@@ -66,10 +67,10 @@ const shells: Shell[] = [
     ref: "REF_02",
     index: "02 — 03",
     name: "Shell B",
-    headline: "The working suite.",
+    headline: "The Operations Node.",
     body: [
-      "The largest of the three shells — an executive suite built for a small institution operating at full stride. Working desks, private counsel space, and on-premises compute in one continuous, sovereign environment.",
-      "Deterministic AI infrastructure sits inside the walls, not in a distant cloud. Vitra throughout. One tenant, one standard.",
+      "The largest of the three shells — built for a small institution operating at full multi-agent stride. Open working desks, private counsel space, and high-density on-premises compute in one continuous, sovereign environment.",
+      "Deterministic AI infrastructure sits inside your walls, not in a distant cloud.",
     ],
     images: [
       { src: spaceOpenFloor, caption: "CAM_02 · SHELL B" },
@@ -79,8 +80,9 @@ const shells: Shell[] = [
       { label: "REF", value: "SHELL_B" },
       { label: "Area", value: "888 USF / 1,162 RSF" },
       { label: "Floor", value: "Floor 1 — Suite B" },
-      { label: "Compute", value: "On-prem AI" },
-      { label: "FF&E", value: "Vitra" },
+      { label: "Acoustics", value: "STC-55 shielding" },
+      { label: "Network", value: "Dedicated air-gapped fiber" },
+      { label: "FF&E", value: "Vitra Operations" },
       { label: "Occupancy", value: "Single institution" },
       { label: "Status", value: "Available" },
     ],
@@ -90,10 +92,10 @@ const shells: Shell[] = [
     ref: "REF_03",
     index: "03 — 03",
     name: "Shell C",
-    headline: "Held by Trucast.ai — the thesis in occupancy.",
+    headline: "The Orchestration Node.",
     body: [
-      "Shell C is the physical model of the thesis, and it is no longer an argument — it is occupied. Trucast.ai holds the suite, running sovereign intelligence exactly as designed: Class A space and on-premises, deterministic AI operating as one instrument, held by a single institution.",
-      "Compute, counsel, and capital share a single room. Nothing is sent out to be reasoned over elsewhere. Shell C is not available; it stands as proof that the model works — the argument made concrete, and in use.",
+      "The physical model of the thesis, in active occupancy. Trucast.AI holds Suite C as their integration headquarters, running sovereign intelligence exactly as designed.",
+      "Compute, counsel, and code share a single room. Shell C stands as empirical proof that the architecture works — the argument made concrete.",
     ],
     images: [
       { src: spaceMeetingRoom, caption: "CAM_03 · SHELL C — TRUCAST.AI" },
@@ -103,9 +105,8 @@ const shells: Shell[] = [
       { label: "REF", value: "SHELL_C" },
       { label: "Area", value: "810 USF / 1,060 RSF" },
       { label: "Floor", value: "Floor 1 — Suite C" },
-      { label: "Compute", value: "On-prem AI · deterministic" },
-      { label: "FF&E", value: "Vitra" },
-      { label: "Occupancy", value: "Trucast.ai" },
+      { label: "Compute", value: "Localized / deterministic" },
+      { label: "Occupant", value: "Trucast.AI" },
       { label: "Status", value: "Held" },
     ],
     flagship: true,
@@ -135,9 +136,10 @@ export default function Shells() {
             Three shells. One standard of sovereignty.
           </h1>
           <p className="text-body-lg max-w-2xl">
-            355 Main is three executive Sovereign Shells on the North Castle
-            Ventures campus in Armonk, New York. Each is held by a single
-            institution — sovereignty of space, and sovereignty of compute.
+            355 Main features three executive Sovereign Shells on the North Castle
+            Ventures campus in Armonk, New York. Each physical node is
+            cryptographically isolated and held by a single institution — ensuring
+            absolute sovereignty of space and compute.
           </p>
         </motion.div>
 
@@ -152,7 +154,7 @@ export default function Shells() {
           </div>
           <figcaption className="mt-3 flex items-center gap-2">
             <span className="marker-dot" />
-            <span className="text-annotation">CAM_00 · 355 MAIN · ARMONK NY</span>
+            <span className="text-annotation">CAM_00 · 355 MAIN · ARMONK NY · 41.1265° N, 73.7140° W</span>
           </figcaption>
         </motion.figure>
       </section>
@@ -162,21 +164,21 @@ export default function Shells() {
         <div className="grid lg:grid-cols-12 gap-12">
           <motion.div {...reveal} className="lg:col-span-4">
             <span className="text-label" data-testid="text-intro-label">
-              REF_00 / DEFINITION
+              REF_00 / DEFINITION OF A SOVEREIGN SHELL
             </span>
           </motion.div>
           <motion.div {...reveal} className="lg:col-span-8">
             <h2 className="heading-subsection mb-8">What a Sovereign Shell is.</h2>
             <p className="text-body-lg mb-6">
-              A Sovereign Shell is Class A commercial real estate fused with
-              on-premises, deterministic AI infrastructure — outfitted end to
-              end in Vitra. The building and the compute are one instrument.
+              A Sovereign Shell is a physical containment zone for enterprise AI.
+              It fuses Class A commercial real estate with STC-55 acoustic
+              isolation, dedicated E-Line fiber, and on-premises deterministic
+              compute. The building and the silicon operate as a single instrument.
             </p>
             <p className="text-body">
-              Each shell is held by one institution. Data does not leave the
-              premises to be reasoned over elsewhere; the model runs where the
-              people who use it work. This is the difference between renting
-              square footage and holding sovereign ground.
+              Data never leaves the premises to be reasoned over elsewhere; the
+              model runs exactly where the executives work. This is the difference
+              between renting square footage and holding sovereign ground.
             </p>
           </motion.div>
         </div>
@@ -295,23 +297,26 @@ export default function Shells() {
         <div className="grid lg:grid-cols-12 gap-12">
           <motion.div {...reveal} className="lg:col-span-4">
             <span className="text-label" data-testid="text-building-label">
-              REF_04 / THE BUILDING
+              REF_04 / INSTITUTIONAL VALIDATION
             </span>
           </motion.div>
           <motion.div {...reveal} className="lg:col-span-8">
             <h2 className="heading-subsection mb-8">
-              The shells are the last available ground in an occupied building.
+              The last available ground in a fully operational, highly regulated
+              building.
             </h2>
             <p className="text-body-lg mb-6" data-testid="text-building-tenants">
-              355 Main is already working. Northwell holds the back suite on the
-              ground floor. Alpha School — the proof point of the thesis in
-              education — occupies the entire second floor, 5,800 usable square
-              feet of it. Trucast.ai holds Shell C.
+              Northwell Health holds the rear suite on the ground floor,
+              validating the strict compliance and privacy parameters of the
+              campus. Upstairs, Alpha School occupies the entire 5,800 SF second
+              floor, running their AI-powered "2 Hour Learning" model — proving
+              the campus's thermodynamic capacity to handle continuous,
+              high-density compute.
             </p>
             <p className="text-body">
-              What remains are Shells A and B: two executive suites on the
-              ground floor, alongside institutions that have already made the
-              same decision.
+              Shells A and B sit alongside institutions that have already made
+              the same decision — a coalition of regulated, AI-forward entities
+              proving the capacity of the base building.
             </p>
           </motion.div>
         </div>
@@ -344,14 +349,15 @@ export default function Shells() {
       <section className="section container-page border-t border-border">
         <motion.div {...reveal} className="max-w-2xl">
           <span className="text-label" data-testid="text-cta-label">
-            REF_05 / INQUIRY
+            REF_05 / INITIALIZE INQUIRY
           </span>
           <h2 className="heading-section mt-6 mb-8">
             Three shells. Held one institution at a time.
           </h2>
           <p className="text-body-lg mb-10">
-            Shells at 355 Main are placed deliberately, not listed broadly. To
-            discuss availability and fit, begin an inquiry.
+            Shells at 355 Main are provisioned deliberately to qualifying
+            entities. To run a deployment diagnostic and discuss availability,
+            initialize an inquiry.
           </p>
           <Link
             href="/inquiry"
