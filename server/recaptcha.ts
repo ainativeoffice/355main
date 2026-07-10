@@ -2,11 +2,6 @@ const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 const SCORE_THRESHOLD = 0.5;
 
-const SOFT_FAIL_ERRORS = [
-  "browser-error",
-  "timeout-or-duplicate",
-];
-
 interface RecaptchaResponse {
   success: boolean;
   score?: number;
@@ -18,13 +13,13 @@ interface RecaptchaResponse {
 
 export async function verifyRecaptcha(token: string, expectedAction: string): Promise<{ valid: boolean; score?: number; error?: string }> {
   if (!RECAPTCHA_SECRET_KEY) {
-    console.log("[reCAPTCHA] Secret key not configured, skipping verification");
-    return { valid: true };
+    console.error("[reCAPTCHA] Secret key not configured — blocking submission (fail closed)");
+    return { valid: false, error: "reCAPTCHA not configured" };
   }
 
   if (!token || token === "") {
-    console.log("[reCAPTCHA] No token provided, allowing submission (soft-fail mode)");
-    return { valid: true };
+    console.error("[reCAPTCHA] No token provided — blocking submission (fail closed)");
+    return { valid: false, error: "reCAPTCHA token missing" };
   }
 
   try {
@@ -38,16 +33,9 @@ export async function verifyRecaptcha(token: string, expectedAction: string): Pr
     });
 
     const data: RecaptchaResponse = await response.json();
-    
+
     if (!data.success) {
       const errors = data["error-codes"] || [];
-      const isSoftFailError = errors.some(err => SOFT_FAIL_ERRORS.includes(err));
-      
-      if (isSoftFailError) {
-        console.log(`[reCAPTCHA] Soft-fail error (${errors.join(", ")}), allowing submission`);
-        return { valid: true };
-      }
-      
       console.error("[reCAPTCHA] Verification failed:", errors);
       return { valid: false, error: "reCAPTCHA verification failed" };
     }
@@ -65,7 +53,7 @@ export async function verifyRecaptcha(token: string, expectedAction: string): Pr
     console.log(`[reCAPTCHA] Verified: action=${data.action}, score=${data.score}`);
     return { valid: true, score: data.score };
   } catch (error: any) {
-    console.error("[reCAPTCHA] Error verifying token:", error.message);
-    return { valid: true };
+    console.error("[reCAPTCHA] Error verifying token — blocking submission (fail closed):", error.message);
+    return { valid: false, error: "reCAPTCHA verification error" };
   }
 }

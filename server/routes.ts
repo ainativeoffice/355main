@@ -227,9 +227,12 @@ export async function registerRoutes(
         sendWaitlistConfirmation(email).catch(() => {});
       }
 
+      // Return a uniform message regardless of whether the email already existed.
+      // Varying the response would let anyone probe whether a given address is in
+      // the lead database (email-oracle vulnerability).
       res.json({ 
         success: true, 
-        message: isExisting ? "You're already on the waitlist!" : "Successfully joined the waitlist!"
+        message: "Successfully joined the waitlist!"
       });
     } catch (error: any) {
       console.error("Waitlist error:", error);
@@ -267,25 +270,23 @@ export async function registerRoutes(
 
     const { member, preferences } = parseResult.data;
 
-    // Step 1: Save to database first (so lead is never lost)
+    // Step 1: Save to database first (so lead is never lost).
+    // If the email is already on record we do NOT overwrite it — an unauthenticated
+    // caller cannot prove ownership of the address, so allowing updates would let
+    // anyone poison existing lead records (and propagate false data into HubSpot,
+    // Slack, and email). Return a uniform success response so the response itself
+    // does not reveal whether the address was already in the database.
     let memberId: number;
     let isExisting = false;
-    
+
     try {
       const existing = await db.select().from(members).where(eq(members.email, member.email)).limit(1);
       const existingMember = existing[0];
-      
+
       if (existingMember) {
-        memberId = existingMember.id;
+        // Email already registered — silently short-circuit without touching data.
         isExisting = true;
-        await db.update(members).set({
-          firstName: member.firstName || existingMember.firstName,
-          lastName: member.lastName || existingMember.lastName,
-          company: member.company || existingMember.company,
-          jobRole: member.jobRole || existingMember.jobRole,
-          teamSize: member.teamSize || existingMember.teamSize,
-          moveInTiming: member.moveInTiming || existingMember.moveInTiming,
-        }).where(eq(members.id, memberId));
+        console.log(`[DB] Duplicate member submission ignored: ${member.email}`);
       } else {
         const result = await db.insert(members).values({
           email: member.email,
@@ -299,20 +300,9 @@ export async function registerRoutes(
         const newMember = result[0];
         if (!newMember) throw new Error("Failed to insert member");
         memberId = newMember.id;
-      }
-      
-      // Save preferences if provided
-      if (preferences) {
-        const existingPrefs = await db.select().from(memberPreferences).where(eq(memberPreferences.memberId, memberId)).limit(1);
-        if (existingPrefs.length > 0) {
-          await db.update(memberPreferences).set({
-            workspaceArchetype: preferences.workspaceArchetype,
-            privateOfficeDesks: preferences.privateOfficeDesks,
-            hybridMemberships: preferences.hybridMemberships,
-            amenities: preferences.amenities,
-            notes: preferences.notes,
-          }).where(eq(memberPreferences.memberId, memberId));
-        } else {
+
+        // Save preferences only for new members
+        if (preferences) {
           await db.insert(memberPreferences).values({
             memberId,
             workspaceArchetype: preferences.workspaceArchetype,
@@ -322,9 +312,9 @@ export async function registerRoutes(
             notes: preferences.notes,
           });
         }
+
+        console.log(`[DB] Member saved: ${member.email} (ID: ${memberId})`);
       }
-      
-      console.log(`[DB] Member saved: ${member.email} (ID: ${memberId}, existing: ${isExisting})`);
     } catch (dbError: any) {
       console.error("[DB] Failed to save member:", dbError);
       res.status(500).json({ 
@@ -334,60 +324,64 @@ export async function registerRoutes(
       return;
     }
 
-    // Step 2: Sync to HubSpot (best effort - database already has the lead)
-    const standardProperties: Record<string, string> = {
-      email: member.email,
-      lifecyclestage: "lead",
-      hs_lead_status: "NEW"
-    };
-    
-    if (member.firstName) standardProperties.firstname = member.firstName;
-    if (member.lastName) standardProperties.lastname = member.lastName;
-    if (member.company) standardProperties.company = member.company;
-    if (member.jobRole) standardProperties.jobtitle = member.jobRole;
-    if (member.teamSize) standardProperties.numemployees = mapTeamSizeToHubSpot(member.teamSize);
-    
-    const brandSource = member.brandSource || "355main";
-    const notesParts: string[] = [`Source: ${brandSource}`];
-    if (member.moveInTiming) notesParts.push(`Move-in timing: ${member.moveInTiming}`);
-    if (preferences?.workspaceArchetype) notesParts.push(`Shell interest: ${preferences.workspaceArchetype}`);
-    if (preferences?.privateOfficeDesks) notesParts.push(`Private desks needed: ${preferences.privateOfficeDesks}`);
-    if (preferences?.hybridMemberships) notesParts.push(`Hybrid memberships: ${preferences.hybridMemberships}`);
-    if (preferences?.amenities?.length) notesParts.push(`Amenities: ${preferences.amenities.join(", ")}`);
-    if (preferences?.notes) notesParts.push(`Brief: ${preferences.notes}`);
-    
-    standardProperties.message = notesParts.join(" | ");
-
-    let hubspotContactId: string | null = null;
-    try {
-      try {
-        const contact = await createContact(standardProperties);
-        hubspotContactId = contact.id;
-      } catch (createError: any) {
-        if (createError.body?.category === "CONFLICT") {
-          const existingContactId = createError.body?.message?.match(/Existing ID: (\d+)/)?.[1];
-          if (existingContactId) {
-            await updateContact(existingContactId, standardProperties);
-            hubspotContactId = existingContactId;
-          }
-          console.log(`[HubSpot] Contact updated: ${member.email}`);
-        } else {
-          console.error(`[HubSpot] Create failed for ${member.email}:`, createError.message);
-        }
-      }
+    // Step 2 & 3: Sync to HubSpot and send notifications only for new records.
+    // Skipping downstream fan-out for duplicate submissions prevents false Slack
+    // alerts, unsolicited confirmation emails to victims, and HubSpot pollution.
+    if (!isExisting) {
+      const standardProperties: Record<string, string> = {
+        email: member.email,
+        lifecyclestage: "lead",
+        hs_lead_status: "NEW"
+      };
       
-      if (hubspotContactId) {
-        await db.update(members).set({ hubspotContactId }).where(eq(members.id, memberId));
-        console.log(`[HubSpot] Contact synced: ${member.email} -> ${hubspotContactId}`);
-      }
-    } catch (connectionError: any) {
-      console.error(`[HubSpot] Connection failed for ${member.email}:`, connectionError.message);
-    }
+      if (member.firstName) standardProperties.firstname = member.firstName;
+      if (member.lastName) standardProperties.lastname = member.lastName;
+      if (member.company) standardProperties.company = member.company;
+      if (member.jobRole) standardProperties.jobtitle = member.jobRole;
+      if (member.teamSize) standardProperties.numemployees = mapTeamSizeToHubSpot(member.teamSize);
+      
+      const brandSource = member.brandSource || "355main";
+      const notesParts: string[] = [`Source: ${brandSource}`];
+      if (member.moveInTiming) notesParts.push(`Move-in timing: ${member.moveInTiming}`);
+      if (preferences?.workspaceArchetype) notesParts.push(`Shell interest: ${preferences.workspaceArchetype}`);
+      if (preferences?.privateOfficeDesks) notesParts.push(`Private desks needed: ${preferences.privateOfficeDesks}`);
+      if (preferences?.hybridMemberships) notesParts.push(`Hybrid memberships: ${preferences.hybridMemberships}`);
+      if (preferences?.amenities?.length) notesParts.push(`Amenities: ${preferences.amenities.join(", ")}`);
+      if (preferences?.notes) notesParts.push(`Brief: ${preferences.notes}`);
+      
+      standardProperties.message = notesParts.join(" | ");
 
-    // Step 3: Send notifications (best effort, non-blocking)
-    const memberWithSource = { ...member, brandSource: member.brandSource || "355main" };
-    sendSlackNotification(formatMemberNotification(memberWithSource, preferences)).catch(() => {});
-    sendMemberConfirmation(member).catch(() => {});
+      let hubspotContactId: string | null = null;
+      try {
+        try {
+          const contact = await createContact(standardProperties);
+          hubspotContactId = contact.id;
+        } catch (createError: any) {
+          if (createError.body?.category === "CONFLICT") {
+            const existingContactId = createError.body?.message?.match(/Existing ID: (\d+)/)?.[1];
+            if (existingContactId) {
+              await updateContact(existingContactId, standardProperties);
+              hubspotContactId = existingContactId;
+            }
+            console.log(`[HubSpot] Contact updated: ${member.email}`);
+          } else {
+            console.error(`[HubSpot] Create failed for ${member.email}:`, createError.message);
+          }
+        }
+        
+        if (hubspotContactId) {
+          await db.update(members).set({ hubspotContactId }).where(eq(members.id, memberId!));
+          console.log(`[HubSpot] Contact synced: ${member.email} -> ${hubspotContactId}`);
+        }
+      } catch (connectionError: any) {
+        console.error(`[HubSpot] Connection failed for ${member.email}:`, connectionError.message);
+      }
+
+      // Step 3: Send notifications (best effort, non-blocking)
+      const memberWithSource = { ...member, brandSource: member.brandSource || "355main" };
+      sendSlackNotification(formatMemberNotification(memberWithSource, preferences)).catch(() => {});
+      sendMemberConfirmation(member).catch(() => {});
+    }
 
     res.status(201).json({ 
       success: true, 
