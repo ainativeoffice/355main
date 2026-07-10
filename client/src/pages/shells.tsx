@@ -204,6 +204,8 @@ export default function Shells() {
                     <img
                       src={shell.images[0].src}
                       alt={`${shell.name} interior`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                       data-testid={`img-shell-${shell.id}-primary`}
                     />
@@ -218,6 +220,8 @@ export default function Shells() {
                     <img
                       src={shell.images[1].src}
                       alt={`${shell.name} furnishings`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                       data-testid={`img-shell-${shell.id}-secondary`}
                     />

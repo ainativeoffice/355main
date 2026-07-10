@@ -224,7 +224,7 @@ export default function Home() {
               transition={{ ...reveal.transition, delay: i * 0.06 }}
               className="relative"
             >
-              <img src={item.src} alt={item.cap} className="w-full aspect-square object-cover bg-card" />
+              <img src={item.src} alt={item.cap} loading="lazy" decoding="async" className="w-full aspect-square object-cover bg-card" />
               <figcaption className="text-annotation absolute bottom-3 left-3 bg-background/80 backdrop-blur px-2.5 py-1">
                 {item.cap}
               </figcaption>
@@ -237,7 +237,7 @@ export default function Home() {
       <section className="section container-page border-t border-border">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.figure {...reveal} className="relative order-2 lg:order-1">
-            <img src={exterior357} alt="357 Main Street — campus" className="w-full aspect-[4/3] object-cover" />
+            <img src={exterior357} alt="357 Main Street — campus" loading="lazy" decoding="async" className="w-full aspect-[4/3] object-cover" />
             <figcaption className="text-annotation absolute bottom-3 left-3 bg-background/80 backdrop-blur px-2.5 py-1">
               CAM_06 · 357 MAIN · NORTH CASTLE CAMPUS
             </figcaption>
