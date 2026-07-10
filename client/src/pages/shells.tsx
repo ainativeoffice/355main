@@ -33,6 +33,7 @@ interface Shell {
   images: [{ src: string; caption: string }, { src: string; caption: string }];
   specs: ShellSpec[];
   flagship?: boolean;
+  held?: boolean;
 }
 
 const shells: Shell[] = [
@@ -41,10 +42,10 @@ const shells: Shell[] = [
     ref: "REF_01",
     index: "01 — 03",
     name: "Shell A",
-    headline: "The compact chamber.",
+    headline: "The principal's chamber.",
     body: [
-      "The smallest of the three shells, engineered for a principal-led practice that runs lean and close. Class A commercial space fused with an on-premises, deterministic AI stack — no data leaves the room.",
-      "Outfitted in Vitra throughout. Held by a single institution, sized for a founding team that keeps counsel, capital, and compute within arm's reach.",
+      "An executive suite on the ground floor, engineered for a principal-led practice that runs lean and close. Class A commercial space fused with an on-premises, deterministic AI stack — no data leaves the room.",
+      "Outfitted in Vitra throughout. Held by a single institution, sized for a principal and immediate counsel who keep capital, counsel, and compute within arm's reach.",
     ],
     images: [
       { src: spaceExecutiveSuite, caption: "CAM_01 · SHELL A" },
@@ -52,7 +53,8 @@ const shells: Shell[] = [
     ],
     specs: [
       { label: "REF", value: "SHELL_A" },
-      { label: "Floor / Area", value: "~2,400 SQ FT" },
+      { label: "Area", value: "814 USF / 1,065 RSF" },
+      { label: "Floor", value: "Floor 1 — Suite A" },
       { label: "Compute", value: "On-prem AI" },
       { label: "FF&E", value: "Vitra" },
       { label: "Occupancy", value: "Single institution" },
@@ -64,9 +66,9 @@ const shells: Shell[] = [
     ref: "REF_02",
     index: "02 — 03",
     name: "Shell B",
-    headline: "The working floor.",
+    headline: "The working suite.",
     body: [
-      "A mid-scale shell built for an institution operating at full stride. Open floor, private counsel rooms, and a dedicated on-premises compute enclosure — one continuous, sovereign environment.",
+      "The largest of the three shells — an executive suite built for a small institution operating at full stride. Working desks, private counsel space, and on-premises compute in one continuous, sovereign environment.",
       "Deterministic AI infrastructure sits inside the walls, not in a distant cloud. Vitra throughout. One tenant, one standard.",
     ],
     images: [
@@ -75,7 +77,8 @@ const shells: Shell[] = [
     ],
     specs: [
       { label: "REF", value: "SHELL_B" },
-      { label: "Floor / Area", value: "~3,800 SQ FT" },
+      { label: "Area", value: "888 USF / 1,162 RSF" },
+      { label: "Floor", value: "Floor 1 — Suite B" },
       { label: "Compute", value: "On-prem AI" },
       { label: "FF&E", value: "Vitra" },
       { label: "Occupancy", value: "Single institution" },
@@ -87,24 +90,26 @@ const shells: Shell[] = [
     ref: "REF_03",
     index: "03 — 03",
     name: "Shell C",
-    headline: "The flagship — the physical model of the thesis.",
+    headline: "Held by Trucast.ai — the thesis in occupancy.",
     body: [
-      "Shell C is the physical model of the thesis. It is the shell that most fully embodies sovereign intelligence: Class A space and on-premises, deterministic AI operating as one instrument, held by a single institution.",
-      "Compute, counsel, and capital share a single room. Nothing is sent out to be reasoned over elsewhere. Outfitted in Vitra, sized for an institution that intends to run its most sensitive work entirely on its own premises — the argument made concrete.",
+      "Shell C is the physical model of the thesis, and it is no longer an argument — it is occupied. Trucast.ai holds the suite, running sovereign intelligence exactly as designed: Class A space and on-premises, deterministic AI operating as one instrument, held by a single institution.",
+      "Compute, counsel, and capital share a single room. Nothing is sent out to be reasoned over elsewhere. Shell C is not available; it stands as proof that the model works — the argument made concrete, and in use.",
     ],
     images: [
-      { src: spaceMeetingRoom, caption: "CAM_03 · SHELL C — FLAGSHIP" },
+      { src: spaceMeetingRoom, caption: "CAM_03 · SHELL C — TRUCAST.AI" },
       { src: ffeTyde2, caption: "FF&E · VITRA TYDE 2" },
     ],
     specs: [
       { label: "REF", value: "SHELL_C" },
-      { label: "Floor / Area", value: "~5,200 SQ FT" },
+      { label: "Area", value: "810 USF / 1,060 RSF" },
+      { label: "Floor", value: "Floor 1 — Suite C" },
       { label: "Compute", value: "On-prem AI · deterministic" },
       { label: "FF&E", value: "Vitra" },
-      { label: "Occupancy", value: "Single institution" },
-      { label: "Status", value: "Flagship" },
+      { label: "Occupancy", value: "Trucast.ai" },
+      { label: "Status", value: "Held" },
     ],
     flagship: true,
+    held: true,
   },
 ];
 
@@ -235,13 +240,13 @@ export default function Shells() {
                   <span className="text-annotation">{shell.index}</span>
                 </div>
 
-                {shell.flagship && (
+                {shell.held && (
                   <span
                     className="status-pill text-ember mb-6"
                     data-testid={`status-shell-${shell.id}`}
                   >
                     <span className="marker-dot bg-ember" />
-                    FLAGSHIP
+                    HELD · TRUCAST.AI
                   </span>
                 )}
 
@@ -285,6 +290,33 @@ export default function Shells() {
         );
       })}
 
+      {/* The building — tenants */}
+      <section className="section container-page border-t border-border">
+        <div className="grid lg:grid-cols-12 gap-12">
+          <motion.div {...reveal} className="lg:col-span-4">
+            <span className="text-label" data-testid="text-building-label">
+              REF_04 / THE BUILDING
+            </span>
+          </motion.div>
+          <motion.div {...reveal} className="lg:col-span-8">
+            <h2 className="heading-subsection mb-8">
+              The shells are the last available ground in an occupied building.
+            </h2>
+            <p className="text-body-lg mb-6" data-testid="text-building-tenants">
+              355 Main is already working. Northwell holds the back suite on the
+              ground floor. Alpha School — the proof point of the thesis in
+              education — occupies the entire second floor, 5,800 usable square
+              feet of it. Trucast.ai holds Shell C.
+            </p>
+            <p className="text-body">
+              What remains are Shells A and B: two executive suites on the
+              ground floor, alongside institutions that have already made the
+              same decision.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Dark band */}
       <section className="bg-ink text-background py-24">
         <div className="container-page">
@@ -312,7 +344,7 @@ export default function Shells() {
       <section className="section container-page border-t border-border">
         <motion.div {...reveal} className="max-w-2xl">
           <span className="text-label" data-testid="text-cta-label">
-            REF_04 / INQUIRY
+            REF_05 / INQUIRY
           </span>
           <h2 className="heading-section mt-6 mb-8">
             Three shells. Held one institution at a time.

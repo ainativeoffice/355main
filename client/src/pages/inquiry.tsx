@@ -18,9 +18,8 @@ const reveal = {
 };
 
 const shellOptions = [
-  { value: "Shell A (±2,400 SF)", label: "Shell A · ±2,400 SF" },
-  { value: "Shell B (±3,800 SF)", label: "Shell B · ±3,800 SF" },
-  { value: "Shell C (±5,200 SF)", label: "Shell C · ±5,200 SF" },
+  { value: "Shell A (814 USF / 1,065 RSF)", label: "Shell A · 814 USF / 1,065 RSF" },
+  { value: "Shell B (888 USF / 1,162 RSF)", label: "Shell B · 888 USF / 1,162 RSF" },
   { value: "Undecided", label: "Undecided" },
 ];
 

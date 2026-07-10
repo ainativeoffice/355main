@@ -10,7 +10,9 @@
 
 The thesis: regulated legal and financial institutions cannot send sensitive data to public model APIs. The answer is on-premises, deterministic AI co-located with the people who use it — compute, counsel, and capital in one room. Guiding principles are determinism over probability, premises over cloud, and institution over crowd. **Alpha School** is referenced as a proof point.
 
-**Shells:** Shell A (±2,400 SF), Shell B (±3,800 SF), and Shell C (±5,200 SF) — the flagship and "physical model of the thesis."
+**Shells (real suite data, Floor 1):** Shell A = Suite A (814 USF / 1,065 RSF, available), Shell B = Suite B (888 USF / 1,162 RSF, available), Shell C = Suite C (810 USF / 1,060 RSF, held by Trucast.ai — the "physical model of the thesis," in occupancy).
+
+**Other tenants (proof points, not shells):** Northwell holds the Floor 1 back suite (2,440 USF / 3,193 RSF); Alpha School occupies all of Floor 2 (5,800 USF / 7,590 RSF). Total building: 10,752 USF / 14,070 RSF. Pricing and load factor are private — never published on the site.
 
 ### Ecosystem
 

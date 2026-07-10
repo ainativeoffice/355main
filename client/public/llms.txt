@@ -21,9 +21,11 @@ Alpha School is referenced as a proof point of what purpose-built, on-premises i
 
 Three shells, one standard of sovereignty. Each pairs Class A space with on-premises compute and Vitra FF&E, held for a single institution.
 
-- **Shell A** — ±2,400 SF executive shell.
-- **Shell B** — ±3,800 SF executive shell.
-- **Shell C** — ±5,200 SF flagship shell, the physical model of the thesis.
+- **Shell A** — Floor 1, Suite A. 814 USF / 1,065 RSF. Available.
+- **Shell B** — Floor 1, Suite B. 888 USF / 1,162 RSF. Available.
+- **Shell C** — Floor 1, Suite C. 810 USF / 1,060 RSF. Held by Trucast.ai — the physical model of the thesis, in occupancy.
+
+The building is otherwise occupied: Northwell holds the Floor 1 back suite, and Alpha School occupies the entire second floor (5,800 USF).
 
 ## The Campus
 

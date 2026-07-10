@@ -22,9 +22,9 @@ const reveal = {
 };
 
 const shells = [
-  { ref: "SHELL_A", area: "±2,400 SF", note: "The compact executive shell." },
-  { ref: "SHELL_B", area: "±3,800 SF", note: "The institution's floor." },
-  { ref: "SHELL_C", area: "±5,200 SF", note: "The physical model of the thesis." },
+  { ref: "SHELL_A", area: "814 USF", rsf: "1,065 RSF", note: "The principal's chamber. Available." },
+  { ref: "SHELL_B", area: "888 USF", rsf: "1,162 RSF", note: "The working suite. Available." },
+  { ref: "SHELL_C", area: "810 USF", rsf: "1,060 RSF", note: "Held by Trucast.ai — the thesis in occupancy." },
 ];
 
 const ffe = [
@@ -128,6 +128,7 @@ export default function Home() {
                 <div>
                   <div className="text-annotation text-background/50">{s.ref}</div>
                   <div className="font-serif text-4xl mt-6">{s.area}</div>
+                  <div className="text-annotation text-background/50 mt-2">{s.rsf}</div>
                 </div>
                 <p className="text-background/70 text-lg leading-snug mt-8">{s.note}</p>
               </motion.div>
