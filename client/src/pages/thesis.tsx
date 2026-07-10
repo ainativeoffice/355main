@@ -245,7 +245,7 @@ export default function Thesis() {
           <motion.div {...reveal} className="lg:col-span-4">
             <span className="text-label" data-testid="text-ref-proof">REF_04 — THE PROOF</span>
             <h2 className="heading-subsection mt-4">
-              The model already operates at scale.
+              The proof point moved in upstairs.
             </h2>
           </motion.div>
           <motion.div {...reveal} className="lg:col-span-7 lg:col-start-6 space-y-6">
@@ -255,10 +255,18 @@ export default function Thesis() {
               run on the same premise that machine intelligence, applied deterministically
               and close to the people who use it, changes what an organization can do.
             </p>
-            <p className="text-body">
-              We reference it as a proof point, not a partnership: standing evidence that
-              this is an operating reality, not a projection. The thesis behind 355 Main is
-              already running in the world. Armonk is where it takes institutional form.
+            <p className="text-body" data-testid="text-alpha-lease">
+              And the evidence is no longer distant. Alpha School recently leased the
+              entire second floor of 355 Main — 5,800 usable square feet, finished to the
+              same standard that governs every shell. A proof point, not a partnership;
+              but one that chose to hold ground in the building itself. The thesis is not
+              a projection. It is upstairs.
+            </p>
+            <p className="text-body-sm text-muted-foreground">
+              <Link href="/" className="underline underline-offset-4 hover:text-foreground transition-colors" data-testid="link-walkthrough" onClick={() => window.scrollTo(0, 0)}>
+                Walk the floor in 3D
+              </Link>{" "}
+              — captured before fit-out.
             </p>
           </motion.div>
         </div>
