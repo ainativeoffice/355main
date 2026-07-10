@@ -308,10 +308,10 @@ export default function Shells() {
             <p className="text-body-lg mb-6" data-testid="text-building-tenants">
               Northwell Health holds the rear suite on the ground floor,
               validating the strict compliance and privacy parameters of the
-              campus. Upstairs, Alpha School occupies the entire 5,800 SF second
-              floor, running their AI-powered "2 Hour Learning" model — proving
-              the campus's thermodynamic capacity to handle continuous,
-              high-density compute.
+              campus. Upstairs, Alpha School has leased the entire 5,800 SF
+              second floor — delivered, opening in the fall — to run their
+              AI-powered "2 Hour Learning" model, proving the campus's
+              thermodynamic capacity to handle continuous, high-density compute.
             </p>
             <p className="text-body">
               Shells A and B sit alongside institutions that have already made

@@ -251,9 +251,9 @@ export default function Thesis() {
             <p className="text-body-lg">
               <span className="text-foreground font-medium">Alpha School</span> is
               real-world evidence that high-density AI operations work at scale in
-              suburban assets. They recently pre-leased the entire second floor of
-              355 Main — 5,800 usable square feet — to deploy their AI-powered
-              "2 Hour Learning" model.
+              suburban assets. They leased the entire second floor of 355 Main —
+              5,800 usable square feet, now delivered — and open in the fall,
+              deploying their AI-powered "2 Hour Learning" model.
             </p>
             <p className="text-body" data-testid="text-alpha-lease">
               It is proof that the thermodynamic and network infrastructure of this

@@ -17,7 +17,7 @@ The homepage introduces the offering: three executive Sovereign Shells at 355 & 
 Core claims:
 - Regulated legal and financial institutions cannot send sensitive data to public model APIs.
 - The answer is on-premises, deterministic AI co-located with the people who use it — compute, counsel, and capital in one room.
-- Alpha School operates inside the building as a standing proof point (it leased the entire second floor in 2026).
+- Alpha School is the standing proof point: it leased the entire second floor, the space has been delivered, and Alpha School opens in fall 2026 with its AI-powered "2 Hour Learning" model.
 - Location: Armonk, NY — coordinates 41.1265° N, 73.7140° W. Manhattan proximity without the commute.
 
 ## Page: The Shells (https://355main.com/shells)
@@ -26,11 +26,13 @@ Core claims:
 
 Three shells, one standard of sovereignty. Each pairs Class A space with on-premises compute and Vitra FF&E, held for a single institution.
 
-- **Shell A — "The principal's chamber."** Floor 1, Suite A. 814 USF / 1,065 RSF. Available. An executive suite on the ground floor, engineered for a principal-led practice that runs lean and close. On-premises, deterministic AI stack — no data leaves the room. Outfitted in Vitra throughout.
-- **Shell B — "The working suite."** Floor 1, Suite B. 888 USF / 1,162 RSF. Available. The largest of the three shells — built for a small institution operating at full stride. Working desks, private counsel space, and on-premises compute in one continuous, sovereign environment.
-- **Shell C — "Held by Trucast.ai — the thesis in occupancy."** Floor 1, Suite C. 810 USF / 1,060 RSF. Held; not available. Trucast.ai runs sovereign intelligence exactly as designed — the physical model of the thesis, in occupancy.
+A Sovereign Shell is a physical containment zone for enterprise AI: Class A commercial real estate fused with STC-55 acoustic isolation, dedicated E-Line fiber, and on-premises deterministic compute. The building and the silicon operate as a single instrument.
 
-Building occupancy context: Northwell holds the Floor 1 back suite (2,440 USF / 3,193 RSF); Alpha School occupies all of Floor 2 (5,800 USF / 7,590 RSF). Shells A and B are the last available ground in an occupied building. Pricing is private.
+- **Shell A — The Executive Node.** Floor 1, Suite A. 814 USF / 1,065 RSF. Available. Engineered for a principal-led practice that runs lean and highly secure — Class A space fused with a localized NVIDIA hardware vault. STC-55 shielding, dedicated air-gapped fiber, Vitra Executive FF&E. No data leaves the room.
+- **Shell B — The Operations Node.** Floor 1, Suite B. 888 USF / 1,162 RSF. Available. The largest of the three shells — built for a small institution operating at full multi-agent stride. Open working desks, private counsel space, and high-density on-premises compute in one continuous, sovereign environment. STC-55 shielding, dedicated air-gapped fiber, Vitra Operations FF&E.
+- **Shell C — The Orchestration Node.** Floor 1, Suite C. 810 USF / 1,060 RSF. Held; not available. Trucast.AI holds Suite C as its integration headquarters, running sovereign intelligence exactly as designed — the physical model of the thesis, in active occupancy.
+
+Building occupancy context: Northwell Health holds the Floor 1 rear suite (2,440 USF / 3,193 RSF), validating the compliance and privacy parameters of the campus; Alpha School has leased all of Floor 2 (5,800 USF / 7,590 RSF) — delivered, opening fall 2026. Shells A and B are the last available ground in a fully operational, highly regulated building. Pricing is private.
 
 ## Page: The Thesis (https://355main.com/thesis)
 
@@ -43,7 +45,7 @@ Guiding principles:
 - **Premises over cloud** — data and models stay on-site.
 - **Institution over crowd** — one institution per shell, not shared coworking.
 
-Proof points: Alpha School leased the entire second floor of 355 Main in 2026 (Floor 2, 5,800 USF / 7,590 RSF) — the thesis is not a projection; it operates inside the building. Trucast.ai holds Shell C and runs the model daily.
+Proof points: Alpha School leased the entire second floor of 355 Main (Floor 2, 5,800 USF / 7,590 RSF) — now delivered, opening fall 2026 with its AI-powered "2 Hour Learning" model. The thesis is not a projection; it operates inside the building. Trucast.AI holds Shell C as its integration headquarters and runs the model daily.
 
 ## Page: The Campus (https://355main.com/about)
 

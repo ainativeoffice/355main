@@ -17,17 +17,17 @@ Guiding principles:
 - **Premises over cloud** — data and models stay on-site.
 - **Institution over crowd** — one institution per shell, not shared coworking.
 
-Alpha School is the standing proof point — and in 2026 it leased the entire second floor of 355 Main (Floor 2, 5,800 USF / 7,590 RSF). The thesis is not a projection; it operates inside the building.
+Alpha School is the standing proof point — it leased the entire second floor of 355 Main (Floor 2, 5,800 USF / 7,590 RSF), the space has been delivered, and Alpha School opens in fall 2026, running its AI-powered "2 Hour Learning" model. The thesis is not a projection; it operates inside the building.
 
 ## The Shells
 
 Three shells, one standard of sovereignty. Each pairs Class A space with on-premises compute and Vitra FF&E, held for a single institution.
 
-- **Shell A** — Floor 1, Suite A. 814 USF / 1,065 RSF. Available.
-- **Shell B** — Floor 1, Suite B. 888 USF / 1,162 RSF. Available.
-- **Shell C** — Floor 1, Suite C. 810 USF / 1,060 RSF. Held by Trucast.ai — the physical model of the thesis, in occupancy.
+- **Shell A — The Executive Node.** Floor 1, Suite A. 814 USF / 1,065 RSF. STC-55 acoustic shielding, dedicated air-gapped fiber, Vitra Executive FF&E. Available.
+- **Shell B — The Operations Node.** Floor 1, Suite B. 888 USF / 1,162 RSF. STC-55 acoustic shielding, dedicated air-gapped fiber, Vitra Operations FF&E. Available.
+- **Shell C — The Orchestration Node.** Floor 1, Suite C. 810 USF / 1,060 RSF. Held by Trucast.AI as its integration headquarters — the physical model of the thesis, in active occupancy.
 
-The building is otherwise occupied: Northwell holds the Floor 1 back suite (2,440 USF / 3,193 RSF), and Alpha School leased the entire second floor (5,800 USF / 7,590 RSF) in 2026. Shells A and B are the last available ground in an occupied building.
+The building is otherwise occupied: Northwell Health holds the Floor 1 rear suite (2,440 USF / 3,193 RSF), and Alpha School has leased the entire second floor (5,800 USF / 7,590 RSF) — delivered, opening fall 2026. Shells A and B are the last available ground in a fully operational, highly regulated building.
 
 ## The Campus
 

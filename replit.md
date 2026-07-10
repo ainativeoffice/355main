@@ -10,9 +10,9 @@
 
 The thesis: regulated legal and financial institutions cannot send sensitive data to public model APIs. The answer is on-premises, deterministic AI co-located with the people who use it — compute, counsel, and capital in one room. Guiding principles are determinism over probability, premises over cloud, and institution over crowd. **Alpha School** is referenced as a proof point.
 
-**Shells (real suite data, Floor 1):** Shell A = Suite A (814 USF / 1,065 RSF, available), Shell B = Suite B (888 USF / 1,162 RSF, available), Shell C = Suite C (810 USF / 1,060 RSF, held by Trucast.ai — the "physical model of the thesis," in occupancy).
+**Shells (real suite data, Floor 1):** Shell A = "The Executive Node" = Suite A (814 USF / 1,065 RSF, available), Shell B = "The Operations Node" = Suite B (888 USF / 1,162 RSF, available), Shell C = "The Orchestration Node" = Suite C (810 USF / 1,060 RSF, held by Trucast.AI as its integration headquarters — the "physical model of the thesis," in active occupancy). Note: briefs sometimes list Shell C as 820 USF — that is a typo; 810 USF is correct.
 
-**Other tenants (proof points, not shells):** Northwell holds the Floor 1 back suite (2,440 USF / 3,193 RSF); Alpha School occupies all of Floor 2 (5,800 USF / 7,590 RSF). Total building: 10,752 USF / 14,070 RSF. Pricing and load factor are private — never published on the site.
+**Other tenants (proof points, not shells):** Northwell Health holds the Floor 1 rear suite (2,440 USF / 3,193 RSF); Alpha School has leased all of Floor 2 (5,800 USF / 7,590 RSF) — delivered, opening fall 2026 (never say "pre-leased"). Total building: 10,752 USF / 14,070 RSF. Pricing and load factor are private — never published on the site.
 
 ### Ecosystem
 

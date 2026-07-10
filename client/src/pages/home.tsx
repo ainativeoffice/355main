@@ -155,10 +155,11 @@ export default function Home() {
               This is not a rendering. Walk a floor built to the standard.
             </h2>
             <p className="text-body max-w-xl mt-6" data-testid="text-proof-body">
-              The second floor of 355 Main was recently pre-leased to Alpha School to
-              deploy their AI-powered "2 Hour Learning" model. It is the definitive
-              validation of deploying high-density edge compute in a suburban asset.
-              Walk the 3D capture, recorded prior to fit-out.
+              The second floor of 355 Main has been leased to Alpha School and
+              delivered — they open in the fall, deploying their AI-powered
+              "2 Hour Learning" model. It is the definitive validation of deploying
+              high-density edge compute in a suburban asset. Walk the 3D capture,
+              recorded prior to fit-out.
             </p>
           </motion.div>
         </div>
