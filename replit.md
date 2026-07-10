@@ -68,7 +68,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 |----------|--------|---------|
 | `/api/health` | GET | Health check with uptime |
 | `/api/waitlist` | POST | Simple email capture to HubSpot |
-| `/api/members` | POST | Inquiry (RFC) form — lead + brief/notes to HubSpot, SendGrid, Slack |
+| `/api/members` | POST | Inquiry (RFC) form — lead + brief/notes to HubSpot, Resend, Slack |
 
 ### Project Structure
 ```
@@ -140,10 +140,11 @@ This is a **static-first marketing site** with minimal backend requirements.
 - **Preferences**: Stored in `message` field to avoid custom property errors
 - **Tour Booking**: HubSpot Meetings embed at `meetings-na2.hubspot.com/parham/book-a-tour`
 
-### SendGrid (Email Confirmations)
+### Resend (Email Confirmations)
 - **Purpose**: Send confirmation emails to leads after form submission
-- **Library**: `@sendgrid/mail`
-- **From Address**: `leasing@355main.com`
+- **Library**: `resend` (replaced SendGrid in July 2026 after its account ran out of credits)
+- **From Address**: `355 Main <leasing@northcastleventures.com>` (verified domain in Resend)
+- **Reply-To**: `leasing@355main.com`
 - **Templates**: 
   - Waitlist confirmation (simple signup)
   - Member confirmation (full lead form with personalized greeting)
@@ -184,7 +185,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 ### Environment Variables
 - `PORT` - Server port (default: 5000)
 - `HUBSPOT_DEV_ACCESS_TOKEN` - HubSpot private app token (dev only)
-- `SENDGRID_API_KEY` - SendGrid API key for confirmation emails
+- `RESEND_API_KEY` - Resend API key for confirmation emails
 - `SLACK_WEBHOOK_URL` - Slack incoming webhook for lead notifications
 - `RECAPTCHA_SECRET_KEY` - reCAPTCHA v3 secret key for spam protection
 

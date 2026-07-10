@@ -1,12 +1,11 @@
-import sgMail from "@sendgrid/mail";
+import { Resend } from "resend";
 
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-const FROM_EMAIL = "leasing@355main.com";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const FROM_EMAIL = "leasing@northcastleventures.com";
 const FROM_NAME = "355 Main";
+const REPLY_TO_EMAIL = "leasing@355main.com";
 
-if (SENDGRID_API_KEY) {
-  sgMail.setApiKey(SENDGRID_API_KEY);
-}
+const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 
 interface EmailOptions {
   to: string;
@@ -16,19 +15,24 @@ interface EmailOptions {
 }
 
 export async function sendEmail(options: EmailOptions): Promise<boolean> {
-  if (!SENDGRID_API_KEY) {
-    console.log("[Email] SendGrid not configured, skipping email");
+  if (!resend) {
+    console.log("[Email] Resend not configured, skipping email");
     return false;
   }
 
   try {
-    await sgMail.send({
+    const { error } = await resend.emails.send({
       to: options.to,
-      from: { email: FROM_EMAIL, name: FROM_NAME },
+      from: `${FROM_NAME} <${FROM_EMAIL}>`,
+      replyTo: REPLY_TO_EMAIL,
       subject: options.subject,
       html: options.html,
       text: options.text,
     });
+    if (error) {
+      console.error(`[Email] Failed to send to ${options.to}:`, error.message);
+      return false;
+    }
     console.log(`[Email] Sent to ${options.to}: ${options.subject}`);
     return true;
   } catch (error: any) {

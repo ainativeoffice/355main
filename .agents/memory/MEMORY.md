@@ -1,0 +1,1 @@
+- [Inquiry pipeline in prod](inquiry-pipeline-prod.md) — DB/HubSpot/Slack ok; email now via Resend from northcastleventures.com; verify via prod POST + deployment logs.
