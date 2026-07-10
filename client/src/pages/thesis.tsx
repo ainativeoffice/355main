@@ -4,9 +4,9 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { SEO } from "@/components/seo";
 
-import exteriorImage from "@assets/355_main_exterior.jpg";
-import openFloorImage from "@assets/space/open-floor.jpeg";
-import meetingRoomImage from "@assets/space/meeting-room.jpeg";
+import abstractDeterministic from "@assets/generated_images/thesis_abstract_deterministic.png";
+import abstractOneRoom from "@assets/generated_images/thesis_abstract_one_room.png";
+import abstractSovereignGround from "@assets/generated_images/thesis_abstract_sovereign_ground.png";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -154,12 +154,13 @@ export default function Thesis() {
             className="order-1 lg:order-2"
           >
             <img
-              src={openFloorImage}
-              alt="Interior of a sovereign shell at 355 Main"
+              src={abstractDeterministic}
+              alt="Abstract figure — signals converging into a single held form: on-premises, deterministic intelligence"
               className="w-full aspect-[4/5] object-cover"
               loading="lazy"
+              data-testid="img-fig-deterministic"
             />
-            <p className="text-annotation mt-3">CAM_01 · 355 MAIN / SHELL INTERIOR</p>
+            <p className="text-annotation mt-3">FIG_01 · SIGNAL, HELD ON PREMISES</p>
           </motion.div>
         </div>
       </section>
@@ -174,12 +175,13 @@ export default function Thesis() {
             transition={{ duration: 0.6 }}
           >
             <img
-              src={meetingRoomImage}
-              alt="Meeting room within a sovereign shell"
+              src={abstractOneRoom}
+              alt="Abstract figure — three forms gathered inside one boundary: compute, counsel, and capital in one room"
               className="w-full aspect-[4/5] object-cover"
               loading="lazy"
+              data-testid="img-fig-one-room"
             />
-            <p className="text-annotation mt-3">CAM_02 · 355 MAIN / COUNSEL ROOM</p>
+            <p className="text-annotation mt-3">FIG_02 · COMPUTE, COUNSEL, CAPITAL — ONE ROOM</p>
           </motion.div>
           <motion.div {...reveal}>
             <span className="text-label" data-testid="text-ref-place">REF_03 — WHY PLACE MATTERS</span>
@@ -355,12 +357,13 @@ export default function Thesis() {
             transition={{ duration: 0.6 }}
           >
             <img
-              src={exteriorImage}
-              alt="Exterior of 355 Main, Armonk, New York"
+              src={abstractSovereignGround}
+              alt="Abstract figure — a slender form rising from an anchored foundation: sovereign ground, held"
               className="w-full aspect-[4/3] object-cover"
               loading="lazy"
+              data-testid="img-fig-sovereign-ground"
             />
-            <p className="text-annotation mt-3 text-white/40">CAM_03 · 355 MAIN / EXTERIOR</p>
+            <p className="text-annotation mt-3 text-white/40">FIG_03 · SOVEREIGN GROUND, HELD</p>
           </motion.div>
         </div>
       </section>
