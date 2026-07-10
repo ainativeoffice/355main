@@ -8,10 +8,7 @@ import exterior355 from "@assets/355_main_exterior.jpg";
 import exterior357a from "@assets/357_exterior_1.jpg";
 import exterior357b from "@assets/357_exterior_2.jpg";
 import lobbyReception from "@assets/space/lobby-reception.jpeg";
-
-import ffeEames from "@assets/stock_images/vitra_eames_aluminum_5d44eb46.jpg";
-import ffeJoyn from "@assets/stock_images/vitra_joyn_conferenc_f78e65b8.jpg";
-import ffeDancingWall from "@assets/stock_images/vitra_dancing_wall_m_2c963453.jpg";
+import { FFEIndex } from "@/components/ffe-index";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -19,24 +16,6 @@ const reveal = {
   viewport: { once: true },
   transition: { duration: 0.6 },
 };
-
-const ffeImages = [
-  {
-    src: ffeEames,
-    caption: "CAM_01 · EAMES ALUMINUM GROUP",
-    label: "Executive seating",
-  },
-  {
-    src: ffeJoyn,
-    caption: "CAM_02 · JOYN CONFERENCE",
-    label: "Convening tables",
-  },
-  {
-    src: ffeDancingWall,
-    caption: "CAM_03 · DANCING WALL",
-    label: "Reconfigurable partitions",
-  },
-];
 
 export default function About() {
   return (
@@ -213,35 +192,12 @@ export default function About() {
             <p className="text-body-lg">
               Every shell is outfitted with Vitra — furniture chosen for its
               restraint, its longevity, and its ability to reconfigure around the
-              work rather than dictate it.
+              work rather than dictate it. The full FF&amp;E index, as specified
+              and installed.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {ffeImages.map((item, index) => (
-              <motion.figure
-                key={item.caption}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                data-testid={`figure-ffe-${index}`}
-              >
-                <div className="overflow-hidden bg-card border border-border">
-                  <img
-                    src={item.src}
-                    alt={item.label}
-                    className="w-full aspect-[4/3] object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <figcaption className="mt-3 flex items-center justify-between gap-4">
-                  <span className="text-annotation">{item.caption}</span>
-                </figcaption>
-                <p className="text-body-sm mt-1">{item.label}</p>
-              </motion.figure>
-            ))}
-          </div>
+          <FFEIndex />
         </div>
       </section>
 

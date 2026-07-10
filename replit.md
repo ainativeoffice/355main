@@ -35,6 +35,10 @@ The building is outfitted with best-in-class furniture, fixtures, and equipment:
 **Controls & Smart Building**
 - **Casambi** - Wireless lighting controls and scene management
 
+### FF&E Index
+- The full 30-item FF&E product photo catalog (recovered from the original pre-rebrand site) lives in `client/src/components/ffe-index.tsx` and is rendered in "The build" section of `/about`
+- Each item: original product photo, brand, description, and outbound partner link (with UTM params)
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
