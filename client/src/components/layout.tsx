@@ -9,6 +9,11 @@ const navLinks = [
   { href: "/about", label: "The Campus" },
 ];
 
+const externalNavLinks = [
+  { href: "https://nativeagentic.com", label: "Nate", id: "nate" },
+  { href: "https://ainativeoffice.org", label: "The RFC", id: "rfc" },
+];
+
 export function Layout({ children }: { children: React.ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -45,6 +50,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
 
+            {externalNavLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
+                data-testid={`link-nav-${link.id}`}
+              >
+                {link.label} <ArrowUpRight className="w-3 h-3" />
+              </a>
+            ))}
+
             <span className="status-pill text-foreground/70" data-testid="status-pill-header">
               <span className="marker-dot bg-ember" />
               355 · 357 MAIN / ARMONK NY
@@ -72,6 +90,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
               >
                 {link.label}
               </Link>
+            ))}
+
+            {externalNavLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.2em] hover:text-foreground transition-colors py-2"
+                data-testid={`link-mobile-${link.id}`}
+              >
+                {link.label} <ArrowUpRight className="w-3 h-3" />
+              </a>
             ))}
 
             <Link

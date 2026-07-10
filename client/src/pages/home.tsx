@@ -19,9 +19,9 @@ const reveal = {
 };
 
 const shells = [
-  { ref: "SHELL_A", area: "814 USF", rsf: "1,065 RSF", note: "The principal's chamber. Available." },
-  { ref: "SHELL_B", area: "888 USF", rsf: "1,162 RSF", note: "The working suite. Available." },
-  { ref: "SHELL_C", area: "810 USF", rsf: "1,060 RSF", note: "Held by Trucast.ai — the thesis in occupancy." },
+  { ref: "SHELL_A", area: "814 USF", rsf: "1,065 RSF", note: "The Executive Node. Available." },
+  { ref: "SHELL_B", area: "888 USF", rsf: "1,162 RSF", note: "The Operations Node. Available." },
+  { ref: "SHELL_C", area: "810 USF", rsf: "1,060 RSF", note: "Held by Trucast.AI — The Integration Headquarters." },
 ];
 
 const ffe = [
@@ -52,8 +52,8 @@ export default function Home() {
               Sovereign Intelligence,<br />anchored in Armonk.
             </h1>
             <p className="text-body-lg max-w-2xl mt-8">
-              Three executive shells on the North Castle Ventures campus — Class A commercial
-              real estate fused with on-premises, deterministic AI and outfitted with Vitra.
+              Three Sovereign Shells on the North Castle Ventures campus — Class A commercial
+              real estate fused with deterministic, on-premises AI and outfitted by Vitra.
               One institution per shell.
             </p>
             <div className="flex flex-wrap gap-4 mt-10">
@@ -91,13 +91,13 @@ export default function Home() {
           </motion.div>
           <motion.div {...reveal} className="lg:col-span-8">
             <h2 className="heading-section max-w-3xl">
-              Regulated institutions can't send their data to a public API. So the
-              intelligence comes to them.
+              Regulated institutions cannot send their operational alpha to a public API.
+              So the intelligence comes to them.
             </h2>
             <p className="text-body-lg max-w-2xl mt-8">
-              355 Main co-locates deterministic AI with the people who use it — compute,
-              counsel, and capital in one room. Sovereignty of space, and sovereignty of
-              compute, held together.
+              355 Main co-locates deterministic AI with the executives who use it — compute,
+              counsel, and capital in one room. Sovereignty of space and sovereignty of
+              compute, cryptographically sealed.
             </p>
             <Link href="/thesis" className="btn-ghost mt-8" data-testid="link-thesis-more" onClick={() => window.scrollTo(0, 0)}>
               Read the full thesis <ArrowRight className="w-4 h-4" />
@@ -155,17 +155,17 @@ export default function Home() {
               This is not a rendering. Walk a floor built to the standard.
             </h2>
             <p className="text-body max-w-xl mt-6" data-testid="text-proof-body">
-              The second floor of 355 Main was finished to the same aesthetic that
-              governs every shell — restraint, permanence, nothing that ages the
-              address. It proved the argument: the space was recently leased to
-              Alpha School. Walk it in 3D, captured before fit-out.
+              The second floor of 355 Main was recently pre-leased to Alpha School to
+              deploy their AI-powered "2 Hour Learning" model. It is the definitive
+              validation of deploying high-density edge compute in a suburban asset.
+              Walk the 3D capture, recorded prior to fit-out.
             </p>
           </motion.div>
         </div>
         <motion.div {...reveal}>
           <div className="flex items-baseline justify-between gap-4 mb-4">
             <span className="text-annotation" data-testid="text-walkthrough-caption">
-              CAM_01 · LEVEL 2 — RECENTLY LEASED TO ALPHA SCHOOL
+              CAM_01 · LEVEL 2 — LEASED TO ALPHA SCHOOL [FALL 2026]
             </span>
             <span className="text-annotation hidden sm:block">3D WALKTHROUGH</span>
           </div>
@@ -182,6 +182,15 @@ export default function Home() {
               loading="lazy"
             />
           </div>
+          <a
+            href="https://my.matterport.com/show/?m=NwcGiRWQ3th&mls=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost mt-6"
+            data-testid="link-launch-walkthrough"
+          >
+            Launch 3D walkthrough <ArrowUpRight className="w-4 h-4" />
+          </a>
         </motion.div>
       </section>
 
@@ -196,11 +205,13 @@ export default function Home() {
           </motion.div>
           <motion.div {...reveal} className="lg:col-span-8">
             <h2 className="heading-subsection max-w-2xl">
-              Every shell is delivered complete — furnished to institutional standard.
+              A premium suite. Covertly a data center.
             </h2>
             <p className="text-body max-w-xl mt-6">
-              A curated Vitra program: architectural systems, executive seating, and
-              reconfigurable meeting environments. Nothing to specify, nothing to source.
+              Every shell is delivered complete with a curated Vitra program:
+              architectural systems, executive seating, and reconfigurable meeting
+              environments designed for human-machine collaboration. Nothing to
+              specify, nothing to source.
             </p>
           </motion.div>
         </div>
@@ -235,10 +246,10 @@ export default function Home() {
               <span className="marker-dot" />
               <span className="text-label">The Campus</span>
             </div>
-            <h2 className="heading-section">A campus, not a building.</h2>
+            <h2 className="heading-section">A fortified cyber-physical campus.</h2>
             <p className="text-body-lg mt-6">
-              355 &amp; 357 Main Street sit on the North Castle Ventures campus in Armonk,
-              New York — the efficiency of a Midtown headquarters without the commute.
+              355 &amp; 357 Main Street provide the efficiency and absolute security of a
+              Midtown headquarters, anchored in the bucolic landscape of Armonk, New York.
             </p>
             <Link href="/about" className="btn-ghost mt-8" data-testid="link-about" onClick={() => window.scrollTo(0, 0)}>
               About the campus <ArrowRight className="w-4 h-4" />
@@ -257,10 +268,11 @@ export default function Home() {
             </div>
             <h2 className="heading-section">Three shells. Held one institution at a time.</h2>
             <p className="text-body-lg text-background/70 mt-6 max-w-xl mx-auto">
-              Inquiries are reviewed personally. Tell us who you are and what you need.
+              Inquiries are reviewed personally by the principals. Tell us who you are
+              and what you need.
             </p>
             <Link href="/inquiry" className="btn-white mt-10" data-testid="link-cta-inquiry" onClick={() => window.scrollTo(0, 0)}>
-              Begin an inquiry <ArrowRight className="w-4 h-4" />
+              Initialize inquiry <ArrowRight className="w-4 h-4" />
             </Link>
             <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-x-8 gap-y-3">
               {[
