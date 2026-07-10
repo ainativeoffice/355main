@@ -85,9 +85,9 @@ export default function Thesis() {
               THE THESIS
             </span>
             <h1 className="heading-display mt-6 max-w-4xl" data-testid="text-heading-thesis">
-              Sovereign Intelligence,
+              The case for on-premises AI
               <br />
-              anchored in Armonk.
+              in executive office space.
             </h1>
             <p className="text-body-lg mt-8 max-w-2xl">
               The most consequential legal and financial institutions cannot send their

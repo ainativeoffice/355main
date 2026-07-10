@@ -138,7 +138,7 @@ export default function Inquiry() {
               <span className="text-label-wide">Inquiry · RFC</span>
             </div>
             <h1 className="heading-display" data-testid="text-inquiry-headline">
-              Request for<br />comment.
+              Inquire about executive office space<br />at 355 Main, Armonk.
             </h1>
             <p className="text-body-lg mt-8 max-w-md">
               We hold three shells, one institution at a time. Tell us who you are and what

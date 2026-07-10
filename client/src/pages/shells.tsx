@@ -133,7 +133,7 @@ export default function Shells() {
             </span>
           </div>
           <h1 className="heading-display mb-8" data-testid="text-hero-headline">
-            Three shells. One standard of sovereignty.
+            Executive office shells at 355 Main, Armonk.
           </h1>
           <p className="text-body-lg max-w-2xl">
             355 Main features three executive Sovereign Shells on the North Castle
