@@ -206,6 +206,8 @@ The `package.json` includes npm `overrides` to pin transitive dependencies to se
 - **axios**: 1.13.5 (addresses vulnerabilities in v1.13.2)
 - **basic-ftp**: 5.2.0 (addresses vulnerabilities in v5.1.0)
 
+Additionally, **vitest** was upgraded to 4.1.x (from 4.0.16) to clear a critical advisory (GHSA-5xrq-8626-4rwp) that was blocking deployment.
+
 Note: rollup remains at 4.x as required by Vite 7. The security scan suggestion to downgrade to 2.80.0 is incompatible with the build toolchain and appears to be a false positive.
 
 ## Contact
