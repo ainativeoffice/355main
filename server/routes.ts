@@ -90,50 +90,52 @@ export async function registerRoutes(
   app: Express
 ): Promise<Server> {
 
-  app.use((req, res, next) => {
-    if (req.path !== '/' && req.path.endsWith('/')) {
-      const cleanPath = req.path.slice(0, -1);
-      const query = req.url.slice(req.path.length);
-      return res.redirect(301, cleanPath + query);
-    }
-    next();
-  });
-
-  const removedPages = [
-    '/dashboard',
-    '/preferences', 
-    '/join',
-    '/auth-error',
-    '/admin',
-    '/admin/login',
-    '/admin/members',
-    '/admin/testimonials',
-    '/admin/news',
-  ];
-  
-  removedPages.forEach(path => {
-    app.get(path, (req, res) => {
-      res.redirect(301, '/');
-    });
-  });
-
-  // Legacy coworking IA → Sovereign Shells IA (preserve SEO/link equity)
+  // Legacy IA (coworking) → Sovereign Shells IA, plus removed app-only routes.
+  // Every legacy URL 301s to its best-fit new destination to preserve SEO/link
+  // equity and avoid sending bookmarked/indexed links to the 404 page.
   const legacyRedirects: Record<string, string> = {
+    // Old coworking "solutions" pages → The Shells
     '/solutions': '/shells',
     '/solutions/custom-offices': '/shells',
     '/solutions/private-offices': '/shells',
     '/solutions/hybrid': '/shells',
+    // Audience landing pages → Inquiry (RFC lead form)
     '/enterprise': '/inquiry',
     '/landlords': '/inquiry',
     '/brokers': '/inquiry',
+    // Tour flow → Inquiry
     '/book-a-tour': '/inquiry',
     '/tour-confirmed': '/inquiry',
+    // Removed app-only routes → Home
+    '/dashboard': '/',
+    '/preferences': '/',
+    '/join': '/',
+    '/auth-error': '/',
+    '/admin': '/',
+    '/admin/login': '/',
+    '/admin/members': '/',
+    '/admin/testimonials': '/',
+    '/admin/news': '/',
   };
 
-  Object.entries(legacyRedirects).forEach(([from, to]) => {
-    app.get(from, (req, res) => {
-      res.redirect(301, to);
-    });
+  // Single middleware handles both legacy redirects and trailing-slash
+  // canonicalization so a legacy URL (even with a trailing slash) resolves to
+  // its destination in exactly one 301 hop.
+  app.use((req, res, next) => {
+    const hasTrailingSlash = req.path !== '/' && req.path.endsWith('/');
+    const cleanPath = hasTrailingSlash ? req.path.slice(0, -1) : req.path;
+    const query = req.url.slice(req.path.length);
+
+    const destination = legacyRedirects[cleanPath];
+    if (destination) {
+      return res.redirect(301, destination + query);
+    }
+
+    if (hasTrailingSlash) {
+      return res.redirect(301, cleanPath + query);
+    }
+
+    next();
   });
 
   // Health check endpoint
