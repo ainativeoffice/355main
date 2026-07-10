@@ -49,7 +49,7 @@ export default function Home() {
               <span className="text-label-wide">Sovereign Intelligence · Armonk NY</span>
             </div>
             <h1 className="heading-display" data-testid="text-hero-headline">
-              Executive office space,<br />anchored in Armonk.
+              Sovereign Intelligence,<br />anchored in Armonk.
             </h1>
             <p className="text-body-lg max-w-2xl mt-8">
               Three Sovereign Shells on the North Castle Ventures campus — Class A commercial
