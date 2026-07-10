@@ -315,6 +315,32 @@ export default function Shells() {
             </p>
           </motion.div>
         </div>
+
+        <motion.div {...reveal} className="mt-16">
+          <div className="flex items-baseline justify-between gap-4 mb-4">
+            <span className="text-annotation" data-testid="text-matterport-caption">
+              CAM_05 · LEVEL 2 — HELD BY ALPHA SCHOOL
+            </span>
+            <span className="text-annotation hidden sm:block">3D WALKTHROUGH</span>
+          </div>
+          <div
+            className="relative w-full aspect-video bg-muted overflow-hidden border border-border"
+            data-testid="matterport-embed"
+          >
+            <iframe
+              src="https://my.matterport.com/show/?m=NwcGiRWQ3th&mls=1"
+              className="w-full h-full border-0"
+              allowFullScreen
+              allow="xr-spatial-tracking"
+              title="355 Main — Level 2 3D walkthrough, now held by Alpha School"
+              loading="lazy"
+            />
+          </div>
+          <p className="text-body-sm text-muted-foreground mt-3">
+            Walk the second floor in 3D — captured before fit-out, the proof
+            point now held by Alpha School.
+          </p>
+        </motion.div>
       </section>
 
       {/* Dark band */}
