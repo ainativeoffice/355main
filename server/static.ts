@@ -76,6 +76,9 @@ export async function serveStatic(app: Express) {
     <meta name="twitter:title" content="${head.title}" />
     <meta name="twitter:description" content="${head.description}" />
     <meta name="twitter:image" content="https://355main.com/opengraph.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:alt" content="355 Main campus exterior in Armonk, New York" />
+    <meta name="twitter:image:alt" content="355 Main campus exterior in Armonk, New York" />
     
     <meta name="description" content="${head.description}" />
     <meta name="keywords" content="Sovereign Shells, Armonk, Westchester, Class A office, on-premises AI, deterministic AI, executive workspace, North Castle Ventures, Vitra" />
