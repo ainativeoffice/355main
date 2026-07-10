@@ -45,6 +45,8 @@ The building is outfitted with best-in-class furniture, fixtures, and equipment:
 
 Preferred communication style: Simple, everyday language.
 
+**Brand voice in headlines (do not override for SEO):** The visible H1 headlines are brand voice, not keyword targets. Canonical H1s: Home = "Sovereign Intelligence, anchored in Armonk.", Shells = "Three shells. One standard of sovereignty.", Campus/About = "A campus for sovereign work.". Exceptions the user approved: Thesis = "The case for on-premises AI in executive office space." and Inquiry = "Inquire about executive office space at 355 Main, Armonk.". SEO improvements should go into meta titles/descriptions, structured data, and body copy — never rewrite these H1s.
+
 ## System Architecture
 
 This is a **static-first marketing site** with minimal backend requirements.

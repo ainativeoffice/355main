@@ -47,7 +47,7 @@ export default function About() {
               className="heading-display mb-8"
               data-testid="text-hero-heading"
             >
-              The North Castle Ventures campus<br />at 355 Main, Armonk.
+              A campus for sovereign work.
             </motion.h1>
 
             <motion.p
