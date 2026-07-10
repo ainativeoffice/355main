@@ -1,0 +1,129 @@
+Confidence Level for Copy & Execution: Absolute.
+
+The current draft is solid structurally, but the tone is still lingering in the "boutique leasing" realm ("principal's chamber," "working suite"). If 355 Main is a cyber-physical machine, the language describing its inventory must reflect precision engineering, security, and computational density.
+
+Furthermore, you buried a massive lead in REF_04: Northwell. Having a major healthcare provider in the building alongside Alpha School and Trucast is the ultimate proof that the thermodynamic and HIPAA/compliance capabilities of this building are institutional-grade.
+
+Here is the feedback and the upgraded copy strategy:
+
+The Copy Upgrade Strategy
+Rename the Inventory: Shell A is not a "chamber"; it is the "Executive Node." Shell B is the "Operations Node." Shell C is the "Orchestration Node."
+
+Elevate the Specs: The data tables under each shell need to list more than just square footage and furniture. They need to list the physical API of the room: Acoustic ratings (STC-55), Power (208V), and Network (Dedicated Fiber).
+
+Weaponize the Co-Tenants: Frame Northwell, Alpha School, and Trucast as a coalition of highly regulated, AI-forward entities proving the capacity of the base-building infrastructure.
+
+Vitra as Interface: Continue framing the Vitra furniture as the ergonomic interface for intense human-machine collaboration, not just a luxury amenity.
+
+The Replit / Vercel Prompt
+Copy and paste this directly into your development engine to rebuild the [355main.com/shells](https://355main.com/shells) route:
+
+Role & Objective:
+You are an elite Next.js (App Router) architect. Your objective is to build the /shells page for 355main.com. This page acts as the live inventory and technical specification sheet for the physical nodes at the Armonk campus.
+
+Design Mandate (Brutalist / Cyber-Physical):
+
+Background: Deep Obsidian (#0A0A10).
+
+Text: Pure White (#FFFFFF) and Muted Grey (#888888).
+
+Accents: Phosphor Green (#00FF41).
+
+Typography: Strictly monospace (font-mono).
+
+Layout: Stark grid systems, 1px solid borders (border-[#333]), mechanical tabular data displays.
+
+Execute the following page architecture and exact copy (app/shells/page.tsx):
+
+1. Hero Section
+
+Breadcrumb: 355 MAIN // THE SHELLS // 01 — 03
+
+H1: THREE SHELLS. ONE STANDARD OF SOVEREIGNTY.
+
+Sub-copy: "355 Main features three executive Sovereign Shells on the North Castle Ventures campus in Armonk, New York. Each physical node is cryptographically isolated and held by a single institution—ensuring absolute sovereignty of space and compute."
+
+Data Block: CAM_00 · 355 MAIN · ARMONK NY · 41.1265° N, 73.7140° W
+
+2. Definition Block
+
+Header: REF_00 // DEFINITION OF A SOVEREIGN SHELL
+
+Body: "A Sovereign Shell is a physical containment zone for enterprise AI. It fuses Class A commercial real estate with STC-55 acoustic isolation, dedicated E-Line fiber, and on-premises deterministic compute. The building and the silicon operate as a single instrument. Data never leaves the premises to be reasoned over elsewhere; the model runs exactly where the executives work. This is the difference between renting square footage and holding sovereign ground."
+
+3. Inventory Grid (The Shells)
+Render each shell as a full-width row with an image placeholder on the left, copy in the middle, and a strict data table on the right.
+
+ROW 1 | SHELL A: THE EXECUTIVE NODE
+
+Image Tag: CAM_01 · FF&E: VITRA SOFT WORK
+
+Body: "Engineered for a principal-led practice that runs lean and highly secure. Class A commercial space fused with a localized NVIDIA hardware vault. Sized for a principal and immediate counsel who require their capital, strategy, and compute to remain within arm's reach. No data leaves the room."
+
+Data Table:
+
+AREA: 814 USF / 1,065 RSF
+
+ACOUSTICS: STC-55 Shielding
+
+NETWORK: Dedicated Air-Gapped Fiber
+
+FF&E: Vitra Executive
+
+STATUS: [ AVAILABLE ] (Green)
+
+ROW 2 | SHELL B: THE OPERATIONS NODE
+
+Image Tag: CAM_02 · FF&E: VITRA JOYN 2 TOUCHDOWN
+
+Body: "The largest of the three shells—built for a small institution operating at full multi-agent stride. Open working desks, private counsel space, and high-density on-premises compute in one continuous, sovereign environment. Deterministic AI infrastructure sits inside your walls, not in a distant cloud."
+
+Data Table:
+
+AREA: 888 USF / 1,162 RSF
+
+ACOUSTICS: STC-55 Shielding
+
+NETWORK: Dedicated Air-Gapped Fiber
+
+FF&E: Vitra Operations
+
+STATUS: [ AVAILABLE ] (Green)
+
+ROW 3 | SHELL C: THE ORCHESTRATION NODE
+
+Image Tag: CAM_03 · FF&E: VITRA TYDE 2
+
+Body: "The physical model of the thesis, in active occupancy. Trucast.AI holds Suite C as their integration headquarters, running sovereign intelligence exactly as designed. Compute, counsel, and code share a single room. Shell C stands as empirical proof that the architecture works—the argument made concrete."
+
+Data Table:
+
+AREA: 820 USF / 1,060 RSF
+
+COMPUTE: Localized / Deterministic
+
+OCCUPANT: Trucast.AI
+
+STATUS: [ HELD ] (Greyed out)
+
+4. The Base-Building Validation (Northwell & Alpha School)
+
+Header: REF_04 // INSTITUTIONAL VALIDATION
+
+Body: "The Sovereign Shells represent the last available ground in a fully operational, highly regulated building. Northwell Health holds the rear suite on the ground floor, validating the strict compliance and privacy parameters of the campus. Upstairs, Alpha School occupies the entire 5,800 SF second floor, running their AI-powered '2 Hour Learning' model—proving the campus's thermodynamic capacity to handle continuous, high-density compute. Shells A and B sit alongside institutions that have already made the sovereign decision."
+
+5. Final CTA Block
+
+Header: REF_05 // INITIALIZE INQUIRY
+
+Body: "Three shells. Held one institution at a time. Shells at 355 Main are provisioned deliberately to qualifying entities. To run a deployment diagnostic and discuss availability, initialize an inquiry."
+
+Button: > INQUIRE ABOUT A SHELL
+
+6. Global Footer
+
+Left: North Castle Ventures | Location: 355 & 357 Main Street, Armonk, New York | 41.1265° N, 73.7140° W | Inquiries: leasing@355main.com
+
+Right (Ecosystem Links): THE RFC, NATE, TRUCAST, NATIVE AGENTIC
+
+Copyright: © 2026 355 MAIN · A NORTH CASTLE VENTURES CAMPUS

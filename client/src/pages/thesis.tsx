@@ -20,19 +20,19 @@ const principles = [
     ref: "01",
     title: "Determinism over probability",
     body:
-      "Regulated work demands reproducible answers. On-premises, deterministic systems return the same output for the same input — auditable, defensible, and free of the drift that follows a public model API.",
+      "Regulated work demands reproducible answers. On-premises, localized GraphRAG systems return the same output for the same input — auditable, defensible, and immune to the silent model drift that plagues public APIs.",
   },
   {
     ref: "02",
     title: "Premises over cloud",
     body:
-      "Data that cannot leave the building should never touch a third-party endpoint. Compute is co-located with the institution that owns it — sovereignty of space and sovereignty of compute in the same room.",
+      "Data that cannot leave the building should never touch a third-party endpoint. Absolute hardware custody ensures sovereignty of space and sovereignty of compute.",
   },
   {
     ref: "03",
     title: "Institution over crowd",
     body:
-      "Each shell is held by a single institution. No shared tenancy, no shared inference, no shared risk. The premises, the infrastructure, and the intelligence answer to one principal.",
+      "Each Sovereign Shell is held by a single institution. No shared tenancy, no shared inference, no shared risk. The Tripartite Ownership model guarantees the landlord never touches the data layer.",
   },
 ];
 
@@ -40,25 +40,25 @@ const ecosystem = [
   {
     name: "northcastle",
     label: "North Castle Ventures",
-    description: "The operator of the Armonk campus.",
+    description: "The landlord. Provisions the 208V power, cooling, and masonry.",
     url: "https://northcastleventures.com",
   },
   {
     name: "rfc",
-    label: "The RFC · AI-Native Office",
-    description: "The reference blueprint for the AI-native office.",
+    label: "The RFC · ainativeoffice.org",
+    description: "The open-source reference blueprint for the physical standard.",
     url: "https://ainativeoffice.org",
   },
   {
     name: "nate",
-    label: "Nate · Native Agentic",
-    description: "Agentic systems built to operate on-premises.",
+    label: "Nate · nativeagentic.com",
+    description: "The autonomous technical engineer. Provisions and audits the local silicon.",
     url: "https://nativeagentic.com",
   },
   {
     name: "trucast",
-    label: "Trucast",
-    description: "Deterministic intelligence for regulated work.",
+    label: "Trucast.AI",
+    description: "The Integration HQ. Deterministic intelligence for regulated work.",
     url: "https://trucast.ai",
   },
 ];
@@ -91,9 +91,9 @@ export default function Thesis() {
             </h1>
             <p className="text-body-lg mt-8 max-w-2xl">
               The most consequential legal and financial institutions cannot send their
-              data to public model APIs. The answer is not a better API. It is a different
-              architecture — deterministic AI, held on-premises, in the same building as
-              the people it serves.
+              operational alpha to public APIs. The answer is not a better cloud contract.
+              It is a different physical architecture — deterministic AI, held on-premises,
+              cryptographically sealed in the same building as the people it serves.
             </p>
           </motion.div>
         </div>
@@ -103,22 +103,21 @@ export default function Thesis() {
       <section className="section border-b border-border">
         <div className="container-page grid lg:grid-cols-12 gap-12 items-start">
           <motion.div {...reveal} className="lg:col-span-4">
-            <span className="text-label" data-testid="text-ref-problem">REF_01 — THE PROBLEM</span>
+            <span className="text-label" data-testid="text-ref-problem">REF_01 — THE CLOUD EGRESS TRAP</span>
             <h2 className="heading-subsection mt-4">
-              Regulated data cannot leave the room.
+              Software cryptography cannot fix a physical leak.
             </h2>
           </motion.div>
           <motion.div {...reveal} className="lg:col-span-7 lg:col-start-6 space-y-6">
             <p className="text-body-lg">
               Law firms, funds, and financial institutions hold privileged, material,
-              non-public information. Sending it to a public model API is not a workflow
-              decision — it is a breach of the duties those institutions are built on.
+              non-public information. Sending it to a public model API triggers the
+              Cloud Egress Trap: you either breach compliance, or you redact the data
+              so heavily that the AI output becomes useless.
             </p>
             <p className="text-body">
-              Confidentiality, privilege, and regulatory obligation all point the same
-              direction: the most sensitive work cannot be handed to infrastructure the
-              institution does not control. For these principals, the public cloud is not a
-              convenience with caveats. It is a line that cannot be crossed.
+              For these principals, the public cloud is not a convenience. It is a
+              structural liability.
             </p>
           </motion.div>
         </div>
@@ -128,21 +127,20 @@ export default function Thesis() {
       <section className="section border-b border-border">
         <div className="container-page grid lg:grid-cols-2 gap-16 items-center">
           <motion.div {...reveal} className="order-2 lg:order-1">
-            <span className="text-label" data-testid="text-ref-answer">REF_02 — THE ANSWER</span>
+            <span className="text-label" data-testid="text-ref-answer">REF_02 — THE SOVEREIGN SHELL</span>
             <h2 className="heading-subsection mt-4">
-              On-premises, deterministic, co-located.
+              Silicon, context, and capital in one room.
             </h2>
             <div className="mt-8 space-y-6">
               <p className="text-body-lg">
-                The intelligence lives where the institution lives. Compute is installed on
-                the premises, operated by the tenant, and never reaches for an outside
-                endpoint to do its work.
+                The intelligence lives where the institution lives. Compute is installed
+                directly on the premises, operated by the tenant, and never reaches for
+                an outside endpoint.
               </p>
               <p className="text-body">
-                Deterministic systems return the same answer to the same question — a
-                property that turns AI from a liability into an instrument of record.
-                Co-location closes the loop: the model, the data, and the people who rely
-                on both occupy one secured space.
+                Co-location closes the loop: the proprietary weights, the unredacted
+                data, and the executives who rely on both occupy a single, zero-egress
+                physical node.
               </p>
             </div>
           </motion.div>
@@ -184,21 +182,20 @@ export default function Thesis() {
             <p className="text-annotation mt-3">FIG_02 · COMPUTE, COUNSEL, CAPITAL — ONE ROOM</p>
           </motion.div>
           <motion.div {...reveal}>
-            <span className="text-label" data-testid="text-ref-place">REF_03 — WHY PLACE MATTERS</span>
+            <span className="text-label" data-testid="text-ref-place">REF_03 — WHY CONCRETE MATTERS</span>
             <h2 className="heading-subsection mt-4">
-              Compute, counsel, and capital in one room.
+              You cannot audit what you do not physically own.
             </h2>
             <div className="mt-8 space-y-6">
               <p className="text-body-lg">
-                Sovereignty is not only a property of software. It is a property of the
-                building it runs in and the institution that occupies it.
+                Sovereignty is not merely a property of software.
               </p>
               <p className="text-body">
-                When the infrastructure, the decision-makers, and the work sit inside the
-                same walls, latency collapses and accountability sharpens. Physical place
-                is what makes the thesis operational rather than theoretical — Class A real
-                estate fused with on-premises intelligence, outfitted for principals who
-                answer to no one else's server.
+                When the infrastructure and the decision-makers sit inside the same
+                STC-55 acoustic masonry, latency collapses and accountability sharpens.
+                Physical place makes the thesis operational: Class A real estate fused
+                with dedicated E-Line fiber, outfitted for principals who answer to no
+                one else's server.
               </p>
             </div>
           </motion.div>
@@ -253,22 +250,27 @@ export default function Thesis() {
           <motion.div {...reveal} className="lg:col-span-7 lg:col-start-6 space-y-6">
             <p className="text-body-lg">
               <span className="text-foreground font-medium">Alpha School</span> is
-              real-world evidence that AI-native operations work at scale — an institution
-              run on the same premise that machine intelligence, applied deterministically
-              and close to the people who use it, changes what an organization can do.
+              real-world evidence that high-density AI operations work at scale in
+              suburban assets. They recently pre-leased the entire second floor of
+              355 Main — 5,800 usable square feet — to deploy their AI-powered
+              "2 Hour Learning" model.
             </p>
             <p className="text-body" data-testid="text-alpha-lease">
-              And the evidence is no longer distant. Alpha School recently leased the
-              entire second floor of 355 Main — 5,800 usable square feet, finished to the
-              same standard that governs every shell. A proof point, not a partnership;
-              but one that chose to hold ground in the building itself. The thesis is not
-              a projection. It is upstairs.
+              It is proof that the thermodynamic and network infrastructure of this
+              campus can sustain intensive, continuous AI compute. The thesis is not a
+              projection. It is upstairs.
             </p>
             <p className="text-body-sm text-muted-foreground">
-              <Link href="/" className="underline underline-offset-4 hover:text-foreground transition-colors" data-testid="link-walkthrough" onClick={() => window.scrollTo(0, 0)}>
-                Walk the floor in 3D
-              </Link>{" "}
-              — captured before fit-out.
+              <a
+                href="https://my.matterport.com/show/?m=NwcGiRWQ3th&mls=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 hover:text-foreground transition-colors"
+                data-testid="link-walkthrough"
+              >
+                Initialize the 3D walkthrough
+              </a>{" "}
+              — captured pre-fit-out.
             </p>
           </motion.div>
         </div>
@@ -283,7 +285,7 @@ export default function Thesis() {
               THE ECOSYSTEM
             </span>
             <h2 className="heading-section mt-6">
-              A network building the AI-native institution.
+              The Native Agentic ecosystem.
             </h2>
             <p className="text-body-lg mt-6">
               355 Main sits within a wider effort — the operator, the blueprint, and the
@@ -335,7 +337,7 @@ export default function Thesis() {
                 data-testid="link-inquiry"
                 onClick={() => window.scrollTo(0, 0)}
               >
-                Inquire about a shell
+                Inquire about a Sovereign Shell
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
