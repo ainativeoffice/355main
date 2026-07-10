@@ -102,6 +102,19 @@ const buildingPlaceSchema = {
   },
 };
 
+function buildBreadcrumbList(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 function shellListing(
   name: string,
   suite: string,
@@ -154,6 +167,10 @@ function shellListing(
 const routeJsonLd: Record<string, object[]> = {
   "/": [buildingPlaceSchema],
   "/shells": [
+    buildBreadcrumbList([
+      { name: "Home", url: BASE_URL },
+      { name: "The Shells", url: `${BASE_URL}/shells` },
+    ]),
     shellListing(
       "Shell A",
       "Suite A",
@@ -169,8 +186,40 @@ const routeJsonLd: Record<string, object[]> = {
       "The Operations Node — the largest executive Sovereign Shell on Floor 1 of 355 Main, Armonk. 888 USF / 1,162 RSF of Class A space fused with on-premises, deterministic AI, STC-55 acoustic shielding, and dedicated air-gapped fiber, outfitted with Vitra. Available for a single institution.",
     ),
   ],
-  "/thesis": [],
+  "/thesis": [
+    buildBreadcrumbList([
+      { name: "Home", url: BASE_URL },
+      { name: "The Thesis", url: `${BASE_URL}/thesis` },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": `${BASE_URL}/thesis#article`,
+      headline: "The Thesis — Sovereign Intelligence, Anchored in Armonk",
+      description:
+        "Why regulated legal and financial institutions need on-premises, deterministic AI co-located with the people who use it. The 355 Main thesis.",
+      url: `${BASE_URL}/thesis`,
+      mainEntityOfPage: `${BASE_URL}/thesis`,
+      image: `${BASE_URL}/opengraph.jpg`,
+      datePublished: "2026-07-10",
+      author: { "@id": `${BASE_URL}/#organization` },
+      publisher: { "@id": `${BASE_URL}/#organization` },
+      isPartOf: { "@id": `${BASE_URL}/#website` },
+      about: [
+        { "@type": "Thing", name: "On-premises AI" },
+        { "@type": "Thing", name: "Deterministic AI" },
+        { "@type": "Thing", name: "Sovereign workspace" },
+        { "@type": "Thing", name: "Commercial real estate" },
+      ],
+      keywords:
+        "on-premises AI, deterministic AI, sovereign workspace, regulated institutions, legal AI, financial AI, Armonk, North Castle Ventures",
+    },
+  ],
   "/about": [
+    buildBreadcrumbList([
+      { name: "Home", url: BASE_URL },
+      { name: "The Campus", url: `${BASE_URL}/about` },
+    ]),
     {
       "@context": "https://schema.org",
       "@type": "AboutPage",
@@ -185,6 +234,10 @@ const routeJsonLd: Record<string, object[]> = {
     buildingPlaceSchema,
   ],
   "/inquiry": [
+    buildBreadcrumbList([
+      { name: "Home", url: BASE_URL },
+      { name: "Inquiry", url: `${BASE_URL}/inquiry` },
+    ]),
     {
       "@context": "https://schema.org",
       "@type": "ContactPage",
