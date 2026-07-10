@@ -1,1 +1,2 @@
 - [Inquiry pipeline in prod](inquiry-pipeline-prod.md) — DB/HubSpot/Slack ok; email now via Resend from northcastleventures.com; verify via prod POST + deployment logs.
+- [express.static can bypass SSR on "/"](ssr-static-index-bypass.md) — static middleware serves index.html for the homepage unless `index: false`; verify SSR meta on ALL routes via curl.

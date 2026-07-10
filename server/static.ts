@@ -8,6 +8,7 @@ interface RenderResult {
     title: string;
     description: string;
     canonical: string;
+    jsonLd: string;
   };
 }
 
@@ -39,7 +40,9 @@ export async function serveStatic(app: Express) {
     console.log("[SSR] SSR bundle not found, falling back to client-side rendering");
   }
 
-  app.use(express.static(distPath));
+  // index: false so "/" falls through to the SSR handler below instead of
+  // being served the raw index.html template by the static middleware.
+  app.use(express.static(distPath, { index: false }));
 
   const validRoutes = new Set(["/", "/shells", "/thesis", "/about", "/inquiry"]);
 
@@ -50,7 +53,11 @@ export async function serveStatic(app: Express) {
     if (render) {
       try {
         const { html, head } = render(url);
-        
+
+        const gscVerification = process.env.GOOGLE_SITE_VERIFICATION
+          ? `\n    <meta name="google-site-verification" content="${process.env.GOOGLE_SITE_VERIFICATION}" />`
+          : "";
+
         let page = template
           .replace("<!--ssr-outlet-->", html)
           .replace(
@@ -62,15 +69,21 @@ export async function serveStatic(app: Express) {
             `<meta property="og:title" content="${head.title}" />
     <meta property="og:description" content="${head.description}"/>
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/opengraph.jpg" />
+    <meta property="og:url" content="${head.canonical}" />
+    <meta property="og:site_name" content="355 Main" />
+    <meta property="og:image" content="https://355main.com/opengraph.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${head.title}" />
     <meta name="twitter:description" content="${head.description}" />
-    <meta name="twitter:image" content="/opengraph.jpg" />
+    <meta name="twitter:image" content="https://355main.com/opengraph.jpg" />
     
     <meta name="description" content="${head.description}" />
     <meta name="keywords" content="Sovereign Shells, Armonk, Westchester, Class A office, on-premises AI, deterministic AI, executive workspace, North Castle Ventures, Vitra" />
-    <link rel="canonical" href="${head.canonical}" />`
+    <link rel="canonical" href="${head.canonical}" />${gscVerification}`
+          )
+          .replace(
+            /<!--ssr-jsonld-->[\s\S]*?<!--\/ssr-jsonld-->/,
+            head.jsonLd
           );
         
         res.status(statusCode).set({ "Content-Type": "text/html" }).end(page);

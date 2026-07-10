@@ -188,6 +188,7 @@ This is a **static-first marketing site** with minimal backend requirements.
 - `RESEND_API_KEY` - Resend API key for confirmation emails
 - `SLACK_WEBHOOK_URL` - Slack incoming webhook for lead notifications
 - `RECAPTCHA_SECRET_KEY` - reCAPTCHA v3 secret key for spam protection
+- `GOOGLE_SITE_VERIFICATION` - (optional) Google Search Console HTML-tag verification code; rendered as a meta tag when set
 
 ### Error Handling
 - **Error Boundary**: `client/src/components/error-boundary.tsx` wraps app
@@ -195,9 +196,19 @@ This is a **static-first marketing site** with minimal backend requirements.
 
 ## SEO & Crawlers
 
-- **Sitemap**: `client/public/sitemap.xml`
-- **LLMs.txt**: `client/public/llms.txt` for AI crawler context
+- **Sitemap**: `client/public/sitemap.xml` (all 5 pages, absolute URLs, lastmod dates)
+- **Robots**: `client/public/robots.txt` — explicitly allows major search + AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.) and references the sitemap
+- **LLMs.txt**: `client/public/llms.txt` for AI crawler context; `client/public/llms-full.txt` has a full page-by-page content summary
+- **Structured data (JSON-LD)**: rendered server-side per route via `entry-server.tsx` (`buildJsonLd`) and injected by `server/static.ts` between `<!--ssr-jsonld-->` markers in `client/index.html`. Site-wide: `Organization` + `WebSite`. Per-page: `Place` (home, about), `RealEstateListing` for Shells A/B (no pricing — private), `AboutPage`, `ContactPage`. The static block in `index.html` is the dev/CSR fallback.
+- **Open Graph**: SSR injects og:title/description/type/url/site_name/image (absolute URL) + Twitter card tags per route
 - **Domain**: https://355main.com
+
+### Google Search Console Setup (for the owner)
+1. **Verify the property** at https://search.google.com/search-console — two options:
+   - **DNS (recommended)**: add the property as a Domain property (`355main.com`) and add the TXT record Google gives you to the domain's DNS.
+   - **HTML meta tag**: add the property as a URL-prefix property (`https://355main.com`), copy the `content` value from the meta tag Google gives you, and set it as the `GOOGLE_SITE_VERIFICATION` environment variable (production secret). The site renders `<meta name="google-site-verification" ...>` automatically when it's set — no code change needed. Redeploy after setting it.
+2. **Submit the sitemap**: in GSC → Sitemaps, submit `https://355main.com/sitemap.xml`.
+3. **Request indexing**: in GSC → URL Inspection, paste each of the 5 URLs (`/`, `/shells`, `/thesis`, `/about`, `/inquiry`) and click "Request Indexing".
 
 ## Security Dependency Overrides
 

@@ -46,6 +46,10 @@ export function SEO({
     };
 
     updateMeta("description", description);
+    if (canonical) {
+      const fullUrl = canonical.startsWith("http") ? canonical : `${BASE_URL}${canonical}`;
+      updateMeta("og:url", fullUrl, true);
+    }
     updateMeta("og:title", ogTitle || title, true);
     updateMeta("og:description", ogDescription || description, true);
     updateMeta("og:image", ogImage.startsWith("http") ? ogImage : `${BASE_URL}${ogImage}`, true);
