@@ -63,7 +63,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </a>
             ))}
 
-            <span className="status-pill text-foreground/70" data-testid="status-pill-header">
+            <span className="status-pill text-foreground/70 hidden xl:inline-flex" data-testid="status-pill-header">
               <span className="marker-dot bg-ember" />
               355 · 357 MAIN / ARMONK NY
             </span>

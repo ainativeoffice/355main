@@ -1,0 +1,85 @@
+You are an elite Next.js (App Router) architect. Your objective is to build the /thesis page for 355main.com. This page acts as the ideological and technical manifesto for the Native Agentic ecosystem.
+
+Design Mandate (Brutalist / Cyber-Physical):
+
+Background: Deep Obsidian (#0A0A10).
+
+Text: Pure White (#FFFFFF) and Muted Grey (#888888).
+
+Accents: Phosphor Green (#00FF41).
+
+Typography: Strictly monospace (font-mono).
+
+Layout: Stark grid systems, 1px solid borders (border-[#333]), terminal-style blockquotes.
+
+Execute the following page architecture and exact copy (app/thesis/page.tsx):
+
+1. Hero Section
+
+Breadcrumb: 355 MAIN // THE THESIS
+
+H1: SOVEREIGN INTELLIGENCE, ANCHORED IN ARMONK.
+
+Sub-copy: "The most consequential legal and financial institutions cannot send their operational alpha to public APIs. The answer is not a better cloud contract. It is a different physical architecture—deterministic AI, held on-premises, cryptographically sealed in the same building as the people it serves."
+
+2. Grid Section: The Argument
+
+Divide into a 3-row layout with strict top/bottom borders.
+
+ROW 1 | REF_01 — THE CLOUD EGRESS TRAP
+
+Header: "Software cryptography cannot fix a physical leak."
+
+Body: "Law firms, funds, and financial institutions hold privileged, material, non-public information. Sending it to a public model API triggers the Cloud Egress Trap: you either breach compliance, or you redact the data so heavily that the AI output becomes useless. For these principals, the public cloud is not a convenience. It is a structural liability."
+
+ROW 2 | REF_02 — THE SOVEREIGN SHELL
+
+Header: "Silicon, Context, and Capital in one room."
+
+Body: "The intelligence lives where the institution lives. Compute is installed directly on the premises, operated by the tenant, and never reaches for an outside endpoint. Co-location closes the loop: the proprietary weights, the unredacted data, and the executives who rely on both occupy a single, zero-egress physical node."
+
+ROW 3 | REF_03 — WHY CONCRETE MATTERS
+
+Header: "You cannot audit what you do not physically own."
+
+Body: "Sovereignty is not merely a property of software. When the infrastructure and the decision-makers sit inside the same STC-55 acoustic masonry, latency collapses and accountability sharpens. Physical place makes the thesis operational: Class A real estate fused with dedicated E-Line fiber, outfitted for principals who answer to no one else's server."
+
+3. The Three Principles (Column Grid)
+
+Header: PRINCIPLES // 01 — 03
+
+01 | DETERMINISM OVER PROBABILITY: "Regulated work demands reproducible answers. On-premises, localized GraphRAG systems return the same output for the same input—auditable, defensible, and immune to the silent model drift that plagues public APIs."
+
+02 | PREMISES OVER CLOUD: "Data that cannot leave the building should never touch a third-party endpoint. Absolute hardware custody ensures sovereignty of space and sovereignty of compute."
+
+03 | INSTITUTION OVER CROWD: "Each Sovereign Shell is held by a single institution. No shared tenancy, no shared inference, no shared risk. The Tripartite Ownership model guarantees the landlord never touches the data layer."
+
+4. Market Validation (The Proof)
+
+Header: REF_04 — THE PROOF POINT MOVED IN UPSTAIRS.
+
+Body: "Alpha School is real-world evidence that high-density AI operations work at scale in suburban assets. They recently pre-leased the entire second floor of 355 Main—5,800 usable square feet—to deploy their AI-powered '2 Hour Learning' model. It is proof that the thermodynamic and network infrastructure of this campus can sustain intensive, continuous AI compute. The thesis is not a projection. It is upstairs."
+
+CTA: > INITIALIZE 3D WALKTHROUGH (CAPTURED PRE-FIT-OUT)
+
+5. The Ecosystem Map
+
+Header: THE NATIVE AGENTIC ECOSYSTEM
+
+Grid:
+
+[ NORTH CASTLE VENTURES ]: The Landlord. Provisions the 208V power, cooling, and masonry.
+
+[ THE RFC // AINATIVEOFFICE.ORG ]: The open-source reference blueprint for the physical standard.
+
+[ NATE // NATIVEAGENTIC.COM ]: The autonomous technical engineer. Provisions and audits the local silicon.
+
+[ TRUCAST.AI ]: The Integration HQ. Deterministic intelligence for regulated work.
+
+6. Global Footer
+
+Inquiry CTA: > INQUIRE ABOUT A SOVEREIGN SHELL
+
+Data Block: 41.1265° N, 73.7140° W · ARMONK, NEW YORK
+
+Copyright: © 2026 355 MAIN · A NORTH CASTLE VENTURES CAMPUS
