@@ -204,7 +204,9 @@ This is a **static-first marketing site** with minimal backend requirements.
 The `package.json` includes npm `overrides` to pin transitive dependencies to secure versions:
 - **minimatch**: 10.2.3 (addresses vulnerabilities in v3.x and v9.x)
 - **axios**: 1.13.5 (addresses vulnerabilities in v1.13.2)
-- **basic-ftp**: 5.2.0 (addresses vulnerabilities in v5.1.0)
+- **basic-ftp**: 6.0.1 (addresses multiple high-severity vulnerabilities in v5.x)
+- **uuid**: >=11.1.1 (addresses GHSA-w5hq-g745-h8pq missing bounds check)
+- **esbuild**: $esbuild (forces @esbuild-kit/core-utils to use project's safe esbuild version, addresses GHSA-67mh-4wv8-2f99)
 
 Additionally, **vitest** was upgraded to 4.1.x (from 4.0.16) to clear a critical advisory (GHSA-5xrq-8626-4rwp) that was blocking deployment.
 
