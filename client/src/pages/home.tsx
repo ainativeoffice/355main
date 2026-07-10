@@ -6,9 +6,6 @@ import { SEO } from "@/components/seo";
 
 import exterior355 from "@assets/355_main_exterior.jpg";
 import exterior357 from "@assets/357_exterior_1.jpg";
-import interiorSuite from "@assets/space/executive-suite.jpeg";
-import interiorMeeting from "@assets/space/meeting-room.jpeg";
-import interiorLobby from "@assets/space/lobby-reception.jpeg";
 import vitraTyde2 from "@assets/82655552_1769278417914.jpg";
 import vitraJoyn from "@assets/77433396_1769277628600.jpg";
 import vitraDancingWall from "@assets/vitra_dancing_wall.jpg";
@@ -28,10 +25,10 @@ const shells = [
 ];
 
 const ffe = [
-  { src: vitraTyde2, cap: "CAM_01 · TYDE 2" },
-  { src: vitraJoyn, cap: "CAM_02 · JOYN 2 TOUCHDOWN" },
-  { src: vitraDancingWall, cap: "CAM_03 · DANCING WALL" },
-  { src: vitraAlcove, cap: "CAM_04 · ALCOVE" },
+  { src: vitraTyde2, cap: "CAM_02 · TYDE 2" },
+  { src: vitraJoyn, cap: "CAM_03 · JOYN 2 TOUCHDOWN" },
+  { src: vitraDancingWall, cap: "CAM_04 · DANCING WALL" },
+  { src: vitraAlcove, cap: "CAM_05 · ALCOVE" },
 ];
 
 export default function Home() {
@@ -142,27 +139,50 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interiors */}
+      {/* Proof point — 3D walkthrough */}
       <section className="section container-page">
-        <div className="grid md:grid-cols-3 gap-4">
-          {[
-            { src: interiorLobby, cap: "CAM_05 · RECEPTION" },
-            { src: interiorSuite, cap: "CAM_06 · EXECUTIVE SUITE" },
-            { src: interiorMeeting, cap: "CAM_07 · BOARD ROOM" },
-          ].map((img, i) => (
-            <motion.figure
-              key={img.cap}
-              {...reveal}
-              transition={{ ...reveal.transition, delay: i * 0.08 }}
-              className="relative"
-            >
-              <img src={img.src} alt={img.cap} className="w-full aspect-[4/5] object-cover" />
-              <figcaption className="text-annotation absolute bottom-3 left-3 bg-background/80 backdrop-blur px-2.5 py-1">
-                {img.cap}
-              </figcaption>
-            </motion.figure>
-          ))}
+        <div className="grid lg:grid-cols-12 gap-10 items-start mb-12">
+          <motion.div {...reveal} className="lg:col-span-4">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="marker-dot" />
+              <span className="text-label" data-testid="text-proof-label">
+                The standard, proven
+              </span>
+            </div>
+          </motion.div>
+          <motion.div {...reveal} className="lg:col-span-8">
+            <h2 className="heading-subsection max-w-2xl" data-testid="text-proof-heading">
+              This is not a rendering. Walk a floor built to the standard.
+            </h2>
+            <p className="text-body max-w-xl mt-6" data-testid="text-proof-body">
+              The second floor of 355 Main was finished to the same aesthetic that
+              governs every shell — restraint, permanence, nothing that ages the
+              address. It proved the argument: the space was recently leased to
+              Alpha School. Walk it in 3D, captured before fit-out.
+            </p>
+          </motion.div>
         </div>
+        <motion.div {...reveal}>
+          <div className="flex items-baseline justify-between gap-4 mb-4">
+            <span className="text-annotation" data-testid="text-walkthrough-caption">
+              CAM_01 · LEVEL 2 — RECENTLY LEASED TO ALPHA SCHOOL
+            </span>
+            <span className="text-annotation hidden sm:block">3D WALKTHROUGH</span>
+          </div>
+          <div
+            className="relative w-full aspect-video bg-muted overflow-hidden border border-border"
+            data-testid="matterport-embed-home"
+          >
+            <iframe
+              src="https://my.matterport.com/show/?m=NwcGiRWQ3th&mls=1"
+              className="w-full h-full border-0"
+              allowFullScreen
+              allow="xr-spatial-tracking"
+              title="355 Main — Level 2 3D walkthrough, recently leased to Alpha School"
+              loading="lazy"
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* FF&E / Vitra */}
@@ -207,7 +227,7 @@ export default function Home() {
           <motion.figure {...reveal} className="relative order-2 lg:order-1">
             <img src={exterior357} alt="357 Main Street — campus" className="w-full aspect-[4/3] object-cover" />
             <figcaption className="text-annotation absolute bottom-3 left-3 bg-background/80 backdrop-blur px-2.5 py-1">
-              CAM_08 · 357 MAIN · NORTH CASTLE CAMPUS
+              CAM_06 · 357 MAIN · NORTH CASTLE CAMPUS
             </figcaption>
           </motion.figure>
           <motion.div {...reveal} className="order-1 lg:order-2">
