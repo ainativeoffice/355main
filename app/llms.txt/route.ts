@@ -6,8 +6,8 @@ export function GET() {
 ## Current suite status
 - Suite A/102 — 1,065 RSF — now leasing.
 - Suite B/104 — 1,162 RSF — now leasing.
-- Suite C/106 — 1,060 RSF — now leasing.
-- Back Suite 103 — 3,193 RSF — leased to Northwell Health and not available.
+- Suite C/106 — 1,060 RSF — leased to Trucast (trucast.ai) and not available.
+- Suite 103 — 3,193 RSF — leased to Northwell Health and not available.
 - Alpha School leased the 7,590 RSF 2nd Level Full-Floor Flagship Suite. This is a tenant milestone and is not current availability.
 - Total building area — 14,070 RSF.
 
