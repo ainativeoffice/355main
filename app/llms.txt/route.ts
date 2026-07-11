@@ -4,10 +4,12 @@ export function GET() {
 355main.com is the building and suites experience for 355 Main in Armonk, New York. 355 Main is part of Armonk Professional Center, the campus-level destination encompassing 355 Main and 357 Main. North Castle Ventures owns and manages both buildings.
 
 ## Current suite status
-- Suite 101/A — 2,520 SF — now leasing.
-- Suite 102/B — 2,534 SF — now leasing.
-- Suite 103/C — 2,380 SF — occupied and not available.
-- Alpha School leased the 2nd Level Full-Floor Flagship Suite. This is a tenant milestone and is not current availability.
+- Suite A/102 — 1,065 RSF — now leasing.
+- Suite B/104 — 1,162 RSF — now leasing.
+- Suite C/106 — 1,060 RSF — now leasing.
+- Back Suite 103 — 3,193 RSF — leased to Northwell Health and not available.
+- Alpha School leased the 7,590 RSF 2nd Level Full-Floor Flagship Suite. This is a tenant milestone and is not current availability.
+- Total building area — 14,070 RSF.
 
 ## Ecosystem
 - Armonk Professional Center: campus-wide destination and inquiries.
