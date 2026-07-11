@@ -96,7 +96,7 @@
     "wouter": "^3.3.5",
     "ws": "^8.18.0",
     "zod": "^3.25.76",
-    "zod-validation-error": "^3.4.0"
+    "zod-validation-error": "^5.0.0"
   },
   "devDependencies": {
     "@replit/vite-plugin-cartographer": "^0.4.4",
@@ -127,5 +127,8 @@
     "basic-ftp": "6.0.1",
     "uuid": ">=11.1.1",
     "esbuild": "$esbuild"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["bufferutil", "canvas", "esbuild", "lefthook", "sharp"]
   }
 }

@@ -1,0 +1,6 @@
+allowBuilds:
+  bufferutil: set this to true or false
+  canvas: set this to true or false
+  esbuild: set this to true or false
+  lefthook: set this to true or false
+  sharp: set this to true or false
