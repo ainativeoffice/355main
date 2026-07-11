@@ -2,7 +2,31 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
+import { availableSuites } from "@/lib/suites";
 import "./globals.css";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://355main.com/#owner", name: "North Castle Ventures", url: "https://northcastleventures.com" },
+    {
+      "@type": ["Place", "OfficeBuilding"],
+      "@id": "https://355main.com/#building",
+      name: "355 Main",
+      url: "https://355main.com",
+      address: { "@type": "PostalAddress", streetAddress: "355 Main Street", addressLocality: "Armonk", addressRegion: "NY", addressCountry: "US" },
+      owner: { "@id": "https://355main.com/#owner" },
+      managedBy: { "@id": "https://355main.com/#owner" },
+      isPartOf: { "@type": "Place", name: "Armonk Professional Center", url: "https://armonkprofessionalcenter.com" },
+    },
+    ...availableSuites.map((suite) => ({
+      "@type": "Offer",
+      name: `${suite.name} at 355 Main`,
+      availability: "https://schema.org/InStock",
+      itemOffered: { "@type": "Accommodation", name: suite.name, floorSize: { "@type": "QuantitativeValue", value: suite.area.replace(/[^0-9]/g, ""), unitText: "square feet" }, containedInPlace: { "@id": "https://355main.com/#building" } },
+    })),
+  ],
+};
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const serif = Newsreader({ subsets: ["latin"], variable: "--font-newsreader", display: "swap" });
@@ -30,7 +54,12 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} bg-background`}>
-      <body>{children}<Analytics /><SpeedInsights /></body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
