@@ -45,7 +45,7 @@ waitForPort = 5000
 
 [agent]
 mockupState = "FULLSTACK"
-integrations = ["hubspot:1.0.0"]
+integrations = ["hubspot:1.0.0", "github:1.0.0"]
 
 [userenv]
 
