@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     description: "Class A office suites and sovereign technology infrastructure within Armonk Professional Center.",
     url: "https://355main.com",
     siteName: "355 Main",
-    images: [{ url: "/images/355-main-social.png", width: 1200, height: 630, alt: "355 Main in Armonk, New York" }],
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "355 Main — Class A office suites in Armonk, New York" }],
     locale: "en_US",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: "355 Main | Armonk, NY", description: "A building for the work ahead.", images: ["/images/355-main-social.png"] },
+  twitter: { card: "summary_large_image", title: "355 Main | Armonk, NY", description: "A building for the work ahead.", images: ["/opengraph-image"] },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f4f1ea" };
